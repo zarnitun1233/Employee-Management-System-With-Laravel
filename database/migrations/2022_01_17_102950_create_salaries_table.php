@@ -19,6 +19,7 @@ class CreateSalariesTable extends Migration
             $table->date('date');
             $table->foreignId('employee_id')->references('id')->on('employees')->onDelete('cascade');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
