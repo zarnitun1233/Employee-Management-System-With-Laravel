@@ -1,0 +1,29 @@
+ $table->string('name');
+            $table->string('position');
+            $table->string('role');
+            $table->integer('age');
+            $table->string('email');
+            $table->string('password');
+            $table->string('image');
+            $table->string('phone');
+            $table->string('dob');
+            $table->string('address');
+            $table->foreignId('department_id')->references('id')->on('departments')->onDelete('set null');
+
+
+            $table->id();
+            $table->string('name');
+            $table->string('description');
+            $table->foreignId('employee_id')->references('id')->on('employees')->onDelete('cascade');
+
+
+             $table->date('fromDate');
+            $table->date('toDate');
+            $table->string('duration');
+            $table->string('reason');
+            $table->foreign('employee_id')->references('id')->on('employees')->onDelete('cascade');
+
+
+             $table->integer('amount');
+            $table->date('date');
+            $table->foreignId('employee_id')->references('id')->on('employees')->onDelete('cascade');
