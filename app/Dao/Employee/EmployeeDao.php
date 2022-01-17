@@ -21,6 +21,6 @@ class EmployeeDao implements EmployeeDaoInterface
      */
     public function index()
     {
-        return "Hello";
+        
     }
 }

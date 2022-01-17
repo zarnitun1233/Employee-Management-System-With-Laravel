@@ -27,6 +27,7 @@ class EmployeeController extends Controller
      */
     public function index()
     {
-        return $this->employeeInterface->index();
+        $this->employeeInterface->index();
+        return view('frontend.employee.index');
     }
 }
