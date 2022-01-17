@@ -10,9 +10,7 @@
 </head>
 <body>
   
-@section('name')
-    
-@endsection
+@yield('content')
 
 </body>
 </html>
