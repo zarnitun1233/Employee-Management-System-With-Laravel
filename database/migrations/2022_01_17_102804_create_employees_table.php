@@ -22,6 +22,7 @@ class CreateEmployeesTable extends Migration
             $table->string('email');
             $table->string('password');
             $table->string('image');
+            $table->string('thumbnail');
             $table->string('phone');
             $table->string('dob');
             $table->string('address');
