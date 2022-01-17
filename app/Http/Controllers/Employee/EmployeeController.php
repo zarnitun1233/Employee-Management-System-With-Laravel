@@ -30,4 +30,12 @@ class EmployeeController extends Controller
         $this->employeeInterface->index();
         return view('frontend.employee.index');
     }
+
+    /**
+     * To create Employee
+     */
+    public function create()
+    {
+        return view('backend.employee.create');
+    }
 }
