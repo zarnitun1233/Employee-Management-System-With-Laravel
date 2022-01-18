@@ -5,3 +5,4 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/employee/list', [EmployeeController::class, 'index']);
 Route::get('/employee/create', [EmployeeController::class, 'create']);
+Route::post('/employee/create', [EmployeeController::class, 'store']);

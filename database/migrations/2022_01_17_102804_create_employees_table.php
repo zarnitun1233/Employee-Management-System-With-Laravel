@@ -22,12 +22,10 @@ class CreateEmployeesTable extends Migration
             $table->string('email');
             $table->string('password');
             $table->string('image');
-            $table->string('thumbnail');
             $table->string('phone');
             $table->string('dob');
             $table->string('address');
-            $table->bigInteger('department_id')->unsigned()->nullable();
-            $table->foreign('department_id')->references('id')->on('departments')->onDelete('set null');
+            $table->foreignId('department_id');
             $table->timestamps();
             $table->softDeletes();
         });

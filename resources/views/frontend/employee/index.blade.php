@@ -2,5 +2,5 @@
 
 @section('content')
 <h1>Employee List</h1>
-<a href="{{ url('/employee/create') }}">Create</a>
+<a href="{{ url('/employee/create') }}">Create Employee</a>
 @endsection
