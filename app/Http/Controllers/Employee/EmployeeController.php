@@ -43,7 +43,8 @@ class EmployeeController extends Controller
      */
     public function create()
     {
-        return view('backend.employee.create');
+        $departments = $this->employeeInterface->create();
+        return view('backend.employee.create')->with('departments', $departments);
     }
 
     /**
@@ -62,7 +63,9 @@ class EmployeeController extends Controller
     public function edit($id)
     {
         $employee = $this->employeeInterface->edit($id);
-        return view('backend.employee.edit')->with('employee', $employee);
+        $employee = $employee[0];
+        $departments = $this->employeeInterface->create();
+        return view('backend.employee.edit')->with('employee', $employee)->with('departments', $departments);
     }
 
     /**

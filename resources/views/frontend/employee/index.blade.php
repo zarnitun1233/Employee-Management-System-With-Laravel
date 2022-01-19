@@ -20,7 +20,7 @@
     <th>Phone</th>
     <th>Date of Birth</th>
     <th>Address</th>
-    <th>Department</th>
+    <th>Department Name</th>
     <th>Actions</th>
   </tr>
   @foreach($employees as $employee)
@@ -28,21 +28,25 @@
     <td>{{ $employee->id }}</td>
     <td>{{ $employee->name }}</td>
     <td>{{ $employee->position }}</td>
-    <td>{{ $employee->role }}</td>
+    @if ($employee->role == 0)
+      <td>Employee</td>
+      @else 
+      <td>Admin</td>
+    @endif
     <td>{{ $employee->age }}</td>
     <td>{{ $employee->email }}</td>
     <td class="profile-home"><img src="{{ asset('images/' . $employee->image) }}" alt="Photo" width="50px" height="50px"></td>
     <td>{{ $employee->phone }}</td>
     <td>{{ $employee->dob }}</td>
     <td>{{ $employee->address }}</td>
-    <td>{{ $employee->department_id }}</td>
+    <td>{{ $employee->department->name }}</td>
     <td>
-      <form action="{{ url('/employee/delete/'.$employee->id) }}" method="POST">
-        <a href="{{ url('/employee/edit/'.$employee->id) }}">Edit</a>
-        {{ csrf_field() }}
-        {{ method_field('DELETE') }}
-        <button type="submit">Delete</button>
-      </form>
+        <form action="{{ url('/employee/delete/'.$employee->id) }}" method="POST">
+          <a href="{{ url('/employee/edit/'.$employee->id) }}">Edit</a>
+          {{ csrf_field() }}
+          {{ method_field('DELETE') }}
+          <button>Delete</button>
+        </form>
     </td>
   </tr>
   @endforeach

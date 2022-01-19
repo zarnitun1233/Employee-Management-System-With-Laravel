@@ -20,6 +20,11 @@ interface EmployeeDaoInterface
     public function index();
 
     /**
+     * To create Employee
+     */
+    public function create();
+
+    /**
      * To store Employee data
      */
     public function store(StoreEmployeeRequest $request);

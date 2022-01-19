@@ -57,14 +57,15 @@
   @enderror <br>
   <label for="department">Department</label><br>
   <select name="department_id" id="department">
-    <option value="{{ $employee->department_id }}">Department A</option>
-    <option value="1">Department A</option>
-    <option value="2">Department B</option>
-    <option value="3">Department C</option>
+  <option value="{{ $employee->department->id }}">{{ $employee->department->name }}</option>
+    @foreach($departments as $department)
+    <option value="{{ $department->id }}">{{ $department->name }}</option>
+    @endforeach
   </select><br>
   @error('department_id')
   {{ $message }}
   @enderror <br>
-  <input type="submit" name="submit" value="Edit Employee">
+  <input type="submit" name="submit" value="Update">
+  <a href="{{ url('/employee/list') }}">Back</a>
 </form>
 @endsection

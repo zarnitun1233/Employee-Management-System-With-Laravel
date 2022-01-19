@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\DB;
 use App\Http\Requests\SendMailDataRequest;
 use App\Http\Requests\StoreEmployeeRequest;
 use App\Http\Requests\EmployeeUpdateRequest;
+use App\Models\Department;
 use Illuminate\Support\Facades\Hash;
 /**
  * Data accessing object for post
@@ -23,7 +24,15 @@ class EmployeeDao implements EmployeeDaoInterface
      */
     public function index()
     {
-        return Employee::all();
+        return Employee::with('department')->get();
+    }
+
+    /**
+     * To create Employee
+     */
+    public function create()
+    {
+        return Department::all();
     }
 
     /**
@@ -54,7 +63,7 @@ class EmployeeDao implements EmployeeDaoInterface
      */
     public function edit($id)
     {
-        return Employee::find($id);
+        return Employee::with('department')->get();
     }
 
     /**

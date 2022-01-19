@@ -45,6 +45,14 @@ class EmployeeService implements EmployeeServiceInterface
     }
 
     /**
+     * To create Employee
+     */
+    public function create()
+    {
+        return $this->employeeDao->create();
+    }
+
+    /**
      * To store Employee data
      */
     public function store(StoreEmployeeRequest $request)

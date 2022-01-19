@@ -16,8 +16,8 @@
   @enderror <br>
   <label for="role">Role</label><br>
   <select name="role" id="role">
-    <option value="Employee">Employee</option>
-    <option value="Admin">Admin</option>
+    <option value="0">Employee</option>
+    <option value="1">Admin</option>
   </select><br>
   @error('role')
   {{ $message }}
@@ -66,13 +66,14 @@
   @enderror <br>
   <label for="department">Department</label><br>
   <select name="department_id" id="department">
-    <option value="1">Department A</option>
-    <option value="2">Department B</option>
-    <option value="3">Department C</option>
+    @foreach($departments as $department)
+    <option value="{{$department->id }}">{{$department->name }}</option>
+    @endforeach
   </select><br>
   @error('department_id')
   {{ $message }}
   @enderror <br>
-  <input type="submit" name="submit" value="Create Employee">
+  <input type="submit" name="submit" value="Create">
+  <a href="{{ url('/employee/list') }}">Back</a>
 </form>
 @endsection
