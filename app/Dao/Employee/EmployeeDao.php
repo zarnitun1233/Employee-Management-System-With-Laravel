@@ -24,7 +24,7 @@ class EmployeeDao implements EmployeeDaoInterface
      */
     public function index()
     {
-        return Employee::with('department')->get();
+        return Employee::with('department')->paginate(2);
     }
 
     /**

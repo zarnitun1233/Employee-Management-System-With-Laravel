@@ -7,6 +7,7 @@
   <p>{{ $message }}</p>
 </div>
 @endif
+<div class="employee">
 <a href="{{ url('/employee/create') }}">Create Employee</a><br><br>
 <table class="employee-table">
   <tr>
@@ -50,5 +51,7 @@
     </td>
   </tr>
   @endforeach
-</table>
+</table><br><br>
+{{ $employees->links() }}
+</div>
 @endsection

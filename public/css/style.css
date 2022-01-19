@@ -32,3 +32,7 @@
 .profile-edit img {
   width: 30%;
 }
+
+.employee .w-5 {
+  display: none;
+}
