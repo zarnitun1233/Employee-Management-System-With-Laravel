@@ -4,10 +4,12 @@ namespace App\Contracts\Dao\Salary;
 
 use App\Models\Employee;
 use Illuminate\Http\Request;
+use App\Http\Requests\StoreSalaryRequest;
+use App\Http\Requests\SalaryUpdateRequest;
 use App\Http\Requests\SendMailDataRequest;
 
 /**
- * Interface for Data Accessing Object of Post
+ * Interface for Data Accessing Object of Salary
  */
 interface SalaryDaoInterface
 {
@@ -16,4 +18,28 @@ interface SalaryDaoInterface
      * @param Request
      */
     public function index();
+
+    /**
+     * To store Salary data
+     */
+    public function store(StoreSalaryRequest $request);
+
+     /**
+     * To show edit form
+     * @param $id
+     */
+    public function edit($id);
+
+    /**
+     * Updating Process
+     * @param SalaryUpdateRequest $request
+     * @param $id
+     */
+    public function update(SalaryUpdateRequest $request, $id);
+
+    /**
+     * Delete Salary
+     * @param $id
+     */
+    public function delete($id);
 }

@@ -6,3 +6,4 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/employee/list', [EmployeeController::class, 'index']);
 Route::get('/salary/list', [SalaryController::class, 'index']);
+Route::get('/salary/create', [SalaryController::class, 'create']);

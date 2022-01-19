@@ -5,6 +5,8 @@ namespace App\Services\Salary;
 use App\Models\Employee;
 use App\Contracts\Dao\Salary\SalaryDaoInterface;
 use App\Contracts\Services\Salary\SalaryServiceInterface;
+use App\Http\Requests\StoreSalaryRequest;
+use App\Http\Requests\SalaryUpdateRequest;
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Exports\StudentsExport;
@@ -20,13 +22,13 @@ use App\Http\Requests\SendMailDataRequest;
 class SalaryService implements SalaryServiceInterface
 {
     /**
-     * post dao
+     * Salary dao
      */
     private $salaryDao;
 
     /**
      * Class Constructor
-     * @param PostDaoInterface
+     * @param SalaryDaoInterface
      */
     public function __construct(SalaryDaoInterface $salaryDao)
     {
@@ -40,5 +42,41 @@ class SalaryService implements SalaryServiceInterface
     public function index()
     {
         return $this->salaryDao->index();
+    }
+
+    /**
+     * To store Salary data
+     */
+    public function store(StoreSalaryRequest $request)
+    {
+        return $this->salaryDao->store($request);
+    }
+
+     /**
+     * To show edit form
+     * @param $id
+     */
+    public function edit($id)
+    {
+        return $this->salaryDao->edit($id);
+    }
+
+    /**
+     * Updating Process
+     * @param SalaryUpdateRequest $request
+     * @param $id
+     */
+    public function update(SalaryUpdateRequest $request, $id)
+    {
+        return $this->salaryDao->update($request, $id);
+    }
+
+    /**
+     * Delete Salary
+     * @param $id
+     */
+    public function delete($id)
+    {
+        return $this->salaryDao->delete($id);
     }
 }
