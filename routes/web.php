@@ -10,6 +10,5 @@ Route::post('/employee/create', [EmployeeController::class, 'store']);
 Route::get('/employee/edit/{id}', [EmployeeController::class, 'edit']);
 Route::post('/employee/edit/{id}', [EmployeeController::class, 'update']);
 Route::delete('/employee/delete/{id}', [EmployeeController::class, 'delete']);
-Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
