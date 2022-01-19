@@ -63,7 +63,6 @@ class EmployeeController extends Controller
     public function edit($id)
     {
         $employee = $this->employeeInterface->edit($id);
-        $employee = $employee[0];
         $departments = $this->employeeInterface->create();
         return view('backend.employee.edit')->with('employee', $employee)->with('departments', $departments);
     }
@@ -87,5 +86,5 @@ class EmployeeController extends Controller
     {
         $this->employeeInterface->delete($id);
         return redirect('/employee/list')->with('success', 'Employee Deleted Successfully!');
-    }   
+    }
 }

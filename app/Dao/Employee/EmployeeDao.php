@@ -12,6 +12,7 @@ use App\Http\Requests\StoreEmployeeRequest;
 use App\Http\Requests\EmployeeUpdateRequest;
 use App\Models\Department;
 use Illuminate\Support\Facades\Hash;
+
 /**
  * Data accessing object for post
  */
@@ -57,13 +58,13 @@ class EmployeeDao implements EmployeeDaoInterface
         return $employee->save();
     }
 
-     /**
+    /**
      * To show edit form
      * @param $id
      */
     public function edit($id)
     {
-        return Employee::with('department')->get();
+        return Employee::with('department')->find($id);
     }
 
     /**
