@@ -4,6 +4,7 @@
     @if (Session::has('msg'))
         <p>{{ Session::get('msg') }}</p>
     @endif
+    @if($leave)
     <form action="{{ route('leaves.update',['id'=>$leave->id]) }}" method="POST" >
       @method('put')
       @csrf
@@ -42,5 +43,6 @@
         <button type="submit" name="create">Create</button>
       </div><br>
     </form>
+    @endif
 @endsection
 
