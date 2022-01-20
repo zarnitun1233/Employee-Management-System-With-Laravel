@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use App\Models\Employee;
 
 class Leave extends Model
 {
@@ -14,4 +15,9 @@ class Leave extends Model
     protected $fillable = [
         'fromDate', 'toDate', 'duration', 'reason', 'employee_id'
     ];
+
+    public function Employee()
+    {
+        return $this->belongsTo(Employee::class,'employee_id');
+    }
 }
