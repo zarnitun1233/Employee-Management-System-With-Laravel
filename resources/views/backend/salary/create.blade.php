@@ -7,7 +7,7 @@
   <label for="name">Employee Name</label><br>
   <select name="employee_id" id="name">
     @foreach($employees as $employee)
-    <option value="{{ $employee->id }}">{{ $employee->name }}</option>
+    <option value="{{ $employee->id }}">{{ $employee->name }} ({{$employee->department->name}})</option>
     @endforeach
   </select><br>
   @error('name')

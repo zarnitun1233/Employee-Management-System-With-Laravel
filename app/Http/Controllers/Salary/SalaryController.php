@@ -9,6 +9,7 @@ use App\Http\Requests\SalaryUpdateRequest;
 use App\Models\Employee;
 use Illuminate\Http\Request;
 use App\Models\Salary;
+use Illuminate\Support\Facades\DB;
 
 class SalaryController extends Controller
 {
@@ -40,7 +41,7 @@ class SalaryController extends Controller
      */
     public function create()
     {
-        $employees = Employee::orderBy('department_id')->get();
+        $employees = Employee::with('department')->get();
         return view('backend.salary.create')->with('employees', $employees);
     }
 
@@ -59,8 +60,17 @@ class SalaryController extends Controller
      */
     public function edit($id)
     {
+        $employees = Employee::with('department')->get();
         $salary = $this->salaryInterface->edit($id);
-        return view('backend.salary.edit')->with('salary', $salary);
+        $department = DB::table('salaries')
+            ->join('employees', 'employees.id', '=', 'salaries.employee_id')
+            ->join('departments', 'departments.id', '=', 'employees.department_id')
+            ->select('salaries.*', 'employees.name', 'departments.name')
+            ->orderBy('id')
+            ->where('salaries.deleted_at', '=', NULL)
+            ->where('salaries.id', $id);
+        $department = $department->get();
+        return view('backend.salary.edit')->with('employees', $employees)->with('salary', $salary)->with('department', $department);
     }
 
     /**

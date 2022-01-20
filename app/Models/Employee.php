@@ -16,6 +16,14 @@ class Employee extends Model
     ];
 
     /**
+     * Department Fuction for table relationship
+     */
+    public function department()
+    {
+        return $this->belongsTo('App\Models\Department', 'department_id');
+    }
+
+    /**
      * Salary Fuction for table relationship
      */
     public function salary()

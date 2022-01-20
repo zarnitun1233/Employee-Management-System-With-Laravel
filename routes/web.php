@@ -8,3 +8,4 @@ Route::get('/employee/list', [EmployeeController::class, 'index']);
 Route::get('/salary/list', [SalaryController::class, 'index']);
 Route::get('/salary/create', [SalaryController::class, 'create']);
 Route::post('/salary/create', [SalaryController::class, 'store']);
+Route::get('/salary/edit/{id}', [SalaryController::class, 'edit']);
