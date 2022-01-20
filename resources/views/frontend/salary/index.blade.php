@@ -16,27 +16,18 @@
       <th>Position</th>
       <th>Salary Amout</th>
       <th>Date</th>
+      <th>Actions</th>
     </tr>
-    @foreach($employees as $employee)
+    @foreach($salaries as $salary)
     <tr>
-      <td>{{ $employee->id }}</td>
-      <td>{{ $employee->name }}</td>
-      <td>{{ $employee->position }}</td>
-      @if ($employee->role == 0)
-      <td>Employee</td>
-      @else
-      <td>Admin</td>
-      @endif
-      <td>{{ $employee->age }}</td>
-      <td>{{ $employee->email }}</td>
-      <td class="profile-home"><img src="{{ asset('images/' . $employee->image) }}" alt="Photo" width="70px" height="50px"></td>
-      <td>{{ $employee->phone }}</td>
-      <td>{{ $employee->dob }}</td>
-      <td>{{ $employee->address }}</td>
-      <td>{{ $employee->department->name }}</td>
+      <td>{{ $salary->id }}</td>
+      <td>{{ $salary->employee->name }}</td>
+      <td>{{ $salary->employee->position }}</td>
+      <td>{{ $salary->amount }}</td>
+      <td>{{ $salary->date }}</td>
       <td>
-        <form action="{{ url('/employee/delete/'.$employee->id) }}" method="POST">
-          <a href="{{ url('/employee/edit/'.$employee->id) }}" class="edit">Edit</a>
+        <form action="{{ url('/salary/delete/'.$salary->id) }}" method="POST">
+          <a href="{{ url('/salary/edit/'.$salary->id) }}" class="edit">Edit</a>
           {{ csrf_field() }}
           {{ method_field('DELETE') }}
           <button class="delete">Delete</button>
@@ -45,6 +36,6 @@
     </tr>
     @endforeach
   </table><br><br>
-  {{ $employees->links() }}
+  {{ $salaries->links() }}
 </div>
 @endsection

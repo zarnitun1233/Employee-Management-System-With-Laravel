@@ -23,7 +23,7 @@ class SalaryDao implements SalaryDaoInterface
      */
     public function index()
     {
-        return Salary::all();
+        return Salary::with('employee')->paginate(2);
     }
 
     /**
@@ -32,19 +32,9 @@ class SalaryDao implements SalaryDaoInterface
     public function store(StoreSalaryRequest $request)
     {
         $salary = new Salary();
-        $salary->name = $request->name;
-        $salary->position = $request->position;
-        $salary->role = $request->role;
-        $salary->age = $request->age;
-        $salary->email = $request->email;
-        $salary->password = Hash::make($request->password);
-        $newImageName = $request->name . '-' . $request->image->extension();
-        $request->image->move(public_path('images'), $newImageName);
-        $salary->image = $newImageName;
-        $salary->phone = $request->phone;
-        $salary->dob = $request->dob;
-        $salary->address = $request->address;
-        $salary->department_id = $request->department_id;
+        $salary->amount = $request->amount;
+        $salary->date = $request->date;
+        $salary->employee_id = $request->employee_id;
         return $salary->save();
     }
 
