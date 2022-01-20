@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Contracts\Services\Salary\SalaryServiceInterface;
 use App\Http\Requests\StoreSalaryRequest;
 use App\Http\Requests\SalaryUpdateRequest;
+use App\Models\Employee;
 use Illuminate\Http\Request;
 use App\Models\Salary;
 
@@ -39,7 +40,8 @@ class SalaryController extends Controller
      */
     public function create()
     {
-        return view('backend.salary.create');
+        $employees = Employee::orderBy('department_id')->get();
+        return view('backend.salary.create')->with('employees', $employees);
     }
 
     /**

@@ -14,4 +14,12 @@ class Salary extends Model
     protected $fillable = [
         'amount', 'date', 'employee_id'
     ];
+
+    /**
+     * Employee Fuction for table relationship
+     */
+    public function employee()
+    {
+        return $this->belongsTo('App\Models\Employee', 'employee_id');
+    }
 }

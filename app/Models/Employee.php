@@ -16,10 +16,10 @@ class Employee extends Model
     ];
 
     /**
-     * Major Fuction for table relationship
+     * Salary Fuction for table relationship
      */
-    //public function major()
-    //{
-    //    return $this->belongsTo('App\Models\Major', 'major_id');
-    //}
+    public function salary()
+    {
+        return $this->hasMany('App\Models\Salary');
+    }
 }
