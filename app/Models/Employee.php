@@ -16,10 +16,10 @@ class Employee extends Model
     ];
 
     /**
-     * Major Fuction for table relationship
+     * Department Fuction for table relationship
      */
-    //public function major()
-    //{
-    //    return $this->belongsTo('App\Models\Major', 'major_id');
-    //}
+    public function department()
+    {
+        return $this->belongsTo('App\Models\Department', 'department_id');
+    }
 }
