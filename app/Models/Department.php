@@ -14,4 +14,12 @@ class Department extends Model
     protected $fillable = [
         'name', 'description'
     ];
+
+    /**
+     * Department Function for table relationship
+     */
+    public function employee()
+    {
+        return $this->hasMany('App\Models\Employee');
+    }
 }
