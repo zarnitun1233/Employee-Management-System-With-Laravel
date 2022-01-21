@@ -25,6 +25,22 @@ interface SalaryServiceInterface
     public function store(StoreSalaryRequest $request);
 
     /**
+     * To create Salary
+     */
+    public function create();
+
+    /**
+     * Get Department with employee
+     */
+    public function getDepartmentByEmployee();
+
+    /**
+     * Get Department with salary
+     * @param $id
+     */
+    public function getDepartmentBySalary($id);
+
+    /**
      * To show edit form
      * @param $id
      */

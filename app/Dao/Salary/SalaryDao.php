@@ -3,7 +3,7 @@
 namespace App\Dao\Salary;
 
 use App\Models\Salary;
-use App\Models\Major;
+use App\Models\Employee;
 use App\Contracts\Dao\Salary\SalaryDaoInterface;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -38,7 +38,39 @@ class SalaryDao implements SalaryDaoInterface
         return $salary->save();
     }
 
-     /**
+    /**
+     * To create Salary
+     */
+    public function create()
+    {
+        return Employee::with('department')->get();
+    }
+
+    /**
+     * Get Department with employee
+     */
+    public function getDepartmentByEmployee()
+    {
+        return Employee::with('department')->get();
+    }
+
+    /**
+     * Get Department with salary
+     * @param $id
+     */
+    public function getDepartmentBySalary($id)
+    {
+        $department = DB::table('salaries')
+            ->join('employees', 'employees.id', '=', 'salaries.employee_id')
+            ->join('departments', 'departments.id', '=', 'employees.department_id')
+            ->select('salaries.*', 'employees.name', 'departments.name')
+            ->orderBy('id')
+            ->where('salaries.deleted_at', '=', NULL)
+            ->where('salaries.id', $id);
+        return $department->get();
+    }
+
+    /**
      * To show edit form
      * @param $id
      */
@@ -55,19 +87,9 @@ class SalaryDao implements SalaryDaoInterface
     public function update(SalaryUpdateRequest $request, $id)
     {
         $salary = Salary::find($id);
-        $salary->name = $request->name;
-        $salary->position = $request->position;
-        $salary->role = $request->role;
-        $salary->age = $request->age;
-        $salary->email = $request->email;
-        $salary->password = Hash::make($request->password);
-        $newImageName = $request->name . '-' . $request->image->extension();
-        $request->image->move(public_path('images'), $newImageName);
-        $salary->image = $newImageName;
-        $salary->phone = $request->phone;
-        $salary->dob = $request->dob;
-        $salary->address = $request->address;
-        $salary->department_id = $request->department_id;
+        $salary->amount = $request->amount;
+        $salary->date = $request->date;
+        $salary->employee_id = $request->employee_id;
         return $salary->save();
     }
 

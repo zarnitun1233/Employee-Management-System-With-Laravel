@@ -9,3 +9,5 @@ Route::get('/salary/list', [SalaryController::class, 'index']);
 Route::get('/salary/create', [SalaryController::class, 'create']);
 Route::post('/salary/create', [SalaryController::class, 'store']);
 Route::get('/salary/edit/{id}', [SalaryController::class, 'edit']);
+Route::post('/salary/edit/{id}', [SalaryController::class, 'update']);
+Route::delete('/salary/delete/{id}', [SalaryController::class, 'delete']);

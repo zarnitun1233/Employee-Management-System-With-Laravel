@@ -52,7 +52,32 @@ class SalaryService implements SalaryServiceInterface
         return $this->salaryDao->store($request);
     }
 
-     /**
+    /**
+     * To create Salary
+     */
+    public function create()
+    {
+        return $this->salaryDao->create();
+    }
+
+    /**
+     * Get Department with employee
+     */
+    public function getDepartmentByEmployee()
+    {
+        return $this->salaryDao->getDepartmentByEmployee();
+    }
+
+    /**
+     * Get Department with salary
+     * @param $id
+     */
+    public function getDepartmentBySalary($id)
+    {
+        return $this->salaryDao->getDepartmentBySalary($id);
+    }
+
+    /**
      * To show edit form
      * @param $id
      */

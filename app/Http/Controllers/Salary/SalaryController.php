@@ -41,7 +41,7 @@ class SalaryController extends Controller
      */
     public function create()
     {
-        $employees = Employee::with('department')->get();
+        $employees = $this->salaryInterface->create();
         return view('backend.salary.create')->with('employees', $employees);
     }
 
@@ -60,16 +60,9 @@ class SalaryController extends Controller
      */
     public function edit($id)
     {
-        $employees = Employee::with('department')->get();
+        $employees = $this->salaryInterface->getDepartmentByEmployee();
         $salary = $this->salaryInterface->edit($id);
-        $department = DB::table('salaries')
-            ->join('employees', 'employees.id', '=', 'salaries.employee_id')
-            ->join('departments', 'departments.id', '=', 'employees.department_id')
-            ->select('salaries.*', 'employees.name', 'departments.name')
-            ->orderBy('id')
-            ->where('salaries.deleted_at', '=', NULL)
-            ->where('salaries.id', $id);
-        $department = $department->get();
+        $department = $this->salaryInterface->getDepartmentBySalary($id);
         return view('backend.salary.edit')->with('employees', $employees)->with('salary', $salary)->with('department', $department);
     }
 
@@ -92,5 +85,5 @@ class SalaryController extends Controller
     {
         $this->salaryInterface->delete($id);
         return redirect('/salary/list')->with('success', 'Salary Deleted Successfully!');
-    } 
+    }
 }

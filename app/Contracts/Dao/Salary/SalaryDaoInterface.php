@@ -24,11 +24,27 @@ interface SalaryDaoInterface
      */
     public function store(StoreSalaryRequest $request);
 
-     /**
+    /**
      * To show edit form
      * @param $id
      */
     public function edit($id);
+
+    /**
+     * Get Department with employee
+     */
+    public function getDepartmentByEmployee();
+
+    /**
+     * Get Department with salary
+     * @param $id
+     */
+    public function getDepartmentBySalary($id);
+
+    /**
+     * To create Salary
+     */
+    public function create();
 
     /**
      * Updating Process
