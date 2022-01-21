@@ -17,7 +17,7 @@ class LeavesDao implements  LeavesDaoInterface
 
     public function index()
     {
-      return $leaves = Leave::all();
+      return $leaves = Leave::paginate(5);
     }
 
     /**
@@ -94,9 +94,12 @@ class LeavesDao implements  LeavesDaoInterface
     */
 
     public function delete($id)
-    {
-       Leave::destroy($id);
-       $msg = 'success';
+    {  
+      DB::table('leaves')
+      ->where('id', '=',$id)
+      ->update(['status' => 0]);
+      Leave::destroy($id);
+       $msg = 'Successfullu Deleted';
        return $msg;
     }
 

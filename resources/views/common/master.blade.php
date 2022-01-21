@@ -8,6 +8,7 @@
   <title>Employee Management System</title>
   <link rel="stylesheet" href="{{ asset('css/reset.css') }}">
   <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+  @yield('leaves')
 </head>
 
 <body>
