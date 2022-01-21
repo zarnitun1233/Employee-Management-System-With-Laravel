@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Leaves;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Contracts\Services\Leaves\LeavesServiceInterface;
-use  App\Http\Requests\Leaves\StorePostRequest;
+use  App\Http\Requests\Leaves\StoreLeavesRequest;
 
 class LeavesController extends Controller  {
 
@@ -24,13 +24,10 @@ class LeavesController extends Controller  {
             return redirect('/leaves/list?page=1');
         }
 
-        
-        
     }
 
     /**
-    * Undocumented function
-    *create salaries;
+    *create leaves;
     * @param Request $request
     * @return void
     */
@@ -46,13 +43,12 @@ class LeavesController extends Controller  {
     * @return void
     */
 
-    public function store( StorePostRequest $request )  {
+    public function store( StoreLeavesRequest $request )  {
         $msg = $this->leavesService->store( $request );
         return redirect()->route( 'leaves.create', [ $request->empId ] )->with( 'msg', $msg );
     }
 
     /**
-    * Undocumented function
     *edit leaves
     * @param Request $request
     * @return void
@@ -65,7 +61,6 @@ class LeavesController extends Controller  {
     }
 
     /**
-    * Undocumented function
     *delete leaves;
     * @param Reuest $request
     * @return void
@@ -77,12 +72,24 @@ class LeavesController extends Controller  {
        return redirect()->route('leaves.list')->with( 'msg', $msg );
     }
 
-    public function update(StorePostRequest $request)
+    /**
+    *update leaves;
+    * @param Reuest $request
+    * @return void
+    */
+
+    public function update(StoreLeavesRequest $request)
     {
         $msg = $this->leavesService->update($request);
         echo "success";
 
     }
+
+     /**
+    *accept leaves by admin;
+    * @param Reuest $request
+    * @return void
+    */
 
     public function accept(Request $request, $id)
     {

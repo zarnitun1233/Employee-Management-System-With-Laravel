@@ -10,7 +10,6 @@ use Illuminate\Support\Facades\DB;
 class LeavesDao implements  LeavesDaoInterface
  {
     /**
-    * Undocumented function
     *send empoyee data to salaries create view
     * @return void
     */
@@ -19,22 +18,20 @@ class LeavesDao implements  LeavesDaoInterface
     {
       return $leaves = Leave::paginate(5);
     }
-
     /**
-    * Undocumented function
-    *create salaries;
-    * @param Request $request
-    * @return void
-    */
-
+     * 
+     * we will update in furture
+     *
+     * @param Request $request
+     * @return void
+     */
     public function create( Request $request )
     {
       
     }
 
     /**
-    * Undocumented function
-    *store data to table tables
+    *store data to table
     * @param Request $request
     * @return void
     */
@@ -52,18 +49,23 @@ class LeavesDao implements  LeavesDaoInterface
       return $msg;
     }
 
-
     /**
-    * Undocumented function
-    *edit leaves
-    * @param Request $request
-    * @return void
-    */
-
+     * find leave id to update
+     * need to check other conditions
+     * @param [type] $id
+     * @return void
+     */
     public function edit($id)
     {
       return $leave = Leave::find($id);
     }
+
+    /**
+     * update leave by user
+     *
+     * @param Request $request
+     * @return void
+     */
 
     public function update(Request $request)
     {
@@ -89,7 +91,7 @@ class LeavesDao implements  LeavesDaoInterface
     /**
     * Undocumented function
     *delete leaves;
-    * @param Reuest $request
+    * @param [type] $id
     * @return void
     */
 
@@ -102,6 +104,13 @@ class LeavesDao implements  LeavesDaoInterface
        $msg = 'Successfullu Deleted';
        return $msg;
     }
+
+    /**
+     * accept leaves by admin
+     *
+     * @param [type] $id
+     * @return void
+     */
 
     public function accept($id)
     {

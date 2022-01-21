@@ -4,7 +4,7 @@ namespace App\Http\Requests\Leaves;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StorePostRequest extends FormRequest
+class StoreLeavesRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.

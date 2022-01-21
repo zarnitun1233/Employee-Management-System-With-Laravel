@@ -106,7 +106,8 @@
             <a href="#" class="back-btn bg-btn" onclick="history.back()">
               Back
             </a>
-            <a href="{{ route('leaves.create') }}" class="create-btn bg-btn">
+            {{-- need admin id or user id to create leaves --}}
+            <a href="#" class="create-btn bg-btn">
               Create
             </a>
           </div>
