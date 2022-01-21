@@ -4,6 +4,16 @@
   margin: 0 auto;
 }
 
+.clearFix:before,
+.clearFix:after {
+  display: table;
+  content: " ";
+}
+
+.clearFix:after {
+  clear: both;
+}
+
 .lf-nav {
   float: left;
   padding-left: 10px;
@@ -85,6 +95,10 @@
 
 .p2 span {
   color: #FC8902;
+}
+
+.employee {
+  margin-top: 50px;
 }
 
 .employee-list,

@@ -1,13 +1,13 @@
 @extends('common.master')
 
 @section('content')
-<h1 class="employee-list">Employee List</h1>
-@if ($message = Session::get('success'))
-<div>
-  <p class="employee-list-message">{{ $message }}</p>
-</div>
-@endif
 <div class="employee">
+  <h1 class="employee-list">Employee List</h1>
+  @if ($message = Session::get('success'))
+  <div>
+    <p class="employee-list-message">{{ $message }}</p>
+  </div>
+  @endif
   <a href="{{ url('/employee/create') }}">Create Employee</a><br><br>
   <table class="employee-table">
     <tr>

@@ -1,7 +1,7 @@
 @extends('common.master')
 
 @section('content')
-<h1 class="employee-create">Create Employee</h1>
+<h1 class="employee-create employee">Create Employee</h1>
 <form action="" method="POST" enctype="multipart/form-data" class="employee-create-form">
   @csrf
   <label for="name">Name</label><br>
