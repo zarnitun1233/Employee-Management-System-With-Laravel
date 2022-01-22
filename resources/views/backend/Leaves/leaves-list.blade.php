@@ -91,7 +91,7 @@
             </div>
             @if ($leaves->nextPageUrl())
             <div class="previous">
-              <a href="list?page={{$page+1}}" class="paginate-btn disabled">
+              <a href="list?page={{$page+1}}" class="paginate-btn">
                 {{$page+1}}
               </a>
             </div>
