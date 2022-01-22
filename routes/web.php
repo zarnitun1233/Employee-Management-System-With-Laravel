@@ -3,6 +3,7 @@
 use App\Http\Controllers\Employee\EmployeeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Leaves\LeavesController;
+use App\Http\Controllers\Auth\AuthController;
 use App\Models\Employee;
 
 Route::get('/', function() {
@@ -30,3 +31,8 @@ Route::post('/employee/edit/{id}', [EmployeeController::class, 'update']);
 Route::delete('/employee/delete/{id}', [EmployeeController::class, 'delete']);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+//Login Logout
+Route::get('/login', [AuthController::class, 'index'])->name('login');
+Route::post('/login', [AuthController::class, 'postLogin'])->name('login.post'); 
+Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
