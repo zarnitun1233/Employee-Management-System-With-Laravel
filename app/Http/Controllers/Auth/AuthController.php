@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class AuthController extends Controller
 {
@@ -29,19 +30,16 @@ class AuthController extends Controller
             'email' => 'required',
             'password' => 'required',
         ]);
-   
-//        $credentials = $request->only('email', 'password');
-//        if (Auth::attempt($credentials)) {
-//            return redirect()->intended('dashboard')
-//                        ->withSuccess('You have Successfully loggedin');
-//        }
-//  
-//        return redirect("login")->withSuccess('Oppes! You have entered invalid credentials');
           if (Auth::attempt(['email'=>$request->email, 'password'=>$request->password])) {
-            return "true";
+            if (Auth::user()->role == 1) {
+                return redirect('/employee/list')->withSuccess('Login Succeed!');
+            }
+            else {
+                return redirect('/leaves/create/1')->withSuccess('Login Succeed!');
+            }
           }
           else 
-          return "false";
+          return redirect("/login")->withSuccess('Oppes! You have entered invalid email or password');
     }
 
     /**
@@ -51,6 +49,8 @@ class AuthController extends Controller
      */
     public function logout() {
         Auth::logout();
-        return Redirect('login');
+        return redirect('/login')->withSuccess('Logout Succeed!');
     }
+
+    
 }

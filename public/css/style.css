@@ -17,6 +17,11 @@
 .lf-nav {
   float: left;
   padding-left: 10px;
+  width: 250px;
+}
+
+.lf-nav img {
+  width: 100%;
 }
 
 .lf-nav a {
@@ -265,6 +270,10 @@
   margin-bottom: 5px;
   padding: 5px;
   background-color: #04AA6D;
+}
+
+.alert-error {
+  background-color: #f00;
 }
 
 .validate-employee-error {

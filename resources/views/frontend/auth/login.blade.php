@@ -2,9 +2,13 @@
 
 
 @section('content')
+@if ($message = Session::get('success'))
+  <div>
+    <p class="employee-list-message alert-error">{{ $message }}</p>
+  </div>
+  @endif
 <div class="login-form">
     <h2>Login Form</h2>
-
   <form action="" method="post">
     @csrf
     <div class="imgcontainer">
