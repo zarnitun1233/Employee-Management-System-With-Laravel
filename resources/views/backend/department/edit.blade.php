@@ -9,9 +9,9 @@
   @error('name')
   {{ $message }}
   @enderror <br>
-  <label for="position">Description</label><br>
-  <input type="text" id="descriiption" name="descriiption" value="{{ $department->descriiption }}"><br>
-  @error('descriiption')
+  <label for="description">Description</label><br>
+  <input type="text" id="description" name="description" value="{{ $department->description }}"><br>
+  @error('description')
   {{ $message }}
   @enderror <br>
   <input type="submit" name="submit" value="Edit Employee">

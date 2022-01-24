@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Hash;
 /**
  * Data accessing object for post
  */
-class EmployeeDao implements DepartmentDaoInterface
+class DepartmentDao implements DepartmentDaoInterface
 {
     /**
      * Home Page Function to show data
@@ -24,7 +24,7 @@ class EmployeeDao implements DepartmentDaoInterface
      */
     public function index()
     {
-        return Department::with('department')->paginate(2);
+        return Department::paginate(2);
     }
 
     /**
@@ -43,7 +43,6 @@ class EmployeeDao implements DepartmentDaoInterface
         $department = new Department();
         $department->name = $request->name;
         $department->description = $request->description;
-        $department->department_id = $request->department_id;
         return $department->save();
     }
 
@@ -53,7 +52,7 @@ class EmployeeDao implements DepartmentDaoInterface
      */
     public function edit($id)
     {
-        return Department::with('department')->find($id);
+        return Department::find($id);
     }
 
     /**
@@ -66,7 +65,6 @@ class EmployeeDao implements DepartmentDaoInterface
         $department = Department::find($id);
         $department->name = $request->name;
         $department->description = $request->description;
-        $department->department_id = $request->department_id;
         return $department->save();
     }
 

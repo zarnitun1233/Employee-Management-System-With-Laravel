@@ -52,7 +52,7 @@ class DepartmentController extends Controller
      */
     public function store(StoreDepartmentRequest $request)
     {
-        $this->DepartmentInterface->store($request);
+        $this->departmentInterface->store($request);
         return redirect('/department/list')->with('success', 'Departments Created Successfully!');
     }
 
@@ -74,7 +74,7 @@ class DepartmentController extends Controller
      */
     public function update(DepartmentUpdateRequest $request, $id)
     {
-        $this->DepartmentInterface->update($request, $id);
+        $this->departmentInterface->update($request, $id);
         return redirect('/department/list')->with('success', 'Department Updated Successfully!');
     }
 

@@ -8,7 +8,7 @@
 </div>
 @endif
 <div class="employee">
-  <a href="{{ url('/salary/create') }}">Create Department</a><br><br>
+  <a href="{{ url('/department/create') }}">Create Department</a><br><br>
   <table class="employee-table">
     <tr>
       <th>No</th>
@@ -20,7 +20,6 @@
     <tr>
       <td>{{ $department->id }}</td>
       <td>{{ $department->name }}</td>
-      <td>{{ $department->department id }}</td>
       <td>{{ $department->description }}</td>
       <td>
         <form action="{{ url('/department/delete/'.$department->id) }}" method="POST">

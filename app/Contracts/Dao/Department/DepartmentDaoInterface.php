@@ -4,6 +4,7 @@ namespace App\Contracts\Dao\Department;
 
 use App\Models\Department;
 use Illuminate\Http\Request;
+use App\Dao\Department\DepartmentDao;
 use App\Http\Requests\SendMailDataRequest;
 use App\Http\Requests\StoreDepartmentRequest;
 use App\Http\Requests\DepartmentUpdateRequest;
