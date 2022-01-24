@@ -5,6 +5,8 @@ namespace App\Contracts\Services\Employee;
 use App\Models\Employee;
 use Illuminate\Http\Request;
 use App\Http\Requests\SendMailDataRequest;
+use App\Http\Requests\StoreEmployeeRequest;
+use App\Http\Requests\EmployeeUpdateRequest;
 
 /**
  * Interface for post service
@@ -16,6 +18,11 @@ interface EmployeeServiceInterface
      * @param Request
      */
     public function index();
+
+    /**
+     * To create Employee
+     */
+    public function create();
 
     /**
      * To store Employee data
