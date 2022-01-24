@@ -8,10 +8,17 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Department extends Model
 {
-    use HasFactory;
+    use HadFacory;
     use SoftDeletes;
     protected $dates = ['deleted_at'];
     protected $fillable = [
         'name', 'description'
     ];
+     /**
+     * Department Function for table relationship
+     */
+    public function department()
+    {
+        return $this->hasMany('App\Models\Department');
+    }
 }
