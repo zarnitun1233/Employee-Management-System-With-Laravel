@@ -25,4 +25,12 @@ class Employee extends Authenticatable
     {
         return $this->belongsTo('App\Models\Department', 'department_id');
     }
+
+    /**
+     * Salary Fuction for table relationship
+     */
+    public function salary()
+    {
+        return $this->hasMany('App\Models\Salary');
+    }
 }

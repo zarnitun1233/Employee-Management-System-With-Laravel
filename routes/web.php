@@ -1,11 +1,18 @@
 <?php
 
 use App\Http\Controllers\Employee\EmployeeController;
+use App\Http\Controllers\Salary\SalaryController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Leaves\LeavesController;
 use App\Http\Controllers\Auth\AuthController;
 use App\Models\Employee;
 
+Route::get('/salary/list', [SalaryController::class, 'index']);
+Route::get('/salary/create', [SalaryController::class, 'create']);
+Route::post('/salary/create', [SalaryController::class, 'store']);
+Route::get('/salary/edit/{id}', [SalaryController::class, 'edit']);
+Route::post('/salary/edit/{id}', [SalaryController::class, 'update']);
+Route::delete('/salary/delete/{id}', [SalaryController::class, 'delete']);
 Route::get('/', function() {
    return view('common.master');
 });
