@@ -16,15 +16,18 @@
     <div class="clearFix">
       <div class="lf-nav">
         <a href="#home">
-          <img src="{{ asset('images/' . 'ems.jpg') }}" alt="" width="330px" height="100px">
+          <img src="{{ asset('images/' . 'ems.jpg') }}" alt="" height="100px">
         </a>
       </div>
       <!-- Right-sided navbar links. Hide them on small screens -->
       <div class="rt-nav">
-        <a href="#about">Employee Management</a>
-        <a href="#menu">Salary Management</a>
-        <a href="#contact">Leaves Management</a>
-        <a href="#contact">Department Management</a>
+        <a href="{{ url('/employee/list') }}">Employee Management</a>
+        <a href="{{ url('/salary/list') }}">Salary Management</a>
+        <a href="{{ url('/leaves/list') }}">Leaves Management</a>
+        <a href="{{ url('/department/list') }}">Department Management</a>
+        @auth
+        <a href="{{ url('/logout') }}">Logout</a>
+        @endauth
       </div>
     </div>
 
