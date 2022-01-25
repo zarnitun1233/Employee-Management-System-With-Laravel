@@ -5,9 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
 
-class Employee extends Model
+class Employee extends Authenticatable
 {
+    use Notifiable;
     use HasFactory;
     use SoftDeletes;
     protected $dates = ['deleted_at'];
@@ -16,10 +19,18 @@ class Employee extends Model
     ];
 
     /**
-     * Major Fuction for table relationship
+     * Department Fuction for table relationship
      */
-    //public function major()
-    //{
-    //    return $this->belongsTo('App\Models\Major', 'major_id');
-    //}
+    public function department()
+    {
+        return $this->belongsTo('App\Models\Department', 'department_id');
+    }
+
+    /**
+     * Salary Fuction for table relationship
+     */
+    public function salary()
+    {
+        return $this->hasMany('App\Models\Salary');
+    }
 }

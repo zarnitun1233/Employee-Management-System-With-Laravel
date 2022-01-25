@@ -21,4 +21,12 @@ class Department extends Model
     {
         return $this->hasMany('App\Models\Department');
     }
+
+    /**
+     * Department Function for table relationship
+     */
+    public function employee()
+    {
+        return $this->hasMany('App\Models\Employee');
+    }
 }
