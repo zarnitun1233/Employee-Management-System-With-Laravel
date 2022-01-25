@@ -24,15 +24,22 @@ class EmployeesExport implements FromCollection, WithMapping, withHeadings
      */
     public function map($employee): array
     {
+        if ($employee->role == 1) {
+            $employee->role = "Admin";
+        } else {
+            $employee->role = "Employee";
+        }
         return [
             $employee->id,
             $employee->name,
             $employee->position,
+            $employee->role,
             $employee->age,
             $employee->email,
             $employee->phone,
             $employee->dob,
             $employee->address,
+            $employee->department->name,
         ];
     }
 
@@ -46,11 +53,13 @@ class EmployeesExport implements FromCollection, WithMapping, withHeadings
             'no',
             'name',
             'position',
+            'role',
             'age',
             'email',
             'phone',
             'date of birth',
             'address',
+            'department name',
         ];
     }
 }
