@@ -53,3 +53,6 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/login', [AuthController::class, 'index'])->name('login');
 Route::post('/login', [AuthController::class, 'postLogin'])->name('login.post'); 
 Route::get('/logout', [AuthController::class, 'logout'])->name('logout')->middleware('auth');
+
+//Export
+Route::get('/export', [EmployeeController::class, 'export']);
