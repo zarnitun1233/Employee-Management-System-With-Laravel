@@ -31,11 +31,12 @@ class AuthController extends Controller
             'password' => 'required',
         ]);
           if (Auth::attempt(['email'=>$request->email, 'password'=>$request->password])) {
+              $userId = Auth::user()->id;
             if (Auth::user()->role == 1) {
-                return redirect('/employee/list')->withSuccess('Login Succeed!');
+                return redirect('/employee/list');
             }
             else {
-                return redirect('/leaves/create/1')->withSuccess('Login Succeed!');
+                return redirect('/leaves/create/' . $userId);
             }
           }
           else 

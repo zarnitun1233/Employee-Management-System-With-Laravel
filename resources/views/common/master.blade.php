@@ -21,11 +21,12 @@
       </div>
       <!-- Right-sided navbar links. Hide them on small screens -->
       <div class="rt-nav">
+        @auth
         <a href="{{ url('/employee/list') }}">Employee Management</a>
         <a href="{{ url('/salary/list') }}">Salary Management</a>
         <a href="{{ url('/leaves/list') }}">Leaves Management</a>
         <a href="{{ url('/department/list') }}">Department Management</a>
-        @auth
+        <a href="{{ url('/employee/list/' . Auth::user()->id) }}">Profile</a>
         <a href="{{ url('/logout') }}">Logout</a>
         @endauth
       </div>
