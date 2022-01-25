@@ -16,7 +16,12 @@
   @enderror <br>
   <label for="role">Role</label><br>
   <select name="role" id="role">
-    <option value="{{ $employee->role }}">{{ $employee->role }}</option>
+    <option value="{{ $employee->role }}">
+      @if ($employee->role == 1)
+        Admin
+      @else Employee
+      @endif
+    </option>
     <option value="Employee">Employee</option>
     <option value="Admin">Admin</option>
   </select><br>

@@ -6,14 +6,18 @@
   @csrf
   <label for="name">Employee Name</label><br>
   <select name="employee_id" id="name">
-    <option value="{{ $salary->employee_id }}">{{ $salary->employee->name }} ({{$department[0]->name}})</option>
+    <option value="{{ $salary->employee_id }}">{{ $salary->employee->name }}</option>
     @foreach($employees as $employee)
-    <option value="{{ $employee->id }}">{{ $employee->name }} ({{$employee->department->name}})</option>
+    <option value="{{ $employee->id }}">{{ $employee->name }}</option>
     @endforeach
   </select><br>
   @error('name')
   <p class="validate-employee-error">{{ $message }}</p>
   @enderror <br>
+  <label for="department">Department Name</label><br>
+  <input type="text" id="department" name="department" value="{{$employee->department->name}}" readonly><br><br>
+  <label for="position">Position</label><br>
+  <input type="text" id="position" name="position" value="{{$employee->position}}" readonly><br><br>
   <label for="amount">Salary Amount</label><br>
   <input type="text" id="amount" name="amount" value="{{ $salary->amount }}"><br>
   @error('amount')
