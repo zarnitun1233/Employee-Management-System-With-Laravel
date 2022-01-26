@@ -10,7 +10,13 @@
   <p class="validate-employee-error">{{ $message }}</p>
   @enderror <br>
   <label for="position">Position</label><br>
-  <input type="text" id="position" name="position"><br>
+  <select name="position" id="position">
+    <option value="Junior">Junior</option>
+    <option value="Senior">Senior</option>
+    <option value="Sub Leader">Sub Leader</option>
+    <option value="Leader">Leader</option>
+    <option value="Manager">Manager</option>
+  </select><br>
   @error('position')
   <p class="validate-employee-error">{{ $message }}</p>
   @enderror <br>

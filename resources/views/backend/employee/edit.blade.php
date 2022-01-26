@@ -10,7 +10,14 @@
   <p class="validate-employee-error">{{ $message }}</p>
   @enderror <br>
   <label for="position">Position</label><br>
-  <input type="text" id="position" name="position" value="{{ $employee->position }}"><br>
+  <select name="position" id="position">
+    <option value="{{ $employee->position }}">{{ $employee->position }}</option>
+    <option value="Junior">Junior</option>
+    <option value="Senior">Senior</option>
+    <option value="Sub Leader">Sub Leader</option>
+    <option value="Leader">Leader</option>
+    <option value="Manager">Manager</option>
+  </select><br>
   @error('position')
   <p class="validate-employee-error">{{ $message }}</p>
   @enderror <br>
@@ -18,7 +25,7 @@
   <select name="role" id="role">
     <option value="{{ $employee->role }}">
       @if ($employee->role == 1)
-        Admin
+      Admin
       @else Employee
       @endif
     </option>
