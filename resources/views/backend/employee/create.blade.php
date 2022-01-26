@@ -79,6 +79,11 @@
   @error('department_id')
   <p class="validate-employee-error">{{ $message }}</p>
   @enderror <br>
+  <label for="salary">Salary</label><br>
+  <input type="number" id="salary" name="salary"><br>
+  @error('salary')
+  <p class="validate-employee-error">{{ $message }}</p>
+  @enderror <br>
   <input type="submit" name="submit" value="Create" class="create-employee">
   <a href="{{ url('/employee/list') }}" class="back-create">Back</a>
 </form>

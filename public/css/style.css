@@ -421,6 +421,16 @@
   border-radius: 5px;
 }
 
+.list-design .list-table .list-detail {
+  padding: 10px;
+  border: none;
+  background-color: #24A0ED;
+  color: #ffffff;
+  text-decoration: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
 .list-design .w-5 {
   display: none;
 }
