@@ -47,4 +47,9 @@ interface EmployeeServiceInterface
      * @param $id
      */
     public function delete($id);
+
+    /**
+     * To Export Employees List
+     */
+    public function export();
 }

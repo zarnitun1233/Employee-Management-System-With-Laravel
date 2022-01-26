@@ -340,6 +340,21 @@
   padding-top: 16px;
 }
 
+/*Export*/
+
+.employee .create-export a {
+  display: inline-block;
+  text-decoration: none;
+  color: #333;
+  padding: 10px;
+  background-color: #ddd;
+  margin-right: 10px;
+}
+
+.employee .create-export a:hover {
+  background-color: #bbb;
+}
+
 /* Change styles for span and cancel button on extra small screens */
 @media screen and (max-width: 300px) {
   .login-form form span.psw {
