@@ -8,9 +8,18 @@
   <input type="hidden" name="email" value="{{$datas['email']}}">
   <input type="hidden" name="token" value="{{$datas['token']}}">
   <label for="">Password</label>
+  @error('email')
+      <span>{{ $message }}</span>
+  @enderror
   <input type="password" name="password"><br>
+  @error('password')
+     <span>{{ $message }}</span>
+  @enderror
   <label for="">Confirm Password</label>
   <input type="password" name="password_confirmation"><br>
+  @error('password_confirmation')
+  <span>{{ $message }}</span>
+  @enderror
   <button class="" type="submit">Update</button>
 </form>
 
