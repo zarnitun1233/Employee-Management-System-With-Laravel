@@ -485,7 +485,22 @@ background-color:#cb024a ;
 .disabled {
 pointer-events: none;
 cursor: default;
-background-color: #04AA6DB3	;
+background-color: #04AA6DB3;
+}
+
+/*Export*/
+
+.employee .create-export a {
+  display: inline-block;
+  text-decoration: none;
+  color: #333;
+  padding: 10px;
+  background-color: #ddd;
+  margin-right: 10px;
+}
+
+.employee .create-export a:hover {
+  background-color: #bbb;
 }
 
 /* Change styles for span and cancel button on extra small screens */

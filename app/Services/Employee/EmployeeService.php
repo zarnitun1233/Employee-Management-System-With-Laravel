@@ -15,6 +15,7 @@ use App\Mail\TestMail;
 use App\Mail\sendMailData;
 use Illuminate\Support\Facades\Mail;
 use App\Http\Requests\SendMailDataRequest;
+use App\Exports\EmployeesExport;
 
 /**
  * Service class for post.
@@ -86,5 +87,13 @@ class EmployeeService implements EmployeeServiceInterface
     public function delete($id)
     {
         return $this->employeeDao->delete($id);
+    }
+
+    /**
+     * To Export Employees List
+     */
+    public function export()
+    {
+        return Excel::download(new EmployeesExport, 'employees list.csv');
     }
 }
