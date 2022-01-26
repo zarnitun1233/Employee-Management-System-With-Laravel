@@ -1,11 +1,12 @@
 @extends('common.master')
 
 @section('content')
-<div class="employee">
-  <h1 class="employee-list">Employee List</h1>
+<div class="list-design">
+  <div class="list-design-container">
+  <h1 class="list-title">Employee List</h1>
   @if ($message = Session::get('success'))
   <div>
-    <p class="employee-list-message">{{ $message }}</p>
+    <p class="show-alert">{{ $message }}</p>
   </div>
   @endif
   <div class="create-export">
@@ -13,7 +14,7 @@
     <a href="{{ url('/export') }}">Export</a>
   </div>
   <br><br>
-  <table class="employee-table">
+  <table class="list-table">
     <tr>
       <th>No</th>
       <th>Name</th>
@@ -47,15 +48,16 @@
       <td>{{ $employee->department->name }}</td>
       <td>
         <form action="{{ url('/employee/delete/'.$employee->id) }}" method="POST">
-          <a href="{{ url('/employee/edit/'.$employee->id) }}" class="edit">Edit</a>
+          <a href="{{ url('/employee/edit/'.$employee->id) }}" class="list-edit">Edit</a>
           {{ csrf_field() }}
           {{ method_field('DELETE') }}
-          <button class="delete">Delete</button>
+          <button class="delete" class="list-delete">Delete</button>
         </form>
       </td>
     </tr>
     @endforeach
   </table><br><br>
   {{ $employees->links() }}
+  </div>
 </div>
 @endsection
