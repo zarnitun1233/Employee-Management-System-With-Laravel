@@ -96,6 +96,6 @@ class EmployeeController extends Controller
      */
     public function export()
     {
-        return Excel::download(new EmployeesExport, 'employees list.csv');
+        return $this->employeeInterface->export();
     }
 }
