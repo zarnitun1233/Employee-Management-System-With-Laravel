@@ -340,6 +340,154 @@
   padding-top: 16px;
 }
 
+/*New Employee Design CSS*/
+
+.leaves-list {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.leaves-title {
+  margin-bottom: 20px;
+  font-size: 30px;
+
+}
+
+.leaves-list-container {
+  width: 80%;
+}
+
+.leaves-list .show-alert {
+  width: 60%;
+  margin-bottom: 20px;
+  padding: 15px 10px;
+  background-color: #0ef9a3;
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: bold;
+  border-radius: 5px;
+}
+
+
+.leaves-table {
+  width: 100%;
+  border: 1px solid #04AA6D;
+  text-align: center;
+  border-collapse: collapse;
+  cursor: pointer;
+}
+
+.leaves-table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+
+.leaves-table tr {
+  transition: 0.5s;
+}
+
+.leaves-table tr:hover {
+  background-color: #ddd;
+}
+
+.leaves-table th {
+  background-color: #04AA6D;
+  color: #ffffff;
+}
+
+.leaves-table th,
+.leaves-table td {
+  padding: 15px;
+}
+
+.leaves-table .show-status-pending {
+  padding: 5px;
+  background-color: #cb024a;
+  color: #ffffff;
+  font-size: 12px;
+  border-radius: 5px;
+}
+
+.leaves-table .leaves-delete {
+  padding: 10px;
+  border: none;
+  background-color: #cb024a;
+  color: #ffffff;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.leaves-table .leaves-accept {
+  padding: 10px;
+  border: none;
+  background-color: #04AA6D;
+  color: #ffffff;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.leaves-table .show-status-accept {
+  margin-top: 5px;
+  padding: 5px;
+  background-color: #04AA6D;
+  color: #ffffff;
+  font-size: 12px;
+  border-radius: 5px;
+}
+
+.paginate-row {
+display: flex;
+justify-content: center;
+padding: 10px 0;
+margin-top: 20px;
+}
+
+.paginate-btn {
+background-color: #04AA6D;
+text-decoration: none;
+padding:7px 10px;
+border-radius: 5px;
+border: 1px solid #ffffff;
+color: #ffffff;
+}
+
+.paginate-btn.current {
+background-color:#cb024a ;
+}
+
+.back-btn {
+  background-color: #653CFF;
+}
+
+.create-btn {
+  background-color: #04AA6D;
+}
+
+.button-group {
+  display: flex;
+}
+
+.button-group .bg-btn {
+  margin-right: 10px;
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px;
+  border: none;
+  color: #ffffff;
+  text-decoration: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.disabled {
+pointer-events: none;
+cursor: default;
+background-color: #04AA6DB3	;
+}
+
 /* Change styles for span and cancel button on extra small screens */
 @media screen and (max-width: 300px) {
   .login-form form span.psw {
