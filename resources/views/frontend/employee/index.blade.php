@@ -24,9 +24,9 @@
       <th>Email</th>
       <th>Image</th>
       <th>Phone</th>
-      <th>Date of Birth</th>
+      <th>DOB</th>
       <th>Address</th>
-      <th>Department Name</th>
+      <th>Department</th>
       <th>Actions</th>
     </tr>
     @foreach($employees as $employee)
@@ -51,7 +51,7 @@
           <a href="{{ url('/employee/edit/'.$employee->id) }}" class="list-edit">Edit</a>
           {{ csrf_field() }}
           {{ method_field('DELETE') }}
-          <button class="delete" class="list-delete">Delete</button>
+          <button class="list-delete">Delete</button>
         </form>
       </td>
     </tr>

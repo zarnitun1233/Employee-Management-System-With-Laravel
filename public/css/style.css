@@ -351,7 +351,7 @@
 }
 
 .list-design .list-design-container {
-  width: 80%;
+  width: 100%;
 }
 
 .list-design .list-title {
@@ -378,7 +378,7 @@
   cursor: pointer;
 }
 
-.list-design .list-table tr:nth-child(even) {
+.list-design .list-table tr:nth-child(odd) {
   background-color: #f2f2f2;
 }
 
@@ -397,7 +397,8 @@
 
 .list-design .list-table th,
 .list-design .list-table td {
-  padding: 15px;
+  padding: 10px;
+  vertical-align: middle;
 }
 
 .list-design .list-table .list-delete {
@@ -416,8 +417,49 @@
   color: #ffffff;
   cursor: pointer;
   border-radius: 5px;
+  text-decoration: none;
 }
 
+.list-design .w-5 {
+  display: none;
+}
+
+.list-design nav.flex {
+  text-align: center;
+}
+
+.list-design nav.flex div:first-child {
+  margin-bottom: 20px;
+  display: none;
+}
+
+.list-design nav.flex div:first-child a {
+  margin: 0 10px;
+  text-decoration: none;
+}
+
+.list-design nav.flex div:last-child div:last-child span a {
+  margin: 0 5px;
+  padding: 0px 8px;
+  text-decoration: none;
+}
+
+.list-design nav.flex div:last-child div:last-child span a:first-child {
+  display: none;
+}
+
+.list-design nav.flex div:last-child div:last-child span a:last-child {
+  display: none;
+}
+
+.list-design nav.flex div:last-child div:last-child span span:nth-child(2) {
+  margin: 0 5px;
+  padding: 5px;
+  background-color: #cb024a;
+  color: #fff;
+  padding-left: 7px;
+  border-radius: 3px;
+}
 
 /*Export*/
 
