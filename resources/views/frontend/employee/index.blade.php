@@ -9,8 +9,8 @@
   </div>
   @endif
   <div class="create-export">
-  <a href="{{ url('/employee/create') }}">Create Employee</a>
-  <a href="{{ url('/export') }}">Export</a>
+    <a href="{{ url('/employee/create') }}">Create Employee</a>
+    <a href="{{ url('/export') }}">Export</a>
   </div>
   <br><br>
   <table class="employee-table">
