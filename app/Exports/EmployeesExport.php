@@ -40,6 +40,7 @@ class EmployeesExport implements FromCollection, WithMapping, withHeadings
             $employee->dob,
             $employee->address,
             $employee->department->name,
+            $employee->created_at->format('Y-m-d'),
         ];
     }
 
@@ -50,7 +51,7 @@ class EmployeesExport implements FromCollection, WithMapping, withHeadings
     public function headings(): array
     {
         return [
-            'no',
+            'id',
             'name',
             'position',
             'role',
@@ -60,6 +61,7 @@ class EmployeesExport implements FromCollection, WithMapping, withHeadings
             'date of birth',
             'address',
             'department name',
+            'joined date',
         ];
     }
 }
