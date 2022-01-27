@@ -1,3 +1,111 @@
+/*Navbar*/
+.container {
+  width: 98%;
+  margin: 0 auto;
+}
+
+.clearFix:before,
+.clearFix:after {
+  display: table;
+  content: " ";
+}
+
+.clearFix:after {
+  clear: both;
+}
+
+.lf-nav {
+  float: left;
+  width: 200px;
+  padding-left: 10px;
+}
+
+.lf-nav img {
+  width: 100%;
+}
+
+.lf-nav a {
+  text-decoration: none;
+}
+
+.rt-nav {
+  float: right;
+  padding: 40px 25px 20px 25px;
+
+}
+
+.rt-nav a {
+  list-style: none;
+  padding: 20px 15px;
+  background-color: #f0f7ef;
+  color: black;
+  font-size: 20px;
+  text-decoration: none;
+}
+
+.rt-nav a:hover {
+  background-color: #3df0ba;
+}
+
+/*Footer*/
+
+.footer {
+  padding: 20px;
+  color: #3a3b37;
+  font-size: 15px;
+  text-align: center;
+}
+
+.footer-line {
+  width: 100%;
+  margin: 0 auto;
+  padding-top: 300px;
+  padding-bottom: 35px;
+}
+
+.foot-border {
+  border: 1px solid #111010;
+  color: #111010;
+}
+
+.copyright {
+  width: 1110px;
+  margin: 0 auto;
+}
+
+.social-icons {
+  width: 100%;
+}
+
+.social-icons a {
+  padding: 10px;
+  color: #32568b;
+  text-decoration: none;
+}
+
+.copyright .p1,
+.p2 {
+  color: #111010;
+  font-size: 16px;
+}
+
+.p1 {
+  float: left;
+}
+
+.p2 {
+  float: right;
+  padding-bottom: 10px;
+}
+
+.p2 span {
+  color: #FC8902;
+}
+
+.employee {
+  margin-top: 50px;
+}
+
 .employee-list,
 .employee-create,
 .employee-edit {
@@ -164,6 +272,234 @@
   background-color: #04AA6D;
 }
 
+.alert-error {
+  background-color: #f00;
+}
+
 .validate-employee-error {
   color: #f00;
+}
+
+/*Login Logout*/
+
+.login-form form {
+  border: 3px solid #f1f1f1;
+}
+
+.login-form form input[type=email],
+.login-form form input[type=password] {
+  display: inline-block;
+  width: 100%;
+  margin: 8px 0;
+  padding: 12px 20px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+.login-form h2 {
+  padding-left: 20px;
+  font-size: 28px;
+}
+
+.login-form form button {
+  width: 100%;
+  margin: 8px 0;
+  padding: 14px 20px;
+  border: none;
+  background-color: #04AA6D;
+  color: white;
+  cursor: pointer;
+}
+
+.login-form form button:hover {
+  opacity: 0.8;
+}
+
+.login-form form .cancelbtn {
+  width: auto;
+  padding: 10px 18px;
+  background-color: #f44336;
+}
+
+.login-form form .imgcontainer {
+  margin: 24px 0 12px 0;
+  text-align: center;
+}
+
+.login-form form img.avatar {
+  width: 10%;
+  border-radius: 50%;
+}
+
+.login-form form .container {
+  padding: 16px;
+}
+
+.login-form form span.psw {
+  float: right;
+  padding-top: 16px;
+}
+
+/*New Employee Design CSS*/
+
+.list-design {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.list-design .list-design-container {
+  width: 100%;
+  overflow: hidden;
+}
+
+.list-design .list-title {
+  margin-bottom: 10px;
+  font-size: 30px;
+}
+
+.list-design .show-alert {
+  width: 100%;
+  margin-bottom: 20px;
+  padding: 15px 10px;
+  background-color: #0ef9a3;
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: bold;
+  border-radius: 5px;
+}
+
+.list-design .list-table {
+  width: 100%;
+  border: 1px solid #04AA6D;
+  text-align: center;
+  border-collapse: collapse;
+  cursor: pointer;
+}
+
+.list-design .list-table tr:nth-child(odd) {
+  background-color: #f2f2f2;
+}
+
+.list-design .list-table tr {
+  transition: 0.5s;
+}
+
+.list-design .list-table tr:hover {
+  background-color: #ddd;
+}
+
+.list-design .list-table th {
+  background-color: #04AA6D;
+  color: #ffffff;
+}
+
+.list-design .list-table th,
+.list-design .list-table td {
+  padding: 5px;
+  vertical-align: middle;
+}
+
+.list-design .list-table .list-delete {
+  padding: 10px;
+  border: none;
+  background-color: #cb024a;
+  color: #ffffff;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.list-design .list-table .list-edit {
+  padding: 10px;
+  border: none;
+  background-color: #04AA6D;
+  color: #ffffff;
+  text-decoration: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.list-design .w-5 {
+  display: none;
+}
+
+.list-design nav.flex {
+  text-align: center;
+}
+
+.list-design nav.flex div:first-child {
+  display: none;
+  margin-bottom: 20px;
+}
+
+.list-design nav.flex div:first-child a {
+  margin: 0 10px;
+  text-decoration: none;
+}
+
+.list-design nav.flex div:last-child div:last-child span a {
+  margin: 0 5px;
+  padding: 0px 8px;
+  text-decoration: none;
+}
+
+.list-design nav.flex div:last-child div:last-child span a:first-child {
+  display: none;
+}
+
+.list-design nav.flex div:last-child div:last-child span a:last-child {
+  display: none;
+}
+
+.list-design nav.flex div:last-child div:last-child span span:nth-child(2) {
+  margin: 0 5px;
+  padding: 5px;
+  padding-left: 7px;
+  background-color: #cb024a;
+  color: #fff;
+  border-radius: 3px;
+}
+
+.list-design .create-export {
+  float: right;
+  margin-top: -40px;
+  margin-bottom: 25px;
+}
+
+.list-design .create-export a {
+  display: inline-block;
+  padding: 10px;
+  background-color: #04AA6D;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+/*Export*/
+
+.employee .create-export a {
+  display: inline-block;
+  margin-right: 10px;
+  padding: 10px;
+  background-color: #ddd;
+  color: #333;
+  text-decoration: none;
+}
+
+.employee .create-export a:hover {
+  background-color: #bbb;
+}
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+  .login-form form span.psw {
+    display: block;
+    float: none;
+  }
+
+  .login-form form .cancelbtn {
+    width: 100%;
+  }
 }

@@ -1,7 +1,7 @@
 @extends('common.master')
 
 @section('content')
-<h1 class="employee-create">Create Employee</h1>
+<h1 class="employee-create employee">Create Employee</h1>
 <form action="" method="POST" enctype="multipart/form-data" class="employee-create-form">
   @csrf
   <label for="name">Name</label><br>
@@ -10,7 +10,13 @@
   <p class="validate-employee-error">{{ $message }}</p>
   @enderror <br>
   <label for="position">Position</label><br>
-  <input type="text" id="position" name="position"><br>
+  <select name="position" id="position">
+    <option value="Junior">Junior</option>
+    <option value="Senior">Senior</option>
+    <option value="Sub Leader">Sub Leader</option>
+    <option value="Leader">Leader</option>
+    <option value="Manager">Manager</option>
+  </select><br>
   @error('position')
   <p class="validate-employee-error">{{ $message }}</p>
   @enderror <br>
@@ -60,7 +66,7 @@
   <p class="validate-employee-error">{{ $message }}</p>
   @enderror <br>
   <label for="address">Address</label><br>
-  <input type="text" id="address" name="address"><br>
+  <textarea name="address" id="address" cols="20" rows="5" style="resize:none;"></textarea><br>
   @error('address')
   <p class="validate-employee-error">{{ $message }}</p>
   @enderror <br>
