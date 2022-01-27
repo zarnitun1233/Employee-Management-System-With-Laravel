@@ -36,7 +36,7 @@ class PasswordResetDao implements   PasswordResetDaoInterface
     ->first();
 
     if(!$check){
-      return flase;
+      return false;
     }
     
     $employee = Employee::where('email', $request->email)
