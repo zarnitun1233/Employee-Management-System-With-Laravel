@@ -9,28 +9,35 @@
   <link rel="stylesheet" href="{{ asset('css/reset.css') }}">
   <link rel="stylesheet" href="{{ asset('css/style.css') }}">
   <link rel="stylesheet" href="{{ asset('css/all.css') }}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
-<body>
-  <div class="container">
-    <div class="clearFix">
-      <div class="lf-nav">
-        <a href="#home">
-          <img src="{{ asset('images/' . 'ems.jpg') }}" alt="" height="100px">
-        </a>
-      </div>
-      <!-- Right-sided navbar links. Hide them on small screens -->
-      <div class="rt-nav">
-        @auth
-        <a href="{{ url('/employee/list') }}">Employee Management</a>
-        <a href="{{ url('/salary/list') }}">Salary Management</a>
-        <a href="{{ url('/leaves/list') }}">Leaves Management</a>
-        <a href="{{ url('/department/list') }}">Department Management</a>
-        <a href="{{ url('/employee/list/' . Auth::user()->id) }}">Profile</a>
-        <a href="{{ url('/logout') }}">Logout</a>
-        @endauth
-      </div>
+<body class="common-nav">
+
+<div id="mySidenav" class="sidenav" >
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <a href="#">Employee </a>
+  <a href="#">Salary </a>
+  <a href="#">Leaves </a>
+  <a href="#">Department </a>
+</div>
+<div class="header">
+  <h2>Employee Management System</h2>
+</div>
+  <div class="nav clearFix">
+    <div class="lf-nav clearFix">
+      <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Management</span>
     </div>
+    <div class="rt-nav clearFix">
+      <ul>
+        <li><a href="" style="font-size:23px">Profile <i class="fa fa-user-circle-o"></i></a>
+        </li>
+        <li><a href="" style="font-size:23px">Logout <i class="fa fa-sign-out"></i></a>
+        </li>
+      </ul>
+     
+    </div>
+  </div>
 
 @yield('content')
     <div class="footer-line">
@@ -48,6 +55,15 @@
       </div>
     </div>
   </div>
+  <script>
+function openNav() {
+  document.getElementById("mySidenav").style.width = "250px";
+}
+
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0";
+}
+</script>
 </body>
 
 </html>

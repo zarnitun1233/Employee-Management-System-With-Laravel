@@ -1,50 +1,90 @@
-/*Navbar*/
-.container {
-  width: 98%;
-  margin: 0 auto;
+body {
+  font-family: "Lato", sans-serif;
 }
-
-.clearFix:before,
-.clearFix:after {
-  display: table;
+.clearFix::after {
+  display: block;
+  clear: both;
+  visibility: hidden;
+  font-size: 0;
   content: " ";
 }
 
-.clearFix:after {
-  clear: both;
+.common-nav .sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #36e995;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
 }
 
-.lf-nav {
+.common-nav .sidenav a {
+  padding: 13px 8px 13px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #2e2c2c;
+  display: block;
+  transition: 0.3s;
+}
+
+.common-nav .sidenav a:hover {
+  color: #0f0909;
+}
+
+.common-nav .sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+.common-nav .header{
+  font-size: 30px;
+  text-align: center;
+  padding: 10px 0px;
+}
+.common-nav .nav{
+  width: 98%;
+  margin: 0 auto;
+
+}
+.common-nav .lf-nav{
   float: left;
-  width: 200px;
-  padding-left: 10px;
+  width: 49%;
 }
-
-.lf-nav img {
-  width: 100%;
-}
-
-.lf-nav a {
-  text-decoration: none;
-}
-
-.rt-nav {
+.common-nav .rt-nav{
   float: right;
-  padding: 40px 25px 20px 25px;
-
+  width: 49%;
+}
+.common-nav .rt-nav ul{
+  padding-left: 300px;
 }
 
-.rt-nav a {
+.common-nav .rt-nav ul li{
   list-style: none;
-  padding: 20px 15px;
-  background-color: #f0f7ef;
-  color: black;
-  font-size: 20px;
+  display: inline-block;
+  padding-left: 50px;
+}
+.common-nav .rt-nav ul li a{
   text-decoration: none;
+  font-size: 28px;
+  color: black;
+  text-align: right;
+  padding: 5px 10px;
+  border: 1px solid black;
+}
+.common-nav .rt-nav ul li a:hover{
+  color: #f1f1f1;
+  background-color: #129c63;
 }
 
-.rt-nav a:hover {
-  background-color: #3df0ba;
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
 }
 
 /*Footer*/
@@ -99,7 +139,7 @@
 }
 
 .p2 span {
-  color: #FC8902;
+  color: #129c63;
 }
 
 .employee {
@@ -176,13 +216,13 @@
   padding-left: 10px;
 }
 
-.create-employee {
+/*.create-employee {
   padding: 5px;
   border: 1px solid #333;
   background-color: #ddd;
   color: #333;
   text-decoration: none;
-}
+}*/
 
 .back-create {
   padding: 5px;
@@ -491,7 +531,136 @@
 .employee .create-export a:hover {
   background-color: #bbb;
 }
+/*Create Employee*/
+.create-employee-header {
+  padding: 30px 10px 20px 130px;
+  font-size: 27px;
+  text-align: left;
+  color: #151a17;
+}
 
+.create-employee .create-employee-form {
+  width: 80%;
+  margin: 0 auto;
+  border: 3px solid #f1f1f1;
+  text-align: center;
+}
+
+.create-employee .create-employee-form input[type=text],
+input[type=email],
+input[type=password],
+input[type=number],
+input[type=tel],
+input[type=conpassword],
+input[type=date] {
+  width: 20%;
+  margin-top: 2px;
+  padding: 10px 7px;
+  border: 1px solid #129956;
+  box-sizing: border-box;
+  border-radius: 7px;
+}
+
+.create-employee .create-employee-form input[type=text] {
+  margin-left: 129px;
+}
+
+.create-employee .create-employee-form.create-employee-form input[type=email] {
+  margin-left: 128px;
+}
+
+.create-employee .create-employee-form input[type=password] {
+  margin-left: 88px;
+}
+
+.create-employee .create-employee-form input[name=confirmpswd] {
+  margin-left: 6px;
+}
+
+.create-employee .create-employee-form input[type=number] {
+  margin-left: 146px;
+}
+
+.create-employee .create-employee-form input[type=tel] {
+  margin-left: 40px;
+}
+
+.create-employee .create-employee-form input[type=date] {
+  margin-left: 63px;
+}
+
+.create-employee .create-employee-form input[type=file] {
+  width: 20%;
+  margin-top: 2px;
+  margin-left: 50px;
+  padding: 10px 7px;
+  border-radius: 7px;
+}
+
+.create-employee .create-employee-form label {
+  margin-bottom: 10px;
+  padding: 10px 10px 10px 30px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.create-employee .create-employee-form select,
+textarea {
+  width: 20%;
+  margin-top: 2px;
+  padding: 10px 7px;
+  border: 1px solid #129956;
+  box-sizing: border-box;
+  border-radius: 7px;
+}
+
+.create-employee .create-employee-form select[id=position] {
+  margin-left: 104px;
+}
+
+.create-employee .create-employee-form select[id=employeerole] {
+  margin-left: 138px;
+}
+
+.create-employee .create-employee-form select[id=department] {
+  margin-left: 70px;
+}
+
+.create-employee .create-employee-form textarea {
+  margin-left: 102px;
+}
+
+.create-employee .create-employee-form .textarea-form * {
+  vertical-align: middle;
+}
+
+.create-employee .create-employee-form button {
+  width: 17%;
+  margin: 8px 0;
+  padding: 10px 10px;
+  border: none;
+  background-color: #04AA6D;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+
+}
+
+.create-employee .create-employee-form button:hover {
+  opacity: 0.8;
+}
+
+.create-employee .btn {
+  padding-top: 20px;
+  padding-bottom: 10px;
+  padding-left: 130px;
+}
+
+
+.create-employee .btn button a {
+  color: #161515;
+  text-decoration: none;
+}
 /* Change styles for span and cancel button on extra small screens */
 @media screen and (max-width: 300px) {
   .login-form form span.psw {
