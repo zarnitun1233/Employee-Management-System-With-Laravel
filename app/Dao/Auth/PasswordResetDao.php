@@ -27,14 +27,13 @@ class PasswordResetDao implements   PasswordResetDaoInterface
   }
 
   public function postChangePassword(Request $request)
-  {
+  { 
     $check = DB::table('password_resets')
     ->where([
       'email' => $request->email, 
       'token' => $request->token
     ])
     ->first();
-
     if(!$check){
       return false;
     }

@@ -2,11 +2,10 @@
 
 
 @section('content')
-
-<form action="{{ route('post.change.password') }}" method="POSt">
+<form action="{{ route('post.change.password') }}" method="POST">
   @csrf
-  <input type="hidden" name="email" value="{{$datas['email']}}">
-  <input type="hidden" name="token" value="{{$datas['token']}}">
+  <input type="hidden" name="email" value="{{ request()->email }}">
+  <input type="hidden" name="token" value="{{ request()->token }}">
   <label for="">Password</label>
   @error('email')
       <span>{{ $message }}</span>
