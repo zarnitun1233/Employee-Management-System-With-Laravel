@@ -89,7 +89,6 @@ class SalaryDao implements SalaryDaoInterface
         $salary = Salary::find($id);
         $salary->amount = $request->amount;
         $salary->date = $request->date;
-        $salary->employee_id = $request->employee_id;
         return $salary->save();
     }
 
