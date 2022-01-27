@@ -9,6 +9,7 @@ use App\Http\Requests\SalaryUpdateRequest;
 use App\Models\Employee;
 use Illuminate\Http\Request;
 use App\Models\Salary;
+use App\Models\SalaryRecord;
 use Illuminate\Support\Facades\DB;
 
 class SalaryController extends Controller
@@ -75,6 +76,15 @@ class SalaryController extends Controller
     {
         $this->salaryInterface->update($request, $id);
         return redirect('/salary/list')->with('success', 'Salary Updated Successfully!');
+    }
+
+    /**
+     * Employee's Salary Detail
+     * @param $id
+     */
+    public function detail($id)
+    {
+        return SalaryRecord::where('employee_id', $id)->get();
     }
 
     /**

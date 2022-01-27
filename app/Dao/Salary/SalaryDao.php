@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\DB;
 use App\Http\Requests\SendMailDataRequest;
 use App\Http\Requests\StoreSalaryRequest;
 use App\Http\Requests\SalaryUpdateRequest;
+use App\Models\SalaryRecord;
 use Illuminate\Support\Facades\Hash;
 
 /**
@@ -89,7 +90,12 @@ class SalaryDao implements SalaryDaoInterface
         $salary = Salary::find($id);
         $salary->amount = $request->amount;
         $salary->date = $request->date;
-        return $salary->save();
+        $salary->save();
+        $salaryRecord = new SalaryRecord;
+        $salaryRecord->amount = $request->amount;
+        $salaryRecord->date = $request->date;
+        $salaryRecord->employee_id = $salary->employee_id;
+        $salaryRecord->save();
     }
 
     /**
