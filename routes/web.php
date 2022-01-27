@@ -40,7 +40,7 @@ Route::delete('leaves/delete/{id}',[LeavesController::class,'delete'])->name('le
 
 Route::put('leaves/update/{id}',[LeavesController::class,'update'])->name('leaves.update');
 
-Route::get('/employee/list', [EmployeeController::class, 'index'])->middleware('auth', 'admin');
+Route::get('/employee/list', [EmployeeController::class, 'index']);
 Route::get('/employee/create', [EmployeeController::class, 'create']);
 Route::post('/employee/create', [EmployeeController::class, 'store']);
 Route::get('/employee/edit/{id}', [EmployeeController::class, 'edit']);
