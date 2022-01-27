@@ -9,5 +9,7 @@ interface  PasswordResetDaoInterface
 
   public function postMail(string $email);
 
+  public function changePassword(Request $request);
+
   public function postChangePassword(Request $request);
 }

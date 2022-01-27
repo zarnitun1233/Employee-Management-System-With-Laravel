@@ -24,8 +24,6 @@ class PostChangePasswordRequest extends FormRequest
     public function rules()
     {
         return [
-            'email' => 'required|email|exists:employees',
-            'token' => 'required|min:60',
             'password' => 'required|string|min:6|confirmed',
             'password_confirmation' => 'required'
         ];

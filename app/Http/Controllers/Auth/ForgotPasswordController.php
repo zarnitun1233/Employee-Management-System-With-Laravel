@@ -40,12 +40,12 @@ class ForgotPasswordController extends Controller
         $this->passwordResetService->postMail($request->email);
     }
 
-    public function changePassword(ChangePasswordRequest $request)
-    {   
-        $validated = $request->safe()->only(['email', 'token']);
-        if(sizeof($validated) !== 2){
-            return abort(404, 'Page not found.');
-        }        
+    public function changePassword(Request $request)
+    {         
+       $result = $this->passwordResetService->changePassword($request);
+       if(!$result){
+        return redirect()->route('reset.password')->with('message','Invaild email');
+       }
         return view('.frontend.auth.change-password-form');
     }
 
