@@ -66,7 +66,7 @@
   <p class="validate-employee-error">{{ $message }}</p>
   @enderror <br>
   <label for="address">Address</label><br>
-  <input type="text" id="address" name="address"><br>
+  <textarea name="address" id="address" cols="20" rows="5" style="resize:none;"></textarea><br>
   @error('address')
   <p class="validate-employee-error">{{ $message }}</p>
   @enderror <br>
