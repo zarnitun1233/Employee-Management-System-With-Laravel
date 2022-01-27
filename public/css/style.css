@@ -502,6 +502,18 @@
   background-color: #bbb;
 }
 
+.list-design .employee-info {
+  border: 1px solid black;
+  display: inline-block;
+  width: 300px;
+}
+
+.list-design .employee-salary {
+  border: 1px solid black;
+  display: inline-block;
+  width: 300px;
+}
+
 /* Change styles for span and cancel button on extra small screens */
 @media screen and (max-width: 300px) {
   .login-form form span.psw {
