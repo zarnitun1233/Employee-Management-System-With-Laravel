@@ -38,7 +38,6 @@
     </div>
   </div>
 </div>
-<button onclick="history.back()" class="list-edit-back">Back</button>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
   var data_date = <?php echo $date; ?>;
@@ -73,7 +72,7 @@
     });
   };
 </script>
-<div class="container">
+<div class="container salary-graph">
   <div class="row">
     <div class="col-md-10 col-md-offset-1">
       <div class="panel panel-default">
@@ -85,4 +84,5 @@
     </div>
   </div>
 </div>
+<button onclick="history.back()" class="list-edit-back">Back</button>
 @endsection

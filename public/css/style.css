@@ -558,13 +558,18 @@
 /*Chart.js CSS*/
 .panel-heading {
   font-size: 20px;
-  margin-top: 30px;
   font-weight: 700;
+  margin-bottom: 20px;
 }
 
 .panel-body {
   width: 50%;
   height: 300px;
+}
+
+.salary-graph {
+  width: 100%;
+  margin-bottom: 40px;
 }
 
 /* Change styles for span and cancel button on extra small screens */
