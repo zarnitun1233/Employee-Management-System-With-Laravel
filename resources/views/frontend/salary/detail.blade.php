@@ -2,31 +2,27 @@
 
 @section('content')
 <div class="list-design">
-  <div class="list-design-container">
-    <h1 class="list-title">{{ $details[0]->name }}'s Salary Detail</h1>
-    <h2>Employee Info</h2>
+  <div class="list-design-container salary-detail-container">
+    <h1 class="list-title">Salary Detail</h1>
     <div class="employee-info">
+    <h2>Employee Info</h2>
     <table class="employee-info-table">
       <tr>
-        <td>Name</td>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Position</th>
+        <th>Department</th>
+      </tr>
+      <tr>
         <td>{{ $details[0]->name }}</td>
-      </tr>
-      <tr>
-        <td>Age</td>
         <td>{{ $details[0]->age }}</td>
-      </tr>
-      <tr>
-        <td>Position</td>
         <td>{{ $details[0]->position }}</td>
-      </tr>
-      <tr>
-        <td>Department</td>
         <td>{{ $department[0]->name }}</td>
       </tr>
     </table>
     </div>
-    <h2>Salary History</h2>
     <div class="employee-salary">
+    <h2>Salary History</h2>
       <table class="employee-salary-table">
         <tr>
           <th>Date</th>
@@ -34,13 +30,13 @@
         </tr>
         @foreach($details as $detail)
         <tr>
-          <td>{{ $detail->date }}</td>
+          <td>{{ date('d-m-Y', strtotime($detail->date)) }}</td>
           <td>{{ $detail->amount }}</td>
         </tr>
         @endforeach
       </table>
     </div>
   </div>
-
 </div>
+<button onclick="history.back()" class="list-edit-back">Back</button>
 @endsection
