@@ -79,7 +79,7 @@ class SalaryController extends Controller
     }
 
     /**
-     * Employee's Salary Detail
+     * Employee's Salary Detail and show by graph
      * @param $id
      */
     public function detail($id)
@@ -90,7 +90,18 @@ class SalaryController extends Controller
         $department = Employee::join('departments', 'employees.department_id', '=', 'departments.id')
             ->where('employees.id', $id)
             ->get(['departments.name']);
-        return view('frontend.salary.detail')->with('details', $details)->with('department', $department);
+        $date = SalaryRecord::select(DB::raw("date as date"))
+            ->where('salary_records.employee_id', $id)
+            ->orderBy("id")
+            ->get()->toArray();
+        $date = array_column($date, 'date');
+        $salary = SalaryRecord::select(DB::raw("amount as amount"))
+            ->where('salary_records.employee_id', $id)
+            ->orderBy("id")
+            ->get()->toArray();
+        $salary = array_column($salary, 'amount');
+        return view('frontend.salary.detail')->with('details', $details)->with('department', $department)->with('date', json_encode($date, JSON_NUMERIC_CHECK))
+            ->with('salary', json_encode($salary, JSON_NUMERIC_CHECK));
     }
 
     /**

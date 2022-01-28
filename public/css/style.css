@@ -555,6 +555,18 @@
   border: 1px solid #04AA6D;
 }
 
+/*Chart.js CSS*/
+.panel-heading {
+  font-size: 20px;
+  margin-top: 30px;
+  font-weight: 700;
+}
+
+.panel-body {
+  width: 50%;
+  height: 300px;
+}
+
 /* Change styles for span and cancel button on extra small screens */
 @media screen and (max-width: 300px) {
   .login-form form span.psw {
