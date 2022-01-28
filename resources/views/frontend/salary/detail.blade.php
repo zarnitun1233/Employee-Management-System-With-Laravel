@@ -9,19 +9,19 @@
     <table class="employee-info-table">
       <tr>
         <td>Name</td>
-        <td>Mg Mg</td>
+        <td>{{ $details[0]->name }}</td>
       </tr>
       <tr>
         <td>Age</td>
-        <td>11</td>
+        <td>{{ $details[0]->age }}</td>
       </tr>
       <tr>
         <td>Position</td>
-        <td>Junior</td>
+        <td>{{ $details[0]->position }}</td>
       </tr>
       <tr>
         <td>Department</td>
-        <td>Design</td>
+        <td>{{ $department[0]->name }}</td>
       </tr>
     </table>
     </div>
@@ -32,10 +32,12 @@
           <th>Date</th>
           <th>Salary</th>
         </tr>
+        @foreach($details as $detail)
         <tr>
-          <td>1.1.22</td>
-          <td>100000 kyats</td>
+          <td>{{ $detail->date }}</td>
+          <td>{{ $detail->amount }}</td>
         </tr>
+        @endforeach
       </table>
     </div>
   </div>

@@ -85,8 +85,12 @@ class SalaryController extends Controller
     public function detail($id)
     {
         $details = SalaryRecord::join('employees', 'salary_records.employee_id', '=', 'employees.id')
-               ->get(['salary_records.*', 'employees.*']);
-        return view('frontend.salary.detail')->with('details', $details);
+            ->where('salary_records.employee_id', $id)
+            ->get(['salary_records.*', 'employees.*']);
+        $department = Employee::join('departments', 'employees.department_id', '=', 'departments.id')
+            ->where('employees.id', $id)
+            ->get(['departments.name']);
+        return view('frontend.salary.detail')->with('details', $details)->with('department', $department);
     }
 
     /**
