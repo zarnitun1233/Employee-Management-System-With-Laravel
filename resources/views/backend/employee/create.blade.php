@@ -1,42 +1,77 @@
 @extends('common.master')
 
 @section('content')
-  <h1 class="create-employee-header">Create New Employee</h1>
-  <div class="create-employee">
-   <form action="" method="POST" enctype="multipart/form-data" class="create-employee-form" >
+<h1 class="employee-create employee">Create Employee</h1>
+<form action="" method="POST" enctype="multipart/form-data" class="employee-create-form">
   @csrf
-  <label for="name">Name:</label>
-  <input type="text" name="empname" ><br>
+  <label for="name">Name</label><br>
+  <input type="text" id="name" name="name"><br>
   @error('name')
   <p class="validate-employee-error">{{ $message }}</p>
   @enderror <br>
-  <label for="position">Position:</label>
-      <select name="position" size="1" id="position">
-        <option value="junior">Junior</option>
-        <option value="Senior">Senior</option>
-        <option value="sub-leader">Sub Leader</option>
-        <option value="leader">Leader</option>
-        <option value="manager">Manager</option>
-      </select><br>
+  <label for="position">Position</label><br>
+  <select name="position" id="position">
+    <option value="Junior">Junior</option>
+    <option value="Senior">Senior</option>
+    <option value="Sub Leader">Sub Leader</option>
+    <option value="Leader">Leader</option>
+    <option value="Manager">Manager</option>
+  </select><br>
   @error('position')
   <p class="validate-employee-error">{{ $message }}</p>
   @enderror <br>
-  <label for="role">Role:</label>
-      <select name="employeerole" size="1" id="employeerole">
-        <option value="employee">Employee</option>
-        <option value="admin">Admin</option>
-      </select><br>
+  <label for="role">Role</label><br>
+  <select name="role" id="role">
+    <option value="0">Employee</option>
+    <option value="1">Admin</option>
+  </select><br>
   @error('role')
   <p class="validate-employee-error">{{ $message }}</p>
   @enderror <br>
-  <label for="department">Department:</label>
-      <select name="department" size="1" id="department">
-        <option value="marketing">Marketing</option>
-        <option value="hr">Human Resource</option>
-        <option value="Software">Software</option>
-        <option value="hardware">Hardware</option>
-        <option value="finance">Finance</option>
-      </select><br>
+  <label for="age">Age</label><br>
+  <input type="number" id="age" name="age"><br>
+  @error('age')
+  <p class="validate-employee-error">{{ $message }}</p>
+  @enderror <br>
+  <label for="email">Email</label><br>
+  <input type="email" id="email" name="email"><br>
+  @error('email')
+  <p class="validate-employee-error">{{ $message }}</p>
+  @enderror <br>
+  <label for="password">Password</label><br>
+  <input type="password" id="password" name="password"><br>
+  @error('password')
+  <p class="validate-employee-error">{{ $message }}</p>
+  @enderror <br>
+  <label for="confirmPassword">Confirm Password</label><br>
+  <input type="password" id="confirmPassword" name="confirmPassword"><br>
+  @error('confirmPassword')
+  <p class="validate-employee-error">{{ $message }}</p>
+  @enderror <br>
+  <label for="image" class="profile">Choose Photo <br>
+    <input type="file" id="image" name="image">
+    <img src="{{ asset('images/' . 'profile.png') }}" alt="Profile">
+  </label><br><br>
+  @error('image')
+  <p class="validate-employee-error">{{ $message }}</p>
+  @enderror <br>
+  <label for="phone">Phone Number</label><br>
+  <input type="text" id="phone" name="phone"><br>
+  @error('phone')
+  <p class="validate-employee-error">{{ $message }}</p>
+  @enderror <br>
+  <label for="dob">Date of Birth</label><br>
+  <input type="date" id="dob" name="dob"><br>
+  @error('dob')
+  <p class="validate-employee-error">{{ $message }}</p>
+  @enderror <br>
+  <label for="address">Address</label><br>
+  <input type="text" id="address" name="address"><br>
+  @error('address')
+  <p class="validate-employee-error">{{ $message }}</p>
+  @enderror <br>
+  <label for="department">Department</label><br>
+  <select name="department_id" id="department">
     @foreach($departments as $department)
     <option value="{{$department->id }}">{{$department->name }}</option>
     @endforeach
@@ -44,54 +79,7 @@
   @error('department_id')
   <p class="validate-employee-error">{{ $message }}</p>
   @enderror <br>
-  <label for="email">Email:</label>
-      <input type="email" name="email"><br>
-  @error('email')
-  <p class="validate-employee-error">{{ $message }}</p>
-  @enderror <br>
-  <label for="pswd">Password:</label>
-      <input type="password" name="pswd"><br>
-  @error('password')
-  <p class="validate-employee-error">{{ $message }}</p>
-  @enderror <br>
-  <label for="confirmpswd">Confirm Password:</label>
-      <input type="password" name="confirmpswd"><br>
-  @error('confirmPassword')
-  <p class="validate-employee-error">{{ $message }}</p>
-  @enderror <br>
-  <label for="age">Age:</label>
-      <input type="number" name="age"><br>
-  @error('age')
-  <p class="validate-employee-error">{{ $message }}</p>
-  @enderror <br>
-  <label for="mobile">Phone Number:</label>
-      <input type="tel" name="mobile" id="mobile"><br>
-  @error('phone')
-  <p class="validate-employee-error">{{ $message }}</p>
-  @enderror <br>
-  <label for="dob">Date of Birth:</label>
-      <input type="date" name="dob" id="dob"><br>
-  @error('dob')
-  <p class="validate-employee-error">{{ $message }}</p>
-  @enderror <br>
-  <p class="textarea-form">
-        <label for="address">Address:</label>
-        <textarea name="address" id="address"></textarea>
-      </p><br>
-  @error('address')
-  <p class="validate-employee-error">{{ $message }}</p>
-  @enderror <br>
-
-  <label for="choosephoto">Choose Photo:</label>
-      <input type="file" id="choosephoto">
-    <!--<img src="{{ asset('images/' . 'profile.png') }}" alt="Profile">-->
-  </label><br><br>
-  @error('image')
-  <p class="validate-employee-error">{{ $message }}</p>
-  @enderror <br>
-  <div class="btn">
-        <button type="submit"  name="submit"><a href="">Create</a></button>&nbsp;&nbsp;&nbsp;&nbsp;
-        <button type="cancel"><a href="{{ url('/employee/list') }}">Back</a></button>
-      </div>
+  <input type="submit" name="submit" value="Create" class="create-employee">
+  <a href="{{ url('/employee/list') }}" class="back-create">Back</a>
 </form>
 @endsection
