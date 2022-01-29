@@ -672,3 +672,70 @@ textarea {
     width: 100%;
   }
 }
+/*Create department*/
+
+.department-create-header {
+  padding: 20px 160px 20px 10px;
+  font-size: 30px;
+  text-align: center;
+}
+.department-create-form {
+  width: 80%;
+  margin: 0 auto;
+  border: 3px solid #f1f1f1;
+}
+.department-create-form .department-create-table{
+  width: 50%;
+  margin: 15px;
+}
+.department-create-form  .department-create-table tr{
+  width: 70%;
+  font-size: 20px;
+  font-weight: bold;
+}
+.department-create-form .department-create-table label{
+  padding: 10px 15px;
+}
+.department-create-form .department-create-table .textarea-form * {
+  vertical-align: middle;
+}
+.department-create-form .department-create-table input[type=text],textarea {
+  width: 90%;
+    margin: 7px 0px;
+    padding: 12px 7px;
+  border: 1px solid #03140a;
+  box-sizing: border-box;
+  border-radius: 7px;
+}
+.department-create-form  .btn {
+  width: 30%;
+  padding: 20px 0px 10px 350px;
+}
+
+.department-create-form  .btn button {
+  width: 25%;
+  margin: 8px 0;
+  padding: 10px 10px;
+  border: none;
+  background-color: #04AA6D;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+  border-radius: 7px ;
+
+}
+
+.department-create-form  .btn button:hover {
+  opacity: 0.8;
+}
+
+.department-create-form  .btn button a {
+  color: #161515;
+  text-decoration: none;
+}
+.department-create-form .department-create-table span{
+  color: red;
+  padding-left: 10px;
+}
+
+
