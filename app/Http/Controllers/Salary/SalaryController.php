@@ -84,22 +84,10 @@ class SalaryController extends Controller
      */
     public function detail($id)
     {
-        $details = SalaryRecord::join('employees', 'salary_records.employee_id', '=', 'employees.id')
-            ->where('salary_records.employee_id', $id)
-            ->get(['salary_records.*', 'employees.*']);
-        $department = Employee::join('departments', 'employees.department_id', '=', 'departments.id')
-            ->where('employees.id', $id)
-            ->get(['departments.name']);
-        $date = SalaryRecord::select(DB::raw("date as date"))
-            ->where('salary_records.employee_id', $id)
-            ->orderBy("id")
-            ->get()->toArray();
-        $date = array_column($date, 'date');
-        $salary = SalaryRecord::select(DB::raw("amount as amount"))
-            ->where('salary_records.employee_id', $id)
-            ->orderBy("id")
-            ->get()->toArray();
-        $salary = array_column($salary, 'amount');
+        $details = $this->salaryInterface->detail($id);
+        $department = $this->salaryInterface->getDepartmentByEmployeeId($id);
+        $date = $this->salaryInterface->dateFromSalaryRecord($id);
+        $salary = $this->salaryInterface->salaryFromSalaryRecord($id);
         return view('frontend.salary.detail')->with('details', $details)->with('department', $department)->with('date', json_encode($date, JSON_NUMERIC_CHECK))
             ->with('salary', json_encode($salary, JSON_NUMERIC_CHECK));
     }
