@@ -89,4 +89,10 @@ class LeavesService implements LeavesServiceInterface
   {
     return $msg = $this->leavesDao->accept($id);
   }
+
+
+  public function reason($id)
+  {
+    return  $this->leavesDao->reason($id);
+  }
 }

@@ -96,4 +96,12 @@ class LeavesController extends Controller  {
         $msg = $this->leavesService->accept($id);
         return redirect()->route('leaves.list')->with( 'msg', $msg );
     }
+
+
+    public function reason(Request $request,$id)
+    {
+        $leave = $this->leavesService->reason($id);
+
+        return view('frontend.leaves.leaves-reason',compact('leave'));
+    }
 }

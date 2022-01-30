@@ -52,4 +52,6 @@ interface LeavesDaoInterface
    * @return void
    */
   public function accept($id);
+
+  public function reason($id);
 }

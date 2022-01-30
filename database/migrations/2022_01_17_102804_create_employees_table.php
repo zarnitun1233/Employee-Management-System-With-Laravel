@@ -26,8 +26,7 @@ class CreateEmployeesTable extends Migration
             $table->string('phone');
             $table->string('dob');
             $table->string('address');
-            $table->foreignId('department_id');
-            // ->references('id')->on('departments');
+            $table->foreignId('department_id')->references('id')->on('departments');
             $table->timestamps();
             $table->softDeletes();
         });

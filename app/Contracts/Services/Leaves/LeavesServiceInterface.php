@@ -47,4 +47,6 @@ interface LeavesServiceInterface
   public function delete($id);
   
   public function accept($id);
+
+  public function reason($id);
 }

@@ -120,4 +120,9 @@ class LeavesDao implements  LeavesDaoInterface
       $msg = 'leave Accepted:)';
       return $msg;
     }
+
+    public function reason($id)
+    {
+      return $leave = Leave::find($id);
+    }
 }

@@ -23,7 +23,7 @@
               <tr>
                 <th>No</th>
                 <th>Name</th>
-                <th>Email</th>
+                <th>Department</th>
                 <th>From Date</th>
                 <th>To Date</th>
                 <th>Duration</th>
@@ -38,18 +38,20 @@
               <tr>
                 <td>{{ $i }}</td>
                 <td>{{ $leave->Employee->name }}</td>
-                <td>{{ $leave->Employee->email }}</td>
+                <td>{{ $leave->Employee->department->name }}</td>
                 <td>{{ $leave->fromDate }}</td>
                 <td>{{ $leave->toDate }}</td>
                 <td>{{ $leave->duration }}</td>
-                <td>{{ $leave->reason }}</td>
+                <td>
+                  <a href="{{ route('leaves.reason',['id' => $leave->id]) }}">Deatail</a>
+                </td>
                 @if ($leave->status == null)
                    <td>
-                     <span class="show-status-pending">Pening</span>
+                     <span class="show-status-pending show-status">Pending</span>
                    </td>
                 @else
                   <td class="show-status">
-                    <span class="show-status-accept">Accepted</span>
+                    <span class="show-status-accept show-status">Accepted</span>
                   </td>
                 @endif
                 <td>
@@ -62,7 +64,7 @@
                 <td>
                   <form action="{{ route('leaves.accept',['id'=>$leave->id]) }}" method="POST">
                     @csrf
-                    @if ($leave->status == 0)
+                    @if ($leave->status == null)
                       <button class="leaves-accept">Accept</button>
                     @else 
                     <button class="leaves-accept" disabled>Accept</button>
