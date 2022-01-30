@@ -19,7 +19,8 @@ class PasswordResetDao implements   PasswordResetDaoInterface
     ->insert([
       'email' => $email,
       'token' => $token,
-      'created_at' => Carbon::now()
+      'created_at' => Carbon::now(),
+      'expired_time' => Carbon::now()->addMinutes(10),
     ]);
 
     return $token;
@@ -43,10 +44,7 @@ class PasswordResetDao implements   PasswordResetDaoInterface
   public function postChangePassword(Request $request)
   { 
     $check = DB::table('password_resets')
-    ->where([
-      'email' => $request->email, 
-      'token' => $request->token
-    ])
+    ->where('email','=',$request->email)->where('created_at','<',Carbon::now())
     ->first();
     if(!$check){
       return false;
