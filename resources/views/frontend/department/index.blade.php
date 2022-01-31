@@ -35,6 +35,6 @@
     </tr>
     @endforeach
   </table><br><br>
-  {{ $departments->links() }}
 </div>
+{{ $departments->links() }}
 @endsection
