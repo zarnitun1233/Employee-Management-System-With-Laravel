@@ -60,8 +60,8 @@
 
 .leaves-table .show-status-pending {
     padding: 5px;
-    background-color: #cb024a;
-    color: #ffffff;
+    background-color: #8c8b87;
+    color: #000000;
     font-size: 12px;
     border-radius: 5px;
 }
@@ -87,8 +87,8 @@
 .leaves-table .show-status-accept {
     margin-top: 5px;
     padding: 5px;
-    background-color: #04AA6D;
-    color: #ffffff;
+    background-color: #8c8b87;
+    color: #000000;
     font-size: 12px;
     border-radius: 5px;
 }
@@ -146,6 +146,10 @@
   pointer-events: none;
   cursor: default;
   background-color: #04AA6DB3	;
+}
+
+.leaves-action-form {
+    display: inline-block;
 }
 
 

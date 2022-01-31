@@ -30,7 +30,6 @@
                 <th>Reason</th>
                 <th>Status</th>
                 <th>Action</th>
-                <th>Accept</th>
               </tr>
             </thead>
             <tbody>
@@ -43,7 +42,7 @@
                 <td>{{ $leave->toDate }}</td>
                 <td>{{ $leave->duration }}</td>
                 <td>
-                  <a href="{{ route('leaves.reason',['id' => $leave->id]) }}">Deatail</a>
+                  <a href="{{ route('leaves.reason',['id' => $leave->id]) }}">Detail</a>
                 </td>
                 @if ($leave->status == null)
                    <td>
@@ -51,18 +50,16 @@
                    </td>
                 @else
                   <td class="show-status">
-                    <span class="show-status-accept show-status">Accepted</span>
+                    <span class="show-status-accept show-status">Approved</span>
                   </td>
                 @endif
                 <td>
-                  <form action="{{ route('leaves.delete',['id'=>$leave->id]) }}" method="POST">
+                  <form class="leaves-action-form"  action="{{ route('leaves.delete',['id'=>$leave->id]) }}" method="POST">
                     @method('delete')
                     @csrf
                     <button type="submit" class="leaves-delete">Delete</button>
                   </form>
-                </td>
-                <td>
-                  <form action="{{ route('leaves.accept',['id'=>$leave->id]) }}" method="POST">
+                  <form class="leaves-action-form" action="{{ route('leaves.accept',['id'=>$leave->id]) }}" method="POST">
                     @csrf
                     @if ($leave->status == null)
                       <button class="leaves-accept">Accept</button>
