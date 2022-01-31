@@ -722,8 +722,21 @@ textarea {
   font-size: 20px;
   cursor: pointer;
   border-radius: 7px ;
-
 }
+
+.department-create-form  .btn a {
+  width: 25%;
+  margin: 8px 0;
+  padding: 10px 10px;
+  border: none;
+  background-color: #04AA6D;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+  border-radius: 7px ;
+  text-decoration: none;
+}
+
 
 .department-create-form  .btn button:hover {
   opacity: 0.8;

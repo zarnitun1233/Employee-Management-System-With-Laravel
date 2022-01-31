@@ -5,7 +5,7 @@
   <div class="list-design-container">
     <h1 class="list-title">Salary List</h1>
     <div class="create-export">
-      <a href="{{ url('/employee/create') }}">Create Salary</a>
+      <a href="{{ url('/salary/create') }}">Create Salary</a>
     </div>
     @if ($message = Session::get('success'))
     <div>
