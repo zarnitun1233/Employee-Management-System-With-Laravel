@@ -216,14 +216,6 @@ body {
   padding-left: 10px;
 }
 
-/*.create-employee {
-  padding: 5px;
-  border: 1px solid #333;
-  background-color: #ddd;
-  color: #333;
-  text-decoration: none;
-}*/
-
 .back-create {
   padding: 5px;
   padding-top: 4px;
@@ -324,6 +316,8 @@ body {
 
 .login-form form {
   border: 3px solid #f1f1f1;
+  width: 80%;
+  margin: 0 auto;
 }
 
 .login-form form input[type=email],
@@ -337,8 +331,10 @@ body {
 }
 
 .login-form h2 {
-  padding-left: 20px;
   font-size: 28px;
+  text-align: center;
+  padding-top: 20px;
+  padding-bottom: 15px;
 }
 
 .login-form form button {
@@ -349,6 +345,13 @@ body {
   background-color: #04AA6D;
   color: white;
   cursor: pointer;
+}
+
+.login-form .container{
+  width: 80%;
+  margin: 0 auto;
+  margin-bottom: 10px;
+  padding: 16px;
 }
 
 .login-form form button:hover {
@@ -371,13 +374,8 @@ body {
   border-radius: 50%;
 }
 
-.login-form form .container {
-  padding: 16px;
-}
-
 .login-form form span.psw {
   float: right;
-  padding-top: 16px;
 }
 
 /*New Employee Design CSS*/
@@ -661,17 +659,7 @@ textarea {
   color: #161515;
   text-decoration: none;
 }
-/* Change styles for span and cancel button on extra small screens */
-@media screen and (max-width: 300px) {
-  .login-form form span.psw {
-    display: block;
-    float: none;
-  }
 
-  .login-form form .cancelbtn {
-    width: 100%;
-  }
-}
 /*Create department*/
 
 .department-create-header {
@@ -751,4 +739,14 @@ textarea {
   padding-left: 10px;
 }
 
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+  .login-form form span.psw {
+    display: block;
+    float: none;
+  }
 
+  .login-form form .cancelbtn {
+    width: 100%;
+  }
+}
