@@ -44,16 +44,18 @@ class PasswordResetDao implements   PasswordResetDaoInterface
   public function postChangePassword(Request $request)
   { 
     $check = DB::table('password_resets')
-    ->where('email','=',$request->email)->where('created_at','<',Carbon::now())
-    ->first();
+      ->where('token','=',$request->token)
+      ->where('expired_time','>',Carbon::now())
+      ->first();
+
     if(!$check){
       return false;
     }
     
-    $employee = Employee::where('email', $request->email)
+    $employee = Employee::where('email', $check->email)
     ->update(['password' => Hash::make($request->password)]);
 
-    return DB::table('password_resets')->where(['email'=> $request->email])->delete();
+    return DB::table('password_resets')->where(['email'=> $check->email])->delete();
 
   }
 }

@@ -50,7 +50,7 @@ Route::delete('/employee/delete/{id}', [EmployeeController::class, 'delete']);
 
 //auth route
 Route::get('auth/reset-password',[ForgotPasswordController::class,'index'])->name('reset.password');
-Route::get('auth/change-password',[ForgotPasswordController::class,'changePassword'])->name('change.password');
+Route::get('auth/change-password/{token}',[ForgotPasswordController::class,'changePassword'])->name('change.password');
 Route::post('auth/change-password',[ForgotPasswordController::class,'postChangePassword'])->name('post.change.password');
 Route::post('auth/mail-send',[ForgotPasswordController::class,'postMail'])->name('post.mail');
 
