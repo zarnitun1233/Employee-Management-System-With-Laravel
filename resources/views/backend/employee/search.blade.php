@@ -27,6 +27,10 @@
         <option option value="Leader">Leader</option>
         <option value="Manager">Manager</option>
       </select>
+      <div>
+        <label for="">Join Date</label>
+        <input type="date" name="join_date">
+      </div><br>
     </div><br>
     <div>
       <button type="submit">Search</button>

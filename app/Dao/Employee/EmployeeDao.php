@@ -112,19 +112,20 @@ class EmployeeDao implements EmployeeDaoInterface
     public function postSearch(Request $request)
     {   
         $employeeArray =[];
-        $datas = [
-          'name' => $request->name,
-          'position' => $request->position ?? null,
-          'department' =>  $request->department ?? null,
-        ];
-        $founds =Employee::where('name','LIKE','%'.$datas['name'].'%');
-        if($datas['position'])
-        {   
-            $founds = $founds->where('position','=',$datas['position']);
-        }
-       $founds = $founds->get();
-       foreach($founds as $found)
-       {
+        $name = $request->name;
+        $position =$request->position;
+        $joinDate = $request->join_date;
+
+        $finds =Employee::where('name','LIKE','%'.$name.'%');
+
+        $finds = $position ? $finds->where('position','=',$position) :  $finds;
+
+        $finds = $joinDate ? $found->where('created_at','=',$joinDate) : $finds;
+
+        $founds = $finds->get();
+        
+        foreach($founds as $found)
+        {
            $employee = [
             'id' => $found->id,
             'name' => $found->name,
@@ -138,13 +139,13 @@ class EmployeeDao implements EmployeeDaoInterface
             'department_id' => $found->department_id
            ];
            $employeeArray[] = $employee;
-       }
-       if($datas['department'])
-       {
+        }
+        if($datas['department'])
+        {
          $employeeArray =  array_filter($employeeArray,function($v) use($datas){
             return  $v['department'] === $datas['department'];
            }, ARRAY_FILTER_USE_BOTH);
-       }
-       dd($employeeArray);
+        }
+        dd($employeeArray);
     }   
 }
