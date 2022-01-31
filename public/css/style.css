@@ -1,6 +1,7 @@
 body {
-  font-family: "Lato", sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
 }
+
 .clearFix::after {
   display: block;
   clear: both;
@@ -10,24 +11,24 @@ body {
 }
 
 .common-nav .sidenav {
-  height: 100%;
-  width: 0;
   position: fixed;
-  z-index: 1;
   top: 0;
   left: 0;
-  background-color: #36e995;
-  overflow-x: hidden;
-  transition: 0.5s;
+  z-index: 1;
+  width: 0;
+  height: 100%;
   padding-top: 60px;
+  background-color: #36e995;
+  transition: 0.5s;
+  overflow-x: hidden;
 }
 
 .common-nav .sidenav a {
-  padding: 13px 8px 13px 32px;
-  text-decoration: none;
-  font-size: 25px;
-  color: #2e2c2c;
   display: block;
+  padding: 13px 8px 13px 32px;
+  color: #2e2c2c;
+  font-size: 25px;
+  text-decoration: none;
   transition: 0.3s;
 }
 
@@ -39,52 +40,64 @@ body {
   position: absolute;
   top: 0;
   right: 25px;
-  font-size: 36px;
   margin-left: 50px;
+  font-size: 36px;
 }
-.common-nav .header{
+
+.common-nav .header {
+  padding: 10px 0px;
   font-size: 30px;
   text-align: center;
-  padding: 10px 0px;
 }
-.common-nav .nav{
+
+.common-nav .nav {
   width: 98%;
   margin: 0 auto;
 
 }
-.common-nav .lf-nav{
+
+.common-nav .lf-nav {
   float: left;
   width: 49%;
 }
-.common-nav .rt-nav{
+
+.common-nav .rt-nav {
   float: right;
   width: 49%;
 }
-.common-nav .rt-nav ul{
+
+.common-nav .rt-nav ul {
   padding-left: 300px;
 }
 
-.common-nav .rt-nav ul li{
-  list-style: none;
+.common-nav .rt-nav ul li {
   display: inline-block;
+  list-style: none;
   padding-left: 50px;
 }
-.common-nav .rt-nav ul li a{
-  text-decoration: none;
-  font-size: 28px;
-  color: black;
-  text-align: right;
+
+.common-nav .rt-nav ul li a {
   padding: 5px 10px;
   border: 1px solid black;
+  color: black;
+  font-size: 28px;
+  text-decoration: none;
+  text-align: right;
 }
-.common-nav .rt-nav ul li a:hover{
-  color: #f1f1f1;
+
+.common-nav .rt-nav ul li a:hover {
   background-color: #129c63;
+  color: #f1f1f1;
 }
 
 @media screen and (max-height: 450px) {
-  .sidenav {padding-top: 15px;}
-  .sidenav a {font-size: 18px;}
+  .sidenav {
+    padding-top: 15px;
+  }
+
+  .sidenav a {
+    font-size: 18px;
+  }
 }
 
 /*Footer*/
@@ -315,9 +328,9 @@ body {
 /*Login Logout*/
 
 .login-form form {
-  border: 3px solid #f1f1f1;
   width: 80%;
   margin: 0 auto;
+  border: 3px solid #f1f1f1;
 }
 
 .login-form form input[type=email],
@@ -331,10 +344,10 @@ body {
 }
 
 .login-form h2 {
-  font-size: 28px;
-  text-align: center;
   padding-top: 20px;
   padding-bottom: 15px;
+  font-size: 28px;
+  text-align: center;
 }
 
 .login-form form button {
@@ -347,7 +360,7 @@ body {
   cursor: pointer;
 }
 
-.login-form .container{
+.login-form .container {
   width: 80%;
   margin: 0 auto;
   margin-bottom: 10px;
@@ -529,12 +542,13 @@ body {
 .employee .create-export a:hover {
   background-color: #bbb;
 }
+
 /*Create Employee*/
 .create-employee-header {
   padding: 30px 10px 20px 130px;
+  color: #151a17;
   font-size: 27px;
   text-align: left;
-  color: #151a17;
 }
 
 .create-employee .create-employee-form {
@@ -667,40 +681,48 @@ textarea {
   font-size: 30px;
   text-align: center;
 }
+
 .department-create-form {
   width: 80%;
   margin: 0 auto;
   border: 3px solid #f1f1f1;
 }
-.department-create-form .department-create-table{
+
+.department-create-form .department-create-table {
   width: 50%;
   margin: 15px;
 }
-.department-create-form  .department-create-table tr{
+
+.department-create-form .department-create-table tr {
   width: 70%;
   font-size: 20px;
   font-weight: bold;
 }
-.department-create-form .department-create-table label{
+
+.department-create-form .department-create-table label {
   padding: 10px 15px;
 }
+
 .department-create-form .department-create-table .textarea-form * {
   vertical-align: middle;
 }
-.department-create-form .department-create-table input[type=text],textarea {
+
+.department-create-form .department-create-table input[type=text],
+textarea {
   width: 90%;
-    margin: 7px 0px;
-    padding: 12px 7px;
+  margin: 7px 0px;
+  padding: 12px 7px;
   border: 1px solid #03140a;
   box-sizing: border-box;
   border-radius: 7px;
 }
-.department-create-form  .btn {
+
+.department-create-form .btn {
   width: 30%;
   padding: 20px 0px 10px 350px;
 }
 
-.department-create-form  .btn button {
+.department-create-form .btn button {
   width: 25%;
   margin: 8px 0;
   padding: 10px 10px;
@@ -709,10 +731,10 @@ textarea {
   color: white;
   font-size: 20px;
   cursor: pointer;
-  border-radius: 7px ;
+  border-radius: 7px;
 }
 
-.department-create-form  .btn a {
+.department-create-form .btn a {
   width: 25%;
   margin: 8px 0;
   padding: 10px 10px;
@@ -720,23 +742,126 @@ textarea {
   background-color: #04AA6D;
   color: white;
   font-size: 20px;
-  cursor: pointer;
-  border-radius: 7px ;
   text-decoration: none;
+  cursor: pointer;
+  border-radius: 7px;
 }
 
 
-.department-create-form  .btn button:hover {
+.department-create-form .btn button:hover {
   opacity: 0.8;
 }
 
-.department-create-form  .btn button a {
+.department-create-form .btn button a {
   color: #161515;
   text-decoration: none;
 }
-.department-create-form .department-create-table span{
-  color: red;
+
+.department-create-form .department-create-table span {
   padding-left: 10px;
+  color: red;
+}
+
+/*Create Employee*/
+
+.employee-create-header {
+  padding: 20px 160px 20px 10px;
+  font-size: 24px;
+}
+
+.employee-create-form .employee-table {
+  width: 50%;
+}
+
+.employee-create-form .employee-table tr {
+  width: 50%;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.employee-create-form .employee-table .employee-label {
+  padding: 10px 15px;
+}
+
+.employee-create-form .employee-table input[type=text],
+input[type=email],
+input[type=password],
+input[type=age],
+input[type=tel],
+input[type=conpassword],
+input[type=date] {
+  width: 90%;
+  margin: 7px 0px;
+  padding: 12px 7px;
+  border: 1px solid #03140a;
+  box-sizing: border-box;
+  border-radius: 7px;
+}
+
+.employee-create-form .employee-table select,
+textarea {
+  width: 90%;
+  margin: 7px 0px;
+  padding: 12px 7px;
+  border: 1px solid #03140a;
+  box-sizing: border-box;
+  border-radius: 7px;
+}
+
+.employee-create-form .employee-table input[type=file] {
+  width: 90%;
+  margin: 7px 0px;
+  padding: 12px 7px;
+  border-radius: 7px;
+}
+
+
+.employee-create-form .employee-table .textarea-form * {
+  vertical-align: middle;
+}
+
+.employee-create-form .btn {
+  width: 30%;
+  padding: 20px 0px 10px 320px;
+}
+
+.employee-create-form .btn button {
+  width: 25%;
+  margin: 8px 0;
+  padding: 10px 10px;
+  border: none;
+  background-color: #04AA6D;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+  border-radius: 7px;
+}
+
+.employee-create-form .btn a {
+  width: 25%;
+  margin: 8px 0;
+  padding: 10px 10px;
+  border: none;
+  background-color: #04AA6D;
+  color: white;
+  font-size: 20px;
+  text-decoration: none;
+  cursor: pointer;
+  border-radius: 7px;
+}
+
+.employee-create-form .btn button:hover {
+  opacity: 0.8;
+}
+
+.employee-create-form .btn button a {
+  color: #161515;
+  text-decoration: none;
+}
+
+.employee-create-form .employee-table span {
+  padding-left: 10px;
+  color: red;
 }
 
 /* Change styles for span and cancel button on extra small screens */
