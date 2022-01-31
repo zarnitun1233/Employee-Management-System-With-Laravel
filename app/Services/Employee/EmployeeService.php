@@ -87,4 +87,15 @@ class EmployeeService implements EmployeeServiceInterface
     {
         return $this->employeeDao->delete($id);
     }
+
+    public function search()
+    {
+        return $this->employeeDao->search();
+    }
+
+    public function postSearch(Request $request)
+    {
+       return $this->employeeDao->postSearch($request);
+    }
+
 }

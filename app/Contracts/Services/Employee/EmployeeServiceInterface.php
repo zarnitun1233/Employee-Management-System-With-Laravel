@@ -47,4 +47,9 @@ interface EmployeeServiceInterface
      * @param $id
      */
     public function delete($id);
+
+    public function search();
+
+    public function postSearch(Request $request);
+
 }

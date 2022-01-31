@@ -102,4 +102,49 @@ class EmployeeDao implements EmployeeDaoInterface
         $employee = Employee::find($id);
         return $employee->delete();
     }
+
+    public function search()
+    {
+       return $departments = Department::all();
+    }
+
+    
+    public function postSearch(Request $request)
+    {   
+        $employeeArray =[];
+        $datas = [
+          'name' => $request->name,
+          'position' => $request->position ?? null,
+          'department' =>  $request->department ?? null,
+        ];
+        $founds =Employee::where('name','LIKE','%'.$datas['name'].'%');
+        if($datas['position'])
+        {   
+            $founds = $founds->where('position','=',$datas['position']);
+        }
+       $founds = $founds->get();
+       foreach($founds as $found)
+       {
+           $employee = [
+            'id' => $found->id,
+            'name' => $found->name,
+            'position' => $found->position,
+            'department' => $found->department->name,
+            'email' =>$found->email,
+            'dob'   => $found->dob,
+            'phone' => $found->phone,
+            'image' => $found->image,
+            'address' => $found->address,
+            'department_id' => $found->department_id
+           ];
+           $employeeArray[] = $employee;
+       }
+       if($datas['department'])
+       {
+         $employeeArray =  array_filter($employeeArray,function($v) use($datas){
+            return  $v['department'] === $datas['department'];
+           }, ARRAY_FILTER_USE_BOTH);
+       }
+       dd($employeeArray);
+    }   
 }
