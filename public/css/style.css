@@ -1,3 +1,164 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.clearFix::after {
+  display: block;
+  clear: both;
+  visibility: hidden;
+  font-size: 0;
+  content: " ";
+}
+
+.common-nav .sidenav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  width: 0;
+  height: 100%;
+  padding-top: 60px;
+  background-color: #36e995;
+  transition: 0.5s;
+  overflow-x: hidden;
+}
+
+.common-nav .sidenav a {
+  display: block;
+  padding: 13px 8px 13px 32px;
+  color: #2e2c2c;
+  font-size: 25px;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.common-nav .sidenav a:hover {
+  color: #0f0909;
+}
+
+.common-nav .sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  margin-left: 50px;
+  font-size: 36px;
+}
+
+.common-nav .header {
+  padding: 10px 0px;
+  font-size: 30px;
+  text-align: center;
+}
+
+.common-nav .nav {
+  width: 98%;
+  margin: 0 auto;
+
+}
+
+.common-nav .lf-nav {
+  float: left;
+  width: 49%;
+}
+
+.common-nav .rt-nav {
+  float: right;
+  width: 49%;
+}
+
+.common-nav .rt-nav ul {
+  padding-left: 300px;
+}
+
+.common-nav .rt-nav ul li {
+  display: inline-block;
+  list-style: none;
+  padding-left: 50px;
+}
+
+.common-nav .rt-nav ul li a {
+  padding: 5px 10px;
+  border: 1px solid black;
+  color: black;
+  font-size: 28px;
+  text-decoration: none;
+  text-align: right;
+}
+
+.common-nav .rt-nav ul li a:hover {
+  background-color: #129c63;
+  color: #f1f1f1;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {
+    padding-top: 15px;
+  }
+
+  .sidenav a {
+    font-size: 18px;
+  }
+}
+
+/*Footer*/
+
+.footer {
+  padding: 20px;
+  color: #3a3b37;
+  font-size: 15px;
+  text-align: center;
+}
+
+.footer-line {
+  width: 100%;
+  margin: 0 auto;
+  padding-top: 300px;
+  padding-bottom: 35px;
+}
+
+.foot-border {
+  border: 1px solid #111010;
+  color: #111010;
+}
+
+.copyright {
+  width: 1110px;
+  margin: 0 auto;
+}
+
+.social-icons {
+  width: 100%;
+}
+
+.social-icons a {
+  padding: 10px;
+  color: #32568b;
+  text-decoration: none;
+}
+
+.copyright .p1,
+.p2 {
+  color: #111010;
+  font-size: 16px;
+}
+
+.p1 {
+  float: left;
+}
+
+.p2 {
+  float: right;
+  padding-bottom: 10px;
+}
+
+.p2 span {
+  color: #129c63;
+}
+
+.employee {
+  margin-top: 50px;
+}
+
 .employee-list,
 .employee-create,
 .employee-edit {
@@ -66,14 +227,6 @@
 
 .employee-create-form {
   padding-left: 10px;
-}
-
-.create-employee {
-  padding: 5px;
-  border: 1px solid #333;
-  background-color: #ddd;
-  color: #333;
-  text-decoration: none;
 }
 
 .back-create {
@@ -164,6 +317,561 @@
   background-color: #04AA6D;
 }
 
+.alert-error {
+  background-color: #f00;
+}
+
 .validate-employee-error {
   color: #f00;
+}
+
+/*Login Logout*/
+
+.login-form form {
+  width: 80%;
+  margin: 0 auto;
+  border: 3px solid #f1f1f1;
+}
+
+.login-form form input[type=email],
+.login-form form input[type=password] {
+  display: inline-block;
+  width: 100%;
+  margin: 8px 0;
+  padding: 12px 20px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+.login-form h2 {
+  padding-top: 20px;
+  padding-bottom: 15px;
+  font-size: 28px;
+  text-align: center;
+}
+
+.login-form form button {
+  width: 100%;
+  margin: 8px 0;
+  padding: 14px 20px;
+  border: none;
+  background-color: #04AA6D;
+  color: white;
+  cursor: pointer;
+}
+
+.login-form .container {
+  width: 80%;
+  margin: 0 auto;
+  margin-bottom: 10px;
+  padding: 16px;
+}
+
+.login-form form button:hover {
+  opacity: 0.8;
+}
+
+.login-form form .cancelbtn {
+  width: auto;
+  padding: 10px 18px;
+  background-color: #f44336;
+}
+
+.login-form form .imgcontainer {
+  margin: 24px 0 12px 0;
+  text-align: center;
+}
+
+.login-form form img.avatar {
+  width: 10%;
+  border-radius: 50%;
+}
+
+.login-form form span.psw {
+  float: right;
+}
+
+/*New Employee Design CSS*/
+
+.list-design {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.list-design .list-design-container {
+  width: 100%;
+  overflow: hidden;
+}
+
+.list-design .list-title {
+  margin-bottom: 10px;
+  font-size: 30px;
+}
+
+.list-design .show-alert {
+  width: 100%;
+  margin-bottom: 20px;
+  padding: 15px 10px;
+  background-color: #0ef9a3;
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: bold;
+  border-radius: 5px;
+}
+
+.list-design .list-table {
+  width: 100%;
+  border: 1px solid #04AA6D;
+  text-align: center;
+  border-collapse: collapse;
+  cursor: pointer;
+}
+
+.list-design .list-table tr:nth-child(odd) {
+  background-color: #f2f2f2;
+}
+
+.list-design .list-table tr {
+  transition: 0.5s;
+}
+
+.list-design .list-table tr:hover {
+  background-color: #ddd;
+}
+
+.list-design .list-table th {
+  background-color: #04AA6D;
+  color: #ffffff;
+}
+
+.list-design .list-table th,
+.list-design .list-table td {
+  padding: 5px;
+  vertical-align: middle;
+}
+
+.list-design .list-table .list-delete {
+  padding: 10px;
+  border: none;
+  background-color: #cb024a;
+  color: #ffffff;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.list-design .list-table .list-edit {
+  padding: 10px;
+  border: none;
+  background-color: #04AA6D;
+  color: #ffffff;
+  text-decoration: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.list-design .w-5 {
+  display: none;
+}
+
+.list-design nav.flex {
+  text-align: center;
+}
+
+.list-design nav.flex div:first-child {
+  display: none;
+  margin-bottom: 20px;
+}
+
+.list-design nav.flex div:first-child a {
+  margin: 0 10px;
+  text-decoration: none;
+}
+
+.list-design nav.flex div:last-child div:last-child span a {
+  margin: 0 5px;
+  padding: 0px 8px;
+  text-decoration: none;
+}
+
+.list-design nav.flex div:last-child div:last-child span a:first-child {
+  display: none;
+}
+
+.list-design nav.flex div:last-child div:last-child span a:last-child {
+  display: none;
+}
+
+.list-design nav.flex div:last-child div:last-child span span:nth-child(2) {
+  margin: 0 5px;
+  padding: 5px;
+  padding-left: 7px;
+  background-color: #cb024a;
+  color: #fff;
+  border-radius: 3px;
+}
+
+.list-design .create-export {
+  float: right;
+  margin-top: -40px;
+  margin-bottom: 25px;
+}
+
+.list-design .create-export a {
+  display: inline-block;
+  padding: 10px;
+  background-color: #04AA6D;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+/*Export*/
+
+.employee .create-export a {
+  display: inline-block;
+  margin-right: 10px;
+  padding: 10px;
+  background-color: #ddd;
+  color: #333;
+  text-decoration: none;
+}
+
+.employee .create-export a:hover {
+  background-color: #bbb;
+}
+
+/*Create Employee*/
+.create-employee-header {
+  padding: 30px 10px 20px 130px;
+  color: #151a17;
+  font-size: 27px;
+  text-align: left;
+}
+
+.create-employee .create-employee-form {
+  width: 80%;
+  margin: 0 auto;
+  border: 3px solid #f1f1f1;
+  text-align: center;
+}
+
+.create-employee .create-employee-form input[type=text],
+input[type=email],
+input[type=password],
+input[type=number],
+input[type=tel],
+input[type=conpassword],
+input[type=date] {
+  width: 20%;
+  margin-top: 2px;
+  padding: 10px 7px;
+  border: 1px solid #129956;
+  box-sizing: border-box;
+  border-radius: 7px;
+}
+
+.create-employee .create-employee-form input[type=text] {
+  margin-left: 129px;
+}
+
+.create-employee .create-employee-form.create-employee-form input[type=email] {
+  margin-left: 128px;
+}
+
+.create-employee .create-employee-form input[type=password] {
+  margin-left: 88px;
+}
+
+.create-employee .create-employee-form input[name=confirmpswd] {
+  margin-left: 6px;
+}
+
+.create-employee .create-employee-form input[type=number] {
+  margin-left: 146px;
+}
+
+.create-employee .create-employee-form input[type=tel] {
+  margin-left: 40px;
+}
+
+.create-employee .create-employee-form input[type=date] {
+  margin-left: 63px;
+}
+
+.create-employee .create-employee-form input[type=file] {
+  width: 20%;
+  margin-top: 2px;
+  margin-left: 50px;
+  padding: 10px 7px;
+  border-radius: 7px;
+}
+
+.create-employee .create-employee-form label {
+  margin-bottom: 10px;
+  padding: 10px 10px 10px 30px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.create-employee .create-employee-form select,
+textarea {
+  width: 20%;
+  margin-top: 2px;
+  padding: 10px 7px;
+  border: 1px solid #129956;
+  box-sizing: border-box;
+  border-radius: 7px;
+}
+
+.create-employee .create-employee-form select[id=position] {
+  margin-left: 104px;
+}
+
+.create-employee .create-employee-form select[id=employeerole] {
+  margin-left: 138px;
+}
+
+.create-employee .create-employee-form select[id=department] {
+  margin-left: 70px;
+}
+
+.create-employee .create-employee-form textarea {
+  margin-left: 102px;
+}
+
+.create-employee .create-employee-form .textarea-form * {
+  vertical-align: middle;
+}
+
+.create-employee .create-employee-form button {
+  width: 17%;
+  margin: 8px 0;
+  padding: 10px 10px;
+  border: none;
+  background-color: #04AA6D;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+
+}
+
+.create-employee .create-employee-form button:hover {
+  opacity: 0.8;
+}
+
+.create-employee .btn {
+  padding-top: 20px;
+  padding-bottom: 10px;
+  padding-left: 130px;
+}
+
+
+.create-employee .btn button a {
+  color: #161515;
+  text-decoration: none;
+}
+
+/*Create department*/
+
+.department-create-header {
+  padding: 20px 160px 20px 10px;
+  font-size: 30px;
+  text-align: center;
+}
+
+.department-create-form {
+  width: 80%;
+  margin: 0 auto;
+  border: 3px solid #f1f1f1;
+}
+
+.department-create-form .department-create-table {
+  width: 50%;
+  margin: 15px;
+}
+
+.department-create-form .department-create-table tr {
+  width: 70%;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.department-create-form .department-create-table label {
+  padding: 10px 15px;
+}
+
+.department-create-form .department-create-table .textarea-form * {
+  vertical-align: middle;
+}
+
+.department-create-form .department-create-table input[type=text],
+textarea {
+  width: 90%;
+  margin: 7px 0px;
+  padding: 12px 7px;
+  border: 1px solid #03140a;
+  box-sizing: border-box;
+  border-radius: 7px;
+}
+
+.department-create-form .btn {
+  width: 30%;
+  padding: 20px 0px 10px 350px;
+}
+
+.department-create-form .btn button {
+  width: 25%;
+  margin: 8px 0;
+  padding: 10px 10px;
+  border: none;
+  background-color: #04AA6D;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+  border-radius: 7px;
+}
+
+.department-create-form .btn a {
+  width: 25%;
+  margin: 8px 0;
+  padding: 10px 10px;
+  border: none;
+  background-color: #04AA6D;
+  color: white;
+  font-size: 20px;
+  text-decoration: none;
+  cursor: pointer;
+  border-radius: 7px;
+}
+
+
+.department-create-form .btn button:hover {
+  opacity: 0.8;
+}
+
+.department-create-form .btn button a {
+  color: #161515;
+  text-decoration: none;
+}
+
+.department-create-form .department-create-table span {
+  padding-left: 10px;
+  color: red;
+}
+
+/*Create Employee*/
+
+.employee-create-header {
+  padding: 20px 160px 20px 10px;
+  font-size: 24px;
+}
+
+.employee-create-form .employee-table {
+  width: 50%;
+}
+
+.employee-create-form .employee-table tr {
+  width: 50%;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.employee-create-form .employee-table .employee-label {
+  padding: 10px 15px;
+}
+
+.employee-create-form .employee-table input[type=text],
+input[type=email],
+input[type=password],
+input[type=age],
+input[type=tel],
+input[type=conpassword],
+input[type=date] {
+  width: 90%;
+  margin: 7px 0px;
+  padding: 12px 7px;
+  border: 1px solid #03140a;
+  box-sizing: border-box;
+  border-radius: 7px;
+}
+
+.employee-create-form .employee-table select,
+textarea {
+  width: 90%;
+  margin: 7px 0px;
+  padding: 12px 7px;
+  border: 1px solid #03140a;
+  box-sizing: border-box;
+  border-radius: 7px;
+}
+
+.employee-create-form .employee-table input[type=file] {
+  width: 90%;
+  margin: 7px 0px;
+  padding: 12px 7px;
+  border-radius: 7px;
+}
+
+
+.employee-create-form .employee-table .textarea-form * {
+  vertical-align: middle;
+}
+
+.employee-create-form .btn {
+  width: 30%;
+  padding: 20px 0px 10px 320px;
+}
+
+.employee-create-form .btn button {
+  width: 25%;
+  margin: 8px 0;
+  padding: 10px 10px;
+  border: none;
+  background-color: #04AA6D;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+  border-radius: 7px;
+}
+
+.employee-create-form .btn a {
+  width: 25%;
+  margin: 8px 0;
+  padding: 10px 10px;
+  border: none;
+  background-color: #04AA6D;
+  color: white;
+  font-size: 20px;
+  text-decoration: none;
+  cursor: pointer;
+  border-radius: 7px;
+}
+
+.employee-create-form .btn button:hover {
+  opacity: 0.8;
+}
+
+.employee-create-form .btn button a {
+  color: #161515;
+  text-decoration: none;
+}
+
+.employee-create-form .employee-table span {
+  padding-left: 10px;
+  color: red;
+}
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+  .login-form form span.psw {
+    display: block;
+    float: none;
+  }
+
+  .login-form form .cancelbtn {
+    width: 100%;
+  }
 }

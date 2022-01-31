@@ -9,12 +9,12 @@ use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Http\Requests\StoreEmployeeRequest;
 use App\Http\Requests\EmployeeUpdateRequest;
-use App\Exports\StudentsExport;
 use App\Imports\StudentsImport;
 use App\Mail\TestMail;
 use App\Mail\sendMailData;
 use Illuminate\Support\Facades\Mail;
 use App\Http\Requests\SendMailDataRequest;
+use App\Exports\EmployeesExport;
 
 /**
  * Service class for post.
@@ -98,4 +98,11 @@ class EmployeeService implements EmployeeServiceInterface
        return $this->employeeDao->postSearch($request);
     }
 
+    /**
+     * To Export Employees List
+     */
+    public function export()
+    {
+        return Excel::download(new EmployeesExport, 'employees list.csv');
+    }
 }

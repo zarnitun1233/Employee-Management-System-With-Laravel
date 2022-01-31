@@ -1,7 +1,7 @@
 @extends('common.master')
 
 @section('content')
-<h1 class="employee-edit">Edit Employee</h1>
+<h1 class="employee-edit employee">Edit Employee</h1>
 <form action="" method="POST" enctype="multipart/form-data" class="employee-edit-form">
   @csrf
   <label for="name">Name</label><br>
@@ -10,13 +10,25 @@
   <p class="validate-employee-error">{{ $message }}</p>
   @enderror <br>
   <label for="position">Position</label><br>
-  <input type="text" id="position" name="position" value="{{ $employee->position }}"><br>
+  <select name="position" id="position">
+    <option value="{{ $employee->position }}">{{ $employee->position }}</option>
+    <option value="Junior">Junior</option>
+    <option value="Senior">Senior</option>
+    <option value="Sub Leader">Sub Leader</option>
+    <option value="Leader">Leader</option>
+    <option value="Manager">Manager</option>
+  </select><br>
   @error('position')
   <p class="validate-employee-error">{{ $message }}</p>
   @enderror <br>
   <label for="role">Role</label><br>
   <select name="role" id="role">
-    <option value="{{ $employee->role }}">{{ $employee->role }}</option>
+    <option value="{{ $employee->role }}">
+      @if ($employee->role == 1)
+      Admin
+      @else Employee
+      @endif
+    </option>
     <option value="Employee">Employee</option>
     <option value="Admin">Admin</option>
   </select><br>
@@ -51,7 +63,7 @@
   <p class="validate-employee-error">{{ $message }}</p>
   @enderror <br>
   <label for="address">Address</label><br>
-  <input type="text" id="address" name="address" value="{{ $employee->address }}"><br>
+  <textarea name="address" id="address" cols="20" rows="5" style="resize:none;">{{ $employee->address }}</textarea><br>
   @error('address')
   <p class="validate-employee-error">{{ $message }}</p>
   @enderror <br>

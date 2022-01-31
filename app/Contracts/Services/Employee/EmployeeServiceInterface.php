@@ -52,4 +52,9 @@ interface EmployeeServiceInterface
 
     public function postSearch(Request $request);
 
+    /**
+     * To Export Employees List
+     */
+    public function export();
+
 }

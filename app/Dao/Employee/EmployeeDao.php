@@ -12,6 +12,7 @@ use App\Http\Requests\StoreEmployeeRequest;
 use App\Http\Requests\EmployeeUpdateRequest;
 use App\Models\Department;
 use Illuminate\Support\Facades\Hash;
+use Carbon\Carbon;
 
 /**
  * Data accessing object for post
@@ -25,7 +26,7 @@ class EmployeeDao implements EmployeeDaoInterface
      */
     public function index()
     {
-        return Employee::with('department')->paginate(2);
+        return Employee::with('department')->paginate(5);
     }
 
     /**
@@ -115,15 +116,15 @@ class EmployeeDao implements EmployeeDaoInterface
         $name = $request->name;
         $position =$request->position;
         $joinDate = $request->join_date;
-
+        $department = $request->department;
         $finds =Employee::where('name','LIKE','%'.$name.'%');
 
         $finds = $position ? $finds->where('position','=',$position) :  $finds;
 
-        $finds = $joinDate ? $found->where('created_at','=',$joinDate) : $finds;
+        $finds = $joinDate ? $finds->where('created_at','LIKE','%'.$joinDate.'%') : $finds;
 
         $founds = $finds->get();
-        
+
         foreach($founds as $found)
         {
            $employee = [
@@ -140,10 +141,10 @@ class EmployeeDao implements EmployeeDaoInterface
            ];
            $employeeArray[] = $employee;
         }
-        if($datas['department'])
+        if($department)
         {
-         $employeeArray =  array_filter($employeeArray,function($v) use($datas){
-            return  $v['department'] === $datas['department'];
+         $employeeArray =  array_filter($employeeArray,function($v) use($department){
+            return  $v['department'] === $department;
            }, ARRAY_FILTER_USE_BOTH);
         }
         dd($employeeArray);

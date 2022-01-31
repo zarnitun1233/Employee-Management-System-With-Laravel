@@ -13,6 +13,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use ImageResize;
 use App\Image;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\EmployeesExport;
 
 class EmployeeController extends Controller
 {
@@ -98,5 +100,12 @@ class EmployeeController extends Controller
     public function postSearch(SearchEmployeeRequest $request)
     {
        return $this->employeeInterface->postSearch($request);
+    }
+    /**
+     * To Export Employees List
+     */
+    public function export()
+    {
+        return $this->employeeInterface->export();
     }
 }

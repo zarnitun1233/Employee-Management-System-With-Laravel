@@ -1,79 +1,122 @@
 @extends('common.master')
 
 @section('content')
-<h1 class="employee-create">Create Employee</h1>
+<h2 class="employee-create-header">Create New Employee</h2>
 <form action="" method="POST" enctype="multipart/form-data" class="employee-create-form">
   @csrf
-  <label for="name">Name</label><br>
-  <input type="text" id="name" name="name"><br>
-  @error('name')
-  <p class="validate-employee-error">{{ $message }}</p>
-  @enderror <br>
-  <label for="position">Position</label><br>
-  <input type="text" id="position" name="position"><br>
-  @error('position')
-  <p class="validate-employee-error">{{ $message }}</p>
-  @enderror <br>
-  <label for="role">Role</label><br>
-  <select name="role" id="role">
-    <option value="0">Employee</option>
-    <option value="1">Admin</option>
-  </select><br>
-  @error('role')
-  <p class="validate-employee-error">{{ $message }}</p>
-  @enderror <br>
-  <label for="age">Age</label><br>
-  <input type="number" id="age" name="age"><br>
-  @error('age')
-  <p class="validate-employee-error">{{ $message }}</p>
-  @enderror <br>
-  <label for="email">Email</label><br>
-  <input type="email" id="email" name="email"><br>
-  @error('email')
-  <p class="validate-employee-error">{{ $message }}</p>
-  @enderror <br>
-  <label for="password">Password</label><br>
-  <input type="password" id="password" name="password"><br>
-  @error('password')
-  <p class="validate-employee-error">{{ $message }}</p>
-  @enderror <br>
-  <label for="confirmPassword">Confirm Password</label><br>
-  <input type="password" id="confirmPassword" name="confirmPassword"><br>
-  @error('confirmPassword')
-  <p class="validate-employee-error">{{ $message }}</p>
-  @enderror <br>
-  <label for="image" class="profile">Choose Photo <br>
-    <input type="file" id="image" name="image">
-    <img src="{{ asset('images/' . 'profile.png') }}" alt="Profile">
-  </label><br><br>
-  @error('image')
-  <p class="validate-employee-error">{{ $message }}</p>
-  @enderror <br>
-  <label for="phone">Phone Number</label><br>
-  <input type="text" id="phone" name="phone"><br>
-  @error('phone')
-  <p class="validate-employee-error">{{ $message }}</p>
-  @enderror <br>
-  <label for="dob">Date of Birth</label><br>
-  <input type="date" id="dob" name="dob"><br>
-  @error('dob')
-  <p class="validate-employee-error">{{ $message }}</p>
-  @enderror <br>
-  <label for="address">Address</label><br>
-  <input type="text" id="address" name="address"><br>
-  @error('address')
-  <p class="validate-employee-error">{{ $message }}</p>
-  @enderror <br>
-  <label for="department">Department</label><br>
-  <select name="department_id" id="department">
-    @foreach($departments as $department)
-    <option value="{{$department->id }}">{{$department->name }}</option>
-    @endforeach
-  </select><br>
-  @error('department_id')
-  <p class="validate-employee-error">{{ $message }}</p>
-  @enderror <br>
-  <input type="submit" name="submit" value="Create" class="create-employee">
-  <a href="{{ url('/employee/list') }}" class="back-create">Back</a>
+  <table class="employee-table">
+    <tr>
+      <td class="employee-label"><label for="name">Name: <span>*</span></label></td>
+      <td><input type="text" name="name" id="name">
+        @error('name')
+        <span>Name cannot be empty!</span>
+        @enderror
+      </td>
+    </tr>
+    <tr>
+      <td class="employee-label"> <label for="position">Position:<span>*</span></label></td>
+      <td><select name="position" size="1" id="position">
+          <option value="">Please choose your Position</option>
+          <option value="Junior">Junior</option>
+          <option value="Senior">Senior</option>
+          <option value="Sub Leader">Sub Leader</option>
+          <option value="Leader">Leader</option>
+          <option value="Manager">Manager</option>
+        </select>
+        @error('position')
+        <span>Position cannot be empty!</span>
+        @enderror
+      </td>
+    </tr>
+    <tr>
+      <td class="employee-label"><label for="role">Role:<span>*</span></label></td>
+      <td> <select name="role" size="1" id="role">
+          <option value="">Please choose your Role</option>
+          <option value="0">Employee</option>
+          <option value="1">Admin</option>
+        </select>
+        @error('role')
+        <span>Role cannot be empty!</span>
+        @enderror
+      </td>
+    </tr>
+    <tr>
+      <td class="employee-label"><label for="department">Department:<span>*</span></label></td>
+      <td><select name="department_id" size="1" id="department">
+          <option value="">Please choose your Department</option>
+          @foreach($departments as $department)
+          <option value="{{ $department->id }}">{{ $department->name }}</option>
+          @endforeach
+        </select>
+        @error('department_id')
+        <span>Department cannot be empty!</span>
+        @enderror
+      </td>
+    </tr>
+    <tr>
+      <td class="employee-label"><label for="email">Email:<span>*</span></label></td>
+      <td><input type="email" name="email" id="email">
+        @error('email')
+        <span>Email cannot be empty!</span>
+        @enderror
+      </td>
+    </tr>
+    <tr>
+      <td class="employee-label"><label for="pswd">Password:<span>*</span></label></td>
+      <td><input type="password" name="password" id="pswd">
+        @error('password')
+        <span>Password cannot be empty!</span>
+        @enderror
+      </td>
+    </tr>
+    <tr>
+      <td class="employee-label"><label for="confirmpswd">Confirm Password:<span>*</span></label></td>
+      <td><input type="password" name="confirmPassword" id="confirmpswd"></td>
+    </tr>
+    <tr>
+      <td class="employee-label"><label for="age">Age:<span>*</span></label></td>
+      <td><input type="age" name="age" id="age">
+        @error('age')
+        <span>Age cannot be empty!</span>
+        @enderror
+      </td>
+    </tr>
+    <tr>
+      <td class="employee-label"><label for="phone">Phone Number:<span>*</span></label></td>
+      <td><input type="tel" name="phone" id="phone">
+        @error('phone')
+        <span>Phone cannot be empty!</span>
+        @enderror
+      </td>
+    </tr>
+    <tr>
+      <td class="employee-label"><label for="dob">Date of Birth:<span>*</span></label></td>
+      <td><input type="date" name="dob" id="dob">
+        @error('dob')
+        <span>Date of Birth cannot be empty!</span>
+        @enderror
+      </td>
+    </tr>
+    <tr class="textarea-form">
+      <td class="employee-label"><label for="address">Address:<span>*</span></label></td>
+      <td><textarea name="address" id="address"></textarea>
+        @error('address')
+        <span>Address cannot be empty!</span>
+        @enderror
+      </td>
+    </tr>
+    <tr>
+      <td class="employee-label"> <label for="choosephoto">Choose Photo:<span>*</span></label></td>
+      <td><input type="file" id="choosephoto" name="image">
+        @error('image')
+        <span>Image cannot be empty!</span>
+        @enderror
+      </td>
+    </tr>
+  </table>
+  <div class="btn">
+    <button type="submit">Create</button>&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="{{ url('/employee/list') }}">Back</a>
+  </div>
 </form>
 @endsection
