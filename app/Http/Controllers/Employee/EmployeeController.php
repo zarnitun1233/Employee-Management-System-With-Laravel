@@ -97,9 +97,10 @@ class EmployeeController extends Controller
         return view('backend.employee.search',compact('departments'));
     }
 
-    public function postSearch(SearchEmployeeRequest $request)
+    public function postSearch(Request $request)
     {
-       return $this->employeeInterface->postSearch($request);
+       $employees = $this->employeeInterface->postSearch($request);
+       dd($employees);
     }
     /**
      * To Export Employees List

@@ -14,6 +14,7 @@ use App\Models\Department;
 use Illuminate\Support\Facades\Hash;
 use Carbon\Carbon;
 
+
 /**
  * Data accessing object for post
  */
@@ -113,40 +114,38 @@ class EmployeeDao implements EmployeeDaoInterface
     public function postSearch(Request $request)
     {   
         $employeeArray =[];
-        $name = $request->name;
-        $position =$request->position;
-        $joinDate = $request->join_date;
-        $department = $request->department;
-        $finds =Employee::where('name','LIKE','%'.$name.'%');
-
-        $finds = $position ? $finds->where('position','=',$position) :  $finds;
-
-        $finds = $joinDate ? $finds->where('created_at','LIKE','%'.$joinDate.'%') : $finds;
-
-        $founds = $finds->get();
-
-        foreach($founds as $found)
+        $name = $request->name ?? null;
+        $position =$request->position ?? null;
+        $joinDate = $request->join_date ?? null;
+        $department = $request->department ?? null; 
+        if($name || $position || $joinDate || $department)
         {
-           $employee = [
-            'id' => $found->id,
-            'name' => $found->name,
-            'position' => $found->position,
-            'department' => $found->department->name,
-            'email' =>$found->email,
-            'dob'   => $found->dob,
-            'phone' => $found->phone,
-            'image' => $found->image,
-            'address' => $found->address,
-            'department_id' => $found->department_id
-           ];
-           $employeeArray[] = $employee;
+            $finds =DB::table('employees')
+            ->select('employees.*','departments.name as department_name')
+            ->join('departments','departments.id','=','employees.department_id')
+            ->where('employees.deleted_at','=',NULL);
+             $finds = $name ? $finds->where('employees.name','LIKE','%'.$name.'%') : $finds;
+
+            $finds = $position ? $finds->where('employees.position','LIKE',$position) : $finds;
+
+            $finds = $joinDate ? $finds->where('created_at','LIKE','% '.$joinDate.' %') : $finds;
+
+            $finds = $department ? $finds->where('departments.id','=',$department) : $finds;
+
+            $founds = $finds->get();
+        
+            $foundSArray= [];
+            $newArray =[];
+            foreach($founds as  $found){
+                foreach($found as $key => $value){
+                    if($key !== 'password'){
+                        $newArray[$key] = $value;
+                    }
+                }
+                $foundSArray[] = $newArray;
+            }
+            return $foundSArray;
         }
-        if($department)
-        {
-         $employeeArray =  array_filter($employeeArray,function($v) use($department){
-            return  $v['department'] === $department;
-           }, ARRAY_FILTER_USE_BOTH);
-        }
-        dd($employeeArray);
+        return [];
     }   
 }
