@@ -27,12 +27,7 @@ class PasswordResetService implements PasswordResetServiceInterface
           'url'   => URL::to('/'),
         ]));
   }
-
-  public function changePassword(Request $request)
-  {
-    return $this->passwordResetDao->changePassword($request);
-  }
-
+  
   public function postChangePassword(Request $request)
   {
     return $this->passwordResetDao->postChangePassword($request); 

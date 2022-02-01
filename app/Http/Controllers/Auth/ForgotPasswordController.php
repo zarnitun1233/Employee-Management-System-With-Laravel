@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-// use Illuminate\Foundation\Auth\SendsPasswordResetEmails;
 use App\Contracts\Services\Auth\PasswordResetServiceInterface;
 use App\Http\Requests\Auth\ChangePasswordRequest;
 use App\Http\Requests\Auth\StoreResetRequest;
@@ -39,15 +38,11 @@ class ForgotPasswordController extends Controller
     {
         $this->passwordResetService->postMail($request->email);
 
-        return redirect()->route('reset.password')->with('message','We have send password reset link to your email');
+        return redirect('/login')->with('success','We have sent password reset link to your email');
     }
 
     public function changePassword(Request $request)
     {         
-    //    $result = $this->passwordResetService->changePassword($request);
-    //    if(!$result){
-    //     return redirect()->route('reset.password')->with('message','Invaild email');
-    //    }
         return view('.frontend.auth.change-password-form');
     }
 
@@ -60,7 +55,6 @@ class ForgotPasswordController extends Controller
            return redirect()->route('reset.password')->with('message','Invaild token or email');
        }
 
-       return redirect('/login')->with('message','Password Reset Successfully');
+       return redirect('/login')->with('success','Password Reset Successfully');
     }
-    // use SendsPasswordResetEmails;
 }
