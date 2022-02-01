@@ -658,26 +658,25 @@ textarea {
 }
 
 .list-design .salary-detail-container h2 {
-  font-size: 20px;
   margin-bottom: 10px;
+  font-size: 20px;
 }
 
-.list-design .salary-detail-container th, 
-.list-design .salary-detail-container td 
-{
+.list-design .salary-detail-container th,
+.list-design .salary-detail-container td {
   padding: 15px;
 }
 
-.list-design .salary-detail-container td  {
+.list-design .salary-detail-container td {
   background-color: #eee;
   text-align: center;
   vertical-align: middle;
 }
 
 .list-design .salary-detail-container th {
-  text-align: left;
   background-color: #04AA6D;
   color: #fff;
+  text-align: left;
 }
 
 .list-edit-back {
@@ -685,23 +684,22 @@ textarea {
   border: none;
   background-color: #04AA6D;
   color: #ffffff;
+  font-size: 100%;
   text-decoration: none;
   cursor: pointer;
   border-radius: 5px;
-  font-size: 100%;
 }
 
 .list-design .employee-info-table,
-.list-design .employee-salary-table
-{
+.list-design .employee-salary-table {
   border: 1px solid #04AA6D;
 }
 
 /*Chart.js CSS*/
 .panel-heading {
+  margin-bottom: 20px;
   font-size: 20px;
   font-weight: 700;
-  margin-bottom: 20px;
 }
 
 .panel-body {
@@ -968,33 +966,40 @@ textarea {
   }
 
   .common-nav .rt-nav {
-    text-align: right;
     padding-top: 1%;
+    text-align: right;
   }
 
-  .common-nav .rt-nav ul  {
+  .common-nav .rt-nav ul {
     padding-left: 0;
+  }
+}
+
+/* Responsive for max-width: 1107px */
+/*Employee List*/
+@media screen and (max-width: 1107px) {
+  .employee-list {
+    font-size: 15px;
   }
 }
 
 /* Responsive for max-width: 1086px */
 /*Employee List*/
 @media screen and (max-width: 1086px) {
-.employee-list th:nth-child(5),
-.employee-list th:nth-child(7),
-.employee-list th:nth-child(9),
-.employee-list th:nth-child(10)
-{
-  display: none;
-}
 
-.employee-list td.age,
-.employee-list td.profile-home,
-.employee-list td.dob,
-.employee-list td.address
-{
-  display: none;
-}
+  .employee-list th:nth-child(5),
+  .employee-list th:nth-child(7),
+  .employee-list th:nth-child(9),
+  .employee-list th:nth-child(10) {
+    display: none;
+  }
+
+  .employee-list td.age,
+  .employee-list td.profile-home,
+  .employee-list td.dob,
+  .employee-list td.address {
+    display: none;
+  }
 }
 
 /* Responsive for max-width: 774px */
@@ -1024,8 +1029,8 @@ textarea {
   }
 
   .social-icons a {
-    padding: 5px 2px;
     display: inline-block;
+    padding: 5px 2px;
   }
 }
 
@@ -1067,7 +1072,7 @@ textarea {
   .common-nav .rt-nav ul li a {
     font-size: 18px;
   }
-  
+
   .list-design .list-title {
     font-size: 20px;
   }
@@ -1075,14 +1080,19 @@ textarea {
   .common-nav .rt-nav ul li a {
     font-size: 18px;
   }
+
+  .copyright .p1,
+  .copyright .p2 {
+    font-size: 10px;
+  }
 }
 
 /* Responsive for max-width: 423px */
 /*Employee List*/
 @media screen and (max-width: 423px) {
+
   .list-design .list-table .list-edit,
-  .list-design .list-table .list-delete 
-  {
+  .list-design .list-table .list-delete {
     padding: 10px 5px;
     font-size: 10px;
   }
