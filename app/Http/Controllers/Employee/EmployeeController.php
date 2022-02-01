@@ -106,6 +106,6 @@ class EmployeeController extends Controller
     public function profile($id) 
     {
         $employee = $this->employeeInterface->edit($id);
-        return $employee;
+        return view('frontend.employee.profile')->with('employee', $employee);
     }
 }

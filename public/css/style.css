@@ -958,6 +958,15 @@ textarea {
   float: right;
 }
 
+/*Employee Profile*/
+.employee-list .image {
+  width: 10%;
+}
+
+.employee-list .image img {
+  width: 100%;
+}
+
 /* Responsive for max-width: 1242px */
 /*Employee List*/
 @media screen and (max-width: 1242px) {
