@@ -35,4 +35,41 @@
     <div>
       <button type="submit">Search</button>
   </form>
+  @if (Session::has('datas'))
+     @php
+      $employees = Session::get('datas');   
+      $i = 1; 
+     @endphp
+     @if (sizeof($employees))
+        <table>
+          <thead>
+            <tr>
+              <th>No</th>
+              <th>Name</th>
+              <th>Position</th>
+              <th>role</th>
+              <th>Date of Birth</th>
+              <th>Address</th>
+              <th>Department</th>
+            </tr>
+          </thead>
+        </table>
+        <tbody>
+          @foreach ($employees as $employee)
+            <tr>
+              <td>{{ $i }}</td>  
+              <td>{{ $employee['name'] }}</td>
+              <td>{{ $employee['position'] }}</td>
+              <td>{{ $employee['role'] === '1' ? 'Admin' : 'Employee' }}</td>
+              <td>{{ $employee['dob'] }}</td>
+              <td>{{ $employee['address'] }}</td>
+              <td>{{ $employee['department_name']}}</td>
+            </tr>  
+            @php
+             $i++;    
+            @endphp
+          @endforeach
+        </tbody>
+     @endif
+  @endif
 @endsection

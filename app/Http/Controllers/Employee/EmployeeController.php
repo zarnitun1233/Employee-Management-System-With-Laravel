@@ -100,7 +100,7 @@ class EmployeeController extends Controller
     public function postSearch(Request $request)
     {
        $employees = $this->employeeInterface->postSearch($request);
-       dd($employees);
+       return redirect()->route('employee.search')->with(['datas' => $employees]);
     }
 
     /**
