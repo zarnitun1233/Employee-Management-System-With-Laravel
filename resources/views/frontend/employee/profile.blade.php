@@ -10,8 +10,50 @@
     </div>
     @endif
     <div class="image">
-      <img src="{{ asset('images/' . $employee->image) }}" alt="Profile Picture">
+      <img src="{{ asset('images/' . 'img_avatar2.png') }}" alt="Profile Picture">
     </div>
+    <table class="list-table">
+      <tr>
+        <td>Name</td>
+        <td>{{ $employee->name }}</td>
+      </tr>
+      <tr>
+        <td>Position</td>
+        <td>{{ $employee->position }}</td>
+      </tr>
+      <tr>
+        <td>Role</td>
+        @if ($employee->role == 1)
+        <td>Admin</td>
+        @else 
+        <td>Employee</td>
+        @endif
+      </tr>
+      <tr>
+        <td>Age</td>
+        <td>{{ $employee->age }}</td>
+      </tr>
+      <tr>
+        <td>Email</td>
+        <td>{{ $employee->email }}</td>
+      </tr>
+      <tr>
+        <td>Phone</td>
+        <td>{{ $employee->phone }}</td>
+      </tr>
+      <tr>
+        <td>Date of Birth</td>
+        <td>{{ $employee->dob }}</td>
+      </tr>
+      <tr>
+        <td>Address</td>
+        <td>{{ $employee->address }}</td>
+      </tr>
+      <tr>
+        <td>Department</td>
+        <td>{{ $employee->department->name }}</td>
+      </tr>
+    </table>
   </div>
 </div>
 @endsection
