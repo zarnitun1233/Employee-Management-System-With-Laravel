@@ -98,4 +98,14 @@ class EmployeeController extends Controller
     {
         return $this->employeeInterface->export();
     }
+
+    /**
+     * Profile of login employee
+     * @param $id
+     */
+    public function profile($id) 
+    {
+        $employee = $this->employeeInterface->edit($id);
+        return $employee;
+    }
 }
