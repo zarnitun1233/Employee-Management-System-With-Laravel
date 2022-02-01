@@ -5,8 +5,7 @@
   <div class="list-design-container">
 <h1 class="list-title">Department List</h1>
 <div class="create-export">
-      <a href="{{ url('/department/create') }}">Create Employee</a>
-      <a href="{{ url('/edit') }}">Edit</a>
+      <a href="{{ url('/department/create') }}">Create Department</a>
     </div>
 @if ($message = Session::get('success'))
 <div>
@@ -36,6 +35,6 @@
     </tr>
     @endforeach
   </table><br><br>
-  {{ $departments->links() }}
 </div>
+{{ $departments->links() }}
 @endsection

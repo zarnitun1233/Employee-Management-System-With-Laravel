@@ -16,10 +16,10 @@
 
 <div id="mySidenav" class="sidenav" >
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-  <a href="#">Employee </a>
-  <a href="#">Salary </a>
-  <a href="#">Leaves </a>
-  <a href="#">Department </a>
+  <a href="{{ url('/employee/list') }}">Employee </a>
+  <a href="{{ url('/salary/list') }}">Salary </a>
+  <a href="{{ url('/leaves/list') }}">Leaves </a>
+  <a href="{{ url('/department/list') }}">Department </a>
 </div>
 <div class="header">
   <h2>Employee Management System</h2>

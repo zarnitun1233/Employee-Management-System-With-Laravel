@@ -18,14 +18,9 @@
       @enderror <br>
       <div class="btn">
         <button type="submit">Create</button>&nbsp;&nbsp;&nbsp;&nbsp;
-        <form action="{{ url('/department/list') }}" method="GET">
-          <button>Back</button>
-        </form>
+        <a href="{{ url('/department/list') }}">Back</a>
       </div>
     </table>
   </div>
 </form>
-<!--<div class="btn">
-<button onclick="history.back()">Back</button>
-</div>-->
 @endsection
