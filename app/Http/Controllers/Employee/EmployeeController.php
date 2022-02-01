@@ -102,6 +102,7 @@ class EmployeeController extends Controller
        $employees = $this->employeeInterface->postSearch($request);
        dd($employees);
     }
+
     /**
      * To Export Employees List
      */

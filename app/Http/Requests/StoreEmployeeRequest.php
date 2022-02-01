@@ -36,6 +36,7 @@ class StoreEmployeeRequest extends FormRequest
             'dob' => 'required',
             'address' => 'required|min:5|max:100',
             'department_id' => 'required|min:1|max:10',
+            'salary' => 'required|min:4|max:20',
         ];
     }
 }

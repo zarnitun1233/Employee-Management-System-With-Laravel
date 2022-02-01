@@ -33,4 +33,12 @@ class Employee extends Authenticatable
     {
         return $this->hasMany('App\Models\Salary');
     }
+
+    /**
+     * Salary Fuction for table relationship
+     */
+    public function salaryRecord()
+    {
+        return $this->hasMany('App\Models\SalaryRecord');
+    }
 }

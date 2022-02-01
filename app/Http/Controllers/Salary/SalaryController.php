@@ -9,6 +9,7 @@ use App\Http\Requests\SalaryUpdateRequest;
 use App\Models\Employee;
 use Illuminate\Http\Request;
 use App\Models\Salary;
+use App\Models\SalaryRecord;
 use Illuminate\Support\Facades\DB;
 
 class SalaryController extends Controller
@@ -75,6 +76,20 @@ class SalaryController extends Controller
     {
         $this->salaryInterface->update($request, $id);
         return redirect('/salary/list')->with('success', 'Salary Updated Successfully!');
+    }
+
+    /**
+     * Employee's Salary Detail and show by graph
+     * @param $id
+     */
+    public function detail($id)
+    {
+        $details = $this->salaryInterface->detail($id);
+        $department = $this->salaryInterface->getDepartmentByEmployeeId($id);
+        $date = $this->salaryInterface->dateFromSalaryRecord($id);
+        $salary = $this->salaryInterface->salaryFromSalaryRecord($id);
+        return view('frontend.salary.detail')->with('details', $details)->with('department', $department)->with('date', json_encode($date, JSON_NUMERIC_CHECK))
+            ->with('salary', json_encode($salary, JSON_NUMERIC_CHECK));
     }
 
     /**
