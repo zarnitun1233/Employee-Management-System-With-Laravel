@@ -3,7 +3,11 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Foundation\Auth\SendsPasswordResetEmails;
+use Illuminate\Http\Request;
+use App\Contracts\Services\Auth\PasswordResetServiceInterface;
+use App\Http\Requests\Auth\ChangePasswordRequest;
+use App\Http\Requests\Auth\StoreResetRequest;
+use App\Http\Requests\Auth\PostChangePasswordRequest;
 
 class ForgotPasswordController extends Controller
 {
@@ -18,5 +22,39 @@ class ForgotPasswordController extends Controller
     |
     */
 
-    use SendsPasswordResetEmails;
+    private $passwordResetService;
+
+    public function __construct(PasswordResetServiceInterface $passwordResetService)
+    {
+        $this->passwordResetService = $passwordResetService;
+    }
+
+    public function index()
+    {
+        return view('frontend.Auth.reset-mail-send');
+    }
+
+    public function postMail(StoreResetRequest $request)
+    {
+        $this->passwordResetService->postMail($request->email);
+
+        return redirect('/login')->with('success','We have sent password reset link to your email');
+    }
+
+    public function changePassword(Request $request)
+    {         
+        return view('.frontend.auth.change-password-form');
+    }
+
+    public function postChangePassword(PostChangePasswordRequest $request)
+    {   
+       $result =  $this->passwordResetService->postChangePassword($request);
+
+       if(!$result)
+       {    
+           return redirect()->route('reset.password')->with('message','Invaild token or email');
+       }
+
+       return redirect('/login')->with('success','Password Reset Successfully');
+    }
 }
