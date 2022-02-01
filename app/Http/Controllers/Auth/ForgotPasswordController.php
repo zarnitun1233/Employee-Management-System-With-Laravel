@@ -58,7 +58,7 @@ class ForgotPasswordController extends Controller
            return redirect()->route('reset.password')->with('message','Invaild token or email');
        }
 
-       echo "success";
+       return redirect('/login')->with('message','Password Reset Successfully');
     }
     // use SendsPasswordResetEmails;
 }
