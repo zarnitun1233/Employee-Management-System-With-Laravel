@@ -16,12 +16,14 @@ Route::get('/department/edit/{id}', [DepartmentController::class, 'edit']);
 Route::post('/department/edit/{id}', [DepartmentController::class, 'update']);
 Route::delete('/department/delete/{id}', [DepartmentController::class, 'delete']);
 
+//Salary
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/salary/list', [SalaryController::class, 'index']);
 Route::get('/salary/create', [SalaryController::class, 'create']);
 Route::post('/salary/create', [SalaryController::class, 'store']);
 Route::get('/salary/edit/{id}', [SalaryController::class, 'edit']);
 Route::post('/salary/edit/{id}', [SalaryController::class, 'update']);
+Route::get('/salary/detail/{id}', [SalaryController::class, 'detail']);
 Route::delete('/salary/delete/{id}', [SalaryController::class, 'delete']);
 Route::get('/', function() {
    return view('common.master');

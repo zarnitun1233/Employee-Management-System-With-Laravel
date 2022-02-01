@@ -58,4 +58,28 @@ interface SalaryDaoInterface
      * @param $id
      */
     public function delete($id);
+
+    /**
+     * Employee's Salary Detail and show by graph
+     * @param $id
+     */
+    public function detail($id);
+
+    /**
+     * Get Department By Employee_id
+     * @param $id
+     */
+    public function getDepartmentByEmployeeId($id);
+
+    /**
+     * Get date from Salary Record Table
+     * @param $id
+     */
+    public function dateFromSalaryRecord($id);
+
+    /**
+     * Get Salary from Salary Record Table
+     * @param $id
+     */
+    public function salaryFromSalaryRecord($id);
 }

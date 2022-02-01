@@ -3,7 +3,8 @@
 namespace App\Dao\Employee;
 
 use App\Models\Employee;
-use App\Models\Major;
+use App\Models\Salary;
+use App\Models\SalaryRecord;
 use App\Contracts\Dao\Employee\EmployeeDaoInterface;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -55,7 +56,17 @@ class EmployeeDao implements EmployeeDaoInterface
         $employee->dob = $request->dob;
         $employee->address = $request->address;
         $employee->department_id = $request->department_id;
-        return $employee->save();
+        $employee->save();
+        $salary = new Salary();
+        $salary->amount = $request->salary;
+        $salary->date = $employee->created_at;
+        $salary->employee_id = $employee->id;
+        $salary->save();
+        $salaryRecord = new SalaryRecord();
+        $salaryRecord->amount = $request->salary;
+        $salaryRecord->date = $employee->created_at;
+        $salaryRecord->employee_id = $employee->id;
+        $salaryRecord->save();
     }
 
     /**
