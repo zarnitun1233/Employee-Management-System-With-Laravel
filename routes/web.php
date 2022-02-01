@@ -60,4 +60,4 @@ Route::get('/logout', [AuthController::class, 'logout'])->name('logout')->middle
 Route::get('/export', [EmployeeController::class, 'export']);
 
 //Employee Profile
-Route::get('/employee/list/{id}', [EmployeeController::class, 'profile']);
+Route::get('/employee/list/{id}', [EmployeeController::class, 'profile'])->middleware('auth');

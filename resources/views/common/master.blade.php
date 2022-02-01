@@ -30,7 +30,7 @@
     </div>
     <div class="rt-nav clearFix">
       <ul>
-        <li><a href="">Profile <i class="fa fa-user-circle-o"></i></a>
+        <li><a href="{{ url('/employee/list/' . auth()->user()->id) }}">Profile <i class="fa fa-user-circle-o"></i></a>
         </li>
         <li><a href="">Logout <i class="fa fa-sign-out"></i></a>
         </li>

@@ -1,7 +1,7 @@
 @extends('common.master')
 
 @section('content')
-<div class="list-design employee-list">
+<div class="list-design employee-list employee-profile">
   <div class="list-design-container">
     <h1 class="list-title">Profile</h1>
     @if ($message = Session::get('success'))
@@ -54,6 +54,8 @@
         <td>{{ $employee->department->name }}</td>
       </tr>
     </table>
+    <a href="{{ url('/employee/edit/' . auth()->user()->id) }}" class="profile-edit">Edit Info</a>
+    <button onclick="history.back()">Back</button>
   </div>
 </div>
 @endsection

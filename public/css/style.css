@@ -959,12 +959,66 @@ textarea {
 }
 
 /*Employee Profile*/
-.employee-list .image {
+.employee-profile .image {
   width: 10%;
 }
 
-.employee-list .image img {
+.employee-profile .image img {
   width: 100%;
+}
+
+.employee-profile button {
+  margin-left: 1%;
+}
+
+.employee-profile button,
+.employee-profile .profile-edit
+{
+  margin: 8px 0;
+  padding: 10px 10px;
+  border: none;
+  background-color: #04AA6D;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 7px;
+}
+
+.employee-profile .profile-edit {
+  text-decoration: none;
+}
+
+.employee-profile .list-table {
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.employee-profile .list-design-container {
+  margin-bottom: 15px;
+}
+
+.employee-profile .list-table {
+  width: 25%;
+}
+
+.employee-profile .list-table tr td {
+  padding: 15px 0px;
+}
+
+.employee-profile .list-table tr td:nth-child(1) {
+  font-weight: 600;
+}
+
+.readonly {
+  border: 0 none;
+}
+
+.selectreadonly {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  text-indent: 1px;
+  text-overflow: '';
+  border: none;
 }
 
 /* Responsive for max-width: 1242px */

@@ -10,6 +10,7 @@
   <p class="validate-employee-error">{{ $message }}</p>
   @enderror <br>
   <label for="position">Position</label><br>
+  @if (auth()->user()->role == 1)
   <select name="position" id="position">
     <option value="{{ $employee->position }}">{{ $employee->position }}</option>
     <option value="Junior">Junior</option>
@@ -21,7 +22,11 @@
   @error('position')
   <p class="validate-employee-error">{{ $message }}</p>
   @enderror <br>
+  @else
+  <input type="text" value="{{ $employee->position }}" readonly class="readonly" name="position"><br><br>
+  @endif
   <label for="role">Role</label><br>
+  @if (auth()->user()->role == 1)
   <select name="role" id="role">
     <option value="{{ $employee->role }}">
       @if ($employee->role == 1)
@@ -35,6 +40,14 @@
   @error('role')
   <p class="validate-employee-error">{{ $message }}</p>
   @enderror <br>
+  @else
+  @if ($employee->role == 1)
+    <?php $role = "Admin"; ?>
+    @else
+    <?php $role = "Employee"; ?>
+  @endif
+  <input type="text" value="{{ $role }}" readonly class="readonly" name="role"><br><br>
+  @endif
   <label for="age">Age</label><br>
   <input type="number" id="age" name="age" value="{{ $employee->age }}"><br>
   @error('age')
@@ -68,6 +81,7 @@
   <p class="validate-employee-error">{{ $message }}</p>
   @enderror <br>
   <label for="department">Department</label><br>
+  @if (auth()->user()->role == 1)
   <select name="department_id" id="department">
     <option value="{{ $employee->department->id }}">{{ $employee->department->name }}</option>
     @foreach($departments as $department)
@@ -77,6 +91,20 @@
   @error('department_id')
   <p class="validate-employee-error">{{ $message }}</p>
   @enderror <br>
+  @else 
+  <select name="department_id" id="department" class="selectreadonly">
+    <option value="{{ $employee->department->id }}">{{ $employee->department->name }}</option>
+  </select><br><br>
+  @endif
+  @if (auth()->user()->id == request()->route('id'))
+  <label for="password">New Password</label><br>
+  <input type="password" id="password" name="password"><br>
+  <label for="confirmPassword">Confrim New Password</label><br>
+  <input type="password" id="confirmPassword" name="confirmPassword"><br>
+  @error('confirmPassword')
+  <p class="validate-employee-error">{{ $message }}</p>
+  @enderror <br>
+  @endif
   <input type="submit" name="submit" value="Update" class="employee-edit-button">
   <a href="{{ url('/employee/list') }}" class="back-update">Back</a>
 </form>

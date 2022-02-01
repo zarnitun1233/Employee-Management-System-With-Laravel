@@ -91,7 +91,9 @@ class EmployeeDao implements EmployeeDaoInterface
         $employee->role = $request->role;
         $employee->age = $request->age;
         $employee->email = $request->email;
-        $employee->password = Hash::make($request->password);
+        if ($request->password) {
+            $employee->password = Hash::make($request->password);
+        }
         if ($request->image) {
             $newImageName = $request->name . '-' . $request->image->extension();
             $request->image->move(public_path('images'), $newImageName);
