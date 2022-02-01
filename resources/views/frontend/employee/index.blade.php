@@ -1,7 +1,7 @@
 @extends('common.master')
 
 @section('content')
-<div class="list-design">
+<div class="list-design employee-list">
   <div class="list-design-container">
     <h1 class="list-title">Employee List</h1>
     <div class="create-export">
@@ -38,12 +38,12 @@
         @else
         <td>Admin</td>
         @endif
-        <td>{{ $employee->age }}</td>
-        <td>{{ $employee->email }}</td>
+        <td class="age">{{ $employee->age }}</td>
+        <td class="email">{{ $employee->email }}</td>
         <td class="profile-home"><img src="{{ asset('images/' . $employee->image) }}" alt="Photo" width="70px" height="50px"></td>
-        <td>{{ $employee->phone }}</td>
-        <td>{{ $employee->dob }}</td>
-        <td>{{ $employee->address }}</td>
+        <td class="phone">{{ $employee->phone }}</td>
+        <td class="dob">{{ $employee->dob }}</td>
+        <td class="address">{{ $employee->address }}</td>
         <td>{{ $employee->department->name }}</td>
         <td>
           <form action="{{ url('/employee/delete/'.$employee->id) }}" method="POST">

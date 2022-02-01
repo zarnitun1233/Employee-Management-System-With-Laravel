@@ -26,13 +26,13 @@
 </div>
   <div class="nav clearFix">
     <div class="lf-nav clearFix">
-      <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Management</span>
+      <span style="cursor:pointer" onclick="openNav()">&#9776; Management</span>
     </div>
     <div class="rt-nav clearFix">
       <ul>
-        <li><a href="" style="font-size:23px">Profile <i class="fa fa-user-circle-o"></i></a>
+        <li><a href="">Profile <i class="fa fa-user-circle-o"></i></a>
         </li>
-        <li><a href="" style="font-size:23px">Logout <i class="fa fa-sign-out"></i></a>
+        <li><a href="">Logout <i class="fa fa-sign-out"></i></a>
         </li>
       </ul>
      
@@ -45,10 +45,12 @@
     </div>
     <div class="copyright clearFix">
       <p class="p1">Copyright &copy; www.google.com. </p>
-      <div class="social-icons">
+      <div class="social-icons clearFix">
+        <div class="icons">
         <a href="#"><i class="fab fa-facebook"></i></a>
         <a href="#"><i class="fab fa-twitter-square"></i></a>
         <a href="#"><i class="fab fa-google-plus"></i></a>
+        </div>
         <p class="p2">
           All rights reserved | Web Design by <span>Group_B</span>
         </p>
