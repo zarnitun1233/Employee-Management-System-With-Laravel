@@ -472,6 +472,16 @@ body {
   border-radius: 5px;
 }
 
+.list-design .list-table .list-detail {
+  padding: 10px;
+  border: none;
+  background-color: #24A0ED;
+  color: #ffffff;
+  text-decoration: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
 .list-design .w-5 {
   display: none;
 }
@@ -624,6 +634,76 @@ textarea {
   border: 1px solid #129956;
   box-sizing: border-box;
   border-radius: 7px;
+}
+
+/*Salary Detail*/
+.list-design .employee-info {
+  margin-bottom: 25px;
+}
+
+.list-design .employee-salary {
+  margin-bottom: 25px;
+}
+
+.list-design .salary-detail-container .list-title {
+  margin-bottom: 20px;
+}
+
+.list-design .salary-detail-container h2 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.list-design .salary-detail-container th, 
+.list-design .salary-detail-container td 
+{
+  padding: 15px;
+}
+
+.list-design .salary-detail-container td  {
+  background-color: #eee;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.list-design .salary-detail-container th {
+  text-align: left;
+  background-color: #04AA6D;
+  color: #fff;
+}
+
+.list-edit-back {
+  padding: 10px;
+  border: none;
+  background-color: #04AA6D;
+  color: #ffffff;
+  text-decoration: none;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 100%;
+}
+
+.list-design .employee-info-table,
+.list-design .employee-salary-table
+{
+  border: 1px solid #04AA6D;
+}
+
+/*Chart.js CSS*/
+.panel-heading {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.panel-body {
+  width: 50%;
+  height: 300px;
+}
+
+.salary-graph {
+  width: 100%;
+  margin-bottom: 40px;
 }
 
 .create-employee .create-employee-form select[id=position] {

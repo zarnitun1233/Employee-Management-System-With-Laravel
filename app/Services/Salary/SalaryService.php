@@ -104,4 +104,40 @@ class SalaryService implements SalaryServiceInterface
     {
         return $this->salaryDao->delete($id);
     }
+
+    /**
+     * Employee's Salary Detail and show by graph
+     * @param $id
+     */
+    public function detail($id)
+    {
+        return $this->salaryDao->detail($id);
+    }
+
+    /**
+     * Get Department By Employee_id
+     * @param $id
+     */
+    public function getDepartmentByEmployeeId($id)
+    {
+        return $this->salaryDao->getDepartmentByEmployeeId($id);
+    }
+
+    /**
+     * Get date from Salary Record Table
+     * @param $id
+     */
+    public function dateFromSalaryRecord($id)
+    {
+        return $this->salaryDao->dateFromSalaryRecord($id);
+    }
+
+    /**
+     * Get Salary from Salary Record Table
+     * @param $id
+     */
+    public function salaryFromSalaryRecord($id)
+    {
+        return $this->salaryDao->salaryFromSalaryRecord($id);
+    }
 }

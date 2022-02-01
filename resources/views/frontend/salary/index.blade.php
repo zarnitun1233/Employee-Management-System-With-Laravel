@@ -17,8 +17,8 @@
         <th>No</th>
         <th>Name</th>
         <th>Position</th>
+        <th>Department</th>
         <th>Salary Amout</th>
-        <th>Date</th>
         <th>Actions</th>
       </tr>
       @foreach($salaries as $salary)
@@ -26,10 +26,11 @@
         <td>{{ $salary->id }}</td>
         <td>{{ $salary->employee->name }}</td>
         <td>{{ $salary->employee->position }}</td>
+        <td>{{ $salary->employee->department->name }}</td>
         <td>{{ $salary->amount }}</td>
-        <td>{{ $salary->date }}</td>
         <td>
           <form action="{{ url('/salary/delete/'.$salary->id) }}" method="POST">
+            <a href="{{ url('/salary/detail/'.$salary->employee->id) }}" class="list-detail">Detail</a>
             <a href="{{ url('/salary/edit/'.$salary->id) }}" class="list-edit">Edit</a>
             {{ csrf_field() }}
             {{ method_field('DELETE') }}
