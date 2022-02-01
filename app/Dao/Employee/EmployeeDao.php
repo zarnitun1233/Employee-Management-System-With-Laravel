@@ -128,7 +128,7 @@ class EmployeeDao implements EmployeeDaoInterface
 
             $finds = $position ? $finds->where('employees.position','LIKE',$position) : $finds;
 
-            $finds = $joinDate ? $finds->where('created_at','LIKE','% '.$joinDate.' %') : $finds;
+            $finds = $joinDate ? $finds->where('employees.created_at','LIKE','%'.$joinDate.'%') : $finds;
 
             $finds = $department ? $finds->where('departments.id','=',$department) : $finds;
 
