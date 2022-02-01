@@ -38,6 +38,8 @@ class ForgotPasswordController extends Controller
     public function postMail(StoreResetRequest $request)
     {
         $this->passwordResetService->postMail($request->email);
+
+        return redirect()->route('reset.password')->with('message','We have send password reset link to your email');
     }
 
     public function changePassword(Request $request)

@@ -7,7 +7,7 @@
 
 Your Password Rest link is ready.
 
-@component('mail::button', ['url' => $url."/auth/change-password/token=$token" ])
+@component('mail::button', ['url' => $url."/auth/change-password/$token" ])
 Reset Password
 @endcomponent
 
