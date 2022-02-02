@@ -120,6 +120,7 @@ body {
   width: 100%;
   margin: 0 auto;
   padding-bottom: 15px;
+  margin-top: 25px;
 }
 
 .foot-border {
@@ -959,12 +960,11 @@ textarea {
 }
 
 .employee-create-form .btn {
-  width: 30%;
-  padding: 20px 0px 10px 320px;
+  width: 50%;
+  text-align: right;
 }
 
 .employee-create-form .btn button {
-  width: 25%;
   margin: 8px 0;
   padding: 10px 10px;
   border: none;
@@ -1117,6 +1117,14 @@ textarea {
   }
 }
 
+/* Responsive Page for max-width: 788px */
+@media screen and (max-width: 788px) {
+  /*Salary Detail Page*/
+  .panel-body {
+    width: 70%;
+  }
+}
+
 /* Responsive for max-width: 774px */
 /*Employee List*/
 @media screen and (max-width: 774px) {
@@ -1147,6 +1155,14 @@ textarea {
     display: inline-block;
     padding: 5px 2px;
   }
+
+  .employee-create-form .employee-table {
+    width: 100%;
+  }
+
+  .employee-create-form .btn {
+    width: 100%;
+  }
 }
 
 /* Responsive for max-width: 582px */
@@ -1159,19 +1175,56 @@ textarea {
   .employee-list td.phone {
     display: none;
   }
+
+  /*Salary List*/
+  .salary-list .list-design-container th {
+    font-size: 12px;
+  }
+
+  .salary-list .list-design-container td {
+    font-size: 10px;
+    padding: 12px 0px;
+  }
+
+  .salary-list .list-table .list-detail,
+  .salary-list .list-table .list-edit,
+  .salary-list .list-table .list-delete
+  {
+    padding: 5px;
+    font-size: 10px;
+  }
+}
+
+/* Responsive for max-width: 563px */
+@media screen and (max-width: 563px) {
+  /*Salary Detail Page*/
+  .panel-body {
+    width: 100%;
+  }
+}
+
+/* Responsive for max-width: 488px */
+@media screen and (max-width: 488px) {
+  /*Department List Page*/
+  
+.department-list .list-table th {
+  font-size: 12px;
+}
+
+.department-list .list-table td {
+  font-size: 10px;
+}
+
+.department-list .list-table .list-delete {
+  font-size: 10px;
+  padding: 9px;
+}
+  
 }
 
 /* Responsive for max-width: 483px */
 /*Employee List*/
 @media screen and (max-width: 483px) {
-  .list-design .list-table th {
-    font-size: 14px;
-  }
-
-  .list-design .list-table td {
-    font-size: 12px;
-  }
-
   .list-design .list-table .list-edit {
     margin-bottom: 4px;
   }
@@ -1202,6 +1255,24 @@ textarea {
   }
 }
 
+/* Responsive for max-width: 446px */
+@media screen and (max-width: 446px) {
+/*Create Department*/
+.create-department-header {
+  font-size: 18px;
+}
+
+.create-department label {
+  font-size: 14px;
+}
+
+.create-department .btn button,
+.create-department .btn a
+{
+  font-size: 16px;
+}
+}
+
 /* Responsive for max-width: 423px */
 /*Employee List*/
 @media screen and (max-width: 423px) {
@@ -1209,6 +1280,12 @@ textarea {
   .list-design .list-table .list-edit,
   .list-design .list-table .list-delete {
     padding: 10px 5px;
+    font-size: 10px;
+  }
+
+  .salary-list .list-table .list-edit,
+  .salary-list .list-table .list-delete {
+    padding: 5px;
     font-size: 10px;
   }
 }

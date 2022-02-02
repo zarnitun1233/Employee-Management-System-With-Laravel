@@ -1,7 +1,7 @@
 @extends('common.master')
 
 @section('content')
-<div class="list-design">
+<div class="list-design department-list">
   <div class="list-design-container">
 <h1 class="list-title">Department List</h1>
 <div class="create-export">

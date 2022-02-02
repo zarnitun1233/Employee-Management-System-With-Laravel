@@ -1,8 +1,8 @@
 @extends('common.master')
 
 @section('content')
-<h2 class="employee-create-header">Edit Department</h2>
-<form action="" method="POST" enctype="multipart/form-data" class="employee-create-form">
+<h2 class="employee-create-header create-department-header">Edit Department</h2>
+<form action="" method="POST" enctype="multipart/form-data" class="employee-create-form create-department">
   @csrf
   <table class="employee-table">
     <tr>
@@ -23,7 +23,7 @@
     </tr>
     </table>
   <div class="btn">
-    <button type="submit">Create</button>&nbsp;&nbsp;&nbsp;&nbsp;
+    <button type="submit">Update</button>&nbsp;&nbsp;&nbsp;&nbsp;
     <a href="{{ url('/department/list') }}">Back</a>
   </div>
 </form>

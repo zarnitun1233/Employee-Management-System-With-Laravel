@@ -1,7 +1,7 @@
 @extends('common.master')
 
 @section('content')
-<div class="list-design">
+<div class="list-design salary-list">
   <div class="list-design-container">
     <h1 class="list-title">Salary List</h1>
     @if ($message = Session::get('success'))

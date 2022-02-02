@@ -1,8 +1,8 @@
 @extends('common.master')
 
 @section('content')
-<h2 class="employee-create-header">Create New Department</h2>
-<form action="" method="POST" enctype="multipart/form-data" class="employee-create-form">
+<h2 class="employee-create-header create-department-header">Create New Department</h2>
+<form action="" method="POST" enctype="multipart/form-data" class="employee-create-form create-department">
   @csrf
   <table class="employee-table">
     <tr>
