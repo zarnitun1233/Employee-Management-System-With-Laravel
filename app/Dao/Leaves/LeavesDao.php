@@ -5,6 +5,7 @@ namespace App\Dao\Leaves;
 use App\Contracts\Dao\Leaves\LeavesDaoInterface;
 use Illuminate\Http\Request;
 use App\Models\Leave;
+use App\Models\Employee;  
 use Illuminate\Support\Facades\DB;
 
 class LeavesDao implements  LeavesDaoInterface
@@ -14,9 +15,20 @@ class LeavesDao implements  LeavesDaoInterface
     * @return void
     */
 
-    public function index()
+    public function index($name)
     {
-      return $leaves = Leave::paginate(5);
+      $leaves =DB::table('leaves')
+      ->select(
+        'employees.name as emp_name',
+        'departments.name as department_name',
+        'leaves.*'
+        )
+      ->join('employees','employees.id','leaves.employee_id')
+      ->join('departments','departments.id','employees.department_id');
+      
+      $leaves = $name ? $leaves->where('employees.name','LIKE','%'.$name.'%') : $leaves;
+
+      return $leaves->paginate(5);
     }
     /**
      * 
@@ -124,27 +136,6 @@ class LeavesDao implements  LeavesDaoInterface
     public function reason($id)
     {
       return $leave = Leave::find($id);
-    }
-
-    public function  searchByName(Request $request)
-    { 
-      $employees = DB::table('employees')
-      ->select(
-        'employees.name as emp_name',
-        'leaves.id as leave_id',
-        'leaves.reason as leave_reason',
-        'leaves.fromDate as leave_fromDate',
-        'leaves.reason as leave_reason',
-        'leaves.status as leave_status',
-        'leaves.toDate as leave_toDate',
-        'leaves.duration as leave_duration',
-        'departments.name as department_name'
-      )
-      ->join('leaves','employees.id','=','leaves.employee_id')
-      ->join('departments','employees.department_id','=','departments.id')
-      ->where('employees.name','LIKE','%'.$request->name.'%')
-      ->paginate(5);
-      return  $employees;
     }
 
     public function leavesByUser(Request $request)

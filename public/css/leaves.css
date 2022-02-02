@@ -75,6 +75,16 @@
     border-radius: 5px;
 }
 
+.leaves-table .leaves-edit {
+    padding: 10px;
+    border: none;
+    background-color: #ebcf33;
+    color: #ffffff;
+    cursor: pointer;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
 .leaves-table .leaves-accept {
     padding: 10px;
     border: none;
@@ -161,6 +171,21 @@
 
 .leaves-search button{
     margin-left: 10px;
+}
+
+.leaves-row.remove-row{
+    display: none;
+}
+
+/* leaves-by-user */
+.leaves-user-action {
+    display: flex;
+    align-items: center;
+    justify-content: center ;
+}
+
+.leaves-user-action button {
+    margin-right: 10px;
 }
 
 

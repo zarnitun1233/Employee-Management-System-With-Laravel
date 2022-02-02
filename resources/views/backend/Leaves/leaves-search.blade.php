@@ -26,7 +26,7 @@
           </thead>
           <tbody>
             @foreach ($employees as $leave)
-            <tr>
+            <tr class="leaves-row">
               <td>{{ $i }}</td>
               <td>{{ $leave->emp_name }}</td>
               <td>{{ $leave->department_name}}</td>

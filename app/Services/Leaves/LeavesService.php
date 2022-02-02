@@ -23,9 +23,9 @@ class LeavesService implements LeavesServiceInterface
     $this->leavesDao = $leavesDao;
   }
 
-  public function index()
+  public function index($name)
   {
-    return $this->leavesDao->index();
+    return $this->leavesDao->index($name);
   }
 
   /**
@@ -93,11 +93,6 @@ class LeavesService implements LeavesServiceInterface
   public function reason($id)
   {
     return  $this->leavesDao->reason($id);
-  }
-
-  public function  searchByName(Request $request)
-  {
-    return  $this->leavesDao->searchByName($request);
   }
 
   public function leavesByUser(Request $request)

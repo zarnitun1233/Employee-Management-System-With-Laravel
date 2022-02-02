@@ -16,7 +16,7 @@
           <form action="{{ route('leaves.searchByName') }}" class="leaves-search" method="POST">
             @csrf
             <div class="leaves-input">
-              <input type="search" name="name" placeholder="Search by name">
+              <input type="search" name="name" id="leaves-search" placeholder="Search by name">
             </div>
             <div class="leaves-input">
               <button type="submit ">Search</button>
@@ -43,10 +43,10 @@
             </thead>
             <tbody>
               @foreach ($leaves as $leave)
-              <tr>
+              <tr class="leaves-row">
                 <td>{{ $i }}</td>
-                <td>{{ $leave->Employee->name }}</td>
-                <td>{{ $leave->Employee->department->name }}</td>
+                <td>{{ $leave->emp_name }}</td>
+                <td>{{ $leave->department_name }}</td>
                 <td>{{ $leave->fromDate }}</td>
                 <td>{{ $leave->toDate }}</td>
                 <td>{{ $leave->duration }}</td>
@@ -124,4 +124,5 @@
     @else
     <span>no data</span>
     @endif
+    <script src="{{ asset('js/Leaves/leaves.js') }}"></script>
 @endsection

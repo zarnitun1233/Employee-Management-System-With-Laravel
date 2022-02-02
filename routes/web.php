@@ -30,7 +30,7 @@ Route::get('/', function() {
 
 #leave route
 Route::get('/leaves/create/{id}',[LeavesController::class,'create'])->name('leaves.create')->middleware('auth');
-Route::get('/leaves/list',[LeavesController::class,'index'])->name('leaves.list');
+Route::get('/leaves/list/{name}',[LeavesController::class,'index'])->name('leaves.list');
 Route::get('leaves/edit/{id}',[LeavesController::class,'edit'])->name('leaves.edit');
 Route::get('/leaves/list',[LeavesController::class,'index'])->name('leaves.list');
 Route::get('leaves/reason/{id}',[LeavesController::class,'reason'])->name('leaves.reason');
@@ -45,7 +45,7 @@ Route::delete('leaves/delete/{id}',[LeavesController::class,'delete'])->name('le
 
 Route::put('leaves/update/{id}',[LeavesController::class,'update'])->name('leaves.update');
 
-Route::get('/employee/list', [EmployeeController::class, 'index'])->middleware('auth', 'admin');
+Route::get('/employee/list/', [EmployeeController::class, 'index'])->middleware('auth', 'admin');
 Route::get('/employee/create', [EmployeeController::class, 'create']);
 Route::post('/employee/create', [EmployeeController::class, 'store']);
 Route::get('/employee/edit/{id}', [EmployeeController::class, 'edit']);

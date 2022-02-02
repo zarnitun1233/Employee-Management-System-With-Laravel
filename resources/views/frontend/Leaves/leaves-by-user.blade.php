@@ -21,6 +21,7 @@
               <th>Duration</th>
               <th>Reason</th>
               <th>Status</th>
+              <th>Action</th>
             </tr>
           </thead>
           <tbody>
@@ -44,6 +45,14 @@
                   <span class="show-status-accept show-status">Approved</span>
                 </td>
               @endif
+              <td class="leaves-user-action">
+                <form class="leaves-action-form"  action="{{ route('leaves.delete',['id'=> $leave->leave_id]) }}" method="POST">
+                  @method('delete')
+                  @csrf
+                  <button type="submit" class="leaves-delete">Delete</button>
+                </form>
+                <a href="{{ route('leaves.edit',['id'=>$leave->leave_id]) }}"  class="leaves-edit {{$leave->leave_status ? '' :'disabled' }}">Edit</a>
+              </td>
             </tr>
             @php
               $i++;    

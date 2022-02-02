@@ -10,7 +10,7 @@ interface LeavesDaoInterface
    *send empoyee data to salaries create view
    * @return void
    */
-  public function index();
+  public function index($name);
 
   /**
    * Undocumented function
@@ -54,8 +54,6 @@ interface LeavesDaoInterface
   public function accept($id);
 
   public function reason($id);
-
-  public function  searchByName(Request $request);
 
   public function leavesByUser(Request $request);
 }
