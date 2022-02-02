@@ -86,7 +86,7 @@
       </td>
     </tr>
     <td class="employee-label"><label for="age">Age</label></label></td>
-    <td><input type="number" id="age" name="age" value="{{ $employee->age }}"><br>
+    <td class="edit-employee"><input type="number" id="age" name="age" value="{{ $employee->age }}"><br>
       @error('age')
       <p class="validate-employee-error">{{ $message }}</p>
       @enderror <br>
