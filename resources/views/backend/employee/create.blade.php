@@ -55,7 +55,7 @@
     </tr>
     <tr>
       <td class="employee-label"><label for="salary">Salary:<span>*</span></label></td>
-      <td><input type="number" name="salary" id="salary">
+      <td class="create-salary"><input type="number" name="salary" id="salary">
         @error('salary')
         <span>Salary cannot be empty!</span>
         @enderror

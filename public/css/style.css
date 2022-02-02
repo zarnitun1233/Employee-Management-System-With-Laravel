@@ -625,6 +625,15 @@ input[type=date] {
   border-radius: 7px;
 }
 
+.employee-table .create-salary {
+  padding: 5px 0px;
+}
+
+.create-salary input[type=number] {
+  width: 90%;
+  border: 1px solid #000;
+}
+
 .create-employee .create-employee-form input[type=text] {
   margin-left: 129px;
 }
