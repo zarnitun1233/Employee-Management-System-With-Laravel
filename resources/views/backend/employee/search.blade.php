@@ -41,7 +41,7 @@
             <div class="not-found-data">No Data</div>
         @endif
     @endif
-    <div class="list-design employee-list">
+    <div class="list-design">
     <div class="list-design-container">
     <table class="list-table">
             <tr>
