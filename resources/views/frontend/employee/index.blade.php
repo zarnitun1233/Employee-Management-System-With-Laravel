@@ -5,6 +5,7 @@
   <div class="list-design-container">
     <h1 class="list-title">Employee List</h1>
     <div class="create-export">
+    <a href="{{ url('/employee/search') }}">Search</a>
       <a href="{{ url('/employee/create') }}">Create Employee</a>
       <a href="{{ url('/export') }}">Export</a>
     </div>
