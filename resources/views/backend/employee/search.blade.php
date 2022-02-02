@@ -70,7 +70,7 @@
                         <td>{{ $employee['dob'] }}</td>
                         <td>{{ $employee['address'] }}</td>
                         <td>{{ $employee['department_name']}}</td>
-                        <td>{{ $employee['created_at'] }}</td>
+                        <td>{{ explode(" ",$employee['created_at'])[0] }}</td>
                     </tr>  
                     @php 
                         $i++;    
