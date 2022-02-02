@@ -108,8 +108,8 @@ class LeavesController extends Controller  {
 
     public function  searchByName(SearchLeavesRequest $request)
     {
-        $employees = $this->leavesService->searchByName($request);
-        return view('backend.leaves.leaves-search',compact('employees'));
+        $leaves = $this->leavesService->searchByName($request);
+        return view('backend.leaves.leaves-list',compact('leaves'));
     }
     
     public function leavesByUser(Request $request)

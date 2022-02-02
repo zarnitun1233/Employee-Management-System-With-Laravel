@@ -9,7 +9,7 @@
     @endphp
     <div class="leaves-list">
       <div class="leaves-list-container">
-        <h2 class="leaves-title">Employees Search Result</h2>
+        <h2 class="leaves-title">Your's Leaves</h2>
         <table class="leaves-table">
           <thead>
             <tr>

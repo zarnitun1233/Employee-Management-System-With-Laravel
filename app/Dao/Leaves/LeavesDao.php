@@ -143,7 +143,7 @@ class LeavesDao implements  LeavesDaoInterface
       ->join('leaves','employees.id','=','leaves.employee_id')
       ->join('departments','employees.department_id','=','departments.id')
       ->where('employees.name','LIKE','%'.$request->name.'%')
-      ->get();
+      ->paginate(5);
       return  $employees;
     }
 
