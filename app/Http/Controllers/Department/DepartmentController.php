@@ -62,9 +62,9 @@ class DepartmentController extends Controller
      */
     public function edit($id)
     {
-        $department = $this->departmentInterface->edit($id);
+        $dep = $this->departmentInterface->edit($id);
         $departments = $this->departmentInterface->create();
-        return view('backend.department.edit')->with('department', $department)->with('departments', $departments);
+        return view('backend.department.edit')->with('dep', $dep)->with('departments', $departments);
     }
 
     /**

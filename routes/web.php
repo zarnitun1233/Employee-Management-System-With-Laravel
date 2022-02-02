@@ -6,6 +6,7 @@ use App\Http\Controllers\Employee\EmployeeController;
 use App\Http\Controllers\Salary\SalaryController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Leaves\LeavesController;
+use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\Auth\AuthController;
 use App\Models\Employee;
 
@@ -48,6 +49,12 @@ Route::post('/employee/create', [EmployeeController::class, 'store']);
 Route::get('/employee/edit/{id}', [EmployeeController::class, 'edit']);
 Route::post('/employee/edit/{id}', [EmployeeController::class, 'update']);
 Route::delete('/employee/delete/{id}', [EmployeeController::class, 'delete']);
+
+//auth route
+Route::get('auth/reset-password',[ForgotPasswordController::class,'index'])->name('reset.password');
+Route::get('auth/change-password/{token}',[ForgotPasswordController::class,'changePassword'])->name('change.password');
+Route::post('auth/change-password',[ForgotPasswordController::class,'postChangePassword'])->name('post.change.password');
+Route::post('auth/mail-send',[ForgotPasswordController::class,'postMail'])->name('post.mail');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 

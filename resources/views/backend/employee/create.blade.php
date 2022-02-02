@@ -54,6 +54,14 @@
       </td>
     </tr>
     <tr>
+      <td class="employee-label"><label for="salary">Salary:<span>*</span></label></td>
+      <td class="create-salary"><input type="number" name="salary" id="salary">
+        @error('salary')
+        <span>Salary cannot be empty!</span>
+        @enderror
+      </td>
+    </tr>
+    <tr>
       <td class="employee-label"><label for="email">Email:<span>*</span></label></td>
       <td><input type="email" name="email" id="email">
         @error('email')

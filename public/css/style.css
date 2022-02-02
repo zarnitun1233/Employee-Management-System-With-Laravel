@@ -395,6 +395,40 @@ body {
 .login-form form span.psw {
   float: right;
 }
+/*reset Password*/
+.reset-pswd{
+  width: 50%;
+  margin: 0 auto;
+  border: 3px solid #f1f1f1;
+}
+.reset-pswd h2{
+  padding: 10px 20px;
+  font-size: 28px;
+}
+.reset-pswd label{
+  padding: 10px 20px;
+}
+.reset-pswd input[type=email] {
+  display: inline-block;
+    width: 36%;
+    margin: 8px 0;
+    padding: 8px 6px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+.reset-pswd button {
+  width: 13%;
+    margin: 11px 0px 10px 240px;
+    padding: 11px 10px;
+    border: none;
+    background-color: #04AA6D;
+    color: white;
+    cursor: pointer;
+}
+.reset-pswd button:hover {
+  opacity: 0.7;
+}
+
 
 /*New Employee Design CSS*/
 
@@ -589,6 +623,15 @@ input[type=date] {
   border: 1px solid #129956;
   box-sizing: border-box;
   border-radius: 7px;
+}
+
+.employee-table .create-salary {
+  padding: 5px 0px;
+}
+
+.create-salary input[type=number] {
+  width: 90%;
+  border: 1px solid #000;
 }
 
 .create-employee .create-employee-form input[type=text] {
