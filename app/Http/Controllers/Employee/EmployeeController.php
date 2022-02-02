@@ -7,6 +7,7 @@ use App\Models\Employee;
 use App\Contracts\Services\Employee\EmployeeServiceInterface;
 use App\Http\Requests\StoreEmployeeRequest;
 use App\Http\Requests\EmployeeUpdateRequest;
+use App\Http\Requests\Search\SearchEmployeeRequest;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -90,6 +91,17 @@ class EmployeeController extends Controller
         return redirect('/employee/list')->with('success', 'Employee Deleted Successfully!');
     }
 
+    public function search()
+    {
+        $departments = $this->employeeInterface->search();
+        return view('backend.employee.search',compact('departments'));
+    }
+
+    public function postSearch(Request $request)
+    {
+       $employees = $this->employeeInterface->postSearch($request);
+       return redirect()->route('employee.search')->with(['datas' => $employees]);
+    }
 
     /**
      * To Export Employees List

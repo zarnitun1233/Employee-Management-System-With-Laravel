@@ -49,6 +49,8 @@ Route::post('/employee/create', [EmployeeController::class, 'store']);
 Route::get('/employee/edit/{id}', [EmployeeController::class, 'edit']);
 Route::post('/employee/edit/{id}', [EmployeeController::class, 'update']);
 Route::delete('/employee/delete/{id}', [EmployeeController::class, 'delete']);
+Route::get('/employee/search', [EmployeeController::class, 'search'])->name('employee.search');
+Route::post('/employee/search', [EmployeeController::class, 'postSearch'])->name('employee.post.search');
 
 //auth route
 Route::get('auth/reset-password',[ForgotPasswordController::class,'index'])->name('reset.password');

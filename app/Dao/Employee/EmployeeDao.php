@@ -13,6 +13,8 @@ use App\Http\Requests\StoreEmployeeRequest;
 use App\Http\Requests\EmployeeUpdateRequest;
 use App\Models\Department;
 use Illuminate\Support\Facades\Hash;
+use Carbon\Carbon;
+
 
 /**
  * Data accessing object for post
@@ -113,4 +115,48 @@ class EmployeeDao implements EmployeeDaoInterface
         $employee = Employee::find($id);
         return $employee->delete();
     }
+
+    public function search()
+    {
+       return $departments = Department::all();
+    }
+
+    
+    public function postSearch(Request $request)
+    {   
+        $employeeArray =[];
+        $name = $request->name ?? null;
+        $position =$request->position ?? null;
+        $joinDate = $request->join_date ?? null;
+        $department = $request->department ?? null; 
+        if($name || $position || $joinDate || $department)
+        {
+            $finds =DB::table('employees')
+            ->select('employees.*','departments.name as department_name')
+            ->join('departments','departments.id','=','employees.department_id')
+            ->where('employees.deleted_at','=',NULL);
+             $finds = $name ? $finds->where('employees.name','LIKE','%'.$name.'%') : $finds;
+
+            $finds = $position ? $finds->where('employees.position','LIKE',$position) : $finds;
+
+            $finds = $joinDate ? $finds->where('employees.created_at','LIKE','%'.$joinDate.'%') : $finds;
+
+            $finds = $department ? $finds->where('departments.id','=',$department) : $finds;
+
+            $founds = $finds->get();
+        
+            $foundSArray= [];
+            $newArray =[];
+            foreach($founds as  $found){
+                foreach($found as $key => $value){
+                    if($key !== 'password'){
+                        $newArray[$key] = $value;
+                    }
+                }
+                $foundSArray[] = $newArray;
+            }
+            return $foundSArray;
+        }
+        return [];
+    }   
 }
