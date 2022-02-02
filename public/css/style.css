@@ -634,6 +634,15 @@ input[type=date] {
   border: 1px solid #000;
 }
 
+.edit-employee {
+  padding-top: 5px;
+}
+
+.edit-employee input[type=number] {
+  width: 90%;
+  border: 1px solid #000;
+}
+
 .create-employee .create-employee-form input[type=text] {
   margin-left: 129px;
 }
