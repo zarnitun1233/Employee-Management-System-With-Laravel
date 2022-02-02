@@ -28,15 +28,17 @@
     <div class="lf-nav clearFix">
       <span style="cursor:pointer" onclick="openNav()">&#9776; Management</span>
     </div>
+    @auth
     <div class="rt-nav clearFix">
       <ul>
         <li><a href="{{ url('/employee/list/' . auth()->user()->id) }}">Profile <i class="fa fa-user-circle-o"></i></a>
         </li>
-        <li><a href="">Logout <i class="fa fa-sign-out"></i></a>
+        <li><a href="{{ url('/logout') }}">Logout <i class="fa fa-sign-out"></i></a>
         </li>
       </ul>
      
     </div>
+    @endauth
   </div>
 
 @yield('content')
