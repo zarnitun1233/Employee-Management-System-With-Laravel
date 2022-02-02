@@ -108,10 +108,10 @@ body {
 }
 
 .employee-list .list-table .list-edit,
-  .employee-list .list-table .list-delete {
-    padding: 5px;
-    font-size: 10px;
-  }
+.employee-list .list-table .list-delete {
+  padding: 5px;
+  font-size: 10px;
+}
 
 /*Footer*/
 
@@ -125,8 +125,8 @@ body {
 .footer-line {
   width: 100%;
   margin: 0 auto;
-  padding-bottom: 15px;
   margin-top: 25px;
+  padding-bottom: 15px;
 }
 
 .foot-border {
@@ -402,36 +402,42 @@ body {
 .login-form form span.psw {
   float: right;
 }
+
 /*reset Password*/
-.reset-pswd{
+.reset-pswd {
   width: 50%;
   margin: 0 auto;
   border: 3px solid #f1f1f1;
 }
-.reset-pswd h2{
+
+.reset-pswd h2 {
   padding: 10px 20px;
   font-size: 28px;
 }
-.reset-pswd label{
+
+.reset-pswd label {
   padding: 10px 20px;
 }
+
 .reset-pswd input[type=email] {
   display: inline-block;
-    width: 36%;
-    margin: 8px 0;
-    padding: 8px 6px;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
+  width: 36%;
+  margin: 8px 0;
+  padding: 8px 6px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
 }
+
 .reset-pswd button {
   width: 13%;
-    margin: 11px 0px 10px 240px;
-    padding: 11px 10px;
-    border: none;
-    background-color: #04AA6D;
-    color: white;
-    cursor: pointer;
+  margin: 11px 0px 10px 240px;
+  padding: 11px 10px;
+  border: none;
+  background-color: #04AA6D;
+  color: white;
+  cursor: pointer;
 }
+
 .reset-pswd button:hover {
   opacity: 0.7;
 }
@@ -1030,8 +1036,7 @@ textarea {
 }
 
 .employee-profile button,
-.employee-profile .profile-edit
-{
+.employee-profile .profile-edit {
   margin: 8px 0;
   padding: 10px 10px;
   border: none;
@@ -1072,11 +1077,11 @@ textarea {
 }
 
 .selectreadonly {
+  border: none;
+  text-indent: 1px;
   -webkit-appearance: none;
   -moz-appearance: none;
-  text-indent: 1px;
   text-overflow: '';
-  border: none;
 }
 
 /* Responsive for max-width: 1242px */
@@ -1133,6 +1138,7 @@ textarea {
 
 /* Responsive Page for max-width: 788px */
 @media screen and (max-width: 788px) {
+
   /*Salary Detail Page*/
   .panel-body {
     width: 70%;
@@ -1202,14 +1208,13 @@ textarea {
   }
 
   .salary-list .list-design-container td {
-    font-size: 10px;
     padding: 12px 0px;
+    font-size: 10px;
   }
 
   .salary-list .list-table .list-detail,
   .salary-list .list-table .list-edit,
-  .salary-list .list-table .list-delete
-  {
+  .salary-list .list-table .list-delete {
     padding: 5px;
     font-size: 10px;
   }
@@ -1217,6 +1222,7 @@ textarea {
 
 /* Responsive for max-width: 563px */
 @media screen and (max-width: 563px) {
+
   /*Salary Detail Page*/
   .panel-body {
     width: 100%;
@@ -1225,6 +1231,7 @@ textarea {
 
 /* Responsive for max-width: 489px */
 @media screen and (max-width: 489px) {
+
   /*Employee List*/
   .employee-list th {
     font-size: 14px;
@@ -1235,19 +1242,19 @@ textarea {
   }
 
   /*Department List Page*/
-.department-list .list-table th {
-  font-size: 12px;
-}
+  .department-list .list-table th {
+    font-size: 12px;
+  }
 
-.department-list .list-table td {
-  font-size: 10px;
-}
+  .department-list .list-table td {
+    font-size: 10px;
+  }
 
-.department-list .list-table .list-delete {
-  font-size: 10px;
-  padding: 9px;
-}
-  
+  .department-list .list-table .list-delete {
+    padding: 9px;
+    font-size: 10px;
+  }
+
 }
 
 /* Responsive for max-width: 483px */
@@ -1285,22 +1292,22 @@ textarea {
 
 /* Responsive for max-width: 446px */
 @media screen and (max-width: 446px) {
-/*Create Department*/
-.create-department-header {
-  font-size: 18px;
-}
 
-.create-department label {
-  font-size: 14px;
-}
+  /*Create Department*/
+  .create-department-header {
+    font-size: 18px;
+  }
 
-.create-department .btn button,
-.create-department .btn a
-{
-  font-size: 16px;
-}
+  .create-department label {
+    font-size: 14px;
+  }
 
-.employee-list .list-table .list-edit,
+  .create-department .btn button,
+  .create-department .btn a {
+    font-size: 16px;
+  }
+
+  .employee-list .list-table .list-edit,
   .employee-list .list-table .list-delete {
     padding: 5px;
     font-size: 10px;
@@ -1329,8 +1336,9 @@ textarea {
     font-size: 10px;
   }
 }
+
 /*employee search*/
-.form-inline {  
+.form-inline {
   display: flex;
   flex-flow: row wrap;
   align-items: center;
@@ -1341,26 +1349,29 @@ textarea {
   margin: 5px 10px 5px 0;
 }
 
-.form-inline .emp-search input,select {
-  vertical-align: middle;
+.form-inline .emp-search input,
+select {
   margin: 5px 10px 5px 0;
   padding: 10px;
-  background-color: #fff;
   border: 1px solid #ddd;
+  background-color: #fff;
+  vertical-align: middle;
+  border-radius: 5px;
 }
+
 .form-inline .emp-search input[id=jd] {
-  vertical-align: middle;
+  width: 60%;
   margin: 5px 10px 5px 0;
   padding: 10px;
-  background-color: #fff;
   border: 1px solid #ddd;
-  width: 60%;
+  background-color: #fff;
+  vertical-align: middle;
 }
 
 .form-inline button {
   padding: 10px 20px;
-  background-color: #04AA6D;
   border: 1px solid #ddd;
+  background-color: #04AA6D;
   color: white;
   cursor: pointer;
 }
@@ -1368,25 +1379,116 @@ textarea {
 .form-inline button:hover {
   background-color: royalblue;
 }
-.form-inline .emp-search{
+
+.form-inline .emp-search {
   padding: 10px 15px;
 }
-.not-found-data{
+
+.not-found-data {
+  width: 8%;
+  margin: 20px 0 20px 90px;
   padding: 10px;
-    border: 1px solid black;
-    background-color: #04AA6D;
-    color: #2e2c2c;
-    font-size: 20px;
-    width: 8%;
-    text-align: center;
-    margin: 20px 0 20px 90px;
+  border: 1px solid black;
+  background-color: #04AA6D;
+  color: #2e2c2c;
+  font-size: 20px;
+  text-align: center;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .form-inline {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    margin: 15px;
+  }
+
+  .form-inline .emp-search {
+    padding: 5px;
+  }
+
+  .form-inline label {
+    margin: 5px 0px 5px 0;
+  }
+
+  .form-inline .emp-search input,
+  select {
+    margin: 5px 1px 5px 0;
+    padding: 5px;
+    border-radius: 5px;
+  }
+
+  .form-inline button {
+    padding: 10px 8px;
+  }
+
+  .not-found-data {
+    width: 7%;
+    padding: 8px;
+    font-size: 15px;
+  }
+
+}
+
+@media screen and (max-width:767.9px) {
+  .form-inline {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    margin: 15px;
+  }
+
+  .form-inline .emp-search {
+    padding: 3px;
+  }
+
+  .form-inline label {
+    margin: 3px;
+  }
+
+  .form-inline .emp-search input,
+  select {
+    width: 20%;
+    margin: 3px 1px 3px 0;
+    padding: 3px;
+  }
+
+  .form-inline button {
+    padding: 10px 5px;
+  }
+
+  .not-found-data {
+    width: 7%;
+    padding: 7px;
+    font-size: 12px;
+  }
+
+  .form-inline .emp-search input[type=text] {
+    width: 19%;
+    margin: 3px 1px 3px 42px;
+    padding: 3px;
+    border-radius: 5px;
+  }
+
+  .form-inline .emp-search select[name=position] {
+    width: 20%;
+    margin: 3px 1px 3px 25px;
+    padding: 3px;
+    border-radius: 5px;
+  }
+
+  .form-inline .emp-search input[id=jd] {
+    width: 20%;
+    margin: 3px 1px 3px 15px;
+    padding: 3px;
+  }
 }
 
 @media (max-width: 800px) {
   .form-inline input {
     margin: 10px 0;
   }
-  
+
   .form-inline {
     flex-direction: column;
     align-items: stretch;
