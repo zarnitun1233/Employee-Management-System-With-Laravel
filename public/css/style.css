@@ -107,6 +107,12 @@ body {
   }
 }
 
+.employee-list .list-table .list-edit,
+  .employee-list .list-table .list-delete {
+    padding: 5px;
+    font-size: 10px;
+  }
+
 /*Footer*/
 
 .footer {
@@ -1090,6 +1096,14 @@ textarea {
   }
 }
 
+/* Responsive for max-width: 1161px */
+/*Employee List*/
+@media screen and (max-width: 1161px) {
+  .employee-list td {
+    font-size: 14px;
+  }
+}
+
 /* Responsive for max-width: 1107px */
 /*Employee List*/
 @media screen and (max-width: 1107px) {
@@ -1098,9 +1112,9 @@ textarea {
   }
 }
 
-/* Responsive for max-width: 1086px */
+/* Responsive for max-width: 1102px */
 /*Employee List*/
-@media screen and (max-width: 1086px) {
+@media screen and (max-width: 1102px) {
 
   .employee-list th:nth-child(5),
   .employee-list th:nth-child(7),
@@ -1163,6 +1177,12 @@ textarea {
   .employee-create-form .btn {
     width: 100%;
   }
+
+  .employee-list .list-table .list-edit,
+  .employee-list .list-table .list-delete {
+    padding: 5px;
+    font-size: 10px;
+  }
 }
 
 /* Responsive for max-width: 582px */
@@ -1203,10 +1223,18 @@ textarea {
   }
 }
 
-/* Responsive for max-width: 488px */
-@media screen and (max-width: 488px) {
+/* Responsive for max-width: 489px */
+@media screen and (max-width: 489px) {
+  /*Employee List*/
+  .employee-list th {
+    font-size: 14px;
+  }
+
+  .employee-list td {
+    font-size: 12px;
+  }
+
   /*Department List Page*/
-  
 .department-list .list-table th {
   font-size: 12px;
 }
@@ -1271,6 +1299,12 @@ textarea {
 {
   font-size: 16px;
 }
+
+.employee-list .list-table .list-edit,
+  .employee-list .list-table .list-delete {
+    padding: 5px;
+    font-size: 10px;
+  }
 }
 
 /* Responsive for max-width: 423px */
@@ -1285,6 +1319,12 @@ textarea {
 
   .salary-list .list-table .list-edit,
   .salary-list .list-table .list-delete {
+    padding: 5px;
+    font-size: 10px;
+  }
+
+  .employee-list .list-table .list-edit,
+  .employee-list .list-table .list-delete {
     padding: 5px;
     font-size: 10px;
   }

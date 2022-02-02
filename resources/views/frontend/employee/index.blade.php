@@ -46,7 +46,7 @@
         <td class="address">{{ $employee->address }}</td>
         <td>{{ $employee->department->name }}</td>
         <td>
-          <form action="{{ url('/employee/delete/'.$employee->id) }}" method="POST">
+          <form action="{{ url('/employee/delete/'.$employee->id) }}" method="POST" class="btn">
             <a href="{{ url('/employee/edit/'.$employee->id) }}" class="list-edit">Edit</a>
             {{ csrf_field() }}
             {{ method_field('DELETE') }}
