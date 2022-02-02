@@ -2,14 +2,14 @@
 @extends('common.master')
 
 @section('content')
-    <form action="{{ route('employee.post.search') }}" method="POST">
+    <form action="{{ route('employee.post.search') }}" method="POST" class="form-inline">
         @csrf
-        <div>
-        <label for="">Name</label>
-        <input type="text" name="name">
+        <div class="emp-search">
+        <label for="name">Name</label>
+        <input type="text" name="name" id="name">
         </div><br>
-        <div>
-        <label for="">department</label>
+        <div class="emp-search">
+        <label for="dept">Department</label>
         <select name="department">
             <option value="" selected>Select Department</option>
             @foreach ($departments as $department)
@@ -17,8 +17,8 @@
             @endforeach
         </select>
         </div>
-        <div>
-        <label for="">position</label>
+        <div class="emp-search">
+        <label for="position">Position</label>
         <select name="position">
             <option value="" selected>Select Position</option>
             <option value="Junior">Junior</option>
@@ -27,22 +27,23 @@
             <option option value="Leader">Leader</option>
             <option value="Manager">Manager</option>
         </select>
-        <div>
-            <label for="">Join Date</label>
-            <input type="date" name="join_date">
-        </div><br>
-        </div><br>
+        </div>
+        <div class="emp-search">
+            <label for="jd">Join Date</label>
+            <input type="date" name="jd" id="jd">
+        </div>
         <div>
         <button type="submit">Search</button>
         </div>
     </form>
     @if (Session::has('datas'))
         @if (sizeof(Session::get('datas')) === 0)
-            <span>No Data</span>
+            <div class="not-found-data">No Data</div>
         @endif
     @endif
-    <table>
-        <thead>
+    <div class="list-design employee-list">
+    <div class="list-design-container">
+    <table class="list-table">
             <tr>
             <th>No</th>
             <th>Name</th>
@@ -53,7 +54,6 @@
             <th>Department</th>
             <th>Join Date</th>
             </tr>
-        </thead>
         @if (Session::has('datas'))
             @php
             $employees = Session::get('datas'); 
@@ -80,4 +80,6 @@
             @endif
         @endif 
     </table> 
+    </div>
+    </div>
 @endsection

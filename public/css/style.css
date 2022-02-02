@@ -1329,6 +1329,69 @@ textarea {
     font-size: 10px;
   }
 }
+/*employee search*/
+.form-inline {  
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  margin: 15px;
+}
+
+.form-inline label {
+  margin: 5px 10px 5px 0;
+}
+
+.form-inline .emp-search input,select {
+  vertical-align: middle;
+  margin: 5px 10px 5px 0;
+  padding: 10px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+}
+.form-inline .emp-search input[id=jd] {
+  vertical-align: middle;
+  margin: 5px 10px 5px 0;
+  padding: 10px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  width: 60%;
+}
+
+.form-inline button {
+  padding: 10px 20px;
+  background-color: #04AA6D;
+  border: 1px solid #ddd;
+  color: white;
+  cursor: pointer;
+}
+
+.form-inline button:hover {
+  background-color: royalblue;
+}
+.form-inline .emp-search{
+  padding: 10px 15px;
+}
+.not-found-data{
+  padding: 10px;
+    border: 1px solid black;
+    background-color: #04AA6D;
+    color: #2e2c2c;
+    font-size: 20px;
+    width: 8%;
+    text-align: center;
+    margin: 20px 0 20px 90px;
+}
+
+@media (max-width: 800px) {
+  .form-inline input {
+    margin: 10px 0;
+  }
+  
+  .form-inline {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
 
 /* Change styles for span and cancel button on extra small screens */
 @media screen and (max-width: 300px) {
