@@ -4,9 +4,6 @@
 <div class="list-design">
   <div class="list-design-container">
     <h1 class="list-title">Salary List</h1>
-    <div class="create-export">
-      <a href="{{ url('/salary/create') }}">Create Salary</a>
-    </div>
     @if ($message = Session::get('success'))
     <div>
       <p class="show-alert">{{ $message }}</p>
