@@ -73,7 +73,7 @@
                     @if ($leave->status == null)
                       <button class="leaves-accept">Accept</button>
                     @else 
-                    <button class="leaves-accept" disabled>Accept</button>
+                    <button class="leaves-accept disabled">Accept</button>
                     @endif
                   </form>
                 </td>
