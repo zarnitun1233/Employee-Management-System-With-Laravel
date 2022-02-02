@@ -49,4 +49,8 @@ interface LeavesServiceInterface
   public function accept($id);
 
   public function reason($id);
+
+  public function  searchByName(Request $request);
+
+  public function leavesByUser(Request $request);
 }

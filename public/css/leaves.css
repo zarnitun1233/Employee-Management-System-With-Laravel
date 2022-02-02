@@ -152,5 +152,17 @@
     display: inline-block;
 }
 
+/* leves-search */
+.leaves-search{
+    display: flex;
+    align-items: flex-end;
+    margin-bottom: 20px;
+}
+
+.leaves-search button{
+    margin-left: 10px;
+}
+
+
 
 

@@ -34,9 +34,12 @@ Route::get('/leaves/list',[LeavesController::class,'index'])->name('leaves.list'
 Route::get('leaves/edit/{id}',[LeavesController::class,'edit'])->name('leaves.edit');
 Route::get('/leaves/list',[LeavesController::class,'index'])->name('leaves.list');
 Route::get('leaves/reason/{id}',[LeavesController::class,'reason'])->name('leaves.reason');
+Route::get('/leaves/user/{id}',[LeavesController::class,'leavesByUser']);
 
 Route::post('/leaves/store',[LeavesController::class,'store'])->name('leaves.store');
 Route::post('leaves/accept/{id}',[LeavesController::class,'accept'])->name('leaves.accept');
+Route::post('leaves/search',[LeavesController::class,'searchByName'])->name('leaves.searchByName');
+
 
 Route::delete('leaves/delete/{id}',[LeavesController::class,'delete'])->name('leaves.delete');
 

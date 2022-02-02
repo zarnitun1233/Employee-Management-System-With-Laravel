@@ -125,4 +125,46 @@ class LeavesDao implements  LeavesDaoInterface
     {
       return $leave = Leave::find($id);
     }
+
+    public function  searchByName(Request $request)
+    { 
+      $employees = DB::table('employees')
+      ->select(
+        'employees.name as emp_name',
+        'leaves.id as leave_id',
+        'leaves.reason as leave_reason',
+        'leaves.fromDate as leave_fromDate',
+        'leaves.reason as leave_reason',
+        'leaves.status as leave_status',
+        'leaves.toDate as leave_toDate',
+        'leaves.duration as leave_duration',
+        'departments.name as department_name'
+      )
+      ->join('leaves','employees.id','=','leaves.employee_id')
+      ->join('departments','employees.department_id','=','departments.id')
+      ->where('employees.name','LIKE','%'.$request->name.'%')
+      ->get();
+      return  $employees;
+    }
+
+    public function leavesByUser(Request $request)
+    {
+      $employees = DB::table('employees')
+      ->select(
+        'employees.name as emp_name',
+        'leaves.id as leave_id',
+        'leaves.reason as leave_reason',
+        'leaves.fromDate as leave_fromDate',
+        'leaves.reason as leave_reason',
+        'leaves.status as leave_status',
+        'leaves.toDate as leave_toDate',
+        'leaves.duration as leave_duration',
+        'departments.name as department_name'
+      )
+      ->join('leaves','employees.id','=','leaves.employee_id')
+      ->join('departments','employees.department_id','=','departments.id')
+      ->where('employees.id','=',$request->id)
+      ->get();
+      return  $employees;
+    }
 }

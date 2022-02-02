@@ -90,9 +90,18 @@ class LeavesService implements LeavesServiceInterface
     return $msg = $this->leavesDao->accept($id);
   }
 
-
   public function reason($id)
   {
     return  $this->leavesDao->reason($id);
+  }
+
+  public function  searchByName(Request $request)
+  {
+    return  $this->leavesDao->searchByName($request);
+  }
+
+  public function leavesByUser(Request $request)
+  {
+    return $employees = $this->leavesDao->leavesByUser($request);
   }
 }

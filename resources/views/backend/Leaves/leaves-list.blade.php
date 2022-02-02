@@ -13,6 +13,15 @@
       <div class="leaves-list">
         <div class="leaves-list-container">
           <h2 class="leaves-title">Employees Leaves List</h2>
+          <form action="{{ route('leaves.searchByName') }}" class="leaves-search" method="POST">
+            @csrf
+            <div class="leaves-input">
+              <input type="search" name="name" placeholder="Search by name">
+            </div>
+            <div class="leaves-input">
+              <button type="submit ">Search</button>
+            </div>
+          </form>
           @if (Session::has('msg'))
           <div class="show-alert">
             {{Session::get('msg')}}
@@ -111,9 +120,6 @@
             </a>
           </div>
         </div>
-        
-      </div>
-      <div>
       </div>
     @else
     <span>no data</span>

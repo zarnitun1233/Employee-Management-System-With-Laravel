@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Contracts\Services\Leaves\LeavesServiceInterface;
 use  App\Http\Requests\Leaves\StoreLeavesRequest;
+use App\Http\Requests\Leaves\SearchLeavesRequest;
 
 class LeavesController extends Controller  {
 
@@ -103,5 +104,17 @@ class LeavesController extends Controller  {
         $leave = $this->leavesService->reason($id);
 
         return view('frontend.leaves.leaves-reason',compact('leave'));
+    }
+
+    public function  searchByName(SearchLeavesRequest $request)
+    {
+        $employees = $this->leavesService->searchByName($request);
+        return view('backend.leaves.leaves-search',compact('employees'));
+    }
+    
+    public function leavesByUser(Request $request)
+    { 
+        $employees = $this->leavesService->leavesByUser($request);
+        return view('frontend.leaves.leaves-by-user',compact('employees'));
     }
 }
