@@ -119,8 +119,8 @@
     <tr>
       <td class="employee-label"><label for="image" class="profile profile-edit">Choose Photo</label></td>
       <td><input type="file" id="image" name="image">
-        <img src="{{ asset('images/' . $employee->image) }}" alt="Profile">
-        </label><br><br>
+        <div class="div-profile"><img src="{{ asset('images/' . $employee->image) }}" alt="Profile"></div>
+        </label>
         @error('image')
         <p class="validate-employee-error">{{ $message }}</p>
         @enderror <br>
