@@ -51,7 +51,9 @@
                   @csrf
                   <button type="submit" class="leaves-delete">Delete</button>
                 </form>
-                <a href="{{ route('leaves.edit',['id'=>$leave->leave_id]) }}"  class="leaves-edit {{$leave->leave_status ? '' :'disabled' }}">Edit</a>
+                @if ($leave->leave_status === null)
+                  <a href="{{ route('leaves.edit',['id'=>$leave->leave_id]) }}"  class="leaves-edit">Edit</a>
+                @endif
               </td>
             </tr>
             @php
