@@ -11,7 +11,7 @@ interface LeavesServiceInterface
    *send empoyee data to salaries create view
    * @return void
    */
-  public function index();
+  public function index($name);
 
   /**
    * Undocumented function
@@ -47,4 +47,8 @@ interface LeavesServiceInterface
   public function delete($id);
   
   public function accept($id);
+
+  public function reason($id);
+
+  public function leavesByUser(Request $request);
 }

@@ -5,7 +5,8 @@ namespace App\Http\Controllers\Leaves;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Contracts\Services\Leaves\LeavesServiceInterface;
-use  App\Http\Requests\Leaves\StorePostRequest;
+use  App\Http\Requests\Leaves\StoreLeavesRequest;
+use App\Http\Requests\Leaves\SearchLeavesRequest;
 
 class LeavesController extends Controller  {
 
@@ -15,14 +16,19 @@ class LeavesController extends Controller  {
         $this->leavesService = $leavesService;
     }
 
-    public function index() {
-        $leaves =  $this->leavesService->index();
-        return view('backend.Leaves.leaves-list',compact('leaves'));
+    public function index(Request $request,$name=null) {
+        $leaves =  $this->leavesService->index($name);
+       
+        if ($request->page !== null) {
+            return view('backend.Leaves.leaves-list',compact('leaves'));
+        } else {
+            $name =$name ? $name : '';
+            return redirect('/leaves/list/'.$name.'?page=1');
+        }
     }
 
     /**
-    * Undocumented function
-    *create salaries;
+    *create leaves;
     * @param Request $request
     * @return void
     */
@@ -38,13 +44,12 @@ class LeavesController extends Controller  {
     * @return void
     */
 
-    public function store( StorePostRequest $request )  {
+    public function store( StoreLeavesRequest $request )  {
         $msg = $this->leavesService->store( $request );
         return redirect()->route( 'leaves.create', [ $request->empId ] )->with( 'msg', $msg );
     }
 
     /**
-    * Undocumented function
     *edit leaves
     * @param Request $request
     * @return void
@@ -57,7 +62,6 @@ class LeavesController extends Controller  {
     }
 
     /**
-    * Undocumented function
     *delete leaves;
     * @param Reuest $request
     * @return void
@@ -69,16 +73,48 @@ class LeavesController extends Controller  {
        return redirect()->route('leaves.list')->with( 'msg', $msg );
     }
 
-    public function update(StorePostRequest $request)
+    /**
+    *update leaves;
+    * @param Reuest $request
+    * @return void
+    */
+
+    public function update(StoreLeavesRequest $request)
     {
         $msg = $this->leavesService->update($request);
-        echo "success";
+        return redirect()->route( 'leaves.edit', [ $request->empId ] )->with( 'msg', 'leaves updated successfully' );
 
     }
+
+     /**
+    *accept leaves by admin;
+    * @param Reuest $request
+    * @return void
+    */
 
     public function accept(Request $request, $id)
     {
         $msg = $this->leavesService->accept($id);
         return redirect()->route('leaves.list')->with( 'msg', $msg );
+    }
+
+
+    public function reason(Request $request,$id)
+    {
+        $leave = $this->leavesService->reason($id);
+
+        return view('frontend.leaves.leaves-reason',compact('leave'));
+    }
+
+
+    public function  searchByName(SearchLeavesRequest $request)
+    {
+       return redirect('/leaves/list/'.$request->name.'');  
+    }
+    
+    public function leavesByUser(Request $request)
+    { 
+        $employees = $this->leavesService->leavesByUser($request);
+        return view('frontend.leaves.leaves-by-user',compact('employees'));
     }
 }

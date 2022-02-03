@@ -8,6 +8,7 @@
   <title>Employee Management System</title>
   <link rel="stylesheet" href="{{ asset('css/reset.css') }}">
   <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+  @yield('leaves')
   <link rel="stylesheet" href="{{ asset('css/all.css') }}">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
