@@ -30,6 +30,7 @@ class EmployeeUpdateRequest extends FormRequest
             'age' => 'required|min:1|max:2',
             'email' => 'required|min:6|max:30|email',
             'phone' => 'required|min:5|max:11',
+            'confirmPassword' =>'same:password',
             'dob' => 'required',
             'address' => 'required|min:5|max:100',
             'department_id' => 'required|min:1|max:10',

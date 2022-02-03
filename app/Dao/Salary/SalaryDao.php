@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\DB;
 use App\Http\Requests\SendMailDataRequest;
 use App\Http\Requests\StoreSalaryRequest;
 use App\Http\Requests\SalaryUpdateRequest;
+use App\Models\SalaryRecord;
 use Illuminate\Support\Facades\Hash;
 
 /**
@@ -23,7 +24,7 @@ class SalaryDao implements SalaryDaoInterface
      */
     public function index()
     {
-        return Salary::with('employee')->paginate(2);
+        return Salary::with('employee')->paginate(5);
     }
 
     /**
@@ -89,8 +90,12 @@ class SalaryDao implements SalaryDaoInterface
         $salary = Salary::find($id);
         $salary->amount = $request->amount;
         $salary->date = $request->date;
-        $salary->employee_id = $request->employee_id;
-        return $salary->save();
+        $salary->save();
+        $salaryRecord = new SalaryRecord;
+        $salaryRecord->amount = $request->amount;
+        $salaryRecord->date = $request->date;
+        $salaryRecord->employee_id = $salary->employee_id;
+        $salaryRecord->save();
     }
 
     /**
@@ -101,5 +106,52 @@ class SalaryDao implements SalaryDaoInterface
     {
         $salary = Salary::find($id);
         return $salary->delete();
+    }
+
+    /**
+     * Employee's Salary Detail and show by graph
+     * @param $id
+     */
+    public function detail($id)
+    {
+        return SalaryRecord::join('employees', 'salary_records.employee_id', '=', 'employees.id')
+            ->where('salary_records.employee_id', $id)
+            ->get(['salary_records.*', 'employees.*']);
+    }
+
+    /**
+     * Get Department By Employee_id
+     */
+    public function getDepartmentByEmployeeId($id)
+    {
+        return Employee::join('departments', 'employees.department_id', '=', 'departments.id')
+            ->where('employees.id', $id)
+            ->get(['departments.name']);
+    }
+
+    /**
+     * Get date from Salary Record Table
+     * @param $id
+     */
+    public function dateFromSalaryRecord($id)
+    {
+        $date = SalaryRecord::select(DB::raw("date as date"))
+            ->where('salary_records.employee_id', $id)
+            ->orderBy("id")
+            ->get()->toArray();
+        return array_column($date, 'date');
+    }
+
+    /**
+     * Get Salary from Salary Record Table
+     * @param $id
+     */
+    public function salaryFromSalaryRecord($id)
+    {
+        $salary = SalaryRecord::select(DB::raw("amount as amount"))
+            ->where('salary_records.employee_id', $id)
+            ->orderBy("id")
+            ->get()->toArray();
+        return array_column($salary, 'amount');
     }
 }

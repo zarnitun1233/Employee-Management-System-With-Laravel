@@ -25,10 +25,12 @@ class AppServiceProvider extends ServiceProvider
         // Business logic registration
         $this->app->bind('App\Contracts\Services\Salary\SalaryServiceInterface', 'App\Services\Salary\SalaryService');
         $this->app->bind('App\Contracts\Dao\Leaves\LeavesDaoInterface', 'App\Dao\Leaves\LeavesDao');
+        $this->app->bind('App\Contracts\Dao\Auth\PasswordResetDaoInterface','App\Dao\Auth\PasswordResetDao');
 
         // Business logic registration
         $this->app->bind('App\Contracts\Services\Employee\EmployeeServiceInterface', 'App\Services\Employee\EmployeeService');
         $this->app->bind('App\Contracts\Services\Leaves\LeavesServiceInterface', 'App\Services\Leaves\LeavesService');
+        $this->app->bind('App\Contracts\Services\Auth\PasswordResetServiceInterface','App\Services\Auth\PasswordResetService');
     }
 
     /**

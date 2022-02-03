@@ -1,51 +1,117 @@
-/*Navbar*/
-.container {
-  width: 98%;
-  margin: 0 auto;
+body {
+  font-family: Arial, Helvetica, sans-serif;
 }
 
-.clearFix:before,
-.clearFix:after {
-  display: table;
+.clearFix::after {
+  display: block;
+  clear: both;
+  visibility: hidden;
+  font-size: 0;
   content: " ";
 }
 
-.clearFix:after {
-  clear: both;
+.common-nav .lf-nav span {
+  font-size: 30px;
 }
 
-.lf-nav {
+.common-nav .rt-nav ul li a {
+  font-size: 23px;
+}
+
+.common-nav .sidenav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  width: 0;
+  height: 100%;
+  padding-top: 60px;
+  background-color: #36e995;
+  transition: 0.5s;
+  overflow-x: hidden;
+}
+
+.common-nav .sidenav a {
+  display: block;
+  padding: 13px 8px 13px 32px;
+  color: #2e2c2c;
+  font-size: 25px;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.common-nav .sidenav a:hover {
+  color: #0f0909;
+}
+
+.common-nav .sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  margin-left: 50px;
+  font-size: 36px;
+}
+
+.common-nav .header {
+  padding: 10px 0px;
+  font-size: 30px;
+  text-align: center;
+}
+
+.common-nav .nav {
+  width: 98%;
+  margin: 0 auto;
+  margin-top: 25px;
+}
+
+.common-nav .lf-nav {
   float: left;
-  width: 200px;
-  padding-left: 10px;
+  width: 49%;
 }
 
-.lf-nav img {
-  width: 100%;
-}
-
-.lf-nav a {
-  text-decoration: none;
-}
-
-.rt-nav {
+.common-nav .rt-nav {
   float: right;
-  padding: 40px 25px 20px 25px;
-
 }
 
-.rt-nav a {
+.common-nav .rt-nav ul {
+  padding-left: 300px;
+}
+
+.common-nav .rt-nav ul li {
+  display: inline-block;
   list-style: none;
-  padding: 20px 15px;
-  background-color: #f0f7ef;
-  color: black;
-  font-size: 20px;
-  text-decoration: none;
+  padding-left: 50px;
 }
 
-.rt-nav a:hover {
-  background-color: #3df0ba;
+.common-nav .rt-nav ul li a {
+  padding: 5px 10px;
+  border: 1px solid black;
+  color: black;
+  font-size: 28px;
+  text-decoration: none;
+  text-align: right;
 }
+
+.common-nav .rt-nav ul li a:hover {
+  background-color: #129c63;
+  color: #f1f1f1;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {
+    padding-top: 15px;
+  }
+
+  .sidenav a {
+    font-size: 18px;
+  }
+}
+
+.employee-list .list-table .list-edit,
+  .employee-list .list-table .list-delete {
+    padding: 5px;
+    font-size: 10px;
+  }
 
 /*Footer*/
 
@@ -59,8 +125,8 @@
 .footer-line {
   width: 100%;
   margin: 0 auto;
-  padding-top: 300px;
-  padding-bottom: 35px;
+  padding-bottom: 15px;
+  margin-top: 25px;
 }
 
 .foot-border {
@@ -69,7 +135,7 @@
 }
 
 .copyright {
-  width: 1110px;
+  width: 100%;
   margin: 0 auto;
 }
 
@@ -99,7 +165,7 @@
 }
 
 .p2 span {
-  color: #FC8902;
+  color: #129c63;
 }
 
 .employee {
@@ -109,7 +175,6 @@
 .employee-list,
 .employee-create,
 .employee-edit {
-  margin-bottom: 20px;
   font-size: 30px;
 }
 
@@ -174,14 +239,6 @@
 
 .employee-create-form {
   padding-left: 10px;
-}
-
-.create-employee {
-  padding: 5px;
-  border: 1px solid #333;
-  background-color: #ddd;
-  color: #333;
-  text-decoration: none;
 }
 
 .back-create {
@@ -283,6 +340,8 @@
 /*Login Logout*/
 
 .login-form form {
+  width: 80%;
+  margin: 0 auto;
   border: 3px solid #f1f1f1;
 }
 
@@ -297,8 +356,10 @@
 }
 
 .login-form h2 {
-  padding-left: 20px;
+  padding-top: 20px;
+  padding-bottom: 15px;
   font-size: 28px;
+  text-align: center;
 }
 
 .login-form form button {
@@ -309,6 +370,13 @@
   background-color: #04AA6D;
   color: white;
   cursor: pointer;
+}
+
+.login-form .container {
+  width: 80%;
+  margin: 0 auto;
+  margin-bottom: 10px;
+  padding: 16px;
 }
 
 .login-form form button:hover {
@@ -331,14 +399,43 @@
   border-radius: 50%;
 }
 
-.login-form form .container {
-  padding: 16px;
-}
-
 .login-form form span.psw {
   float: right;
-  padding-top: 16px;
 }
+/*reset Password*/
+.reset-pswd{
+  width: 50%;
+  margin: 0 auto;
+  border: 3px solid #f1f1f1;
+}
+.reset-pswd h2{
+  padding: 10px 20px;
+  font-size: 28px;
+}
+.reset-pswd label{
+  padding: 10px 20px;
+}
+.reset-pswd input[type=email] {
+  display: inline-block;
+    width: 36%;
+    margin: 8px 0;
+    padding: 8px 6px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+.reset-pswd button {
+  width: 13%;
+    margin: 11px 0px 10px 240px;
+    padding: 11px 10px;
+    border: none;
+    background-color: #04AA6D;
+    color: white;
+    cursor: pointer;
+}
+.reset-pswd button:hover {
+  opacity: 0.7;
+}
+
 
 /*New Employee Design CSS*/
 
@@ -347,12 +444,15 @@
   flex-flow: column;
   justify-content: center;
   align-items: center;
-  margin-top: 50px;
+  margin-top: 40px;
+}
+
+.employee-list {
+  font-size: 16px;
 }
 
 .list-design .list-design-container {
-  width: 100%;
-  overflow: hidden;
+  width: 98%;
 }
 
 .list-design .list-title {
@@ -415,6 +515,16 @@
   padding: 10px;
   border: none;
   background-color: #04AA6D;
+  color: #ffffff;
+  text-decoration: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.list-design .list-table .list-detail {
+  padding: 10px;
+  border: none;
+  background-color: #24A0ED;
   color: #ffffff;
   text-decoration: none;
   cursor: pointer;
@@ -490,6 +600,805 @@
 
 .employee .create-export a:hover {
   background-color: #bbb;
+}
+
+/*Create Employee*/
+.create-employee-header {
+  padding: 30px 10px 20px 130px;
+  color: #151a17;
+  font-size: 27px;
+  text-align: left;
+}
+
+.create-employee .create-employee-form {
+  width: 80%;
+  margin: 0 auto;
+  border: 3px solid #f1f1f1;
+  text-align: center;
+}
+
+.create-employee .create-employee-form input[type=text],
+input[type=email],
+input[type=password],
+input[type=number],
+input[type=tel],
+input[type=conpassword],
+input[type=date] {
+  width: 20%;
+  margin-top: 2px;
+  padding: 10px 7px;
+  border: 1px solid #129956;
+  box-sizing: border-box;
+  border-radius: 7px;
+}
+
+.employee-table .create-salary {
+  padding: 5px 0px;
+}
+
+.create-salary input[type=number] {
+  width: 90%;
+  border: 1px solid #000;
+}
+
+.edit-employee {
+  padding-top: 5px;
+}
+
+.edit-employee input[type=number] {
+  width: 90%;
+  border: 1px solid #000;
+}
+
+.create-employee .create-employee-form input[type=text] {
+  margin-left: 129px;
+}
+
+.create-employee .create-employee-form.create-employee-form input[type=email] {
+  margin-left: 128px;
+}
+
+.create-employee .create-employee-form input[type=password] {
+  margin-left: 88px;
+}
+
+.create-employee .create-employee-form input[name=confirmpswd] {
+  margin-left: 6px;
+}
+
+.create-employee .create-employee-form input[type=number] {
+  margin-left: 146px;
+}
+
+.create-employee .create-employee-form input[type=tel] {
+  margin-left: 40px;
+}
+
+.create-employee .create-employee-form input[type=date] {
+  margin-left: 63px;
+}
+
+.create-employee .create-employee-form input[type=file] {
+  width: 20%;
+  margin-top: 2px;
+  margin-left: 50px;
+  padding: 10px 7px;
+  border-radius: 7px;
+}
+
+.create-employee .create-employee-form label {
+  margin-bottom: 10px;
+  padding: 10px 10px 10px 30px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.create-employee .create-employee-form select,
+textarea {
+  width: 20%;
+  margin-top: 2px;
+  padding: 10px 7px;
+  border: 1px solid #129956;
+  box-sizing: border-box;
+  border-radius: 7px;
+}
+
+/*Salary Detail*/
+.list-design .employee-info {
+  margin-bottom: 25px;
+}
+
+.list-design .employee-salary {
+  margin-bottom: 25px;
+}
+
+.list-design .salary-detail-container .list-title {
+  margin-bottom: 20px;
+}
+
+.list-design .salary-detail-container h2 {
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+
+.list-design .salary-detail-container th,
+.list-design .salary-detail-container td {
+  padding: 15px;
+}
+
+.list-design .salary-detail-container td {
+  background-color: #eee;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.list-design .salary-detail-container th {
+  background-color: #04AA6D;
+  color: #fff;
+  text-align: left;
+}
+
+.list-edit-back {
+  padding: 10px;
+  border: none;
+  background-color: #04AA6D;
+  color: #ffffff;
+  font-size: 100%;
+  text-decoration: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.list-design .employee-info-table,
+.list-design .employee-salary-table {
+  border: 1px solid #04AA6D;
+}
+
+/*Chart.js CSS*/
+.panel-heading {
+  margin-bottom: 20px;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.panel-body {
+  width: 50%;
+  height: 300px;
+}
+
+.salary-graph {
+  width: 100%;
+  margin-bottom: 40px;
+}
+
+.create-employee .create-employee-form select[id=position] {
+  margin-left: 104px;
+}
+
+.create-employee .create-employee-form select[id=employeerole] {
+  margin-left: 138px;
+}
+
+.create-employee .create-employee-form select[id=department] {
+  margin-left: 70px;
+}
+
+.create-employee .create-employee-form textarea {
+  margin-left: 102px;
+}
+
+.create-employee .create-employee-form .textarea-form * {
+  vertical-align: middle;
+}
+
+.create-employee .create-employee-form button {
+  width: 17%;
+  margin: 8px 0;
+  padding: 10px 10px;
+  border: none;
+  background-color: #04AA6D;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+
+}
+
+.create-employee .create-employee-form button:hover {
+  opacity: 0.8;
+}
+
+.create-employee .btn {
+  padding-top: 20px;
+  padding-bottom: 10px;
+  padding-left: 130px;
+}
+
+
+.create-employee .btn button a {
+  color: #161515;
+  text-decoration: none;
+}
+
+.div-profile {
+  width: 150px;
+}
+
+.div-profile img {
+  width: 100%;
+}
+
+/*Create department*/
+
+.department-create-header {
+  padding: 20px 160px 20px 10px;
+  font-size: 30px;
+  text-align: center;
+}
+
+.department-create-form {
+  width: 80%;
+  margin: 0 auto;
+  border: 3px solid #f1f1f1;
+}
+
+.department-create-form .department-create-table {
+  width: 50%;
+  margin: 15px;
+}
+
+.department-create-form .department-create-table tr {
+  width: 70%;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.department-create-form .department-create-table label {
+  padding: 10px 15px;
+}
+
+.department-create-form .department-create-table .textarea-form * {
+  vertical-align: middle;
+}
+
+.department-create-form .department-create-table input[type=text],
+textarea {
+  width: 90%;
+  margin: 7px 0px;
+  padding: 12px 7px;
+  border: 1px solid #03140a;
+  box-sizing: border-box;
+  border-radius: 7px;
+}
+
+.department-create-form .btn {
+  width: 30%;
+  padding: 20px 0px 10px 350px;
+}
+
+.department-create-form .btn button {
+  width: 25%;
+  margin: 8px 0;
+  padding: 10px 10px;
+  border: none;
+  background-color: #04AA6D;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+  border-radius: 7px;
+}
+
+.department-create-form .btn a {
+  width: 25%;
+  margin: 8px 0;
+  padding: 10px 10px;
+  border: none;
+  background-color: #04AA6D;
+  color: white;
+  font-size: 20px;
+  text-decoration: none;
+  cursor: pointer;
+  border-radius: 7px;
+}
+
+
+.department-create-form .btn button:hover {
+  opacity: 0.8;
+}
+
+.department-create-form .btn button a {
+  color: #161515;
+  text-decoration: none;
+}
+
+.department-create-form .department-create-table span {
+  padding-left: 10px;
+  color: red;
+}
+
+/*Create Employee*/
+
+.employee-create-header {
+  padding: 20px 160px 20px 10px;
+  font-size: 24px;
+}
+
+.employee-create-form .employee-table {
+  width: 50%;
+}
+
+.employee-create-form .employee-table tr {
+  width: 50%;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.employee-create-form .employee-table .employee-label {
+  padding: 10px 15px;
+}
+
+.employee-create-form .employee-table input[type=text],
+input[type=email],
+input[type=password],
+input[type=age],
+input[type=tel],
+input[type=conpassword],
+input[type=date] {
+  width: 90%;
+  margin: 7px 0px;
+  padding: 12px 7px;
+  border: 1px solid #03140a;
+  box-sizing: border-box;
+  border-radius: 7px;
+}
+
+.employee-create-form .employee-table select,
+textarea {
+  width: 90%;
+  margin: 7px 0px;
+  padding: 12px 7px;
+  border: 1px solid #03140a;
+  box-sizing: border-box;
+  border-radius: 7px;
+}
+
+.employee-create-form .employee-table input[type=file] {
+  width: 90%;
+  margin: 7px 0px;
+  padding: 12px 7px;
+  border-radius: 7px;
+}
+
+
+.employee-create-form .employee-table .textarea-form * {
+  vertical-align: middle;
+}
+
+.employee-create-form .btn {
+  width: 50%;
+  text-align: right;
+}
+
+.employee-create-form .btn button {
+  margin: 8px 0;
+  padding: 10px 10px;
+  border: none;
+  background-color: #04AA6D;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+  border-radius: 7px;
+}
+
+.employee-create-form .btn a {
+  width: 25%;
+  margin: 8px 0;
+  padding: 10px 10px;
+  border: none;
+  background-color: #04AA6D;
+  color: white;
+  font-size: 20px;
+  text-decoration: none;
+  cursor: pointer;
+  border-radius: 7px;
+}
+
+.employee-create-form .btn button:hover {
+  opacity: 0.8;
+}
+
+.employee-create-form .btn button a {
+  color: #161515;
+  text-decoration: none;
+}
+
+.employee-create-form .employee-table span {
+  padding-left: 10px;
+  color: red;
+}
+
+.icons {
+  float: left;
+}
+
+.p2 {
+  float: right;
+}
+
+/*Employee Profile*/
+.employee-profile .image {
+  width: 10%;
+}
+
+.employee-profile .image img {
+  width: 100%;
+}
+
+.employee-profile button {
+  margin-left: 1%;
+}
+
+.employee-profile button,
+.employee-profile .profile-edit
+{
+  margin: 8px 0;
+  padding: 10px 10px;
+  border: none;
+  background-color: #04AA6D;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 7px;
+}
+
+.employee-profile .profile-edit {
+  text-decoration: none;
+}
+
+.employee-profile .list-table {
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.employee-profile .list-design-container {
+  margin-bottom: 15px;
+}
+
+.employee-profile .list-table {
+  width: 25%;
+}
+
+.employee-profile .list-table tr td {
+  padding: 15px 0px;
+}
+
+.employee-profile .list-table tr td:nth-child(1) {
+  font-weight: 600;
+}
+
+.readonly {
+  border: 0 none;
+}
+
+.selectreadonly {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  text-indent: 1px;
+  text-overflow: '';
+  border: none;
+}
+
+/* Responsive for max-width: 1242px */
+/*Employee List*/
+@media screen and (max-width: 1242px) {
+  .common-nav .rt-nav ul li {
+    padding-left: 0px;
+  }
+
+  .common-nav .rt-nav {
+    padding-top: 1%;
+    text-align: right;
+  }
+
+  .common-nav .rt-nav ul {
+    padding-left: 0;
+  }
+}
+
+/* Responsive for max-width: 1161px */
+/*Employee List*/
+@media screen and (max-width: 1161px) {
+  .employee-list td {
+    font-size: 14px;
+  }
+}
+
+/* Responsive for max-width: 1107px */
+/*Employee List*/
+@media screen and (max-width: 1107px) {
+  .employee-list {
+    font-size: 15px;
+  }
+}
+
+/* Responsive for max-width: 1102px */
+/*Employee List*/
+@media screen and (max-width: 1102px) {
+
+  .employee-list th:nth-child(5),
+  .employee-list th:nth-child(7),
+  .employee-list th:nth-child(9),
+  .employee-list th:nth-child(10) {
+    display: none;
+  }
+
+  .employee-list td.age,
+  .employee-list td.profile-home,
+  .employee-list td.dob,
+  .employee-list td.address {
+    display: none;
+  }
+}
+
+/* Responsive Page for max-width: 788px */
+@media screen and (max-width: 788px) {
+  /*Salary Detail Page*/
+  .panel-body {
+    width: 70%;
+  }
+}
+
+/* Responsive for max-width: 774px */
+/*Employee List*/
+@media screen and (max-width: 774px) {
+  .employee-list th:nth-child(6) {
+    display: none;
+  }
+
+  .employee-list td.email {
+    display: none;
+  }
+
+  .copyright .p1 {
+    float: none;
+    text-align: center;
+  }
+
+  .icons {
+    float: none;
+    text-align: center;
+  }
+
+  .p2 {
+    float: none;
+    text-align: center;
+  }
+
+  .social-icons a {
+    display: inline-block;
+    padding: 5px 2px;
+  }
+
+  .employee-create-form .employee-table {
+    width: 100%;
+  }
+
+  .employee-create-form .btn {
+    width: 100%;
+  }
+
+  .employee-list .list-table .list-edit,
+  .employee-list .list-table .list-delete {
+    padding: 5px;
+    font-size: 10px;
+  }
+}
+
+/* Responsive for max-width: 582px */
+/*Employee List*/
+@media screen and (max-width: 582px) {
+  .employee-list th:nth-child(8) {
+    display: none;
+  }
+
+  .employee-list td.phone {
+    display: none;
+  }
+
+  /*Salary List*/
+  .salary-list .list-design-container th {
+    font-size: 12px;
+  }
+
+  .salary-list .list-design-container td {
+    font-size: 10px;
+    padding: 12px 0px;
+  }
+
+  .salary-list .list-table .list-detail,
+  .salary-list .list-table .list-edit,
+  .salary-list .list-table .list-delete
+  {
+    padding: 5px;
+    font-size: 10px;
+  }
+}
+
+/* Responsive for max-width: 563px */
+@media screen and (max-width: 563px) {
+  /*Salary Detail Page*/
+  .panel-body {
+    width: 100%;
+  }
+}
+
+/* Responsive for max-width: 489px */
+@media screen and (max-width: 489px) {
+  /*Employee List*/
+  .employee-list th {
+    font-size: 14px;
+  }
+
+  .employee-list td {
+    font-size: 12px;
+  }
+
+  /*Department List Page*/
+.department-list .list-table th {
+  font-size: 12px;
+}
+
+.department-list .list-table td {
+  font-size: 10px;
+}
+
+.department-list .list-table .list-delete {
+  font-size: 10px;
+  padding: 9px;
+}
+  
+}
+
+/* Responsive for max-width: 483px */
+/*Employee List*/
+@media screen and (max-width: 483px) {
+  .list-design .list-table .list-edit {
+    margin-bottom: 4px;
+  }
+
+  .common-nav .header {
+    font-size: 20px;
+  }
+
+  .common-nav .lf-nav span {
+    font-size: 20px;
+  }
+
+  .common-nav .rt-nav ul li a {
+    font-size: 18px;
+  }
+
+  .list-design .list-title {
+    font-size: 20px;
+  }
+
+  .common-nav .rt-nav ul li a {
+    font-size: 18px;
+  }
+
+  .copyright .p1,
+  .copyright .p2 {
+    font-size: 10px;
+  }
+}
+
+/* Responsive for max-width: 446px */
+@media screen and (max-width: 446px) {
+/*Create Department*/
+.create-department-header {
+  font-size: 18px;
+}
+
+.create-department label {
+  font-size: 14px;
+}
+
+.create-department .btn button,
+.create-department .btn a
+{
+  font-size: 16px;
+}
+
+.employee-list .list-table .list-edit,
+  .employee-list .list-table .list-delete {
+    padding: 5px;
+    font-size: 10px;
+  }
+}
+
+/* Responsive for max-width: 423px */
+/*Employee List*/
+@media screen and (max-width: 423px) {
+
+  .list-design .list-table .list-edit,
+  .list-design .list-table .list-delete {
+    padding: 10px 5px;
+    font-size: 10px;
+  }
+
+  .salary-list .list-table .list-edit,
+  .salary-list .list-table .list-delete {
+    padding: 5px;
+    font-size: 10px;
+  }
+
+  .employee-list .list-table .list-edit,
+  .employee-list .list-table .list-delete {
+    padding: 5px;
+    font-size: 10px;
+  }
+}
+/*employee search*/
+.form-inline {  
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  margin: 15px;
+}
+
+.form-inline label {
+  margin: 5px 10px 5px 0;
+}
+
+.form-inline .emp-search input,select {
+  vertical-align: middle;
+  margin: 5px 10px 5px 0;
+  padding: 10px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+}
+.form-inline .emp-search input[id=jd] {
+  vertical-align: middle;
+  margin: 5px 10px 5px 0;
+  padding: 10px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  width: 60%;
+}
+
+.form-inline button {
+  padding: 10px 20px;
+  background-color: #04AA6D;
+  border: 1px solid #ddd;
+  color: white;
+  cursor: pointer;
+}
+
+.form-inline button:hover {
+  background-color: royalblue;
+}
+.form-inline .emp-search{
+  padding: 10px 15px;
+}
+.not-found-data{
+  padding: 10px;
+    border: 1px solid black;
+    background-color: #04AA6D;
+    color: #2e2c2c;
+    font-size: 20px;
+    width: 8%;
+    text-align: center;
+    margin: 20px 0 20px 90px;
+}
+
+@media (max-width: 800px) {
+  .form-inline input {
+    margin: 10px 0;
+  }
+  
+  .form-inline {
+    flex-direction: column;
+    align-items: stretch;
+  }
 }
 
 /* Change styles for span and cancel button on extra small screens */

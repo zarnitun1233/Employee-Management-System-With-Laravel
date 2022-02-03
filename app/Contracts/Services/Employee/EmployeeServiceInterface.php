@@ -48,6 +48,10 @@ interface EmployeeServiceInterface
      */
     public function delete($id);
 
+    public function search();
+
+    public function postSearch(Request $request);
+
     /**
      * To Export Employees List
      */

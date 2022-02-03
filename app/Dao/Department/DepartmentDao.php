@@ -24,7 +24,7 @@ class DepartmentDao implements DepartmentDaoInterface
      */
     public function index()
     {
-        return Department::paginate(2);
+        return Department::paginate(5);
     }
 
     /**

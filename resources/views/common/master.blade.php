@@ -10,28 +10,37 @@
   <link rel="stylesheet" href="{{ asset('css/style.css') }}">
   @yield('leaves')
   <link rel="stylesheet" href="{{ asset('css/all.css') }}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
-<body>
-  <div class="container">
-    <div class="clearFix">
-      <div class="lf-nav">
-        <a href="#home">
-          <img src="{{ asset('images/' . 'ems.jpg') }}" alt="" height="100px">
-        </a>
-      </div>
-      <!-- Right-sided navbar links. Hide them on small screens -->
-      <div class="rt-nav">
-        @auth
-        <a href="{{ url('/employee/list') }}">Employee Management</a>
-        <a href="{{ url('/salary/list') }}">Salary Management</a>
-        <a href="{{ url('/leaves/list') }}">Leaves Management</a>
-        <a href="{{ url('/department/list') }}">Department Management</a>
-        <a href="{{ url('/employee/list/' . Auth::user()->id) }}">Profile</a>
-        <a href="{{ url('/logout') }}">Logout</a>
-        @endauth
-      </div>
+<body class="common-nav">
+
+<div id="mySidenav" class="sidenav" >
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <a href="{{ url('/employee/list') }}">Employee </a>
+  <a href="{{ url('/salary/list') }}">Salary </a>
+  <a href="{{ url('/leaves/list') }}">Leaves </a>
+  <a href="{{ url('/department/list') }}">Department </a>
+</div>
+<div class="header">
+  <h2>Employee Management System</h2>
+</div>
+  <div class="nav clearFix">
+    <div class="lf-nav clearFix">
+      <span style="cursor:pointer" onclick="openNav()">&#9776; Management</span>
     </div>
+    @auth
+    <div class="rt-nav clearFix">
+      <ul>
+        <li><a href="{{ url('/employee/list/' . auth()->user()->id) }}">Profile <i class="fa fa-user-circle-o"></i></a>
+        </li>
+        <li><a href="{{ url('/logout') }}">Logout <i class="fa fa-sign-out"></i></a>
+        </li>
+      </ul>
+     
+    </div>
+    @endauth
+  </div>
 
 @yield('content')
     <div class="footer-line">
@@ -39,16 +48,27 @@
     </div>
     <div class="copyright clearFix">
       <p class="p1">Copyright &copy; www.google.com. </p>
-      <div class="social-icons">
+      <div class="social-icons clearFix">
+        <div class="icons">
         <a href="#"><i class="fab fa-facebook"></i></a>
         <a href="#"><i class="fab fa-twitter-square"></i></a>
         <a href="#"><i class="fab fa-google-plus"></i></a>
+        </div>
         <p class="p2">
           All rights reserved | Web Design by <span>Group_B</span>
         </p>
       </div>
     </div>
   </div>
+  <script>
+function openNav() {
+  document.getElementById("mySidenav").style.width = "250px";
+}
+
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0";
+}
+</script>
 </body>
 
 </html>

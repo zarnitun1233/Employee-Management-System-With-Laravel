@@ -9,7 +9,6 @@ use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Http\Requests\StoreEmployeeRequest;
 use App\Http\Requests\EmployeeUpdateRequest;
-use App\Exports\StudentsExport;
 use App\Imports\StudentsImport;
 use App\Mail\TestMail;
 use App\Mail\sendMailData;
@@ -87,6 +86,16 @@ class EmployeeService implements EmployeeServiceInterface
     public function delete($id)
     {
         return $this->employeeDao->delete($id);
+    }
+
+    public function search()
+    {
+        return $this->employeeDao->search();
+    }
+
+    public function postSearch(Request $request)
+    {
+       return $this->employeeDao->postSearch($request);
     }
 
     /**

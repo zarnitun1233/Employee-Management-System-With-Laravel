@@ -1,15 +1,18 @@
 @extends('common.master')
 
 @section('content')
-<h1 class="employee-list">Department List</h1>
+<div class="list-design department-list">
+  <div class="list-design-container">
+<h1 class="list-title">Department List</h1>
+<div class="create-export">
+      <a href="{{ url('/department/create') }}">Create Department</a>
+    </div>
 @if ($message = Session::get('success'))
 <div>
-  <p class="employee-list-message">{{ $message }}</p>
+  <p class="show-alert">{{ $message }}</p>
 </div>
 @endif
-<div class="employee">
-  <a href="{{ url('/department/create') }}">Create Department</a><br><br>
-  <table class="employee-table">
+  <table class="list-table">
     <tr>
       <th>No</th>
       <th>Department Name</th>
@@ -23,15 +26,15 @@
       <td>{{ $department->description }}</td>
       <td>
         <form action="{{ url('/department/delete/'.$department->id) }}" method="POST">
-          <a href="{{ url('/department/edit/'.$department->id) }}" class="edit">Edit</a>
+          <a href="{{ url('/department/edit/'.$department->id) }}" class="list-edit">Edit</a>
           {{ csrf_field() }}
           {{ method_field('DELETE') }}
-          <button class="delete">Delete</button>
+          <button class="list-delete">Delete</button>
         </form>
       </td>
     </tr>
     @endforeach
   </table><br><br>
-  {{ $departments->links() }}
 </div>
+{{ $departments->links() }}
 @endsection
