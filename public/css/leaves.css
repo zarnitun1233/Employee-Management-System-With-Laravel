@@ -188,3 +188,8 @@
 .leaves-user-action button {
     margin-right: 10px;
 }
+
+/*Leaves Reason*/
+.leaves-reason .list-table{
+    width: 200px;
+}

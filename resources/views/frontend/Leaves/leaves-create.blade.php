@@ -1,48 +1,52 @@
 @extends('common.master')
 
-
 @section('content')
-    @if (Session::has('msg'))
-        <p>{{ Session::get('msg') }}</p>
-    @endif
-    <form action="{{ route('leaves.store') }}" method="POST" >
-      @csrf
-      <div>
-        <input type="hidden" name="empId" value="{{ request()->id }}"><br>
-      </div><br>
-      <div>
-        <label for="From Date">From Date</label>
-        <input type="date" name="fromDate"><br>
+@if (Session::has('msg'))
+<p class="employee-list-message">{{ Session::get('msg') }}</p>
+@endif
+<h2 class="employee-create-header">Create Leaves</h2>
+<form action="{{ route('leaves.store') }}" method="POST" enctype="multipart/form-data" class="employee-create-form">
+  @csrf
+  <div>
+    <input type="hidden" name="empId" value="{{ request()->id }}"><br>
+  </div><br>
+  <table class="employee-table">
+    <tr>
+      <td class="employee-label"><label for="From Date">From Date</label></td>
+      <td><input type="date" name="fromDate"><br>
         @error('fromDate')
-          {{ $message }}
+        {{ $message }}
         @enderror
-      </div><br>
-      <div>
-        <label for="To Date">To Date</label>
-        <input type="date" name="toDate"><br>
+      </td>
+    </tr>
+    <tr>
+      <td class="employee-label"><label for="To Date">To Date</label></td>
+      <td><input type="date" name="toDate"><br>
         @error('toDate')
-          {{ $message }}
+        {{ $message }}
         @enderror
-      </div><br>
-      <div>
-        <label for="Duration">Duration</label>
-        <input type="text" name="duration"><br>
+      </td>
+    </tr>
+    <tr>
+      <td class="employee-label"><label for="Duration">Duration</label></td>
+      <td><input type="text" name="duration"><br>
         @error('duration')
-            {{ $message }}
+        {{ $message }}
         @enderror
-      </div><br>
-      <div>
-        <label for="Reason">Reason</label>
-        <textarea name="reason" id="" cols="30" rows="10"></textarea>
+      </td>
+    </tr>
+    <tr>
+      <td class="employee-label"><label for="Reason">Reason</label></td>
+      <td><textarea name="reason" id="" cols="30" rows="10"></textarea>
         @error('reason')
-            {{ $message }}
+        {{ $message }}
         @enderror
-      </div><br>
-      <div>
-        <button type="submit" name="create">Create</button>
-      </div><br>
-    </form>
-    <div>
-      <button onclick="history.back()">Back</button>
-    </div><br>
+      </td>
+    </tr>
+  </table>
+  <div class="btn">
+    <button type="submit" name="create">Create</button>&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="" onclick="history.back()">Back</a>
+  </div>
+</form>
 @endsection
