@@ -66,7 +66,7 @@
                   <form class="leaves-action-form"  action="{{ route('leaves.delete',['id'=>$leave->id]) }}" method="POST">
                     @method('delete')
                     @csrf
-                    <button type="submit" class="leaves-delete">Delete</button>
+                    <button type="submit" class="leaves-delete {{$leave->status !==  null ? 'disabled' :'' }}">Delete</button>
                   </form>
                   <form class="leaves-action-form" action="{{ route('leaves.accept',['id'=>$leave->id]) }}" method="POST">
                     @csrf

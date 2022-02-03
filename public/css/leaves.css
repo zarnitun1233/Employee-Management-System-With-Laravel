@@ -94,6 +94,10 @@
     border-radius: 5px;
 }
 
+.leaves-table .leaves-accept.disabled,.leaves-delete.disabled {
+    opacity: 0.5;
+}
+
 .leaves-table .show-status-accept {
     margin-top: 5px;
     padding: 5px;

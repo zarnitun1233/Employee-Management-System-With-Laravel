@@ -46,14 +46,14 @@
                 </td>
               @endif
               <td class="leaves-user-action">
+               @if ($leave->leave_status === null)
                 <form class="leaves-action-form"  action="{{ route('leaves.delete',['id'=> $leave->leave_id]) }}" method="POST">
-                  @method('delete')
-                  @csrf
-                  <button type="submit" class="leaves-delete">Delete</button>
+                    @method('delete')
+                    @csrf
+                    <button type="submit" class="leaves-delete">Delete</button>
                 </form>
-                @if ($leave->leave_status === null)
-                  <a href="{{ route('leaves.edit',['id'=>$leave->leave_id]) }}"  class="leaves-edit">Edit</a>
-                @endif
+                    <a href="{{ route('leaves.edit',['id'=>$leave->leave_id]) }}"  class="leaves-edit">Edit</a>
+               @endif
               </td>
             </tr>
             @php
