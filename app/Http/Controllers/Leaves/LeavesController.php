@@ -19,8 +19,7 @@ class LeavesController extends Controller  {
     public function index(Request $request,$name=null) {
         $leaves =  $this->leavesService->index($name);
        
-        if ( $request->page !== null )
-        {
+        if ($request->page !== null) {
             return view('backend.Leaves.leaves-list',compact('leaves'));
         } else {
             $name =$name ? $name : '';
