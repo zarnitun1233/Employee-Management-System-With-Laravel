@@ -15,6 +15,8 @@
 
 <body class="common-nav">
 
+@auth
+@if (auth()->user()->role == 1)
 <div id="mySidenav" class="sidenav" >
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
   <a href="{{ url('/employee/list') }}">Employee </a>
@@ -22,13 +24,24 @@
   <a href="{{ url('/leaves/list') }}">Leaves </a>
   <a href="{{ url('/department/list') }}">Department </a>
 </div>
+@else
+<div id="mySidenav" class="sidenav" >
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <a href="{{ url('/leaves/user/'.auth()->user()->id) }}">Leaves List</a>
+  <a href="{{ url('/leaves/create/'.auth()->user()->id) }}">Create Leaves</a>
+  <a href="{{ url('/employee/edit/'.auth()->user()->id) }}">Edit Info</a>
+</div>
+@endif
+@endauth
 <div class="header">
   <h2>Employee Management System</h2>
 </div>
   <div class="nav clearFix">
+    @auth
     <div class="lf-nav clearFix">
       <span style="cursor:pointer" onclick="openNav()">&#9776; Management</span>
     </div>
+    @endauth
     @auth
     <div class="rt-nav clearFix">
       <ul>

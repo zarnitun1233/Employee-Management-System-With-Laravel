@@ -1,195 +1,279 @@
 .leaves-list {
-    display: flex;
-    flex-flow: column;
-    justify-content: center;
-    align-items: center;
-    margin-top: 50px;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
 }
 
 .leaves-title {
-    margin-bottom: 20px;
-    font-size: 30px;
+  margin-bottom: 20px;
+  font-size: 30px;
 }
 
 .leaves-list-container {
-    width: 80%;
+  width: 95%;
 }
 
 .leaves-list .show-alert {
-    width: 60%;
-    margin-bottom: 20px;
-    padding: 15px 10px;
-    background-color: #0ef9a3;
-    color: #ffffff;
-    font-size: 20px;
-    font-weight: bold;
-    border-radius: 5px;
+  width: 60%;
+  margin-bottom: 20px;
+  padding: 15px 10px;
+  background-color: #0ef9a3;
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: bold;
+  border-radius: 5px;
 }
 
 .leaves-table {
-    width: 100%;
-    border: 1px solid #04AA6D;
-    text-align: center;
-    border-collapse: collapse;
+  width: 100%;
+  border: 1px solid #04AA6D;
+  text-align: center;
+  border-collapse: collapse;
 }
 
 .leaves-table tr:nth-child(even) {
-    background-color: #f2f2f2;
+  background-color: #f2f2f2;
 }
 
 .leaves-table tr {
-    transition: 0.5s;
+  transition: 0.5s;
 }
 
 .leaves-table tr:hover {
-    background-color: #ddd;
+  background-color: #ddd;
 }
 
 .leaves-table th {
-    background-color: #04AA6D;
-    color: #ffffff;
+  background-color: #04AA6D;
+  color: #ffffff;
 }
 
 .leaves-table th,
 .leaves-table td {
-    padding: 15px;
+  padding: 15px;
 }
 
 .leaves-table .show-status-pending {
-    padding: 5px;
-    background-color: #8c8b87;
-    color: #ffffff;
-    font-size: 12px;
-    border-radius: 5px;
+  padding: 5px;
+  background-color: #8c8b87;
+  color: #ffffff;
+  font-size: 12px;
+  border-radius: 5px;
 }
 
 .leaves-table .leaves-delete {
-    padding: 10px;
-    border: none;
-    background-color: #cb024a;
-    color: #ffffff;
-    cursor: pointer;
-    border-radius: 5px;
+  padding: 10px;
+  border: none;
+  background-color: #cb024a;
+  color: #ffffff;
+  cursor: pointer;
+  border-radius: 5px;
 }
 
 .leaves-table .leaves-edit {
-    padding: 10px;
-    border: none;
-    background-color: #ebcf33;
-    color: #ffffff;
-    text-decoration: none;
-    cursor: pointer;
-    border-radius: 5px;
+  padding: 10px;
+  border: none;
+  background-color: #ebcf33;
+  color: #ffffff;
+  text-decoration: none;
+  cursor: pointer;
+  border-radius: 5px;
 }
 
 .leaves-table .leaves-accept {
-    padding: 10px;
-    border: none;
-    background-color: #04AA6D;
-    color: #ffffff;
-    cursor: pointer;
-    border-radius: 5px;
+  padding: 10px;
+  border: none;
+  background-color: #04AA6D;
+  color: #ffffff;
+  cursor: pointer;
+  border-radius: 5px;
 }
 
 .leaves-table .leaves-accept.disabled,
 .leaves-delete.disabled {
-    opacity: 0.5;
+  opacity: 0.5;
 }
 
 .leaves-table .show-status-accept {
-    margin-top: 5px;
-    padding: 5px;
-    background-color: #8c8b87;
-    color: #ffffff;
-    font-size: 12px;
-    border-radius: 5px;
+  margin-top: 5px;
+  padding: 5px;
+  background-color: #8c8b87;
+  color: #ffffff;
+  font-size: 12px;
+  border-radius: 5px;
 }
 
 .leaves-table .show-status {
-    cursor: default;
-    pointer-events: none;
+  cursor: default;
+  pointer-events: none;
 }
 
 .paginate-row {
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
-    padding: 10px 0;
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  padding: 10px 0;
 }
 
 .paginate-btn {
-    padding: 7px 10px;
-    border: 1px solid #ffffff;
-    background-color: #04AA6D;
-    color: #ffffff;
-    text-decoration: none;
-    border-radius: 5px;
+  padding: 7px 10px;
+  border: 1px solid #ffffff;
+  background-color: #04AA6D;
+  color: #ffffff;
+  text-decoration: none;
+  border-radius: 5px;
 }
 
 .paginate-btn.current {
-    background-color: #cb024a;
+  background-color: #cb024a;
 }
 
 .back-btn {
-    background-color: #653CFF;
+  background-color: #653CFF;
 }
 
 .create-btn {
-    background-color: #04AA6D;
+  background-color: #04AA6D;
 }
 
 .button-group {
-    display: flex;
+  display: flex;
 }
 
 .button-group .bg-btn {
-    display: inline-block;
-    margin-top: 20px;
-    margin-right: 10px;
-    padding: 10px;
-    border: none;
-    color: #ffffff;
-    text-decoration: none;
-    cursor: pointer;
-    border-radius: 5px;
+  display: inline-block;
+  margin-top: 20px;
+  margin-right: 10px;
+  padding: 10px;
+  border: none;
+  color: #ffffff;
+  text-decoration: none;
+  cursor: pointer;
+  border-radius: 5px;
 }
 
 .disabled {
-    cursor: default;
-    pointer-events: none;
+  cursor: default;
+  pointer-events: none;
 }
 
 .leaves-action-form {
-    display: inline-block;
+  display: inline-block;
 }
 
 /* leves-search */
 .leaves-search {
-    display: flex;
-    align-items: flex-end;
-    margin-bottom: 20px;
+  display: flex;
+  align-items: flex-end;
+  margin-bottom: 20px;
 }
 
 .leaves-search button {
-    margin-left: 10px;
+  margin-left: 10px;
 }
 
 .leaves-row.remove-row {
-    display: none;
+  display: none;
 }
 
 /* leaves-by-user */
 .leaves-user-action {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .leaves-user-action button {
-    margin-right: 10px;
+  margin-right: 10px;
 }
 
 /*Leaves Reason*/
-.leaves-reason .list-table{
-    width: 200px;
+.leaves-reason .list-table {
+  width: 200px;
+}
+
+/*Responsive max-width:975px for leaves list*/
+@media screen and (max-width: 975px) {
+
+  .leaves-table th:nth-child(6),
+  .leaves-table th:nth-child(7) {
+    display: none;
+  }
+
+  .leaves-table tr td:nth-child(6),
+  .leaves-table tr td:nth-child(7) {
+    display: none;
+  }
+
+  .leaves-table .show-status {
+    font-size: 8px;
+    padding: 3px;
+  }
+}
+
+/*Responsive max-width:774px for leaves list*/
+@media screen and (max-width: 774px) {
+  .leaves-table th {
+    font-size: 14px;
+  }
+
+  .leaves-table td {
+    padding: 3px;
+    font-size: 12px;
+  }
+
+  .leaves-table .show-status-pending {
+    font-size: 9px;
+    padding: 2px;
+  }
+}
+
+/*Responsive max-width:639px for leaves list*/
+@media screen and (max-width: 639px) {
+  .leaves-table th {
+    padding: 3px;
+    font-size: 11px;
+    vertical-align: middle;
+  }
+
+  .leaves-table td {
+    font-size: 10px;
+  }
+
+  .leaves-table .show-status {
+    font-size: 8px;
+  }
+
+  .leaves-table .leaves-delete {
+    padding: 4px;
+  }
+
+  .leaves-delete.disabled {
+    font-size: 8px;
+  }
+
+  .leaves-table .leaves-accept.disabled {
+    padding: 4px;
+    font-size: 8px;
+  }
+
+  .leaves-table .leaves-accept {
+    padding: 4px;
+    font-size: 8px;
+  }
+
+  .paginate-btn {
+    padding: 4px 6px;
+  }
+
+  .button-group .bg-btn {
+    padding: 4px;
+    font-size: 14px;
+  }
+
+  .leaves-table .show-status-pending {
+    padding: 3px;
+  }
 }
