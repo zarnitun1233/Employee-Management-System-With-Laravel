@@ -28,7 +28,7 @@
 <div id="mySidenav" class="sidenav" >
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
   <a href="{{ url('/leaves/user/'.auth()->user()->id) }}">Leaves List</a>
-  <a href="{{ url('/leaves/create/'.auth()->user()->id) }}">Create Leaves</a>
+  <a href="{{ url('/leaves/create/'.auth()->user()->id) }}">Create Leave</a>
   <a href="{{ url('/employee/edit/'.auth()->user()->id) }}">Edit Info</a>
 </div>
 @endif

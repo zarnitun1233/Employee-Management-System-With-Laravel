@@ -408,6 +408,16 @@ body {
   width: 50%;
   margin: 0 auto;
   border: 3px solid #f1f1f1;
+  margin-top: 40px;
+  text-align: center;
+}
+
+.change-pwd-header {
+text-align: center;
+}
+
+.change-pwd-form {
+margin-left: 23%;
 }
 .reset-pswd h2{
   padding: 10px 20px;
@@ -1003,7 +1013,7 @@ textarea {
   margin: 8px 0;
   padding: 10px 10px;
   border: none;
-  background-color: #0468aa;
+  background-color: #653CFF;
   color: white;
   font-size: 20px;
   text-decoration: none;
@@ -1092,11 +1102,15 @@ textarea {
 }
 
 .employee-profile .list-table {
-  width: 25%;
+  width: 50%;
+}
+
+.employee-profile .list-design-container {
+  width: 90%;
 }
 
 .employee-profile .list-table tr td {
-  padding: 15px 0px;
+  padding: 15px;
 }
 
 .employee-profile .list-table tr td:nth-child(1) {
