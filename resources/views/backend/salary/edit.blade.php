@@ -7,36 +7,36 @@
   <table class="employee-table">
     <tr>
       <td class="employee-label"><label for="name">Employee Name</label></label></td>
-      <td><input type="text" name="name" id="name" value="{{ $salary->employee->name }}" readonly><br>
+      <td><input type="text" name="name" id="name" value="{{ $salary->employee->name }}" readonly>
   @error('name')
   <p class="validate-employee-error">{{ $message }}</p>
-  @enderror <br>
+  @enderror 
       </td>
     </tr>
     <tr>
       <td class="employee-label"><label for="department">Department Name</label></label></td>
-      <td><input type="text" id="department" name="department" value="{{ $department[0]->name }}" readonly><br><br>
+      <td><input type="text" id="department" name="department" value="{{ $department[0]->name }}" readonly>
       </td>
     </tr>
     <tr>
       <td class="employee-label"><label for="position">Position</label></td>
-      <td><input type="text" id="position" name="position" value="{{ $salary->employee->position }}" readonly><br><br>
+      <td><input type="text" id="position" name="position" value="{{ $salary->employee->position }}" readonly>
       </td>
     </tr>
     <tr>
       <td class="employee-label"><label for="amount">Salary Amount</label></td>
-      <td><input type="text" id="amount" name="amount" value="{{ $salary->amount }}"><br>
+      <td><input type="text" id="amount" name="amount" value="{{ $salary->amount }}">
   @error('amount')
   <p class="validate-employee-error">{{ $message }}</p>
-  @enderror <br>
+  @enderror 
       </td>
     </tr>
     <tr>
       <td class="employee-label"><label for="date">Date</label></td>
-      <td><input type="date" id="date" name="date" value="<?php echo date('Y-m-d'); ?>"><br>
+      <td><input type="date" id="date" name="date" value="<?php echo date('Y-m-d'); ?>">
   @error('date')
   <p class="validate-employee-error">{{ $message }}</p>
-  @enderror <br>
+  @enderror 
       </td>
     </tr>
   </table>

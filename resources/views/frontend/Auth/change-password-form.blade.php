@@ -1,8 +1,8 @@
 @extends('common.master')
 
 @section('content')
-<h2 class="employee-create-header">Change New Password</h2>
-<form action="{{ route('post.change.password') }}" method="POST" enctype="multipart/form-data" class="employee-create-form">
+<h2 class="employee-create-header change-pwd-header">Change New Password</h2>
+<form action="{{ route('post.change.password') }}" method="POST" enctype="multipart/form-data" class="employee-create-form change-pwd-form">
   @csrf
   <table class="employee-table">
     <input type="hidden" name="email" value="{{ request()->email }}">

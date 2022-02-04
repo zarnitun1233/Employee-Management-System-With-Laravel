@@ -36,7 +36,7 @@ class AuthController extends Controller
                 return redirect('/employee/list');
             }
             else {
-                return redirect('/leaves/create/' . $userId);
+                return redirect('/employee/list/'. $userId);
             }
           }
           else 

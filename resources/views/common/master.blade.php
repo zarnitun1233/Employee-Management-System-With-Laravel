@@ -15,6 +15,8 @@
 
 <body class="common-nav">
 
+@auth
+@if (auth()->user()->role == 1)
 <div id="mySidenav" class="sidenav" >
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
   <a href="{{ url('/employee/list') }}">Employee </a>
@@ -22,19 +24,30 @@
   <a href="{{ url('/leaves/list') }}">Leaves </a>
   <a href="{{ url('/department/list') }}">Department </a>
 </div>
+@else
+<div id="mySidenav" class="sidenav" >
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <a href="{{ url('/leaves/user/'.auth()->user()->id) }}">Leaves List</a>
+  <a href="{{ url('/leaves/create/'.auth()->user()->id) }}">Create Leave</a>
+  <a href="{{ url('/employee/edit/'.auth()->user()->id) }}">Edit Info</a>
+</div>
+@endif
+@endauth
 <div class="header">
   <h2>Employee Management System</h2>
 </div>
   <div class="nav clearFix">
+    @auth
     <div class="lf-nav clearFix">
       <span style="cursor:pointer" onclick="openNav()">&#9776; Management</span>
     </div>
+    @endauth
     @auth
     <div class="rt-nav clearFix">
       <ul>
-        <li><a href="{{ url('/employee/list/' . auth()->user()->id) }}">Profile <i class="fa fa-user-circle-o"></i></a>
+        <li><a href="{{ url('/employee/list/' . auth()->user()->id) }}"> <i class="fas fa-user-circle"></i> Profile</a>
         </li>
-        <li><a href="{{ url('/logout') }}">Logout <i class="fa fa-sign-out"></i></a>
+        <li><a href="{{ url('/logout') }}"><i class="fas fa-sign-out-alt"></i> Logout </a>
         </li>
       </ul>
      

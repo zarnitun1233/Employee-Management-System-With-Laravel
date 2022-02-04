@@ -59,7 +59,7 @@ body {
 }
 
 .common-nav .nav {
-  width: 95%;
+  width: 98%;
   margin: 0 auto;
   margin-top: 25px;
 }
@@ -125,8 +125,8 @@ body {
 .footer-line {
   width: 100%;
   margin: 0 auto;
-  margin-top: 25px;
   padding-bottom: 15px;
+  margin-top: 200px;
 }
 
 .foot-border {
@@ -198,7 +198,7 @@ body {
 }
 
 .employee-table th,
-.employee-table td {
+.employee-table tr {
 
   border: 1px solid #ddd;
   border-collapse: collapse;
@@ -411,6 +411,16 @@ body {
   width: 50%;
   margin: 0 auto;
   border: 3px solid #f1f1f1;
+  margin-top: 40px;
+  text-align: center;
+}
+
+.change-pwd-header {
+text-align: center;
+}
+
+.change-pwd-form {
+margin-left: 23%;
 }
 
 .reset-pswd h2 {
@@ -509,6 +519,12 @@ body {
 .list-design .list-table td {
   padding: 5px;
   vertical-align: middle;
+  text-align: left;
+}
+
+.leaves-reason .list-table tr th,
+.leaves-reason .list-table tr td {
+  padding: 15px;
 }
 
 .list-design .list-table .list-delete {
@@ -927,12 +943,13 @@ textarea {
 /*Create Employee*/
 
 .employee-create-header {
-  padding: 20px 160px 20px 10px;
+  padding: 20px 160px 20px 70px;
   font-size: 24px;
 }
 
 .employee-create-form .employee-table {
   width: 50%;
+  margin-left: 60px;
 }
 
 .employee-create-form .employee-table tr {
@@ -985,6 +1002,7 @@ textarea {
 .employee-create-form .btn {
   width: 50%;
   text-align: right;
+  margin: 15px 0px 15px 60px;
 }
 
 .employee-create-form .btn button {
@@ -1003,7 +1021,7 @@ textarea {
   margin: 8px 0;
   padding: 10px 10px;
   border: none;
-  background-color: #04AA6D;
+  background-color: #653CFF;
   color: white;
   font-size: 20px;
   text-decoration: none;
@@ -1058,6 +1076,25 @@ textarea {
   border-radius: 7px;
 }
 
+.employee-profile button {
+  background-color: #653CFF;
+}
+
+.back-button {
+    margin: 8px 0;
+    padding: 10px 10px;
+    border: none;
+    background-color: #653CFF;
+    color: white;
+    font-size: 20px;
+    text-decoration: none;
+    cursor: pointer;
+    border-radius: 7px;
+    display: inline-block;
+    margin-top: 50px;
+    margin-left: 15px;
+}
+
 .employee-profile .profile-edit {
   text-decoration: none;
 }
@@ -1072,15 +1109,24 @@ textarea {
 }
 
 .employee-profile .list-table {
-  width: 25%;
+  width: 50%;
+}
+
+.employee-profile .list-design-container {
+  width: 94%;
 }
 
 .employee-profile .list-table tr td {
-  padding: 15px 0px;
+  padding: 15px;
 }
 
 .employee-profile .list-table tr td:nth-child(1) {
   font-weight: 600;
+  width: 40%;
+}
+
+.employee-profile .list-table tr td:nth-child(2) {
+  width: 60%;
 }
 
 .readonly {
