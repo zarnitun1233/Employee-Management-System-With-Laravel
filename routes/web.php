@@ -33,18 +33,18 @@ Route::get('/', function() {
 
 #leave route
 Route::get('/leaves/create/{id}',[LeavesController::class,'create'])->name('leaves.create')->middleware('auth');
-Route::get('/leaves/list/{name}',[LeavesController::class,'index'])->name('leaves.list');
-Route::get('leaves/edit/{id}',[LeavesController::class,'edit'])->name('leaves.edit');
-Route::get('/leaves/list',[LeavesController::class,'index'])->name('leaves.list');
-Route::get('leaves/reason/{id}',[LeavesController::class,'reason'])->name('leaves.reason');
-Route::get('/leaves/user/{id}',[LeavesController::class,'leavesByUser']);
+Route::get('/leaves/list/{name}',[LeavesController::class,'index'])->name('leaves.list')->middleware('auth','admin');
+Route::get('leaves/edit/{id}',[LeavesController::class,'edit'])->name('leaves.edit')->middleware('auth');
+Route::get('/leaves/list',[LeavesController::class,'index'])->name('leaves.list')->middleware('auth');
+Route::get('leaves/reason/{id}',[LeavesController::class,'reason'])->name('leaves.reason')->middleware('auth','admin');
+Route::get('/leaves/user/{id}',[LeavesController::class,'leavesByUser'])->middleware('auth');
 
-Route::post('/leaves/store',[LeavesController::class,'store'])->name('leaves.store');
-Route::post('leaves/accept/{id}',[LeavesController::class,'accept'])->name('leaves.accept');
-Route::post('leaves/search',[LeavesController::class,'searchByName'])->name('leaves.searchByName');
+Route::post('/leaves/store',[LeavesController::class,'store'])->name('leaves.store')->middleware('auth');
+Route::post('leaves/accept/{id}',[LeavesController::class,'accept'])->name('leaves.accept')->middleware('auth','admin');
+Route::post('leaves/search',[LeavesController::class,'searchByName'])->name('leaves.searchByName')->middleware('auth','admin');
 
 
-Route::delete('leaves/delete/{id}',[LeavesController::class,'delete'])->name('leaves.delete');
+Route::delete('leaves/delete/{id}',[LeavesController::class,'delete'])->name('leaves.delete')->middleware('auth');
 
 Route::put('leaves/update/{id}',[LeavesController::class,'update'])->name('leaves.update');
 
