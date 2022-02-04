@@ -126,7 +126,7 @@ body {
   width: 100%;
   margin: 0 auto;
   padding-bottom: 15px;
-  margin-top: 25px;
+  margin-top: 200px;
 }
 
 .foot-border {
@@ -501,6 +501,12 @@ body {
 .list-design .list-table td {
   padding: 5px;
   vertical-align: middle;
+  text-align: left;
+}
+
+.leaves-reason .list-table tr th,
+.leaves-reason .list-table tr td {
+  padding: 15px;
 }
 
 .list-design .list-table .list-delete {
@@ -995,7 +1001,7 @@ textarea {
   margin: 8px 0;
   padding: 10px 10px;
   border: none;
-  background-color: #04AA6D;
+  background-color: #653CFF;
   color: white;
   font-size: 20px;
   text-decoration: none;
@@ -1049,6 +1055,25 @@ textarea {
   font-size: 16px;
   cursor: pointer;
   border-radius: 7px;
+}
+
+.employee-profile button {
+  background-color: #653CFF;
+}
+
+.back-button {
+    margin: 8px 0;
+    padding: 10px 10px;
+    border: none;
+    background-color: #653CFF;
+    color: white;
+    font-size: 20px;
+    text-decoration: none;
+    cursor: pointer;
+    border-radius: 7px;
+    display: inline-block;
+    margin-top: 50px;
+    margin-left: 15px;
 }
 
 .employee-profile .profile-edit {

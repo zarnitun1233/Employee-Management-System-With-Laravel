@@ -82,4 +82,7 @@
     </table> 
     </div>
     </div>
+    <div class="btn">
+    <a href="{{ url('employee/list') }}" class="back-button">Back</a>
+  </div>
 @endsection
