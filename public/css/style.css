@@ -325,12 +325,15 @@ body {
 
 .employee-list-message {
   margin-bottom: 5px;
-  padding: 5px;
+  padding: 10px;
   background-color: #04AA6D;
+  margin-top: 7px;
+  border-radius: 5px;
+  color: #fff; 
 }
 
 .alert-error {
-  background-color: #f00;
+  background-color: #ed2939;
 }
 
 .validate-employee-error {

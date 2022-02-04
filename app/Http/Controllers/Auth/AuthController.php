@@ -40,7 +40,7 @@ class AuthController extends Controller
             }
           }
           else 
-          return redirect("/login")->withSuccess('Oppes! You have entered invalid email or password');
+          return redirect("/login")->withFail('Oppes! You have entered invalid email or password');
     }
 
     /**
