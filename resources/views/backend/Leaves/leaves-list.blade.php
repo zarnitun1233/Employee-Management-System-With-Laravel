@@ -115,7 +115,7 @@
               Back
             </a>
             {{-- need admin id or user id to create leaves --}}
-            <a href="#" class="create-btn bg-btn">
+            <a href="{{route('leaves.create',['id'=> auth()->user()->id ])}}" class="create-btn bg-btn">
               Create
             </a>
           </div>

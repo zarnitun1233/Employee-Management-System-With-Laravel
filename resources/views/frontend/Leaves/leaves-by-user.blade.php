@@ -46,7 +46,7 @@
                 </td>
               @endif
               <td class="leaves-user-action">
-               @if ($leave->leave_status === null)
+               @if ($leave->leave_status == null)
                 <form class="leaves-action-form"  action="{{ route('leaves.delete',['id'=> $leave->leave_id]) }}" method="POST">
                     @method('delete')
                     @csrf
@@ -67,7 +67,7 @@
             Back
           </a>
           {{-- need admin id or user id to create leaves --}}
-          <a href="#" class="create-btn bg-btn">
+          <a href="{{ route('leaves.create',['id' => auth()->user()->id ]) }}" class="create-btn bg-btn">
             Create
           </a>
         </div>
