@@ -24,7 +24,7 @@ class SalaryDao implements SalaryDaoInterface
      */
     public function index()
     {
-        return Salary::with('employee')->paginate(2);
+        return Salary::with('employee')->paginate(5);
     }
 
     /**

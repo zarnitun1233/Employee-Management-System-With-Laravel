@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use App\Models\Leave;
 
 class Employee extends Authenticatable
 {
@@ -32,6 +33,11 @@ class Employee extends Authenticatable
     public function salary()
     {
         return $this->hasMany('App\Models\Salary');
+    }
+
+    public function leaves()
+    {
+        return $this->hasMany(Leave::class);
     }
 
     /**

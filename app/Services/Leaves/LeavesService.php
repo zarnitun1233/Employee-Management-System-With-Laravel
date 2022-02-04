@@ -14,7 +14,6 @@ class LeavesService implements LeavesServiceInterface
   private $leavesDao;
 
   /**
-  * Undocumented function
   *send empoyee data to salaries create view
   * @return void
   */
@@ -24,14 +23,14 @@ class LeavesService implements LeavesServiceInterface
     $this->leavesDao = $leavesDao;
   }
 
-  public function index()
+  public function index($name)
   {
-    return $this->leavesDao->index();
+    return $this->leavesDao->index($name);
   }
 
   /**
-  * Undocumented function
-  *create salaries;
+  *create  leaves;
+  *we will update other feature in furture
   * @param Request $request
   * @return void
   */
@@ -42,7 +41,6 @@ class LeavesService implements LeavesServiceInterface
   }
 
   /**
-  * Undocumented function
   *store data to table tables
   * @param Request $request
   * @return void
@@ -54,9 +52,8 @@ class LeavesService implements LeavesServiceInterface
   }
 
   /**
-  * Undocumented function
   *edit leaves
-  * @param Request $request
+  * @param $id
   * @return void
   */
 
@@ -73,7 +70,7 @@ class LeavesService implements LeavesServiceInterface
   /**
   * Undocumented function
   *delete leaves;
-  * @param Reuest $request
+  * @param  $id
   * @return void
   */
 
@@ -82,8 +79,24 @@ class LeavesService implements LeavesServiceInterface
     return $this->leavesDao->delete($id);
   }
 
+  /**
+  *accept leaves by admin;
+  * @param  $id
+  * @return void
+  */
+
   public function accept($id)
   {
     return $msg = $this->leavesDao->accept($id);
+  }
+
+  public function reason($id)
+  {
+    return  $this->leavesDao->reason($id);
+  }
+
+  public function leavesByUser(Request $request)
+  {
+    return $employees = $this->leavesDao->leavesByUser($request);
   }
 }

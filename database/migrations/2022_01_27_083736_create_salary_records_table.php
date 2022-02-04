@@ -17,7 +17,7 @@ class CreateSalaryRecordsTable extends Migration
             $table->id();
             $table->integer('amount');
             $table->date('date');
-            $table->foreignId('employee_id')->references('id')->on('employee');
+            $table->foreignId('employee_id')->references('id')->on('employees');
             $table->timestamps();
             $table->softDeletes();
         });

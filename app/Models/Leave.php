@@ -13,7 +13,7 @@ class Leave extends Model
     use SoftDeletes;
     protected $dates = ['deleted_at'];
     protected $fillable = [
-        'fromDate', 'toDate', 'duration', 'reason', 'employee_id'
+        'fromDate', 'toDate', 'duration', 'reason', 'employee_id','status'
     ];
 
     public function Employee()

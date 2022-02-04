@@ -825,6 +825,14 @@ textarea {
   text-decoration: none;
 }
 
+.div-profile {
+  width: 150px;
+}
+
+.div-profile img {
+  width: 100%;
+}
+
 /*Create department*/
 
 .department-create-header {

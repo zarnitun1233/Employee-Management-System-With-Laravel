@@ -43,6 +43,9 @@
         <button type="submit" name="create">Create</button>
       </div><br>
     </form>
+    <div>
+      <button onclick="history.back()">Back</button>
+    </div><br>
     @endif
 @endsection
 

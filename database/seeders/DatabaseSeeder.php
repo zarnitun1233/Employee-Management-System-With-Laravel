@@ -16,9 +16,10 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        // \App\Models\User::factory(10)->create();
         DB::table('employees')->insert([
             'name' => Str::random(10),
-            'email' =>'mikochanz183@gmail.com',
+            'email' => Str::random(10).'@gmail.com',
             'password' => Hash::make('password'),
             'position' => Str::random(10),
             'role' => Str::random(10),

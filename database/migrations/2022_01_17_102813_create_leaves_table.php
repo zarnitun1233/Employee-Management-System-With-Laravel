@@ -19,8 +19,8 @@ class CreateLeavesTable extends Migration
             $table->date('toDate');
             $table->string('duration');
             $table->string('reason');
-            $table->integer('status')->default(0);
-            $table->foreignId('employee_id');
+            $table->integer('status')->nullable(true);
+            $table->foreignId('employee_id')->references('id')->on('employees');
             $table->timestamps();
             $table->softDeletes();
         });
