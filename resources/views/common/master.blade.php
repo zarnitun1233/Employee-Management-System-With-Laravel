@@ -45,9 +45,9 @@
     @auth
     <div class="rt-nav clearFix">
       <ul>
-        <li><a href="{{ url('/employee/list/' . auth()->user()->id) }}">Profile <i class="fas fa-user-circle"></i></a>
+        <li><a href="{{ url('/employee/list/' . auth()->user()->id) }}"> <i class="fas fa-user-circle"></i> Profile</a>
         </li>
-        <li><a href="{{ url('/logout') }}">Logout <i class="fas fa-sign-out-alt"></i></a>
+        <li><a href="{{ url('/logout') }}"><i class="fas fa-sign-out-alt"></i> Logout </a>
         </li>
       </ul>
      

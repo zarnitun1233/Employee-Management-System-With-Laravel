@@ -1115,6 +1115,11 @@ textarea {
 
 .employee-profile .list-table tr td:nth-child(1) {
   font-weight: 600;
+  width: 40%;
+}
+
+.employee-profile .list-table tr td:nth-child(2) {
+  width: 60%;
 }
 
 .readonly {
