@@ -24,7 +24,7 @@ class StoreResetRequest extends FormRequest
     public function rules()
     {
         return [
-            'email' => 'required|email|exists:employees'
+            ['email' => 'required|email|exists:employees']
         ];
     }
 }

@@ -24,8 +24,8 @@ class SalaryUpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            'amount' => 'required|min:5|max:20',
-            'date'=> 'required|min:4|max:20',
+            ['amount' => 'required|min:5|max:20'],
+            ['date'=> 'required|min:4|max:20'],
         ];
     }
 }

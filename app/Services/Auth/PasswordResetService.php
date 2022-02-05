@@ -11,13 +11,24 @@ use URL;
 
 class PasswordResetService implements PasswordResetServiceInterface
 {
+  /**
+   * passwordReset Dao
+   */
   private $passwordResetDao;
 
+  /**
+     * Class Constructor
+     * @param passwordResetDaoInterface
+     */
   public function __construct(PasswordResetDaoInterface $passwordResetDao)
   {
     $this->passwordResetDao = $passwordResetDao;
   }
 
+  /**
+   * Send Mail Function
+   * @param String $email
+   */
   public function postMail(string $email)
   {
     $token = $this->passwordResetDao->postMail($email);
@@ -28,6 +39,10 @@ class PasswordResetService implements PasswordResetServiceInterface
         ]));
   }
   
+  /**
+   * Change Password Function
+   * @param Request $request
+   */
   public function postChangePassword(Request $request)
   {
     return $this->passwordResetDao->postChangePassword($request); 

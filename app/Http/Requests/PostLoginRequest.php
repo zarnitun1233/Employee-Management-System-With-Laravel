@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\Search;
+namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class SearchEmployeeRequest extends FormRequest
+class PostLoginRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,7 +24,8 @@ class SearchEmployeeRequest extends FormRequest
     public function rules()
     {
         return [
-            ['name' => 'required']
+            ['email'=>'required'],
+            ['password'=>'required'],
         ];
     }
 }

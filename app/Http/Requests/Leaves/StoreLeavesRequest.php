@@ -24,11 +24,11 @@ class StoreLeavesRequest extends FormRequest
     public function rules()
     {
         return [
-            'empId' => 'required',
-            'fromDate' => 'required|date_format:Y-m-d',
-            'toDate' => 'required|date_format:Y-m-d',
-            'duration' => 'required|max:100',
-            'reason'   => 'required|max:255',
+            ['empId' => 'required'],
+            ['fromDate' => 'required|date_format:Y-m-d'],
+            ['toDate' => 'required|date_format:Y-m-d'],
+            ['duration' => 'required|max:100'],
+            ['reason'   => 'required|max:255'],
         ];
     }
 }

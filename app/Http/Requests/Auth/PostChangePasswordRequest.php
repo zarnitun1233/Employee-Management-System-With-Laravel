@@ -24,8 +24,8 @@ class PostChangePasswordRequest extends FormRequest
     public function rules()
     {
         return [
-            'password' => 'required|string|min:6|confirmed',
-            'password_confirmation' => 'required'
+            ['password' => 'required|string|min:6|confirmed'],
+            ['password_confirmation' => 'required']
         ];
     }
 }

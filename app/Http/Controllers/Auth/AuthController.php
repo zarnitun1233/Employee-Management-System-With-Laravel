@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
+use App\Http\Requests\PostLoginRequest;
 
 class AuthController extends Controller
 {
@@ -24,12 +25,8 @@ class AuthController extends Controller
      *
      * @return response()
      */
-    public function postLogin(Request $request)
+    public function postLogin(PostLoginRequest $request)
     {
-        $request->validate([
-            'email' => 'required',
-            'password' => 'required',
-        ]);
           if (Auth::attempt(['email'=>$request->email, 'password'=>$request->password])) {
               $userId = Auth::user()->id;
             if (Auth::user()->role == 1) {

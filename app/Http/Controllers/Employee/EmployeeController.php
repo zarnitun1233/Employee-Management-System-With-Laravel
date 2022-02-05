@@ -94,7 +94,7 @@ class EmployeeController extends Controller
     public function search()
     {
         $departments = $this->employeeInterface->search();
-        return view('backend.employee.search',compact('departments'));
+        return view('backend.employee.search')->with('departments', $departments);
     }
 
     public function postSearch(Request $request)

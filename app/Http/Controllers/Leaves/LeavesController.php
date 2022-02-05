@@ -8,11 +8,13 @@ use App\Contracts\Services\Leaves\LeavesServiceInterface;
 use  App\Http\Requests\Leaves\StoreLeavesRequest;
 use App\Http\Requests\Leaves\SearchLeavesRequest;
 
-class LeavesController extends Controller  {
+class LeavesController extends Controller
+{
 
     private $leavesService;
 
-    public function __construct( LeavesServiceInterface $leavesService )  {
+    public function __construct(LeavesServiceInterface $leavesService)
+    {
         $this->leavesService = $leavesService;
     }
 
@@ -20,7 +22,7 @@ class LeavesController extends Controller  {
         $leaves =  $this->leavesService->index($name);
        
         if ($request->page !== null) {
-            return view('backend.Leaves.leaves-list',compact('leaves'));
+            return view('backend.Leaves.leaves-list')->with('leaves', $leaves);
         }
         $name =$name ? $name : '';
         return redirect('/leaves/list/'.$name.'?page=1');
@@ -28,93 +30,94 @@ class LeavesController extends Controller  {
     }
 
     /**
-    *create leaves;
-    * @param Request $request
-    * @return void
-    */
+     *create leaves;
+     * @param Request $request
+     * @return void
+     */
 
-    public function create( Request $request, $id )  {
-        return view( 'frontend.Leaves.leaves-create' );
-    }
-
-    /**
-    * Undocumented function
-    *store data to table tables
-    * @param Request $request
-    * @return void
-    */
-
-    public function store( StoreLeavesRequest $request )  {
-        $msg = $this->leavesService->store( $request );
-        return redirect()->route( 'leaves-create', [ $request->empId ] )->with( 'msg', $msg );
-    }
-
-    /**
-    *edit leaves
-    * @param Request $request
-    * @return void
-    */
-
-    public function edit( Request $request ,$id )  
-    {   
-        $leave = $this->leavesService->edit($id);
-        return view('frontend.leaves.leaves-edit',compact('leave'));
-    }
-
-    /**
-    *delete leaves;
-    * @param Reuest $request
-    * @return void
-    */
-
-    public function delete( Request $request, $id )  
+    public function create(Request $request, $id)
     {
-       $msg = $this->leavesService->delete($id);
-       return redirect()->route('leaves-list')->with( 'msg', $msg );
+        return view('frontend.Leaves.leaves-create');
     }
 
     /**
-    *update leaves;
-    * @param Request $request
-    * @return void
-    */
+     * Undocumented function
+     *store data to table tables
+     * @param Request $request
+     * @return void
+     */
+
+    public function store(StoreLeavesRequest $request)
+    {
+        $msg = $this->leavesService->store($request);
+        return redirect()->route('leaves-create', [$request->empId])->with('msg', $msg);
+    }
+
+    /**
+     *edit leaves
+     * @param Request $request
+     * @return void
+     */
+
+    public function edit(Request $request, $id)
+    {
+        $leave = $this->leavesService->edit($id);
+        return view('frontend.leaves.leaves-edit')->with('leave', $leave);
+    }
+
+    /**
+     *delete leaves;
+     * @param Reuest $request
+     * @return void
+     */
+
+    public function delete(Request $request, $id)
+    {
+        $msg = $this->leavesService->delete($id);
+        return redirect()->route('leaves-list')->with('msg', $msg);
+    }
+
+    /**
+     *update leaves;
+     * @param Request $request
+     * @return void
+     */
 
     public function update(StoreLeavesRequest $request)
     {
         $msg = $this->leavesService->update($request);
-        return redirect()->route( 'leaves-edit', [ $request->empId ] )->with( 'msg', 'leaves updated successfully' );
-
+        return redirect()->route('leaves-edit', [$request->empId])->with('msg', 'leaves updated successfully');
     }
 
-     /**
-    *accept leaves by admin;
-    * @param Reuest $request
-    * @return void
-    */
+    /**
+     *accept leaves by admin;
+     * @param Reuest $request
+     * @return void
+     */
 
     public function accept(Request $request, $id)
     {
         $msg = $this->leavesService->accept($id);
-        return redirect()->route('leaves-list')->with( 'msg', $msg );
+        return redirect()->route('leaves-list')->with('msg', $msg);
     }
 
 
-    public function reason(Request $request,$id)
+    public function reason(Request $request, $id)
     {
         $leave = $this->leavesService->reason($id);
 
-        return view('frontend.leaves.leaves-reason',compact('leave'));
+        return view('frontend.leaves.leaves-reason')->with('leave', $leave);
     }
 
 
-    public function  searchByName(SearchLeavesRequest $request)
+    public function searchByName(SearchLeavesRequest $request)
     {
-       return redirect('/leaves/list/'.$request->name.'');  
+        return redirect('/leaves/list/'.$request->name.'');
     }
-    
+
     public function leavesByUser(Request $request)
-    { 
+    {
         $employees = $this->leavesService->leavesByUser($request);
-        return view('frontend.leaves.leaves-by-user',compact('employees'));
+        return view('frontend.leaves.leaves-by-user')->with('employees', $employees);
     }
 }
