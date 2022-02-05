@@ -115,18 +115,14 @@ body {
 
 /*Footer*/
 
-.footer {
-  padding: 20px;
-  color: #3a3b37;
-  font-size: 15px;
-  text-align: center;
-}
-
 .footer-line {
-  width: 100%;
+  position: absolute;
+  right: 10px;
+  bottom: 0;
+  left: 2px;
+  width: 98%;
+  height: 60px;
   margin: 0 auto;
-  padding-bottom: 15px;
-  margin-top: 200px;
 }
 
 .foot-border {
@@ -135,8 +131,14 @@ body {
 }
 
 .copyright {
-  width: 100%;
+  position: absolute;
+  right: 10px;
+  bottom: -15px;
+  left: 2px;
+  width: 98%;
+  height: 60px;
   margin: 0 auto;
+  margin-top: 10px;
 }
 
 .social-icons {
@@ -324,12 +326,12 @@ body {
 }
 
 .employee-list-message {
+  margin-top: 7px;
   margin-bottom: 5px;
   padding: 10px;
   background-color: #04AA6D;
-  margin-top: 7px;
+  color: #fff;
   border-radius: 5px;
-  color: #fff; 
 }
 
 .alert-error {
@@ -410,17 +412,17 @@ body {
 .reset-pswd {
   width: 50%;
   margin: 0 auto;
-  border: 3px solid #f1f1f1;
   margin-top: 40px;
+  border: 3px solid #f1f1f1;
   text-align: center;
 }
 
 .change-pwd-header {
-text-align: center;
+  text-align: center;
 }
 
 .change-pwd-form {
-margin-left: 23%;
+  margin-left: 23%;
 }
 
 .reset-pswd h2 {
@@ -518,8 +520,8 @@ margin-left: 23%;
 .list-design .list-table th,
 .list-design .list-table td {
   padding: 5px;
-  vertical-align: middle;
   text-align: left;
+  vertical-align: middle;
 }
 
 .leaves-reason .list-table tr th,
@@ -1001,8 +1003,8 @@ textarea {
 
 .employee-create-form .btn {
   width: 50%;
-  text-align: right;
   margin: 15px 0px 15px 60px;
+  text-align: right;
 }
 
 .employee-create-form .btn button {
@@ -1081,18 +1083,18 @@ textarea {
 }
 
 .back-button {
-    margin: 8px 0;
-    padding: 10px 10px;
-    border: none;
-    background-color: #653CFF;
-    color: white;
-    font-size: 20px;
-    text-decoration: none;
-    cursor: pointer;
-    border-radius: 7px;
-    display: inline-block;
-    margin-top: 50px;
-    margin-left: 15px;
+  display: inline-block;
+  margin: 8px 0;
+  margin-top: 50px;
+  margin-left: 15px;
+  padding: 10px 10px;
+  border: none;
+  background-color: #653CFF;
+  color: white;
+  font-size: 20px;
+  text-decoration: none;
+  cursor: pointer;
+  border-radius: 7px;
 }
 
 .employee-profile .profile-edit {
@@ -1121,8 +1123,8 @@ textarea {
 }
 
 .employee-profile .list-table tr td:nth-child(1) {
-  font-weight: 600;
   width: 40%;
+  font-weight: 600;
 }
 
 .employee-profile .list-table tr td:nth-child(2) {
@@ -1441,15 +1443,25 @@ select {
   padding: 10px 15px;
 }
 
+.show-no-data,
 .not-found-data {
-  width: 8%;
-  margin: 20px 0 20px 90px;
-  padding: 10px;
-  border: 1px solid black;
-  background-color: #04AA6D;
-  color: #2e2c2c;
+  padding: 30px;
+  color: #04AA6D;
   font-size: 20px;
-  text-align: center;
+}
+
+.not-found-data {
+  color: #eb2424;
+}
+
+.search-btn {
+  padding: 10px 20px;
+  border: 1px solid #ddd;
+  background-color: #04AA6D;
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+
 }
 
 @media screen and (min-width: 768px) and (max-width: 1024px) {

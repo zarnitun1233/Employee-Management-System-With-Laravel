@@ -37,9 +37,12 @@
 </form>
 @if (Session::has('datas'))
 @if (sizeof(Session::get('datas')) === 0)
-<div class="not-found-data">No Data</div>
+<div class="not-found-data">No Search Data</div>
 @endif
 @endif
+@if (!Session::has('datas'))
+      <div class="show-no-data">No Data To Display</div>
+    @endif
 <div class="list-design">
     <div class="list-design-container">
         <table class="list-table">

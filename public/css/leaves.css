@@ -209,8 +209,8 @@
   }
 
   .leaves-table .show-status {
-    font-size: 8px;
     padding: 3px;
+    font-size: 8px;
   }
 }
 
@@ -226,8 +226,8 @@
   }
 
   .leaves-table .show-status-pending {
-    font-size: 9px;
     padding: 2px;
+    font-size: 9px;
   }
 }
 

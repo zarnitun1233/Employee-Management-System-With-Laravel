@@ -32,7 +32,7 @@ Route::get('/', function() {
 
 
 #leave route
-Route::get('/leaves/create/{id}',[LeavesController::class,'create'])->name('leaves.create')->middleware('auth');
+Route::get('/leaves/create/{id}',[LeavesController::class,'create'])->name('leaves.create');
 Route::get('/leaves/list/{name}',[LeavesController::class,'index'])->name('leaves.list');
 Route::get('leaves/edit/{id}',[LeavesController::class,'edit'])->name('leaves.edit');
 Route::get('/leaves/list',[LeavesController::class,'index'])->name('leaves.list');
@@ -59,8 +59,10 @@ Route::post('/employee/search', [EmployeeController::class, 'postSearch'])->name
 
 //auth route
 Route::get('auth/reset-password',[ForgotPasswordController::class,'index'])->name('reset.password');
-Route::get('auth/change-password/{token}',[ForgotPasswordController::class,'changePassword'])->name('change.password');
-Route::post('auth/change-password',[ForgotPasswordController::class,'postChangePassword'])->name('post.change.password');
+Route::get('auth/change-password/{token}',[ForgotPasswordController::class,'changePassword'])
+->name('change.password');
+Route::post('auth/change-password',[ForgotPasswordController::class,'postChangePassword'])
+->name('post.change.password');
 Route::post('auth/mail-send',[ForgotPasswordController::class,'postMail'])->name('post.mail');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

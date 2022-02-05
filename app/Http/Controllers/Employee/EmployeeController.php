@@ -67,7 +67,8 @@ class EmployeeController extends Controller
     {
         $employee = $this->employeeInterface->edit($id);
         $departments = $this->employeeInterface->create();
-        return view('backend.employee.edit')->with('employee', $employee)->with('departments', $departments);
+        return view('backend.employee.edit')->with('employee', $employee)->with
+        ('departments', $departments);
     }
 
     /**

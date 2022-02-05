@@ -29,7 +29,7 @@
           <a href="{{ url('/department/edit/'.$department->id) }}" class="list-edit">Edit</a>
           {{ csrf_field() }}
           {{ method_field('DELETE') }}
-          <button class="list-delete">Delete</button>
+          <button class="list-delete"  onclick="confirmation()" >Delete</button>
         </form>
       </td>
     </tr>
@@ -37,4 +37,13 @@
   </table><br><br>
 </div>
 {{ $departments->links() }}
+</div>
+<script>
+  function confirmation(){
+    var result = confirm("Are you sure to delete?");
+    if(result){
+        // Delete logic goes here
+    }
+}
+</script>
 @endsection

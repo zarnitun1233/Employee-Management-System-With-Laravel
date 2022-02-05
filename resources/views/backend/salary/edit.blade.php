@@ -15,12 +15,14 @@
     </tr>
     <tr>
       <td class="employee-label"><label for="department">Department Name</label></label></td>
-      <td><input type="text" id="department" name="department" value="{{ $department[0]->name }}" readonly>
+      <td><input type="text" id="department" name="department"
+       value="{{ $department[0]->name }}" readonly>
       </td>
     </tr>
     <tr>
       <td class="employee-label"><label for="position">Position</label></td>
-      <td><input type="text" id="position" name="position" value="{{ $salary->employee->position }}" readonly>
+      <td><input type="text" id="position" name="position"
+       value="{{ $salary->employee->position }}" readonly>
       </td>
     </tr>
     <tr>

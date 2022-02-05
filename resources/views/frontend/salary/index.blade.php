@@ -31,7 +31,7 @@
             <a href="{{ url('/salary/edit/'.$salary->id) }}" class="list-edit">Edit</a>
             {{ csrf_field() }}
             {{ method_field('DELETE') }}
-            <button class="list-delete">Delete</button>
+            <button class="list-delete" onclick="confirmation()">Delete</button>
           </form>
         </td>
       </tr>

@@ -64,7 +64,8 @@ class SalaryController extends Controller
         $employees = $this->salaryInterface->getDepartmentByEmployee();
         $salary = $this->salaryInterface->edit($id);
         $department = $this->salaryInterface->getDepartmentBySalary($id);
-        return view('backend.salary.edit')->with('employees', $employees)->with('salary', $salary)->with('department', $department);
+        return view('backend.salary.edit')->with('employees', $employees)->with
+        ('salary', $salary)->with('department', $department);
     }
 
     /**
@@ -88,7 +89,8 @@ class SalaryController extends Controller
         $department = $this->salaryInterface->getDepartmentByEmployeeId($id);
         $date = $this->salaryInterface->dateFromSalaryRecord($id);
         $salary = $this->salaryInterface->salaryFromSalaryRecord($id);
-        return view('frontend.salary.detail')->with('details', $details)->with('department', $department)->with('date', json_encode($date, JSON_NUMERIC_CHECK))
+        return view('frontend.salary.detail')->with('details', $details)->with
+        ('department', $department)->with('date', json_encode($date, JSON_NUMERIC_CHECK))
             ->with('salary', json_encode($salary, JSON_NUMERIC_CHECK));
     }
 
