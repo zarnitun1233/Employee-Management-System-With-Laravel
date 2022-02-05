@@ -44,7 +44,7 @@
   </table>
   <div class="btn">
     <button type="submit">Create</button>&nbsp;&nbsp;&nbsp;&nbsp;
-    <a href="{{ url('/salary/list') }}">Back</a>
+    <a href="{{ route('salary-list') }}">Back</a>
   </div>
 </form>
 @endsection

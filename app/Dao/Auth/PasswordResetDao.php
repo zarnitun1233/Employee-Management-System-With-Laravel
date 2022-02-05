@@ -12,21 +12,31 @@ use Illuminate\Support\Facades\Hash;
 
 class PasswordResetDao implements   PasswordResetDaoInterface
 {
+  /**
+   * Send Mail Function
+   * @param String $email
+   */
   public function postMail(string $email)
   {
     $token = Str::random(60);
-    DB::table('password_resets')
-    ->insert([
-      'email' => $email,
-      'token' => $token,
-      'created_at' => Carbon::now(),
-      'expired_time' => Carbon::now()->addMinutes(10),
-    ]);
+    DB::transaction(function ($email, $token) {
+      DB::table('password_resets')
+      ->insert([
+        'email' => $email,
+        'token' => $token,
+        'created_at' => Carbon::now(),
+        'expired_time' => Carbon::now()->addMinutes(10),
+      ]);
+    });
 
     return $token;
 
   }
 
+  /**
+   * Change Password Function
+   * @param Request $request
+   */
   public function postChangePassword(Request $request)
   { 
     $check = DB::table('password_resets')
@@ -41,7 +51,10 @@ class PasswordResetDao implements   PasswordResetDaoInterface
     $employee = Employee::where('email', $check->email)
     ->update(['password' => Hash::make($request->password)]);
 
-    return DB::table('password_resets')->where(['email'=> $check->email])->delete();
+    return DB::transaction(function ($check) {
+      DB::table('password_resets')->where(['email'=> $check->email])->delete();
+  });
+  ;
 
   }
 }

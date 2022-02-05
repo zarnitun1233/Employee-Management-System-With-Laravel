@@ -124,7 +124,7 @@
   </table>
   <div class="btn">
     <button type="submit">Create</button>&nbsp;&nbsp;&nbsp;&nbsp;
-    <a href="{{ url('/employee/list') }}">Back</a>
+    <a href="{{ route('employee-list') }}">Back</a>
   </div>
 </form>
 @endsection

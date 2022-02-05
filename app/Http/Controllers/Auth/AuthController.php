@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
+use App\Http\Requests\PostLoginRequest;
 
 class AuthController extends Controller
 {
@@ -24,23 +25,16 @@ class AuthController extends Controller
      *
      * @return response()
      */
-    public function postLogin(Request $request)
+    public function postLogin(PostLoginRequest $request)
     {
-        $request->validate([
-            'email' => 'required',
-            'password' => 'required',
-        ]);
           if (Auth::attempt(['email'=>$request->email, 'password'=>$request->password])) {
               $userId = Auth::user()->id;
             if (Auth::user()->role == 1) {
-                return redirect('/employee/list');
+                return redirect()->route('employee-list');
             }
-            else {
-                return redirect('/employee/list/'. $userId);
-            }
-          }
-          else 
-          return redirect("/login")->withFail('Oppes! You have entered invalid email or password');
+                return redirect()->route("employee-profile",$userId);
+          } 
+          return redirect()->route('login')->withFail('Oppes! You have entered invalid email or password');
     }
 
     /**
@@ -50,7 +44,7 @@ class AuthController extends Controller
      */
     public function logout() {
         Auth::logout();
-        return redirect('/login')->withSuccess('Logout Succeed!');
+        return redirect()->route('login')->withSuccess('Logout Succeed!');
     }
 
     

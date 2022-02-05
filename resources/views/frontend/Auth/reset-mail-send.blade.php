@@ -7,7 +7,7 @@
 @endif
 <div class="reset-pswd">
     <h2>Reset Password Form</h2>
-    <form action="{{route('post.mail')}}" method="POST">
+    <form action="{{route('post-mail')}}" method="POST">
       @csrf
       <label for="email">Email:</label>
       <input type="email" name="email"><br>

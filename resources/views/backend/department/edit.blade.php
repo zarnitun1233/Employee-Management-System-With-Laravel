@@ -24,7 +24,7 @@
     </table>
   <div class="btn">
     <button type="submit">Update</button>&nbsp;&nbsp;&nbsp;&nbsp;
-    <a href="{{ url('/department/list') }}">Back</a>
+    <a href="{{ route('department-list') }}">Back</a>
   </div>
 </form>
 @endsection

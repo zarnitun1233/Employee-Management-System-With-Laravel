@@ -46,12 +46,12 @@
                 </td>
               @endif
               <td>
-                <form class="leaves-action-form"  action="{{ route('leaves.delete',['id'=>$leave->leave_id]) }}" method="POST">
+                <form class="leaves-action-form"  action="{{ route('leaves-delete',['id'=>$leave->leave_id]) }}" method="POST">
                   @method('delete')
                   @csrf
                   <button type="submit" class="leaves-delete">Delete</button>
                 </form>
-                <form class="leaves-action-form" action="{{ route('leaves.accept',['id'=>$leave->leave_id]) }}" method="POST">
+                <form class="leaves-action-form" action="{{ route('leaves-accept',['id'=>$leave->leave_id]) }}" method="POST">
                   @csrf
                   @if ($leave->leave_status == null)
                     <button class="leaves-accept">Accept</button>

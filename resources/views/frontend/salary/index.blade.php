@@ -26,9 +26,9 @@
         <td>{{ $salary->employee->department->name }}</td>
         <td>{{ $salary->amount }}</td>
         <td>
-          <form action="{{ url('/salary/delete/'.$salary->id) }}" method="POST">
-            <a href="{{ url('/salary/detail/'.$salary->employee->id) }}" class="list-detail">Detail</a>
-            <a href="{{ url('/salary/edit/'.$salary->id) }}" class="list-edit">Edit</a>
+          <form action="{{ route('salary-delete', $salary->id) }}" method="POST">
+            <a href="{{ route('salary-detail', $salary->employee->id) }}" class="list-detail">Detail</a>
+            <a href="{{ route('salary-edit', $salary->id) }}" class="list-edit">Edit</a>
             {{ csrf_field() }}
             {{ method_field('DELETE') }}
             <button class="list-delete" onclick="confirmation()">Delete</button>

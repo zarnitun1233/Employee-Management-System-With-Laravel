@@ -1,7 +1,7 @@
 @extends('common.master')
 
 @section('content')
-<form action="{{ route('employee.post.search') }}" method="POST" class="form-inline">
+<form action="{{ route('employee-post-search') }}" method="POST" class="form-inline">
     @csrf
     <div class="emp-search">
         <label for="name">Name</label>
@@ -84,6 +84,6 @@
         </table>
     </div>
     <div class="btn">
-    <a href="{{ url('employee/list') }}" class="back-button">Back</a>
+    <a href="{{ route('employee-list') }}" class="back-button">Back</a>
   </div>
 @endsection

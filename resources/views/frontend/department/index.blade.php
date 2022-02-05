@@ -5,7 +5,7 @@
   <div class="list-design-container">
 <h1 class="list-title">Department List</h1>
 <div class="create-export">
-      <a href="{{ url('/department/create') }}">Create Department</a>
+      <a href="{{ route('department-create') }}">Create Department</a>
     </div>
 @if ($message = Session::get('success'))
 <div>
@@ -25,8 +25,8 @@
       <td>{{ $department->name }}</td>
       <td>{{ $department->description }}</td>
       <td>
-        <form action="{{ url('/department/delete/'.$department->id) }}" method="POST">
-          <a href="{{ url('/department/edit/'.$department->id) }}" class="list-edit">Edit</a>
+        <form action="{{ route('department-delete', $department->id) }}" method="POST">
+          <a href="{{ route('department-edit', $department->id) }}" class="list-edit">Edit</a>
           {{ csrf_field() }}
           {{ method_field('DELETE') }}
           <button class="list-delete"  onclick="confirmation()" >Delete</button>

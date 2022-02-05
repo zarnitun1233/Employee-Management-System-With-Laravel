@@ -38,7 +38,7 @@ class ForgotPasswordController extends Controller
     {
         $this->passwordResetService->postMail($request->email);
 
-        return redirect('/login')->with('success','We have sent password reset link to your email');
+        return redirect()->route('login')->with('success','We have sent password reset link to your email');
     }
 
     public function changePassword(Request $request)
@@ -52,9 +52,9 @@ class ForgotPasswordController extends Controller
 
        if(!$result)
        {    
-           return redirect()->route('reset.password')->with('message','Invaild token or email');
+           return redirect()->route('reset-password')->with('message','Invaild token or email');
        }
 
-       return redirect('/login')->with('success','Password Reset Successfully');
+       return redirect()->route('login')->with('success','Password Reset Successfully');
     }
 }
