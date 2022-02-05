@@ -13,7 +13,7 @@
       <div class="leaves-list">
         <div class="leaves-list-container">
           <h2 class="leaves-title">Employees Leaves List</h2>
-          <form action="{{ route('leaves.searchByName') }}" class="leaves-search" method="POST">
+          <form action="{{ route('leaves-searchByName') }}" class="leaves-search" method="POST">
             @csrf
             <div class="leaves-input">
               <input type="search" name="name" id="leaves-search" placeholder="Search by name">
@@ -51,7 +51,7 @@
                 <td>{{ $leave->toDate }}</td>
                 <td>{{ $leave->duration }}</td>
                 <td>
-                  <a href="{{ route('leaves.reason',['id' => $leave->id]) }}">Detail</a>
+                  <a href="{{ route('leaves-reason',['id' => $leave->id]) }}">Detail</a>
                 </td>
                 @if ($leave->status == null)
                    <td>
@@ -63,12 +63,12 @@
                   </td>
                 @endif
                 <td>
-                  <form class="leaves-action-form"  action="{{ route('leaves.delete',['id'=>$leave->id]) }}" method="POST">
+                  <form class="leaves-action-form"  action="{{ route('leaves-delete',['id'=>$leave->id]) }}" method="POST">
                     @method('delete')
                     @csrf
                     <button type="submit" class="leaves-delete {{$leave->status !==  null ? 'disabled' :'' }}">Delete</button>
                   </form>
-                  <form class="leaves-action-form" action="{{ route('leaves.accept',['id'=>$leave->id]) }}" method="POST">
+                  <form class="leaves-action-form" action="{{ route('leaves-accept',['id'=>$leave->id]) }}" method="POST">
                     @csrf
                     @if ($leave->status == null)
                       <button class="leaves-accept">Accept</button>

@@ -5,7 +5,7 @@
         <p>{{ Session::get('msg') }}</p>
     @endif
     @if($leave)
-    <form action="{{ route('leaves.update',['id'=>$leave->id]) }}" method="POST" >
+    <form action="{{ route('leaves-update',['id'=>$leave->id]) }}" method="POST" >
       @method('put')
       @csrf
       <div>

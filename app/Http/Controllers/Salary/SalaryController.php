@@ -52,7 +52,7 @@ class SalaryController extends Controller
     public function store(StoreSalaryRequest $request)
     {
         $this->salaryInterface->store($request);
-        return redirect('/salary/list')->with('success', 'Salary Created Successfully!');
+        return redirect()->route('salary-list')->with('success', 'Salary Created Successfully!');
     }
 
     /**
@@ -75,7 +75,7 @@ class SalaryController extends Controller
     public function update(SalaryUpdateRequest $request, $id)
     {
         $this->salaryInterface->update($request, $id);
-        return redirect('/salary/list')->with('success', 'Salary Updated Successfully!');
+        return redirect()->route('salary-list')->with('success', 'Salary Updated Successfully!');
     }
 
     /**
@@ -99,6 +99,6 @@ class SalaryController extends Controller
     public function delete($id)
     {
         $this->salaryInterface->delete($id);
-        return redirect('/salary/list')->with('success', 'Salary Deleted Successfully!');
+        return redirect()->route('salary-list')->with('success', 'Salary Deleted Successfully!');
     }
 }

@@ -33,14 +33,11 @@ class AuthController extends Controller
           if (Auth::attempt(['email'=>$request->email, 'password'=>$request->password])) {
               $userId = Auth::user()->id;
             if (Auth::user()->role == 1) {
-                return redirect('/employee/list');
+                return redirect()->route('employee-list');
             }
-            else {
-                return redirect('/employee/list/'. $userId);
-            }
-          }
-          else 
-          return redirect("/login")->withFail('Oppes! You have entered invalid email or password');
+                return redirect()->route("employee-profile",$userId);
+          } 
+          return redirect()->route('login')->withFail('Oppes! You have entered invalid email or password');
     }
 
     /**
@@ -50,7 +47,7 @@ class AuthController extends Controller
      */
     public function logout() {
         Auth::logout();
-        return redirect('/login')->withSuccess('Logout Succeed!');
+        return redirect()->route('login')->withSuccess('Logout Succeed!');
     }
 
     

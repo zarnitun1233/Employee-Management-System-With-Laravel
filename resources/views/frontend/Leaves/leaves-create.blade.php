@@ -5,7 +5,7 @@
 <p class="employee-list-message">{{ Session::get('msg') }}</p>
 @endif
 <h2 class="employee-create-header">Create Leaves</h2>
-<form action="{{ route('leaves.store') }}" method="POST" enctype="multipart/form-data" class="employee-create-form">
+<form action="{{ route('leaves-store') }}" method="POST" enctype="multipart/form-data" class="employee-create-form">
   @csrf
   <div>
     <input type="hidden" name="empId" value="{{ request()->id }}"><br>

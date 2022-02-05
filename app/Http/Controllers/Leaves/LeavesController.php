@@ -21,10 +21,10 @@ class LeavesController extends Controller  {
        
         if ($request->page !== null) {
             return view('backend.Leaves.leaves-list',compact('leaves'));
-        } else {
-            $name =$name ? $name : '';
-            return redirect('/leaves/list/'.$name.'?page=1');
         }
+        $name =$name ? $name : '';
+        return redirect('/leaves/list/'.$name.'?page=1');
+        
     }
 
     /**
@@ -46,7 +46,7 @@ class LeavesController extends Controller  {
 
     public function store( StoreLeavesRequest $request )  {
         $msg = $this->leavesService->store( $request );
-        return redirect()->route( 'leaves.create', [ $request->empId ] )->with( 'msg', $msg );
+        return redirect()->route( 'leaves-create', [ $request->empId ] )->with( 'msg', $msg );
     }
 
     /**
@@ -70,19 +70,19 @@ class LeavesController extends Controller  {
     public function delete( Request $request, $id )  
     {
        $msg = $this->leavesService->delete($id);
-       return redirect()->route('leaves.list')->with( 'msg', $msg );
+       return redirect()->route('leaves-list')->with( 'msg', $msg );
     }
 
     /**
     *update leaves;
-    * @param Reuest $request
+    * @param Request $request
     * @return void
     */
 
     public function update(StoreLeavesRequest $request)
     {
         $msg = $this->leavesService->update($request);
-        return redirect()->route( 'leaves.edit', [ $request->empId ] )->with( 'msg', 'leaves updated successfully' );
+        return redirect()->route( 'leaves-edit', [ $request->empId ] )->with( 'msg', 'leaves updated successfully' );
 
     }
 
@@ -95,7 +95,7 @@ class LeavesController extends Controller  {
     public function accept(Request $request, $id)
     {
         $msg = $this->leavesService->accept($id);
-        return redirect()->route('leaves.list')->with( 'msg', $msg );
+        return redirect()->route('leaves-list')->with( 'msg', $msg );
     }
 
 

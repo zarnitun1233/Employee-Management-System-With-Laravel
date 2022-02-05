@@ -56,7 +56,7 @@ class EmployeeController extends Controller
     public function store(StoreEmployeeRequest $request)
     {
         $this->employeeInterface->store($request);
-        return redirect('/employee/list')->with('success', 'Employee Created Successfully!');
+        return redirect()->route('employee-list')->with('success', 'Employee Created Successfully!');
     }
 
     /**
@@ -78,7 +78,7 @@ class EmployeeController extends Controller
     public function update(EmployeeUpdateRequest $request, $id)
     {
         $this->employeeInterface->update($request, $id);
-        return redirect('/employee/list')->with('success', 'Employee Updated Successfully!');
+        return redirect()->route('employee-list')->with('success', 'Employee Updated Successfully!');
     }
 
     /**
@@ -88,7 +88,7 @@ class EmployeeController extends Controller
     public function delete($id)
     {
         $this->employeeInterface->delete($id);
-        return redirect('/employee/list')->with('success', 'Employee Deleted Successfully!');
+        return redirect()->route('employee-list')->with('success', 'Employee Deleted Successfully!');
     }
 
     public function search()
@@ -100,7 +100,7 @@ class EmployeeController extends Controller
     public function postSearch(Request $request)
     {
        $employees = $this->employeeInterface->postSearch($request);
-       return redirect()->route('employee.search')->with(['datas' => $employees]);
+       return redirect()->route('employee-search')->with(['datas' => $employees]);
     }
 
     /**
