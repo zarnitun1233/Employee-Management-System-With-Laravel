@@ -24,19 +24,19 @@ class StoreEmployeeRequest extends FormRequest
     public function rules()
     {
         return [
-            ['name' => 'required|min:3|max:20'],
-            ['position' => 'required|min:3|max:20'],
-            ['role' => 'required'],
-            ['age' => 'required|min:1|max:2'],
-            ['email' => 'required|min:6|max:30|email'],
-            ['password' => 'required|required_with:confirmPassword|same:confirmPassword'],
-            ['confirmPassword' => 'required'],
-            ['image' => 'required|image|mimes:jpeg,jpg,png|max:2048'],
-            ['phone' => 'required|min:5|max:11'],
-            ['dob' => 'required'],
-            ['address' => 'required|min:5|max:100'],
-            ['department_id' => 'required|min:1|max:10'],
-            ['salary' => 'required|min:4|max:20'],
+            'name' => ['required','min:3','max:20'],
+            'position' => ['required','min:3','max:20'],
+            'role' => ['required'],
+            'age' => ['required','min:1','max:2'],
+            'email' => ['required','min:6','max:30','email'],
+            'password' => ['required','required_with:confirmPassword','same:confirmPassword'],
+            'confirmPassword' => ['required'],
+            'image' => ['required','image','mimes:jpeg,jpg,png','max:2048'],
+            'phone' => ['required','min:5','max:11'],
+            'dob' => ['required'],
+            'address' => ['required','min:5','max:100'],
+            'department_id' => ['required','min:1','max:10'],
+            'salary' => ['required','min:4','max:20'],
         ];
     }
 }
