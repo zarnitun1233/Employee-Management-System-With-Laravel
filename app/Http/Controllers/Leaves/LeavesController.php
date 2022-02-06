@@ -86,13 +86,7 @@ class LeavesController extends Controller
     public function update(StoreLeavesRequest $request)
     {
         $msg = $this->leavesService->update($request);
-<<<<<<< HEAD
-        return redirect()->route( 'leaves.edit', [ $request->empId ] )->with
-        ( 'msg', 'leaves updated successfully' );
-
-=======
         return redirect()->route('leaves-edit', [$request->empId])->with('msg', 'leaves updated successfully');
->>>>>>> 145486d18ec01eef53324d345a1a835cb3c1a793
     }
 
     /**
