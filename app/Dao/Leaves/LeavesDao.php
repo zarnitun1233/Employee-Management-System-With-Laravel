@@ -24,7 +24,8 @@ class LeavesDao implements  LeavesDaoInterface
         'leaves.*'
         )
       ->join('employees','employees.id','leaves.employee_id')
-      ->join('departments','departments.id','employees.department_id');
+      ->join('departments','departments.id','employees.department_id')
+      ->where('leaves.deleted_at','=',NULL);
       
       $leaves = $name ? $leaves->where('employees.name','LIKE','%'.$name.'%') : $leaves;
 
@@ -69,7 +70,7 @@ class LeavesDao implements  LeavesDaoInterface
      */
     public function edit($id)
     {
-      return $leave = Leave::find($id);
+       return $leave = Leave::find($id);
     }
 
     /**
@@ -108,13 +109,16 @@ class LeavesDao implements  LeavesDaoInterface
     */
 
     public function delete($id)
-    {  
-      DB::table('leaves')
-      ->where('id', '=',$id)
-      ->update(['status' => 0]);
-      Leave::destroy($id);
-       $msg = 'Successfullu Deleted';
-       return $msg;
+    { 
+      $leave = Leave::find($id);
+      if(auth()->user()->role === 1 || auth()->user()->id == $leave->employee_id);
+      {
+        DB::table('leaves')
+        ->where('id', '=',$id)
+        ->update(['status' => 0]);
+        Leave::destroy($id);
+        return $leave;
+      } 
     }
 
     /**
@@ -154,7 +158,8 @@ class LeavesDao implements  LeavesDaoInterface
       )
       ->join('leaves','employees.id','=','leaves.employee_id')
       ->join('departments','employees.department_id','=','departments.id')
-      ->where('employees.id','=',$request->id)
+      ->where('employees.id','=',$request->id)  
+      ->where('leaves.deleted_at','=',null)
       ->get();
       return  $employees;
     }

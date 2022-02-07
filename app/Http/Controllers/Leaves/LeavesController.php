@@ -34,7 +34,11 @@ class LeavesController extends Controller  {
     */
 
     public function create( Request $request, $id )  {
-        return view( 'frontend.Leaves.leaves-create' );
+        if(auth()->user()->id == $id){
+            return view( 'frontend.Leaves.leaves-create' );
+        }
+        abort(403);
+        
     }
 
     /**
@@ -57,8 +61,13 @@ class LeavesController extends Controller  {
 
     public function edit( Request $request ,$id )  
     {   
+      
         $leave = $this->leavesService->edit($id);
-        return view('frontend.leaves.leaves-edit',compact('leave'));
+        if(auth()->user()->id == $leave->employee_id)
+        {
+            return view('frontend.leaves.leaves-edit',compact('leave'));
+        }
+        abort(404);
     }
 
     /**
@@ -68,9 +77,9 @@ class LeavesController extends Controller  {
     */
 
     public function delete( Request $request, $id )  
-    {
-       $msg = $this->leavesService->delete($id);
-       return redirect()->route('leaves.list')->with( 'msg', $msg );
+    {   
+        $leave = $this->leavesService->delete($id);
+        return redirect()->route('leaves.list')->with( 'msg', 'Leave Deleted Successfully');
     }
 
     /**
@@ -81,9 +90,12 @@ class LeavesController extends Controller  {
 
     public function update(StoreLeavesRequest $request)
     {
-        $msg = $this->leavesService->update($request);
-        return redirect()->route( 'leaves.edit', [ $request->empId ] )->with( 'msg', 'leaves updated successfully' );
-
+        if(auth()->user->id == $request->empId)
+        {
+            $msg = $this->leavesService->update($request);
+            return redirect()->route( 'leaves.edit', [ $request->empId ] )->with( 'msg', 'leaves updated successfully' );
+        }
+        return abort(403);
     }
 
      /**
@@ -102,8 +114,12 @@ class LeavesController extends Controller  {
     public function reason(Request $request,$id)
     {
         $leave = $this->leavesService->reason($id);
-
-        return view('frontend.leaves.leaves-reason',compact('leave'));
+        if(auth()->user()->id == $leave->employee_id || auth()->user()->role == 1)
+        {
+            return view('frontend.leaves.leaves-reason',compact('leave'));
+        }
+        abort(403);
+       
     }
 
 
@@ -114,7 +130,11 @@ class LeavesController extends Controller  {
     
     public function leavesByUser(Request $request)
     { 
-        $employees = $this->leavesService->leavesByUser($request);
-        return view('frontend.leaves.leaves-by-user',compact('employees'));
+        if(auth()->user()->id == $request->id || auth()->user()->role == 1)
+        {
+            $employees = $this->leavesService->leavesByUser($request);
+            return view('frontend.leaves.leaves-by-user',compact('employees'));
+        }
+        abort(403);
     }
 }
