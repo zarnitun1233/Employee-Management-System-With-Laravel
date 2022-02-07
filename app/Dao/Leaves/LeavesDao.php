@@ -78,7 +78,7 @@ class LeavesDao implements LeavesDaoInterface
     $toDate = $request->toDate;
     $reason = $request->reason;
     $duration = $request->duration;
-    DB::transaction(function ($leaveId, $empId, $fromDate, $toDate, $reason, $duration) {
+    DB::transaction(function () use ($leaveId, $empId, $fromDate, $toDate, $reason, $duration){
       DB::table('leaves')
       ->where('id', '=', $leaveId)
       ->where('employee_id', '=', $empId)
@@ -101,7 +101,7 @@ class LeavesDao implements LeavesDaoInterface
    */
   public function delete($id)
   {
-    DB::transaction(function ($id) {
+    DB::transaction(function () use ($id) {
       DB::table('leaves')
       ->where('id', '=', $id)
       ->update(['status' => 0]);
@@ -119,7 +119,7 @@ class LeavesDao implements LeavesDaoInterface
    */
   public function accept($id)
   {
-    DB::transaction(function ($id) {
+    DB::transaction(function () use ($id) {
       DB::table('leaves')
       ->where('id', '=', $id)
       ->update(['status' => 1]);

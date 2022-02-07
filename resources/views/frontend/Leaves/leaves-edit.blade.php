@@ -2,7 +2,7 @@
 
 @section('content')
 @if (Session::has('msg'))
-<p>{{ Session::get('msg') }}</p>
+<p class="show-alert">{{ Session::get('msg') }}</p>
 @endif
 @if($leave)
 <h2 class="employee-create-header create-department-header">Edit Leaves</h2>
@@ -47,7 +47,7 @@
     </tr>
   </table>
   <div class="btn">
-    <button type="submit">Create</button>&nbsp;&nbsp;&nbsp;&nbsp;
+    <button type="submit">Update</button>&nbsp;&nbsp;&nbsp;&nbsp;
     <a href="#" onclick="history.back()">Back</a>
   </div>
 </form>
