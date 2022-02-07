@@ -7,10 +7,10 @@
   <table class="employee-table">
     <tr>
       <td class="employee-label"><label for="name">Name</label></label></td>
-      <td><input type="text" id="name" name="name" value="{{ $employee->name }}"><br>
+      <td><input type="text" id="name" name="name" value="{{ $employee->name }}">
         @error('name')
         <p class="validate-employee-error">{{ $message }}</p>
-        @enderror <br>
+        @enderror
       </td>
     </tr>
     <tr>
@@ -23,12 +23,12 @@
           <option value="Sub Leader">Sub Leader</option>
           <option value="Leader">Leader</option>
           <option value="Manager">Manager</option>
-        </select><br>
+        </select>
         @error('position')
         <p class="validate-employee-error">{{ $message }}</p>
-        @enderror <br>
+        @enderror
         @else
-        <input type="text" value="{{ $employee->position }}" readonly class="readonly" name="position"><br><br>
+        <input type="text" value="{{ $employee->position }}" readonly class="readonly" name="position">
         @endif
       </td>
     </tr>
@@ -44,17 +44,17 @@
           </option>
           <option value="Employee">Employee</option>
           <option value="Admin">Admin</option>
-        </select><br>
+        </select>
         @error('role')
         <p class="validate-employee-error">{{ $message }}</p>
-        @enderror <br>
+        @enderror
         @else
         @if ($employee->role == 1)
         <?php $role = "Admin"; ?>
         @else
         <?php $role = "Employee"; ?>
         @endif
-        <input type="text" value="{{ $role }}" readonly class="readonly" name="role"><br><br>
+        <input type="text" value="{{ $role }}" readonly class="readonly" name="role">
         @endif
       </td>
     </tr>
@@ -66,14 +66,14 @@
           @foreach($departments as $department)
           <option value="{{ $department->id }}">{{ $department->name }}</option>
           @endforeach
-        </select><br>
+        </select>
         @error('department_id')
         <p class="validate-employee-error">{{ $message }}</p>
-        @enderror <br>
+        @enderror
         @else
         <select name="department_id" id="department" class="selectreadonly">
           <option value="{{ $employee->department->id }}">{{ $employee->department->name }}</option>
-        </select><br><br>
+        </select>
         @endif
       </td>
     </tr>
@@ -82,38 +82,38 @@
       <td><input type="email" id="email" name="email" value="{{ $employee->email }}"><br>
         @error('email')
         <p class="validate-employee-error">{{ $message }}</p>
-        @enderror <br>
+        @enderror
       </td>
     </tr>
     <td class="employee-label"><label for="age">Age</label></label></td>
-    <td class="edit-employee"><input type="number" id="age" name="age" value="{{ $employee->age }}"><br>
+    <td class="edit-employee"><input type="number" id="age" name="age" value="{{ $employee->age }}">
       @error('age')
       <p class="validate-employee-error">{{ $message }}</p>
-      @enderror <br>
+      @enderror
     </td>
     </tr>
     <tr>
       <td class="employee-label"><label for="phone">Phone Number</label></label></td>
-      <td><input type="text" id="phone" name="phone" value="{{ $employee->phone }}"><br>
+      <td><input type="text" id="phone" name="phone" value="{{ $employee->phone }}">
         @error('phone')
         <p class="validate-employee-error">{{ $message }}</p>
-        @enderror <br>
+        @enderror
       </td>
     </tr>
     <tr>
       <td class="employee-label"><label for="dob">Date of Birth</label></label></td>
-      <td><input type="date" id="dob" name="dob" value="{{ $employee->dob }}"><br>
+      <td><input type="date" id="dob" name="dob" value="{{ $employee->dob }}">
         @error('dob')
         <p class="validate-employee-error">{{ $message }}</p>
-        @enderror <br>
+        @enderror
       </td>
     </tr>
     <tr class="textarea-form">
       <td class="employee-label"><label for="address">Address</label></label></td>
-      <td><textarea name="address" id="address" cols="20" rows="5" style="resize:none;">{{ $employee->address }}</textarea><br>
+      <td><textarea name="address" id="address" cols="20" rows="5" style="resize:none;">{{ $employee->address }}</textarea>
         @error('address')
         <p class="validate-employee-error">{{ $message }}</p>
-        @enderror <br>
+        @enderror
       </td>
     </tr>
     <tr>
@@ -123,17 +123,17 @@
         </label>
         @error('image')
         <p class="validate-employee-error">{{ $message }}</p>
-        @enderror <br>
+        @enderror
       </td>
     </tr>
     @if (auth()->user()->id == request()->route('id'))
     <tr>
       <td class="employee-label"><label for="password">New Password</label></td>
-      <td><input type="password" id="password" name="password"><br></td>
+      <td><input type="password" id="password" name="password"></td>
     </tr>
     <tr>
       <td class="employee-label"><label for="confirmPassword">Confirm New Password</label></td>
-      <td><input type="password" id="confirmPassword" name="confirmPassword"><br>
+      <td><input type="password" id="confirmPassword" name="confirmPassword">
         @error('confirmPassword')
         <p class="validate-employee-error">{{ $message }}</p>
         @enderror

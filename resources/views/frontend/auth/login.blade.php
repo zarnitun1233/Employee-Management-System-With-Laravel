@@ -4,6 +4,11 @@
 @section('content')
 @if ($message = Session::get('success'))
   <div>
+    <p class="employee-list-message">{{ $message }}</p>
+  </div>
+  @endif
+@if ($message = Session::get('fail'))
+  <div>
     <p class="employee-list-message alert-error">{{ $message }}</p>
   </div>
   @endif

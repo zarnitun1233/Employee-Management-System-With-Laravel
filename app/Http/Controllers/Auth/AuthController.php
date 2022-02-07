@@ -36,11 +36,11 @@ class AuthController extends Controller
                 return redirect('/employee/list');
             }
             else {
-                return redirect('/leaves/create/' . $userId);
+                return redirect('/employee/list/'. $userId);
             }
           }
           else 
-          return redirect("/login")->withSuccess('Oppes! You have entered invalid email or password');
+          return redirect("/login")->withFail('Oppes! You have entered invalid email or password');
     }
 
     /**

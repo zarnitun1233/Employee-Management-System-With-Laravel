@@ -1,6 +1,6 @@
 @extends('common.master')
 @section('leaves')
-    <link rel="stylesheet" href="{{ asset('css/leaves.css') }}">
+<link rel="stylesheet" href="{{ asset('css/leaves.css') }}">
 @endsection
 @section('content')
     @if (sizeof($employees))
@@ -73,7 +73,9 @@
         </div>
       </div>
     </div>
-    @else
-    no data
-    @endif
+  </div>
+</div>
+@else
+no data
+@endif
 @endsection
