@@ -5,15 +5,9 @@
   <div class="list-design-container">
     <h1 class="list-title">Employee List</h1>
     <div class="create-export">
-<<<<<<< HEAD
-    <a href="{{ url('/employee/search') }}" class="search-btn">Search</a>
-      <a href="{{ url('/employee/create') }}">Create Employee</a>
-      <a href="{{ url('/export') }}">Export</a>
-=======
     <a href="{{ route('employee-search') }}">Search</a>
       <a href="{{ route('employee-create') }}">Create Employee</a>
       <a href="{{ route('export') }}">Export</a>
->>>>>>> 145486d18ec01eef53324d345a1a835cb3c1a793
     </div>
     @if ($message = Session::get('success'))
     <div>

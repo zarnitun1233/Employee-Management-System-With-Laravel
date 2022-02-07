@@ -16,10 +16,10 @@
           <form action="{{ route('leaves-searchByName') }}" class="leaves-search" method="POST">
             @csrf
             <div class="leaves-input">
-              <input type="search" name="name" id="leaves-search" placeholder="Search by name">
+              <input type="search" name="name" class="leaves-search-bar" placeholder="Search by name">
             </div>
             <div class="leaves-input">
-              <button type="submit ">Search</button>
+              <button type="submit" class="leaves-search-btn">Search</button>
             </div>
           </form>
           @if (Session::has('msg'))

@@ -18,14 +18,16 @@ class LeavesController extends Controller
         $this->leavesService = $leavesService;
     }
 
-    public function index(Request $request,$name=null) {
-        $leaves =  $this->leavesService->index($name);
-       
+    public function index(Request $request) {
+        $name = $request->name;
+        $link = [];
+        $name ? $link['name'] = $name : null;
+        $link['page'] = '1';
+        $leaves =  $this->leavesService->index($name ?? null);
         if ($request->page !== null) {
             return view('backend.Leaves.leaves-list')->with('leaves', $leaves);
         }
-        $name =$name ? $name : '';
-        return redirect('/leaves/list/'.$name.'?page=1');
+        return redirect()->route('leaves-list',$link);
         
     }
 
@@ -86,13 +88,7 @@ class LeavesController extends Controller
     public function update(StoreLeavesRequest $request)
     {
         $msg = $this->leavesService->update($request);
-<<<<<<< HEAD
-        return redirect()->route( 'leaves.edit', [ $request->empId ] )->with
-        ( 'msg', 'leaves updated successfully' );
-
-=======
         return redirect()->route('leaves-edit', [$request->empId])->with('msg', 'leaves updated successfully');
->>>>>>> 145486d18ec01eef53324d345a1a835cb3c1a793
     }
 
     /**
@@ -118,7 +114,7 @@ class LeavesController extends Controller
 
     public function searchByName(SearchLeavesRequest $request)
     {
-        return redirect('/leaves/list/'.$request->name.'');
+        return redirect()->route('leaves-list',['name'=>$request->name]);
     }
 
     public function leavesByUser(Request $request)
