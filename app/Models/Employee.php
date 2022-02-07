@@ -16,7 +16,8 @@ class Employee extends Authenticatable
     use SoftDeletes;
     protected $dates = ['deleted_at'];
     protected $fillable = [
-        'name', 'position', 'role', 'age', 'email', 'password', 'image', 'phone', 'dob', 'address', 'department_id'
+        'name', 'position', 'role', 'age', 'email', 'password', 'image',
+         'phone', 'dob', 'address', 'department_id'
     ];
 
     /**

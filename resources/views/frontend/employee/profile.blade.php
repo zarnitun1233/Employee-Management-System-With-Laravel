@@ -55,7 +55,7 @@
       </tr>
     </table>
     @if (auth()->user()->role == 1)
-    <a href="{{ url('/employee/edit/' . auth()->user()->id) }}" class="profile-edit">Edit Info</a>
+    <a href="{{ route('employee-edit', auth()->user()->id) }}" class="profile-edit">Edit Info</a>
     @endif
     <button onclick="history.back()">Back</button>
   </div>

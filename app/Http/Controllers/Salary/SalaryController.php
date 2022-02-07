@@ -52,7 +52,7 @@ class SalaryController extends Controller
     public function store(StoreSalaryRequest $request)
     {
         $this->salaryInterface->store($request);
-        return redirect('/salary/list')->with('success', 'Salary Created Successfully!');
+        return redirect()->route('salary-list')->with('success', 'Salary Created Successfully!');
     }
 
     /**
@@ -64,7 +64,8 @@ class SalaryController extends Controller
         $employees = $this->salaryInterface->getDepartmentByEmployee();
         $salary = $this->salaryInterface->edit($id);
         $department = $this->salaryInterface->getDepartmentBySalary($id);
-        return view('backend.salary.edit')->with('employees', $employees)->with('salary', $salary)->with('department', $department);
+        return view('backend.salary.edit')->with('employees', $employees)->with
+        ('salary', $salary)->with('department', $department);
     }
 
     /**
@@ -75,7 +76,7 @@ class SalaryController extends Controller
     public function update(SalaryUpdateRequest $request, $id)
     {
         $this->salaryInterface->update($request, $id);
-        return redirect('/salary/list')->with('success', 'Salary Updated Successfully!');
+        return redirect()->route('salary-list')->with('success', 'Salary Updated Successfully!');
     }
 
     /**
@@ -88,7 +89,8 @@ class SalaryController extends Controller
         $department = $this->salaryInterface->getDepartmentByEmployeeId($id);
         $date = $this->salaryInterface->dateFromSalaryRecord($id);
         $salary = $this->salaryInterface->salaryFromSalaryRecord($id);
-        return view('frontend.salary.detail')->with('details', $details)->with('department', $department)->with('date', json_encode($date, JSON_NUMERIC_CHECK))
+        return view('frontend.salary.detail')->with('details', $details)->with
+        ('department', $department)->with('date', json_encode($date, JSON_NUMERIC_CHECK))
             ->with('salary', json_encode($salary, JSON_NUMERIC_CHECK));
     }
 
@@ -99,6 +101,6 @@ class SalaryController extends Controller
     public function delete($id)
     {
         $this->salaryInterface->delete($id);
-        return redirect('/salary/list')->with('success', 'Salary Deleted Successfully!');
+        return redirect()->route('salary-list')->with('success', 'Salary Deleted Successfully!');
     }
 }

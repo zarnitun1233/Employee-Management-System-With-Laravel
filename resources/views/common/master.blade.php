@@ -19,17 +19,17 @@
 @if (auth()->user()->role == 1)
 <div id="mySidenav" class="sidenav" >
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-  <a href="{{ url('/employee/list') }}">Employee </a>
-  <a href="{{ url('/salary/list') }}">Salary </a>
-  <a href="{{ url('/leaves/list') }}">Leaves </a>
-  <a href="{{ url('/department/list') }}">Department </a>
+  <a href="{{ route('employee-list') }}">Employee </a>
+  <a href="{{ route('salary-list') }}">Salary </a>
+  <a href="{{ route('leaves-list') }}">Leaves </a>
+  <a href="{{ route('department-list') }}">Department </a>
 </div>
 @else
 <div id="mySidenav" class="sidenav" >
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-  <a href="{{ url('/leaves/user/'.auth()->user()->id) }}">Leaves List</a>
-  <a href="{{ url('/leaves/create/'.auth()->user()->id) }}">Create Leave</a>
-  <a href="{{ url('/employee/edit/'.auth()->user()->id) }}">Edit Info</a>
+  <a href="{{ route('leaves-user', auth()->user()->id) }}">Leaves List</a>
+  <a href="{{ route('leaves-create', auth()->user()->id) }}">Create Leave</a>
+  <a href="{{ route('employee-edit', auth()->user()->id) }}">Edit Info</a>
 </div>
 @endif
 @endauth
@@ -45,9 +45,9 @@
     @auth
     <div class="rt-nav clearFix">
       <ul>
-        <li><a href="{{ url('/employee/list/' . auth()->user()->id) }}"> <i class="fas fa-user-circle"></i> Profile</a>
+        <li><a href="{{ route('employee-profile', auth()->user()->id) }}"> <i class="fas fa-user-circle"></i> Profile</a>
         </li>
-        <li><a href="{{ url('/logout') }}"><i class="fas fa-sign-out-alt"></i> Logout </a>
+        <li><a href="{{ route('logout') }}"><i class="fas fa-sign-out-alt"></i> Logout </a>
         </li>
       </ul>
      
@@ -81,6 +81,7 @@ function openNav() {
 function closeNav() {
   document.getElementById("mySidenav").style.width = "0";
 }
+
 </script>
 </body>
 

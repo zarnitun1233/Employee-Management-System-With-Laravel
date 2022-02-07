@@ -15,12 +15,14 @@
     </tr>
     <tr>
       <td class="employee-label"><label for="department">Department Name</label></label></td>
-      <td><input type="text" id="department" name="department" value="{{ $department[0]->name }}" readonly>
+      <td><input type="text" id="department" name="department"
+       value="{{ $department[0]->name }}" readonly>
       </td>
     </tr>
     <tr>
       <td class="employee-label"><label for="position">Position</label></td>
-      <td><input type="text" id="position" name="position" value="{{ $salary->employee->position }}" readonly>
+      <td><input type="text" id="position" name="position"
+       value="{{ $salary->employee->position }}" readonly>
       </td>
     </tr>
     <tr>
@@ -42,7 +44,7 @@
   </table>
   <div class="btn">
     <button type="submit">Create</button>&nbsp;&nbsp;&nbsp;&nbsp;
-    <a href="{{ url('/salary/list') }}">Back</a>
+    <a href="{{ route('salary-list') }}">Back</a>
   </div>
 </form>
 @endsection

@@ -5,146 +5,146 @@ namespace App\Dao\Leaves;
 use App\Contracts\Dao\Leaves\LeavesDaoInterface;
 use Illuminate\Http\Request;
 use App\Models\Leave;
-use App\Models\Employee;  
+use App\Models\Employee;
 use Illuminate\Support\Facades\DB;
 
-class LeavesDao implements  LeavesDaoInterface
- {
-    /**
-    *send empoyee data to salaries create view
-    * @return void
-    */
-
-    public function index($name)
-    {
-      $leaves =DB::table('leaves')
+class LeavesDao implements LeavesDaoInterface
+{
+  /**
+   *Home function to show leaves list
+   * @param $name
+   */
+  public function index($name)
+  {
+    $leaves = DB::table('leaves')
       ->select(
         'employees.name as emp_name',
         'departments.name as department_name',
         'leaves.*'
-        )
-      ->join('employees','employees.id','leaves.employee_id')
-      ->join('departments','departments.id','employees.department_id')
-      ->where('leaves.deleted_at','=',NULL);
-      
-      $leaves = $name ? $leaves->where('employees.name','LIKE','%'.$name.'%') : $leaves;
+      )
+      ->join('employees', 'employees.id', 'leaves.employee_id')
+      ->join('departments', 'departments.id', 'employees.department_id');
 
-      return $leaves->paginate(5);
-    }
-    /**
-     * 
-     * we will update in furture
-     *
-     * @param Request $request
-     * @return void
-     */
-    public function create( Request $request )
-    {
-      
-    }
+    $leaves = $name ? $leaves->where('employees.name', 'LIKE', '%' . $name . '%') : $leaves;
 
-    /**
-    *store data to table
-    * @param Request $request
-    * @return void
-    */
+    return $leaves->paginate(5);
+  }
 
-    public function store( Request $request )
-    {
-      $leave = new Leave;
-      $leave->fromDate =$request->fromDate;
-      $leave->toDate =$request->toDate;
-      $leave->duration = $request->duration;
-      $leave->reason =  $request->reason;
-      $leave->employee_id = $request->empId;
-      $leave->save();
-      $msg = "success";
-      return $msg;
-    }
+  /**
+   * Create Function
+   * @param Request $request
+   */
+  public function create(Request $request)
+  {
+  }
 
-    /**
-     * find leave id to update
-     * need to check other conditions
-     * @param [type] $id
-     * @return void
-     */
-    public function edit($id)
-    {
-       return $leave = Leave::find($id);
-    }
+  /**
+   *store data to table tables
+   * @param Request $request
+   * @return void
+   */
+  public function store(Request $request)
+  {
+    $leave = new Leave;
+    $leave->fromDate = $request->fromDate;
+    $leave->toDate = $request->toDate;
+    $leave->duration = $request->duration;
+    $leave->reason =  $request->reason;
+    $leave->employee_id = $request->empId;
+    $leave->save();
+    $msg = "success";
+    return $msg;
+  }
 
-    /**
-     * update leave by user
-     *
-     * @param Request $request
-     * @return void
-     */
+  /**
+   *edit leaves
+   * @param Request $request
+   * @return void
+   */
+  public function edit($id)
+  {
+    return $leave = Leave::find($id);
+  }
 
-    public function update(Request $request)
-    {
-        $leaveId = $request->id;
-        $empId = $request->empId;
-        $fromDate =$request->fromDate;
-        $toDate = $request->toDate;
-        $reason = $request->reason;
-        $duration = $request->duration;
-        DB::table('leaves')
-            ->where('id','=',$leaveId)
-            ->where('employee_id','=',$empId)
-            ->update([
-              'fromDate' => $fromDate,
-              'toDate'   => $toDate,
-              'reason'   => $reason,
-              'duration' => $duration,
-            ]);
-          $msg = 'updated success';
-          return $msg;
-    }
-
-    /**
-    * Undocumented function
-    *delete leaves;
-    * @param [type] $id
-    * @return void
-    */
-
-    public function delete($id)
-    { 
-      $leave = Leave::find($id);
-      if(auth()->user()->role === 1 || auth()->user()->id == $leave->employee_id);
-      {
-        DB::table('leaves')
-        ->where('id', '=',$id)
-        ->update(['status' => 0]);
-        Leave::destroy($id);
-        return $leave;
-      } 
-    }
-
-    /**
-     * accept leaves by admin
-     *
-     * @param [type] $id
-     * @return void
-     */
-
-    public function accept($id)
-    {
+  /**
+   * Update function
+   * @param Request $request
+   */
+  public function update(Request $request)
+  {
+    $leaveId = $request->id;
+    $empId = $request->empId;
+    $fromDate = $request->fromDate;
+    $toDate = $request->toDate;
+    $reason = $request->reason;
+    $duration = $request->duration;
+    DB::transaction(function () use ($leaveId, $empId, $fromDate, $toDate, $reason, $duration){
       DB::table('leaves')
-      ->where('id', '=',$id)
+      ->where('id', '=', $leaveId)
+      ->where('employee_id', '=', $empId)
+      ->update([
+        'fromDate' => $fromDate,
+        'toDate'   => $toDate,
+        'reason'   => $reason,
+        'duration' => $duration,
+      ]);
+  });
+  
+    $msg = 'updated success';
+    return $msg;
+  }
+
+  /**
+   *delete leaves;
+   * @param Reuest $request
+   * @return void
+   */
+  public function delete($id)
+  {
+    DB::transaction(function () use ($id) {
+      DB::table('leaves')
+      ->where('id', '=', $id)
+      ->update(['status' => 0]);
+  });
+  
+    Leave::destroy($id);
+    $msg = 'Successfullu Deleted';
+    return $msg;
+  }
+
+  /**
+   *leave accepted by admin
+   * @param [type] $id
+   * @return void
+   */
+  public function accept($id)
+  {
+    DB::transaction(function () use ($id) {
+      DB::table('leaves')
+      ->where('id', '=', $id)
       ->update(['status' => 1]);
-      $msg = 'leave Accepted:)';
-      return $msg;
-    }
+  });
+  
+    $msg = 'leave Accepted:)';
+    return $msg;
+  }
 
-    public function reason($id)
-    {
-      return $leave = Leave::find($id);
-    }
+  /**
+   * Leaves Reason
+   * @param $id
+   */
+  public function reason($id)
+  {
+    return $leave = Leave::find($id);
+  }
 
-    public function leavesByUser(Request $request)
-    {
-      $employees = DB::table('employees')
+  /**
+   * Leaves list by userId
+   * @param Request $request
+   */
+  public function leavesByUser(Request $request)
+  {
+    $employees = DB::table('employees')
       ->select(
         'employees.name as emp_name',
         'leaves.id as leave_id',
@@ -161,6 +161,6 @@ class LeavesDao implements  LeavesDaoInterface
       ->where('employees.id','=',$request->id)  
       ->where('leaves.deleted_at','=',null)
       ->get();
-      return  $employees;
-    }
+    return  $employees;
+  }
 }

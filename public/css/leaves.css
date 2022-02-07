@@ -92,6 +92,15 @@
   border-radius: 5px;
 }
 
+.leaves-search-btn {
+  padding: 10px;
+  border: none;
+  background-color: #04AA6D;
+  color: #ffffff;
+  cursor: pointer;
+  border-radius: 5px;  
+}
+
 .leaves-table .leaves-accept.disabled,
 .leaves-delete.disabled {
   opacity: 0.5;
@@ -167,8 +176,19 @@
 /* leves-search */
 .leaves-search {
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   margin-bottom: 20px;
+}
+
+.leaves-search-bar {
+  padding: 7px;
+  border-radius: 5px;
+  outline: none;
+  border: 1px solid #00004d;
+}
+
+.leaves-search-bar:focus {
+  outline: none;
 }
 
 .leaves-search button {
@@ -209,8 +229,8 @@
   }
 
   .leaves-table .show-status {
-    font-size: 8px;
     padding: 3px;
+    font-size: 8px;
   }
 }
 
@@ -226,8 +246,8 @@
   }
 
   .leaves-table .show-status-pending {
-    font-size: 9px;
     padding: 2px;
+    font-size: 9px;
   }
 }
 

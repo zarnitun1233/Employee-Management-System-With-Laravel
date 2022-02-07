@@ -5,7 +5,7 @@
 <p class="employee-list-message">{{ Session::get('msg') }}</p>
 @endif
 <h2 class="employee-create-header">Create Leaves</h2>
-<form action="{{ route('leaves.store') }}" method="POST" enctype="multipart/form-data" class="employee-create-form">
+<form action="{{ route('leaves-store') }}" method="POST" enctype="multipart/form-data" class="employee-create-form">
   @csrf
   <div>
     <input type="hidden" name="empId" value="{{ request()->id }}"><br>
@@ -13,7 +13,7 @@
   <table class="employee-table">
     <tr>
       <td class="employee-label"><label for="From Date">From Date</label></td>
-      <td><input type="date" name="fromDate"><br>
+      <td><input type="date" name="fromDate" value="{{ old('fromDate') ?? ''}}" ><br>
         @error('fromDate')
         {{ $message }}
         @enderror
@@ -21,7 +21,7 @@
     </tr>
     <tr>
       <td class="employee-label"><label for="To Date">To Date</label></td>
-      <td><input type="date" name="toDate"><br>
+      <td><input type="date" name="toDate" value="{{ old('toDate') ?? '' }}"><br>
         @error('toDate')
         {{ $message }}
         @enderror
@@ -29,7 +29,7 @@
     </tr>
     <tr>
       <td class="employee-label"><label for="Duration">Duration</label></td>
-      <td><input type="text" name="duration"><br>
+      <td><input type="text" name="duration" value="{{ old('duration') ?? '' }}"><br>
         @error('duration')
         {{ $message }}
         @enderror
@@ -37,7 +37,7 @@
     </tr>
     <tr>
       <td class="employee-label"><label for="Reason">Reason</label></td>
-      <td><textarea name="reason" id="" cols="30" rows="10"></textarea>
+      <td><textarea name="reason" id="" cols="30" rows="10" value="{{ old('reason') ?? '' }}"></textarea>
         @error('reason')
         {{ $message }}
         @enderror

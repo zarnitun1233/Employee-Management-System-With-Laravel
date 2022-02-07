@@ -56,7 +56,7 @@ class EmployeeController extends Controller
     public function store(StoreEmployeeRequest $request)
     {
         $this->employeeInterface->store($request);
-        return redirect('/employee/list')->with('success', 'Employee Created Successfully!');
+        return redirect()->route('employee-list')->with('success', 'Employee Created Successfully!');
     }
 
     /**
@@ -67,7 +67,8 @@ class EmployeeController extends Controller
     {
         $employee = $this->employeeInterface->edit($id);
         $departments = $this->employeeInterface->create();
-        return view('backend.employee.edit')->with('employee', $employee)->with('departments', $departments);
+        return view('backend.employee.edit')->with('employee', $employee)->with
+        ('departments', $departments);
     }
 
     /**
@@ -78,7 +79,7 @@ class EmployeeController extends Controller
     public function update(EmployeeUpdateRequest $request, $id)
     {
         $this->employeeInterface->update($request, $id);
-        return redirect('/employee/list')->with('success', 'Employee Updated Successfully!');
+        return redirect()->route('employee-list')->with('success', 'Employee Updated Successfully!');
     }
 
     /**
@@ -88,19 +89,19 @@ class EmployeeController extends Controller
     public function delete($id)
     {
         $this->employeeInterface->delete($id);
-        return redirect('/employee/list')->with('success', 'Employee Deleted Successfully!');
+        return redirect()->route('employee-list')->with('success', 'Employee Deleted Successfully!');
     }
 
     public function search()
     {
         $departments = $this->employeeInterface->search();
-        return view('backend.employee.search',compact('departments'));
+        return view('backend.employee.search')->with('departments', $departments);
     }
 
     public function postSearch(Request $request)
     {
        $employees = $this->employeeInterface->postSearch($request);
-       return redirect()->route('employee.search')->with(['datas' => $employees]);
+       return redirect()->route('employee-search')->with(['datas' => $employees]);
     }
 
     /**

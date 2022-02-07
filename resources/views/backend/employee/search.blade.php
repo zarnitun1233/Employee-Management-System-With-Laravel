@@ -1,7 +1,7 @@
 @extends('common.master')
 
 @section('content')
-<form action="{{ route('employee.post.search') }}" method="POST" class="form-inline">
+<form action="{{ route('employee-post-search') }}" method="POST" class="form-inline">
     @csrf
     <div class="emp-search">
         <label for="name">Name</label>
@@ -37,9 +37,12 @@
 </form>
 @if (Session::has('datas'))
 @if (sizeof(Session::get('datas')) === 0)
-<div class="not-found-data">No Data</div>
+<div class="not-found-data">No Search Data</div>
 @endif
 @endif
+@if (!Session::has('datas'))
+      <div class="show-no-data">No Data To Display</div>
+    @endif
 <div class="list-design">
     <div class="list-design-container">
         <table class="list-table">
@@ -81,6 +84,6 @@
         </table>
     </div>
     <div class="btn">
-    <a href="{{ url('employee/list') }}" class="back-button">Back</a>
+    <a href="{{ route('employee-list') }}" class="back-button">Back</a>
   </div>
 @endsection

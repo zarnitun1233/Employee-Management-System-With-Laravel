@@ -11,90 +11,99 @@ use App\Contracts\Dao\Leaves\LeavesDaoInterface;
 class LeavesService implements LeavesServiceInterface
 {
 
+  /**
+   * Leaves dao
+   */
   private $leavesDao;
 
   /**
-  *send empoyee data to salaries create view
-  * @return void
-  */
-
+   * Class Constructor
+   * @param LeavesDaoInterface
+   */
   public function __construct(LeavesDaoInterface $leavesDao)
   {
     $this->leavesDao = $leavesDao;
   }
 
+  /**
+   *Home function to show leaves list
+   * @param $name
+   */
   public function index($name)
   {
     return $this->leavesDao->index($name);
   }
 
   /**
-  *create  leaves;
-  *we will update other feature in furture
-  * @param Request $request
-  * @return void
-  */
-
-  public function create( Request $request )
+   * Create Function
+   * @param Request $request
+   */
+  public function create(Request $request)
   {
-
   }
 
   /**
-  *store data to table tables
-  * @param Request $request
-  * @return void
-  */
-
-  public function store( Request $request )
+   *store data to table tables
+   * @param Request $request
+   * @return void
+   */
+  public function store(Request $request)
   {
-     return $this->leavesDao->store($request);
+    return $this->leavesDao->store($request);
   }
 
   /**
-  *edit leaves
-  * @param $id
-  * @return void
-  */
-
+   *edit leaves
+   * @param Request $request
+   * @return void
+   */
   public function edit($id)
   {
     return $this->leavesDao->edit($id);
   }
 
+  /**
+   * Update function
+   * @param Request $request
+   */
   public function update(Request $request)
   {
     return $this->leavesDao->update($request);
   }
 
   /**
-  * Undocumented function
-  *delete leaves;
-  * @param  $id
-  * @return void
-  */
-
+   *delete leaves;
+   * @param Reuest $request
+   * @return void
+   */
   public function delete($id)
   {
     return $this->leavesDao->delete($id);
   }
 
   /**
-  *accept leaves by admin;
-  * @param  $id
-  * @return void
-  */
-
+   *leave accepted by admin
+   * @param [type] $id
+   * @return void
+   */
   public function accept($id)
   {
     return $msg = $this->leavesDao->accept($id);
   }
 
+  /**
+   * Leaves Reason
+   * @param $id
+   */
   public function reason($id)
   {
     return  $this->leavesDao->reason($id);
   }
 
+  /**
+   * Leaves list by userId
+   * @param Request $request
+   */
   public function leavesByUser(Request $request)
   {
     return $employees = $this->leavesDao->leavesByUser($request);
