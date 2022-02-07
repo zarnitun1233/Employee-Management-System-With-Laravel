@@ -29,7 +29,6 @@ Route::middleware(BrowserBack::class)->group(function(){
    Route::get('/salary/{id}/detial', [SalaryController::class, 'detail'])->name('salary-detail');
    Route::delete('/salary/{id}/delete', [SalaryController::class, 'delete'])->name('salary-delete');
 
-
    #leave route
    Route::get('/leaves/{id}/create',[LeavesController::class,'create'])->name('leaves-create')->middleware('auth');
    Route::get('/leaves/list',[LeavesController::class,'index'])->name('leaves-list');
