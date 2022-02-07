@@ -156,9 +156,10 @@ class LeavesDao implements LeavesDaoInterface
         'leaves.duration as leave_duration',
         'departments.name as department_name'
       )
-      ->join('leaves', 'employees.id', '=', 'leaves.employee_id')
-      ->join('departments', 'employees.department_id', '=', 'departments.id')
-      ->where('employees.id', '=', $request->id)
+      ->join('leaves','employees.id','=','leaves.employee_id')
+      ->join('departments','employees.department_id','=','departments.id')
+      ->where('employees.id','=',$request->id)  
+      ->where('leaves.deleted_at','=',null)
       ->get();
     return  $employees;
   }

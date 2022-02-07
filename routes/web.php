@@ -13,45 +13,45 @@ use App\Http\Middleware\BrowserBack;
 
 Route::middleware(BrowserBack::class)->group(function(){
       //Department
-   Route::get('/department/list', [DepartmentController::class, 'index'])->name('department-list');
-   Route::get('/department/create', [DepartmentController::class, 'create'])->name('department-create');
-   Route::post('/department/create', [DepartmentController::class, 'store'])->name('department-store');
-   Route::get('/department/{id}/edit', [DepartmentController::class, 'edit'])->name('department-edit');
-   Route::post('/department/{id}/edit', [DepartmentController::class, 'update'])->name('department-update');
-   Route::delete('/department/{id}/delete', [DepartmentController::class, 'delete'])->name('department-delete');
+   Route::get('/department/list', [DepartmentController::class, 'index'])->name('department-list')->middleware('auth', 'admin');
+   Route::get('/department/create', [DepartmentController::class, 'create'])->name('department-create')->middleware('auth', 'admin');
+   Route::post('/department/create', [DepartmentController::class, 'store'])->name('department-store')->middleware('auth', 'admin');
+   Route::get('/department/{id}/edit', [DepartmentController::class, 'edit'])->name('department-edit')->middleware('auth', 'admin');
+   Route::post('/department/{id}/edit', [DepartmentController::class, 'update'])->name('department-update')->middleware('auth', 'admin');
+   Route::delete('/department/{id}/delete', [DepartmentController::class, 'delete'])->name('department-delete')->middleware('auth', 'admin');
 
    //Salary
-   Route::get('/salary/list', [SalaryController::class, 'index'])->name('salary-list');
-   Route::get('/salary/create', [SalaryController::class, 'create'])->name('salary-create');
-   Route::post('/salary/create', [SalaryController::class, 'store'])->name('salary-store');
-   Route::get('/salary/{id}/edit', [SalaryController::class, 'edit'])->name('salary-edit');
-   Route::post('/salary/{id}/edit', [SalaryController::class, 'update'])->name('salary-update');
-   Route::get('/salary/{id}/detial', [SalaryController::class, 'detail'])->name('salary-detail');
-   Route::delete('/salary/{id}/delete', [SalaryController::class, 'delete'])->name('salary-delete');
+   Route::get('/salary/list', [SalaryController::class, 'index'])->name('salary-list')->middleware('auth', 'admin');
+   Route::get('/salary/create', [SalaryController::class, 'create'])->name('salary-create')->middleware('auth', 'admin');
+   Route::post('/salary/create', [SalaryController::class, 'store'])->name('salary-store')->middleware('auth', 'admin');
+   Route::get('/salary/{id}/edit', [SalaryController::class, 'edit'])->name('salary-edit')->middleware('auth', 'admin');
+   Route::post('/salary/{id}/edit', [SalaryController::class, 'update'])->name('salary-update')->middleware('auth', 'admin');
+   Route::get('/salary/{id}/detial', [SalaryController::class, 'detail'])->name('salary-detail')->middleware('auth', 'admin');
+   Route::delete('/salary/{id}/delete', [SalaryController::class, 'delete'])->name('salary-delete')->middleware('auth', 'admin');
 
    #leave route
    Route::get('/leaves/{id}/create',[LeavesController::class,'create'])->name('leaves-create')->middleware('auth');
-   Route::get('/leaves/list',[LeavesController::class,'index'])->name('leaves-list');
-   Route::get('leaves/{id}/edit',[LeavesController::class,'edit'])->name('leaves-edit');
-   Route::get('/leaves/list',[LeavesController::class,'index'])->name('leaves-list');
-   Route::get('leaves/{id}/reason',[LeavesController::class,'reason'])->name('leaves-reason');
-   Route::get('/leaves/{id}/user',[LeavesController::class,'leavesByUser'])->name('leaves-user');
+   Route::get('/leaves/list',[LeavesController::class,'index'])->name('leaves-list')->middleware('auth', 'admin');
+   Route::get('leaves/{id}/edit',[LeavesController::class,'edit'])->name('leaves-edit')->middleware('auth');
+   Route::get('/leaves/list',[LeavesController::class,'index'])->name('leaves-list')->middleware('auth');
+   Route::get('leaves/{id}/reason',[LeavesController::class,'reason'])->name('leaves-reason')->middleware('auth', 'admin');
+   Route::get('/leaves/{id}/user',[LeavesController::class,'leavesByUser'])->name('leaves-user')->middleware('auth');
 
-   Route::post('/leaves/store',[LeavesController::class,'store'])->name('leaves-store');
-   Route::post('leaves/accept/{id}',[LeavesController::class,'accept'])->name('leaves-accept');
-   Route::post('leaves/search',[LeavesController::class,'searchByName'])->name('leaves-searchByName');
-   Route::delete('leaves/delete/{id}',[LeavesController::class,'delete'])->name('leaves-delete');
-   Route::put('leaves/update/{id}',[LeavesController::class,'update'])->name('leaves-update');
+   Route::post('/leaves/store',[LeavesController::class,'store'])->name('leaves-store')->middleware('auth');
+   Route::post('leaves/accept/{id}',[LeavesController::class,'accept'])->name('leaves-accept')->middleware('auth', 'admin');
+   Route::post('leaves/search',[LeavesController::class,'searchByName'])->name('leaves-searchByName')->middleware('auth', 'admin');
+   Route::delete('leaves/delete/{id}',[LeavesController::class,'delete'])->name('leaves-delete')->middleware('auth');
+   Route::put('leaves/update/{id}',[LeavesController::class,'update'])->name('leaves-update')->middleware('auth');
 
    //Employee
    Route::get('/employee', [EmployeeController::class, 'index'])->name('employee-list')->middleware('auth', 'admin');
-   Route::get('/employee/create', [EmployeeController::class, 'create'])->name('employee-create');
-   Route::post('/employee/create', [EmployeeController::class, 'store'])->name('employee-store');
+   Route::get('/employee/create', [EmployeeController::class, 'create'])->name('employee-create')->middleware('auth', 'admin');
+   Route::post('/employee/create', [EmployeeController::class, 'store'])->name('employee-store')->middleware('auth', 'admin');
    Route::get('/employee/{id}/edit', [EmployeeController::class, 'edit'])->name('employee-edit')->middleware('auth','admin');
-   Route::post('/employee/{id}/edit', [EmployeeController::class, 'update'])->name('employee-update');
-   Route::delete('/employee/{id}/delete', [EmployeeController::class, 'delete'])->name('employee-delete');
-   Route::get('/employee/search', [EmployeeController::class, 'search'])->name('employee-search');
-   Route::post('/employee/search', [EmployeeController::class, 'postSearch'])->name('employee-post-search');
+   Route::post('/employee/{id}/edit', [EmployeeController::class, 'update'])->name('employee-update')->middleware('auth', 'admin');
+   Route::delete('/employee/{id}/delete', [EmployeeController::class, 'delete'])->name('employee-delete')->middleware('auth', 'admin');
+   Route::get('/employee/search', [EmployeeController::class, 'search'])->name('employee-search')->middleware('auth', 'admin');
+   Route::post('/employee/search', [EmployeeController::class, 'postSearch'])->name('employee-post-search')->middleware('auth', 'admin');
 
    //auth route
    Route::get('auth/reset-password',[ForgotPasswordController::class,'index'])->name('reset-password');
@@ -65,7 +65,7 @@ Route::middleware(BrowserBack::class)->group(function(){
    Route::get('/logout', [AuthController::class, 'logout'])->name('logout')->middleware('auth');
 
    //Export
-   Route::get('/export', [EmployeeController::class, 'export'])->name('export');
+   Route::get('/export', [EmployeeController::class, 'export'])->name('export')->middleware('auth', 'admin');
 
    //Employee Profile
    Route::get('/employee/{id}/list', [EmployeeController::class, 'profile'])->name('employee-profile')->middleware('auth');
