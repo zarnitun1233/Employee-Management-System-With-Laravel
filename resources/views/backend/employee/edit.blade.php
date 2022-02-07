@@ -7,7 +7,8 @@
   <table class="employee-table">
     <tr>
       <td class="employee-label"><label for="name">Name</label></label></td>
-      <td><input type="text" id="name" name="name" value="{{ old('name') ?? $employee->name }}">
+      <td><input type="text" id="name" name="name" value="{{ old('name') ?? ($errors->has('name') ? '' : $employee->name )
+      }}">
         @error('name')
         <p class="validate-employee-error">{{ $message }}</p>
         @enderror
@@ -97,14 +98,14 @@
     </tr>
     <tr>
       <td class="employee-label"><label for="email">Email</label></label></td>
-      <td><input type="email" id="email" name="email" value="{{ old('email') ?? $employee->email }}"><br>
+      <td><input type="email" id="email" name="email" value="{{ old('email') ?? ($errors->has('email') ? '' : $employee->email ) }}"><br>
         @error('email')
         <p class="validate-employee-error">{{ $message }}</p>
         @enderror
       </td>
     </tr>
     <td class="employee-label"><label for="age">Age</label></label></td>
-    <td class="edit-employee"><input type="number" id="age" name="age" value="{{ old('age') $employee->age }}">
+    <td class="edit-employee"><input type="number" id="age" name="age" value="{{ old('age') ?? ($errors->has('age') ? '' : $employee->age ) }}">
       @error('age')
       <p class="validate-employee-error">{{ $message }}</p>
       @enderror
@@ -112,7 +113,7 @@
     </tr>
     <tr>
       <td class="employee-label"><label for="phone">Phone Number</label></label></td>
-      <td><input type="text" id="phone" name="phone" value="{{ old('phone') $employee->phone }}">
+      <td><input type="text" id="phone" name="phone" value="{{ old('phone') ?? ($errors->has('phone') ? '' : $employee->phone) }}">
         @error('phone')
         <p class="validate-employee-error">{{ $message }}</p>
         @enderror
@@ -120,7 +121,7 @@
     </tr>
     <tr>
       <td class="employee-label"><label for="dob">Date of Birth</label></label></td>
-      <td><input type="date" id="dob" name="dob" value="{{ old('dob') $employee->dob }}">
+      <td><input type="date" id="dob" name="dob" value="{{ old('dob') ?? $errors->has('dob') ? '' : $employee->dob}}">
         @error('dob')
         <p class="validate-employee-error">{{ $message }}</p>
         @enderror
@@ -128,7 +129,7 @@
     </tr>
     <tr class="textarea-form">
       <td class="employee-label"><label for="address">Address</label></label></td>
-      <td><textarea name="address" id="address" cols="20" rows="5" style="resize:none;">{{ old('address') $employee->address }}</textarea>
+      <td><textarea name="address" id="address" cols="20" rows="5" style="resize:none;">{{ old('address') ?? $employee->address }}</textarea>
         @error('address')
         <p class="validate-employee-error">{{ $message }}</p>
         @enderror

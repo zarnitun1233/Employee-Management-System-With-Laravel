@@ -27,14 +27,14 @@
       </div><br>
       <div>
         <label for="Duration">Duration</label>
-        <input type="text" name="duration" value="{{ old('duration') ?? $leave->duration }}"><br>
+        <input type="text" name="duration" value="{{ old('duration') ?? ($errors->has('duration') ? '' : $leave->duration ) }}"><br>
         @error('duration')
             {{ $message }}
         @enderror
       </div><br>
       <div>
         <label for="Reason">Reason</label>
-        <textarea name="reason" id="" cols="30" rows="10" >{{ old('reason') ?? $leave->reason }}</textarea>
+        <textarea name="reason" id="" cols="30" rows="10" >{{ old('reaon') ?? ($errors->has('reason') ? '' : $leave->reason ) }}</textarea>
         @error('reason')
             {{ $message }}
         @enderror

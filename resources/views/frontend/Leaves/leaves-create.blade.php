@@ -13,7 +13,7 @@
   <table class="employee-table">
     <tr>
       <td class="employee-label"><label for="From Date">From Date</label></td>
-      <td><input type="date" name="fromDate" value="{{ old('name') ?? ''}}" ><br>
+      <td><input type="date" name="fromDate" value="{{ old('fromDate') ?? ''}}" ><br>
         @error('fromDate')
         {{ $message }}
         @enderror

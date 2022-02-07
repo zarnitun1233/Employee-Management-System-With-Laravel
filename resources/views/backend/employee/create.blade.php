@@ -60,10 +60,10 @@
     </tr>
     <tr>
       <td class="employee-label"><label for="department">Department:<span>*</span></label></td>
-      <td><select name="department_id" size="1" id="department"  value="{{ old('department_id') ?? '' }}">
-          <option value="">Please choose your Department</option>
+      <td><select name="department_id" size="1" id="department">
+          <option value {{!old('department_id')  ? 'selected' : null }}>Please choose your Department</option>
           @foreach($departments as $department)
-          <option value="{{ $department->id }}">{{ $department->name }}</option>
+          <option value="{{ $department->id }}" {{ old('department_id') === ''.$department->id.'' ? 'selected' : null }}>{{ $department->name }}</option>
           @endforeach
         </select>
         @error('department_id')
