@@ -34,7 +34,7 @@
               <td>{{ $leave->leave_toDate }}</td>
               <td>{{ $leave->leave_duration }}</td>
               <td>
-                <a href="{{ route('leaves.reason',['id' => $leave->leave_id]) }}">Detail</a>
+                <a href="{{ route('leaves-reason',['id' => $leave->leave_id]) }}">Detail</a>
               </td>
               @if ($leave->leave_status == null)
                  <td>
@@ -47,12 +47,12 @@
               @endif
               <td class="leaves-user-action">
                @if ($leave->leave_status == null)
-                <form class="leaves-action-form"  action="{{ route('leaves.delete',['id'=> $leave->leave_id]) }}" method="POST">
+                <form class="leaves-action-form"  action="{{ route('leaves-delete',['id'=> $leave->leave_id]) }}" method="POST">
                     @method('delete')
                     @csrf
                     <button type="submit" class="leaves-delete">Delete</button>
                 </form>
-                    <a href="{{ route('leaves.edit',['id'=>$leave->leave_id]) }}"  class="leaves-edit">Edit</a>
+                    <a href="{{ route('leaves-edit',['id'=>$leave->leave_id]) }}"  class="leaves-edit">Edit</a>
                @endif
               </td>
             </tr>
@@ -67,7 +67,7 @@
             Back
           </a>
           {{-- need admin id or user id to create leaves --}}
-          <a href="{{ route('leaves.create',['id' => auth()->user()->id ]) }}" class="create-btn bg-btn">
+          <a href="{{ route('leaves-create',['id' => auth()->user()->id ]) }}" class="create-btn bg-btn">
             Create
           </a>
         </div>
