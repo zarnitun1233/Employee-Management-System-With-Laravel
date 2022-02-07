@@ -7,14 +7,7 @@
   <table class="employee-table">
     <tr>
       <td class="employee-label"><label for="name">Department Name: <span>*</span></label></td>
-      <td>
-        <select name="name" id="name">
-          <option value="{{ $dep->name }}">{{ $dep->name }}</option>
-          @foreach($departments as $department)
-            <option value="{{ $department->name }}">{{ $department->name }}</option>
-          @endforeach
-        </select>
-      </td>
+      <td><input type="text" name="name" id="name" value="{{ $dep->name }}"></td>
     </tr>
     <tr class="textarea-form">
       <td class="employee-label"><label for="description">Description:<span>*</span></label></td>
