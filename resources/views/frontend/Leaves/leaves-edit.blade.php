@@ -9,32 +9,32 @@
       @method('put')
       @csrf
       <div>
-        <input type="hidden" name="empId" value="{{ $leave->employee_id }}">
+        <input type="hidden" name="empId" value="{{ old('empId') ?? $leave->employee_id }}">
       </div>
       <div>
         <label for="From Date">From Date</label>
-        <input type="date" name="fromDate" value="{{ $leave->fromDate }}"><br>
+        <input type="date" name="fromDate" value="{{ old('fromDate') ?? $leave->fromDate }}"><br>
         @error('fromDate')
           {{ $message }}
         @enderror
       </div><br>
       <div>
         <label for="To Date">To Date</label>
-        <input type="date" name="toDate" value="{{ $leave->toDate }}"><br>
+        <input type="date" name="toDate" value="{{ old('toDate') ?? $leave->toDate }}"><br>
         @error('toDate')
           {{ $message }}
         @enderror
       </div><br>
       <div>
         <label for="Duration">Duration</label>
-        <input type="text" name="duration" value="{{ $leave->duration }}"><br>
+        <input type="text" name="duration" value="{{ old('duration') ?? ($errors->has('duration') ? '' : $leave->duration ) }}"><br>
         @error('duration')
             {{ $message }}
         @enderror
       </div><br>
       <div>
         <label for="Reason">Reason</label>
-        <textarea name="reason" id="" cols="30" rows="10" >{{ $leave->reason }}</textarea>
+        <textarea name="reason" id="" cols="30" rows="10" >{{ old('reaon') ?? ($errors->has('reason') ? '' : $leave->reason ) }}</textarea>
         @error('reason')
             {{ $message }}
         @enderror

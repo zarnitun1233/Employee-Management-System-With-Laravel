@@ -7,7 +7,7 @@
   <table class="employee-table">
     <tr>
       <td class="employee-label"><label for="name">Department Name: <span>*</span></label></td>
-      <td><input type="text" name="name" id="name">
+      <td><input type="text" name="name" id="name" value="{{ old('name') ?? '' }}">
         @error('name')
         <span>Department Name cannot be empty!</span>
         @enderror
@@ -15,7 +15,7 @@
     </tr>
     <tr class="textarea-form">
       <td class="employee-label"><label for="description">Description:<span>*</span></label></td>
-      <td><textarea name="description" id="description"></textarea>
+      <td><textarea name="description" id="description">{{ old('name') ?? '' }}</textarea>
         @error('description')
         <span>Description cannot be empty!</span>
         @enderror
