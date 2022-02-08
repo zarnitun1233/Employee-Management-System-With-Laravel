@@ -66,5 +66,6 @@ class Kernel extends HttpKernel
         'admin' => 'App\Http\Middleware\Admin',
         'employee' => 'App\Http\Middleware\Employee',
         'login' =>'App\Http\Middleware\Login',
+        'userId' => 'App\Http\Middleware\UserId'
     ];
 }

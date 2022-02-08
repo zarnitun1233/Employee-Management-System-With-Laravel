@@ -62,9 +62,13 @@ class LeavesController extends Controller
      */
 
     public function edit(Request $request, $id)
-    {
+    {   
         $leave = $this->leavesService->edit($id);
-        return view('frontend.leaves.leaves-edit')->with('leave', $leave);
+        $leave = ''.$leave->employee_id.'' === ''.auth()->user()->id.'' ? $leave : null;
+        if($leave) {
+            return view('frontend.leaves.leaves-edit')->with('leave', $leave);
+        }
+        abort(403);
     }
 
     /**
@@ -74,9 +78,15 @@ class LeavesController extends Controller
      */
 
     public function delete(Request $request, $id)
-    {
-        $msg = $this->leavesService->delete($id);
-        return redirect()->route('leaves-list')->with('msg', $msg);
+    {   
+        if(auth()->user()->role === '1') {
+            $msg = $this->leavesService->delete($id);
+            return redirect()->route('leaves-list')->with('msg', $msg);
+        } elseif (''.auth()->user()->id.'' === ''.$request->id.'') {
+            $msg = $this->leavesService->delete($id);
+            return redirect()->back();
+        }
+        abort(403);
     }
 
     /**
@@ -87,8 +97,12 @@ class LeavesController extends Controller
 
     public function update(StoreLeavesRequest $request)
     {
-        $msg = $this->leavesService->update($request);
-        return redirect()->route('leaves-edit', [$request->empId])->with('msg', 'leaves updated successfully');
+        if(''.auth()->user()->id.'' === ''.$request->empId.'')
+        {
+            $msg = $this->leavesService->update($request);
+            return redirect()->back()->with('msg', 'leaves updated successfully');
+        }
+        abort(403);
     }
 
     /**

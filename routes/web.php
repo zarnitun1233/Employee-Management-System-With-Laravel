@@ -30,12 +30,11 @@ Route::middleware(BrowserBack::class)->group(function(){
    Route::delete('/salary/{id}/delete', [SalaryController::class, 'delete'])->name('salary-delete')->middleware('auth', 'admin');
 
    #leave route
-   Route::get('/leaves/{id}/create',[LeavesController::class,'create'])->name('leaves-create')->middleware('auth');
+   Route::get('/leaves/{id}/create',[LeavesController::class,'create'])->name('leaves-create')->middleware('auth','userId');
    Route::get('/leaves/list',[LeavesController::class,'index'])->name('leaves-list')->middleware('auth', 'admin');
    Route::get('leaves/{id}/edit',[LeavesController::class,'edit'])->name('leaves-edit')->middleware('auth');
-   Route::get('/leaves/list',[LeavesController::class,'index'])->name('leaves-list')->middleware('auth');
-   Route::get('leaves/{id}/reason',[LeavesController::class,'reason'])->name('leaves-reason')->middleware('auth', 'admin');
-   Route::get('/leaves/{id}/user',[LeavesController::class,'leavesByUser'])->name('leaves-user')->middleware('auth');
+   Route::get('leaves/{id}/reason',[LeavesController::class,'reason'])->name('leaves-reason')->middleware('auth');
+   Route::get('/leaves/{id}/user',[LeavesController::class,'leavesByUser'])->name('leaves-user')->middleware('auth','userId');
 
    Route::post('/leaves/store',[LeavesController::class,'store'])->name('leaves-store')->middleware('auth');
    Route::post('leaves/accept/{id}',[LeavesController::class,'accept'])->name('leaves-accept')->middleware('auth', 'admin');
@@ -56,7 +55,7 @@ Route::middleware(BrowserBack::class)->group(function(){
    //auth route
    Route::get('auth/reset-password',[ForgotPasswordController::class,'index'])->name('reset-password');
    Route::get('auth/change-password/{token}',[ForgotPasswordController::class,'changePassword'])->name('change-password');
-   Route::post('auth/change-password',[ForgotPasswordController::class,'postChangePassword'])->name('post.change-password');
+   Route::post('auth/change-password',[ForgotPasswordController::class,'postChangePassword'])->name('post-change-password');
    Route::post('auth/mail-send',[ForgotPasswordController::class,'postMail'])->name('post-mail');
 
    //Login Logout
@@ -68,5 +67,5 @@ Route::middleware(BrowserBack::class)->group(function(){
    Route::get('/export', [EmployeeController::class, 'export'])->name('export')->middleware('auth', 'admin');
 
    //Employee Profile
-   Route::get('/employee/{id}/list', [EmployeeController::class, 'profile'])->name('employee-profile')->middleware('auth');
+   Route::get('/employee/{id}/list', [EmployeeController::class, 'profile'])->name('employee-profile')->middleware('auth','userId');
 });

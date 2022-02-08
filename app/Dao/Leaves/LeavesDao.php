@@ -63,7 +63,7 @@ class LeavesDao implements LeavesDaoInterface
    */
   public function edit($id)
   {
-    return $leave = Leave::find($id);
+    return  $leave = Leave::find($id);
   }
 
   /**
@@ -108,7 +108,7 @@ class LeavesDao implements LeavesDaoInterface
   });
   
     Leave::destroy($id);
-    $msg = 'Successfullu Deleted';
+    $msg = 'Successfully Deleted';
     return $msg;
   }
 
@@ -146,6 +146,7 @@ class LeavesDao implements LeavesDaoInterface
   {
     $employees = DB::table('employees')
       ->select(
+        'employees.id as emp_id',
         'employees.name as emp_name',
         'leaves.id as leave_id',
         'leaves.reason as leave_reason',

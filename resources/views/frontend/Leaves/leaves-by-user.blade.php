@@ -50,6 +50,7 @@
                 <form class="leaves-action-form"  action="{{ route('leaves-delete',['id'=> $leave->leave_id]) }}" method="POST">
                     @method('delete')
                     @csrf
+                    <input type="hidden" name="empId" value="{{ $leave->emp_id }}">
                     <button type="submit" class="leaves-delete">Delete</button>
                 </form>
                     <a href="{{ route('leaves-edit',['id'=>$leave->leave_id]) }}"  class="leaves-edit">Edit</a>
