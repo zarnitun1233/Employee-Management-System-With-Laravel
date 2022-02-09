@@ -111,7 +111,7 @@
             @endif
           </div>
           <div class="button-group">
-            <a href="#" class="back-btn bg-btn" onclick="history.back()">
+            <a href="{{ url()->previous() }}" class="back-btn bg-btn" >
               Back
             </a>
             {{-- need admin id or user id to create leaves --}}
@@ -122,7 +122,20 @@
         </div>
       </div>
     @else
-    <span>no data</span>
+    <div class="no-data-leaves">
+        <div class="no-data-leaves-alert">No Data To Display</div>
+    </div>
+    <div class="no-data-btn">
+      <div class="button-group">
+        <a href="{{ url()->previous() }}" class="back-btn bg-btn">
+          Back
+        </a>
+        {{-- need admin id or user id to create leaves --}}
+        <a href="{{ route('leaves-create', auth()->user()->id) }}" class="create-btn bg-btn">
+          Create
+        </a>
+      </div>
+    </div>
     @endif
     <script src="{{ asset('js/Leaves/leaves.js') }}"></script>
 @endsection

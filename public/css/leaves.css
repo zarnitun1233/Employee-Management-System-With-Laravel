@@ -215,6 +215,28 @@
   width: 400px;
 }
 
+.no-data-leaves {
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 100px;
+  display: flex;
+  justify-content: center;
+}
+
+.no-data-leaves-alert {
+  color: #ffffff;
+  padding: 15px 20px;
+  border-radius: 5px;
+  background-color: #cb024a;
+}
+
+.no-data-btn {
+  margin-top: 20px;
+  width: 90%;
+  margin: 0 auto;
+}
+
+
 /*Responsive max-width:975px for leaves list*/
 @media screen and (max-width: 975px) {
 
@@ -298,3 +320,4 @@
     padding: 3px;
   }
 }
+

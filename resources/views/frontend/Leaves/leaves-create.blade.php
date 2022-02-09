@@ -46,7 +46,7 @@
   </table>
   <div class="btn">
     <button type="submit" name="create">Create</button>&nbsp;&nbsp;&nbsp;&nbsp;
-    <a href="" onclick="history.back()">Back</a>
+    <a href="{{ auth()->user()->role === '1' ? route('employee-list') :  route('employee-profile',['id'=> auth()->user()->id ])}}">Back</a>
   </div>
 </form>
 @endsection

@@ -64,7 +64,7 @@
           </tbody>
         </table>
         <div class="button-group">
-          <a href="#" class="back-btn bg-btn" onclick="history.back()">
+          <a href="{{ auth()->user()->role === '1' ? route('employee-list') :  route('employee-profile',['id'=> auth()->user()->id ])}}" class="back-btn bg-btn">
             Back
           </a>
           {{-- need admin id or user id to create leaves --}}
@@ -77,6 +77,19 @@
   </div>
 </div>
 @else
-no data
+<div class="no-data-leaves">
+  <div class="no-data-leaves-alert">No Data To Display</div>
+</div>
+<div class="no-data-btn">
+<div class="button-group">
+  <a href="{{ auth()->user()->role === '1' ? route('employee-list') :  route('employee-profile',['id'=> auth()->user()->id ])}}" class="back-btn bg-btn">
+    Back
+  </a>
+  {{-- need admin id or user id to create leaves --}}
+  <a href="{{ route('leaves-create', auth()->user()->id) }}" class="create-btn bg-btn">
+    Create
+  </a>
+</div>
+</div>
 @endif
 @endsection

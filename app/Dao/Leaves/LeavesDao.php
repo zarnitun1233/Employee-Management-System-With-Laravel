@@ -23,7 +23,8 @@ class LeavesDao implements LeavesDaoInterface
         'leaves.*'
       )
       ->join('employees', 'employees.id', 'leaves.employee_id')
-      ->join('departments', 'departments.id', 'employees.department_id');
+      ->join('departments', 'departments.id', 'employees.department_id')
+      ->where('leaves.deleted_at','=',NULL);
 
     $leaves = $name ? $leaves->where('employees.name', 'LIKE', '%' . $name . '%') : $leaves;
 

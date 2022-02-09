@@ -46,8 +46,8 @@ Route::middleware(BrowserBack::class)->group(function(){
    Route::get('/employee', [EmployeeController::class, 'index'])->name('employee-list')->middleware('auth', 'admin');
    Route::get('/employee/create', [EmployeeController::class, 'create'])->name('employee-create')->middleware('auth', 'admin');
    Route::post('/employee/create', [EmployeeController::class, 'store'])->name('employee-store')->middleware('auth', 'admin');
-   Route::get('/employee/{id}/edit', [EmployeeController::class, 'edit'])->name('employee-edit')->middleware('auth','admin');
-   Route::post('/employee/{id}/edit', [EmployeeController::class, 'update'])->name('employee-update')->middleware('auth', 'admin');
+   Route::get('/employee/{id}/edit', [EmployeeController::class, 'edit'])->name('employee-edit')->middleware('auth','userId');
+   Route::post('/employee/{id}/edit', [EmployeeController::class, 'update'])->name('employee-update')->middleware('auth', 'userId');
    Route::delete('/employee/{id}/delete', [EmployeeController::class, 'delete'])->name('employee-delete')->middleware('auth', 'admin');
    Route::get('/employee/search', [EmployeeController::class, 'search'])->name('employee-search')->middleware('auth', 'admin');
    Route::post('/employee/search', [EmployeeController::class, 'postSearch'])->name('employee-post-search')->middleware('auth', 'admin');
