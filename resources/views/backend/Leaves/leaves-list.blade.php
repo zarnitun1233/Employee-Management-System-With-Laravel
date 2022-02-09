@@ -111,7 +111,7 @@
             @endif
           </div>
           <div class="button-group">
-            <a href="{{ url()->previous() }}" class="back-btn bg-btn" >
+            <a href="{{ route('employee-list') }}" class="back-btn bg-btn" >
               Back
             </a>
             {{-- need admin id or user id to create leaves --}}
@@ -127,7 +127,7 @@
     </div>
     <div class="no-data-btn">
       <div class="button-group">
-        <a href="{{ url()->previous() }}" class="back-btn bg-btn">
+        <a href="{{ route('employee-list') }}" class="back-btn bg-btn">
           Back
         </a>
         {{-- need admin id or user id to create leaves --}}
